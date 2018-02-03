@@ -1,0 +1,7 @@
+Добавить в конфиг babel
+
+ "react-hmre"
+ , "react-hmre"
+
+webpack.config
+  path: '/wp-json',

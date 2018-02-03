@@ -1,0 +1,275 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html, body{
+  height: 100%; }
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html {
+  line-height: 1; 
+  font-size: 16px; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+a {
+  font-family: Lato;
+  font-size: 1rem;
+  outline: none !important; 
+  text-decoration: none !important;
+  color: #343841; }
+
+p, b {
+  line-height: 20px; }
+
+input {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+::-webkit-input-placeholder {font-family: Lato, sans-serif;}
+::-moz-placeholder          {font-family: Lato, sans-serif;}/* Firefox 19+ */
+:-moz-placeholder           {font-family: Lato, sans-serif;}/* Firefox 18- */
+:-ms-input-placeholder      {font-family: Lato, sans-serif;}
+:focus::-webkit-input-placeholder {color: transparent}
+:focus::-moz-placeholder          {color: transparent}
+:focus:-moz-placeholder           {color: transparent}
+:focus:-ms-input-placeholder      {color: transparent}
+::-webkit-input-placeholder       {opacity: 1; transition: opacity 0.3s ease;}
+::-moz-placeholder                {opacity: 1; transition: opacity 0.3s ease;}
+:-moz-placeholder                 {opacity: 1; transition: opacity 0.3s ease;}
+:-ms-input-placeholder            {opacity: 1; transition: opacity 0.3s ease;}
+
+.clear {
+  clear: both; }
+
+.wrapper{
+  position: relative;
+  min-height: 101%;
+  padding-bottom: 300px; }
+
+a img {
+  border: none; }
+b {
+  font-weight: 700; }
+
+h1, .h1 {
+  font-family: LatoLight;
+  font-size: 42px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.14;
+  letter-spacing: 3.5px;
+  text-align: left;
+  color: #131313; 
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+h4 {
+  text-transform: uppercase;
+}
+
+p {
+  font-family: LatoRegular;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2;
+  letter-spacing: 1px;
+  text-align: left;
+  color: #545454;
+}
+
+.loader {
+  color: #787878; }
+
+.handler {
+  text-align: center;
+  font-size: 1.2rem;
+  text-transform: uppercase; }
+
+
+.error {
+  color: #ee0000 !important; }
+
+.uppercase {
+  text-transform: uppercase; 
+  font-family: Lato, sans-serif; }
+
+.center {
+  text-align: center; }
+
+.headerTopLine {
+  height: 50px;
+  border-bottom: 1px solid #f3f3f3;
+  padding-left: 13px;
+  padding-right: 38px;
+}
+.headerTopMenu{
+  float: left; 
+}
+
+.headerTopMenu li{
+  display: inline-block;
+  padding: 19px 25px 13px;
+}
+
+.headerTopMenu li a,
+.headerLangSwitcher li {
+  font-family: LatoRegular;
+  font-size: 11px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.64;
+  letter-spacing: 1.8px;
+  text-align: left;
+  color: #939597;
+  text-transform: uppercase;
+}
+
+.headerLangSwitcher,
+.headerSocialMenu {
+  float: right;
+}
+
+.headerLangSwitcher li{
+  display: inline-block;
+  padding: 19px 2px 13px;
+}
+
+.headerSocialMenu{
+  margin-right: 80px;
+}
+.headerSocialMenu li{
+  display: inline-block;
+  margin: 15px 5px 15px;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+
+.logoBlock{
+  height: 203px;
+  background-image: url(../img/logo/wedo.png);
+  background-image: -webkit-image-set(url(../img/logo/wedo.png) 1x, url(../img/logo/wedo@2x.png) 2x);
+  background-image: -moz-image-set(url(../img/logo/wedo.png) 1x, url(../img/logo/wedo@2x.png) 2x);
+  background-image: -o-image-set(url(../img/logo/wedo.png) 1x, url(../img/logo/wedo@2x.png) 2x);
+  background-image: -ms-image-set(url(../img/logo/wedo.png) 1x, url(../img/logo/wedo@2x.png) 2x);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.headerImgBlock{
+  height: 500px;
+  background-image: url(../img/logo/headerImgBlock.png);
+  background-image: -webkit-image-set(url(../img/logo/headerImgBlock.png) 1x, url(../img/logo/headerImgBlock@2x.png) 2x);
+  background-image: -moz-image-set(url(../img/logo/headerImgBlock.png) 1x, url(../img/logo/headerImgBlock@2x.png) 2x);
+  background-image: -o-image-set(url(../img/logo/headerImgBlock.png) 1x, url(../img/logo/headerImgBlock@2x.png) 2x);
+  background-image: -ms-image-set(url(../img/logo/headerImgBlock.png) 1x, url(../img/logo/headerImgBlock@2x.png) 2x);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.agency, 
+.video {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.agency{
+   height: 520px;
+}
+
+.agencyImg{
+    height: 320px;
+    background-image: url(../img/agency/agency.jpg);
+    background-image: -webkit-image-set(url(../img/agency/agency.jpg) 1x, url(../img/agency/agency@2x.jpg) 2x);
+    background-image: -moz-image-set(url(../img/agency/agency.jpg) 1x, url(../img/agency/agency@2x.jpg) 2x);
+    background-image: -o-image-set(url(../img/agency/agency.jpg) 1x, url(../img/agency/agency@2x.jpg) 2x);
+    background-image: -ms-image-set(url(../img/agency/agency.jpg) 1x, url(../img/agency/agency@2x.jpg) 2x);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.portfolio{
+  background-color: #f7f7f7;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.carousel__slider{
+  height: 411px;
+}
+.SliderButtons{
+  padding-right: 35px;
+}
+.SliderButtons button{
+  float: right;
+  margin-top: 10px;
+  border: none;
+  background: transparent;
+} 
+
+.carousel__next-button{
+  margin-left: 20px;
+}
+
+.carousel__slide{
+  height: 411px;
+}
+
+.carousel__inner-slide{
+  height: 411px;
+
+}
+
+.container {
+  width: 1020px;
+}
+
+.slogan {
+  text-align: center;
+  font-family: PlayfairDisplayItalic;
+  font-size: 32px;
+  line-height: 48px;
+}
