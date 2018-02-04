@@ -110,8 +110,8 @@ const mapStateToProps = state => {
 	return {
 		useLang: state.lang.useLang,
 		entities: state.portfolio.entities,
-		loading: state.agencyInfo.loading,
-		error: state.agencyInfo.error
+		loading: state.portfolio.loading,
+		error: state.portfolio.error
 	}
 }
 

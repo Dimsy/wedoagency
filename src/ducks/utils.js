@@ -13,7 +13,7 @@ export function mapToArr(map){
 	return Object.keys(map).map(id => map[id])
 }
 
-// export function arrToSet(arr, Model){
-// 	return arr.reduce((acc, el) => acc.add(new Model(el)), new OrderedSet([]))
-// }
+export function arrToOrderedSet(arr, Model){
+	return arr.reduce((acc, el) => acc.add(new Model(el)), new OrderedSet([]))
+}
 

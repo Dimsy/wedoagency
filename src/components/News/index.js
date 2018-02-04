@@ -1,59 +1,75 @@
-import React, {Component} from 'react'
-import ReactDOM from 'react-dom'
-import {connect} from 'react-redux'
-import Loader from '../Loader'
-import Error from '../Error'
-import NewsCat from './NewsCat'
-import {loadNews, toggleNews} from '../../ducks/news'
-import {NEWS, SHORT, LONG} from '../../config'
-import {Redirect, Switch } from 'react-router-dom'
-import scrollToElement from 'scroll-to-element'
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import { Grid, Row, Col } from 'react-bootstrap';
+import {loadNews} from '../../ducks/news';
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Image } from 'pure-react-carousel';
+import NewsInfo from './NewsInfo'
+import Loader from '../Loader';
+import ErrorCmp from '../ErrorCmp';
+import 'pure-react-carousel/dist/react-carousel.es.css';
+import {OrderedSet} from 'immutable';
 
 class News extends Component{
 
 	componentDidMount(){
-		this.props.loadNews(NEWS, SHORT)
-		var elem = document.querySelector('body');
-		this.props.location.pathname =='/news' ? scrollToElement(ReactDOM.findDOMNode(this)) : scrollToElement(elem)
+    const useLang = this.props.useLang;
+		this.props.loadNews(useLang);
+	}
+
+	componentWillReceiveProps(nextProps){
+		if(this.props.useLang != nextProps.useLang)
+			this.props.loadNews(nextProps.useLang);
 	}
 
 	render(){
-	
-		const {loading, isOpen, news, error} = this.props
+
+		const {useLang, entities, catName, error, loading} = this.props;
+
+		if (loading) return <Loader />;
+		if (error) return (<ErrorCmp error={error} />);			
+
+		const body = entities.map( (item) => 
+		 	<Slide key={item.id} index={item.id}>
+		 			<NewsInfo item={item}/>
+		 	</Slide>
+		).toJS();
 		
-		if (error) return <Error error={error} />		
-		if (loading) return <Loader />
-
-		const toggleOpen = isOpen ? LONG : SHORT
-		
-		return(
-			<section className="news">
-				<div className="news_block">
-				 	<h1 className="dark">Новости</h1>
-			
-				 	<NewsCat news={news.take(toggleOpen).valueSeq().toArray()} />
-				 	<div className="showAll">
-						<p onClick={this.handleClick}>{!this.props.isOpen ? "Показать всё" : "Скрыть"}</p>
-					</div>
-				</div>
-
-			</section>
-		)
-	}
-
-	handleClick = ev => {
-		this.props.toggleNews()
+		return (
+			<div className='news'>
+				<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={307} totalSlides={body.length} visibleSlides={3}>
+					<Grid>
+						<Row>
+							<Col md={9}>
+							<h1>{catName}</h1>
+							</Col>
+							<Col md={3} className="SliderButtons">
+								<ButtonNext><img src="../img/slider/next.svg"/></ButtonNext>
+								<ButtonBack><img src="../img/slider/back.svg"/></ButtonBack>
+								<div className="clear"/>
+      		  	</Col>
+						</Row>
+						<Row>
+							<Col md={12}>
+								<Slider>
+									{body}
+								</Slider>
+							</Col>
+						</Row>
+					</Grid>	
+				</CarouselProvider>
+			</div>	
+		)	
 	}
 }
 
 const mapStateToProps = state => {
-
 	return {
-		news: state.news.entities,
-		isOpen: state.news.isOpen,
+		useLang: state.lang.useLang,
+		entities: state.news.entities,
+		catName: state.news.catName,
 		loading: state.news.loading,
 		error: state.news.error
 	}
 }
 
-export default connect(mapStateToProps, {loadNews, toggleNews})(News)
+export default connect(mapStateToProps, {loadNews})(News)

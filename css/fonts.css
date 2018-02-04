@@ -24,3 +24,11 @@
 	font-style: normal;
 	font-weight: normal;
 }
+
+
+@font-face {
+	font-family: "LatoSemibold";
+	src: url("../fonts/LatoSemibold/Lato-Semibold.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}

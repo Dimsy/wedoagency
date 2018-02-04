@@ -3,6 +3,7 @@ import Header from '../Header';
 import Agency from '../Agency';
 import Portfolio from '../Portfolio';
 import Press from '../Press';
+import News from '../News';
 
 export default function RouteRoot(props){
 	return (
@@ -11,6 +12,7 @@ export default function RouteRoot(props){
 			<Agency />
 			<Portfolio />
 			<Press />
+			<News />
 		</div>
 	)
 }

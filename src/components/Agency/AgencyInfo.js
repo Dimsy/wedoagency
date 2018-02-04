@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {loadAgencyInfo} from '../../ducks/agencyInfo.js';
 import Loader from '../Loader';
-import ErrorCmp from '../ErrorCmp'
+import ErrorCmp from '../ErrorCmp';
+import {Link} from 'react-router-dom';
 
 class AgencyInfo extends Component{
 
@@ -12,8 +13,9 @@ class AgencyInfo extends Component{
 	}
 	
 	componentWillReceiveProps(nextProps){
-		if(this.props.useLang != nextProps.useLang)
-			this.props.loadAgencyInfo(nextProps.useLang)
+		if(this.props.useLang != nextProps.useLang){
+			this.props.loadAgencyInfo(nextProps.useLang);
+		}
 	}
 
 
@@ -27,8 +29,7 @@ class AgencyInfo extends Component{
 			<div>
 				<h1>{entities.data.title.rendered}</h1>
 				<p>{entities.data.content.rendered}</p>
-				<h4>узнать больше</h4>
-
+				<Link to='#agency' className="knowMore">{entities.data.acf.knowMore}</Link>
 			</div>
 		)
 	}

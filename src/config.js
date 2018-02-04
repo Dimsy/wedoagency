@@ -21,6 +21,13 @@ export const PRESS_en = '67';
 //http://test.wedoagency.ru//wp-json/wp/v2/posts?categories=4
 export const PORTFOLIO = '4'
 
+// Указывает категорию в WordPress, содержащую статьи для портфолио
+//http://test.wedoagency.ru//wp-json/wp/v2/posts?categories=4
+//ru
+export const NEWS_ru = '7';
+//en
+export const NEWS_en = '8';
+
 // Пост "О компании"
 export const ABOUT = '51'
 

@@ -8,7 +8,7 @@ import {PRESS_ru, PRESS_en} from '../config'
 
 // Constants
 
-export const moduleName = 'video'
+export const moduleName = 'press'
 const prefix = `${appName}/${moduleName}`
 export const LOAD_PRESS_START = `${prefix}/LOAD_VIDEO_START`
 export const LOAD_PRESS_SUCCESS = `${prefix}/LOAD_VIDEO_SUCCESS`
@@ -25,8 +25,6 @@ const ReducerState = Record({
 
 export default function reducer(state = new ReducerState(), action) {
 	const {type, payload} = action;
-
-	console.log("action", action.type);
 
 	switch(type){
 		case LOAD_PRESS_SUCCESS:
