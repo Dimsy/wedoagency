@@ -1,6 +1,9 @@
 // Название приложения
 export const appName = 'wedoagency'
 
+//Путь к приложению в CMS
+export const PATH = 'http://test.wedoagency.ru/wp-content/themes/wp_theme/'
+
 // AgencyInfo / Информация об агентстве
 // ru
 export const AGENCY_INFO_ru = '22';
@@ -19,7 +22,10 @@ export const PRESS_en = '67';
 
 // Указывает категорию в WordPress, содержащую статьи для портфолио
 //http://test.wedoagency.ru//wp-json/wp/v2/posts?categories=4
-export const PORTFOLIO = '4'
+//ru
+export const PORTFOLIO_ru = '9'
+//en
+export const PORTFOLIO_en = '4'
 
 // Указывает категорию в WordPress, содержащую статьи для портфолио
 //http://test.wedoagency.ru//wp-json/wp/v2/posts?categories=4

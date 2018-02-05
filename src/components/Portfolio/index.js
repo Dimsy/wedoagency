@@ -3,9 +3,10 @@ import {connect} from 'react-redux';
 import { Grid, Row, Col } from 'react-bootstrap';
 import {loadPortfolio} from '../../ducks/portfolio.js';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Image } from 'pure-react-carousel';
+import PortfolioItem from './PortfolioItem';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
-import 'pure-react-carousel/dist/react-carousel.es.css';
+import {PATH} from '../../config'
 
 class Portfolio extends Component{
 
@@ -15,91 +16,47 @@ class Portfolio extends Component{
 	}
 
 	componentWillReceiveProps(nextProps){
-		if(this.props.useLang != nextProps.useLang)
+		if(this.props.useLang != nextProps.useLang){
 			this.props.loadPortfolio(nextProps.useLang)
+    }
 	}
 
 	render(){
 
-		const {useLang, entities, error, loading} = this.props;
+		const {useLang, entities, error, loading, catName} = this.props;
 
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);			
 
-		const data = entities.data;
 		
-		// const body = data.map( item => {
-		// 	<div></div>
-		// });
+		const body = entities.data.map( (item) => 
+      <Slide key={item.id} index={item.id}>
+        <PortfolioItem item={item}/>
+      </Slide>
+     )
 
-//<Image src="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey.jpg" 
-        			// 				 srcSet="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey@2x.jpg 2x"
-      					// 	   	 isBgImage="true"
-      						   	 
-      					// />	
 		return (
 			<div className='portfolio'>
-			<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={411} totalSlides={10} visibleSlides={3}>
-			<Grid>
-				<Row>
-					<Col md={9}>
-					<h1>Portfolio</h1>
-					</Col>
-					<Col md={3} className="SliderButtons">
-						<ButtonNext><img src="../img/slider/next.svg"/></ButtonNext>
-						<ButtonBack><img src="../img/slider/back.svg"/></ButtonBack>
-						<div className="clear"/>
-        	</Col>
-				</Row>
-				<Row>
-        	<Col md={12}>
-						<Slider>
-        			<Slide index={0}>
-        				<img src="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey.jpg" 
-        						 srcSet="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey@2x.jpg 2x"/>
-        			</Slide>
-        			<Slide index={1}>
-        				<img src="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey.jpg" 
-        						 srcSet="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey@2x.jpg 2x"/>
-        			</Slide>
-        			<Slide index={2}>
-        				<img src="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey.jpg" 
-        						 srcSet="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey@2x.jpg 2x"/>
-        			</Slide>
-        			<Slide index={3}>
-        				<img src="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey.jpg" 
-        						 srcSet="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey@2x.jpg 2x"/>
-        			</Slide>
-        			<Slide index={4}>
-        				<img src="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey.jpg" 
-        						 srcSet="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey@2x.jpg 2x"/>
-        			</Slide>
-        			<Slide index={5}>
-        				<img src="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey.jpg" 
-        						 srcSet="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey@2x.jpg 2x"/>
-        			</Slide>
-        			<Slide index={6}>
-        				<img src="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey.jpg" 
-        						 srcSet="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey@2x.jpg 2x"/>
-        			</Slide>
-        			<Slide index={7}>
-        				<img src="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey.jpg" 
-        						 srcSet="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey@2x.jpg 2x"/>
-        			</Slide>
-        			<Slide index={8}>
-        				<img src="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey.jpg" 
-        						 srcSet="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey@2x.jpg 2x"/>
-        			</Slide>
-        			<Slide index={9}>
-        				<img src="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey.jpg" 
-        						 srcSet="http://test.wedoagency.ru/wp-content/uploads/Portfolio/Alena_Sergey/Alena_Sergey@2x.jpg 2x"/>
-        			</Slide>
-        		</Slider>
-        	</Col>
-        </Row>
-					
-					
-				</Grid>	
+		  	<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={411} totalSlides={body.length} visibleSlides={3}>
+			    <Grid>
+			 	    <Row>
+					    <Col md={9}>
+					      <h1>{catName}</h1>
+					    </Col>
+					    <Col md={3} className="SliderButtons">
+						    <ButtonNext><img src={`${PATH}/img/slider/next.svg`}/></ButtonNext>
+						    <ButtonBack><img src={`${PATH}/img/slider/back.svg`}/></ButtonBack>
+						    <div className="clear"/>
+        	    </Col>
+				    </Row>
+				    <Row>
+        	    <Col md={12}>
+						    <Slider>
+                  {body}
+        		    </Slider>
+        	    </Col>
+            </Row>				
+				  </Grid>	
 				</CarouselProvider>
 			</div>	
 		)	
@@ -110,6 +67,7 @@ const mapStateToProps = state => {
 	return {
 		useLang: state.lang.useLang,
 		entities: state.portfolio.entities,
+    catName: state.portfolio.catName,
 		loading: state.portfolio.loading,
 		error: state.portfolio.error
 	}

@@ -41,10 +41,10 @@ class Press extends Component{
 						 	<h3 className="press__slogan-small">{entities.data.acf.slogan3}</h3>
 							
 						</Col>
-						<Col md={3}>
+						<Col md={5}>
 							<img src={entities.data.acf.bigImg} srcSet={`${entities.data.acf.bigImg2x} 2x`} alt="Изображение для прессы"/>
 						</Col>
-						<Col md={4} mdOffset={2}>
+						<Col md={4}>
 							<h1>{entities.data.title.rendered}</h1>
 							<p>{entities.data.content.rendered}</p>
 							<Link to='#press' className="knowMore">{entities.data.acf.knowMore}</Link>

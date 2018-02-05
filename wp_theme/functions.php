@@ -7,6 +7,8 @@ function enqueue_styles() {
 	// wp_enqueue_style( 'style', get_stylesheet_uri().'/css/style.css');
 	wp_register_style('fonts', get_template_directory_uri().'/css/fonts.css');
 	wp_enqueue_style( 'fonts');
+	wp_register_style('carousel', get_template_directory_uri().'/css/react-carousel.es.css');
+	wp_enqueue_style( 'carousel');
 	wp_register_style('style', get_template_directory_uri().'/css/style.css');
 	wp_enqueue_style( 'style');
 }

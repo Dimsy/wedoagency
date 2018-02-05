@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {PATH} from '../../config'
 
 class SocialMenu extends Component{
 	render(){
@@ -7,17 +8,17 @@ class SocialMenu extends Component{
 			<ul className="headerSocialMenu">
 				<li>
 					<a href="http://vk.com" target="blank">   
-						<img src="../img/social/vk.svg" />
+						<img src={`${PATH}/img/social/vk.svg`} />
 					</a>
 				</li>
 				<li>
 					<a href="http:instagram.com"  target="blank">   
-						<img src="../img/social/instagram.svg" />
+						<img src={`${PATH}/img/social/instagram.svg`}/>
 					</a>
 				</li>
 				<li>
 					<a href="http://facebook.com"  target="blank">   
-						<img src="../img/social/fb.svg" />
+						<img src={`${PATH}/img/social/fb.svg`} />
 					</a>
 				</li>
 			</ul>

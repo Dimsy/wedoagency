@@ -2,7 +2,7 @@ import {appName} from '../config'
 import {Map, Record} from 'immutable'
 import {put, call, takeEvery} from 'redux-saga/effects'
 import axios from 'axios'
-import {PORTFOLIO} from '../config'
+import {PORTFOLIO_en, PORTFOLIO_ru} from '../config'
 
 
 // Constants
@@ -16,6 +16,7 @@ export const LOAD_PORTFOLIO_ERROR = `${prefix}/LOAD_PORTFOLIO_ERROR`
 // Reducer
 const ReducerState = Record({
 	entities: new Map(),
+	catName: null,
 	error: null,
 	loading: true
 })
@@ -27,6 +28,7 @@ export default function reducer(state = new ReducerState(), action) {
 		case LOAD_PORTFOLIO_SUCCESS:
 	 		return state
 	 						.setIn(['entities'], payload.response)
+	 						.setIn(['catName'], payload.responseCatName.data.name)
 	 		 				.setIn(['loading'], false)
 	 			
 		case LOAD_PORTFOLIO_ERROR:
@@ -49,13 +51,15 @@ export function loadPortfolio(lang){
 
 
 //Sagas
-export function * loadPortfolioSaga(action){	
+export function * loadPortfolioSaga(action){
+	const articleLang = action.payload.lang == 'ru' ? PORTFOLIO_ru : PORTFOLIO_en;	
 	try {
-		const response = yield call(axios.get, `/wp-json/wp/v2/posts?categories=4`)
+		const response = yield call(axios.get, `/wp-json/wp/v2/posts?categories=${articleLang}`);
+		const responseCatName = yield call(axios.get, `/wp-json/wp/v2/categories/${articleLang}`);
 
 		yield put({
 						type: LOAD_PORTFOLIO_SUCCESS,
-						payload: {response}
+						payload: {response, responseCatName}
 					})
 	} catch (error) {
 		

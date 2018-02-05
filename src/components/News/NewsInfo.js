@@ -15,7 +15,7 @@ class NewsItem extends Component {
 
 		return(
 			<div className="news__wrapper" onMouseEnter={this.handlerMouseEnter} onMouseLeave={this.handlerMouseLeave}>
-		 			<img src={item.acf.StartFoto} srcSet={item.acf.StartFotox2} srcSet={item.acf.StartFotox3} className="news__img"/>
+		 			<img src={item.acf.StartFoto} srcSet={item.acf.StartFotox2} className="news__img"/>
 		 			{this.state.show && body}
 		 	</div>
 		)

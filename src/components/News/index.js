@@ -8,6 +8,7 @@ import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import {OrderedSet} from 'immutable';
+import {PATH} from '../../config'
 
 class News extends Component{
 
@@ -33,7 +34,7 @@ class News extends Component{
 		 			<NewsInfo item={item}/>
 		 	</Slide>
 		).toJS();
-		
+
 		return (
 			<div className='news'>
 				<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={307} totalSlides={body.length} visibleSlides={3}>
@@ -43,8 +44,8 @@ class News extends Component{
 							<h1>{catName}</h1>
 							</Col>
 							<Col md={3} className="SliderButtons">
-								<ButtonNext><img src="../img/slider/next.svg"/></ButtonNext>
-								<ButtonBack><img src="../img/slider/back.svg"/></ButtonBack>
+								<ButtonNext><img src={`${PATH}/img/slider/next.svg`}/></ButtonNext>
+								<ButtonBack><img src={`${PATH}/img/slider/back.svg`}/></ButtonBack>
 								<div className="clear"/>
       		  	</Col>
 						</Row>
