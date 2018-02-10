@@ -18,8 +18,6 @@ export const PRESS_ru = '64';
 export const PRESS_en = '67';
 
 
-
-
 // Указывает категорию в WordPress, содержащую статьи для портфолио
 //http://test.wedoagency.ru//wp-json/wp/v2/posts?categories=4
 //ru
@@ -34,24 +32,15 @@ export const NEWS_ru = '7';
 //en
 export const NEWS_en = '8';
 
-// Пост "О компании"
-export const ABOUT = '51'
+// Указывает категорию в WordPress, содержащую название раздела мы в инстаграм
+//http://test.wedoagency.ru//wp-json/wp/v2/posts?categories=4
+//ru
+export const INSTAGRAM_ru = '155';
+//en
+export const INSTAGRAM_en = '157';
 
-// Категория с новостями
-export const NEWS = '16'
-// Последние новости
-export const SHORT = '3'
-// Новости из скрытого блока
-export const LONG = '10'
-
-// Статья со всем ассортиментом
-export const FULLASSORTIMENT = '287'
-
-// Каталог с дистрибъюторами
-export const DISTRIBS = '20'
-
-// Пост "Производители"
-export const VENDORS = '293'
-
-// Пост, содержащий поля с контактами компании
-export const CONTACTS = '181'
+// Указывает пост с контактами
+//ru
+export const CONTACTS_ru = '159';
+//en
+export const CONTACTS_en = '162';

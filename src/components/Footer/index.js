@@ -1,50 +1,82 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import Loader from '../Loader'
-import ErrorCmp from '../ErrorCmp'
-import renderHTML from 'react-render-html'
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import Loader from '../Loader';
+import { Grid, Row, Col } from 'react-bootstrap';
+import ErrorCmp from '../ErrorCmp';
+import {Link} from 'react-router-dom';
+import {loadContacts} from '../../ducks/contacts.js';
+import SocialFooter from './social';
 
 class Footer extends Component{
+	componentDidMount(){
+    const useLang = this.props.useLang;
+		this.props.loadContacts(useLang);
+	}
+
+	componentWillReceiveProps(nextProps){
+		if(this.props.useLang != nextProps.useLang){
+			this.props.loadContacts(nextProps.useLang)
+    }
+	}
+
 	render(){
 
-		const {contacts, loading, error} = this.props
+		const {useLang, menu, contacts, loading} = this.props
 
-		if (loading ) return <Loader />
-		if (error) return <ErrorCmp error={error} />		
+		if(loading || !menu || !contacts || !contacts.acf.Phone) return <Loader />;
+
+		const menuSet = menu.toArray();
+		
+		const body = menuSet.map(item =><li key={item.ID} className="menuFooter__Item"><Link to={item.url}>{item.title}</Link></li>)
 
 		return(
-			<section className="footer">
-				<h1 className="white">Контакты</h1>
-				<div className="contacts">
-		 			<div className="contLogo"></div>
-		 				<div className="contPhone">
-		 					<i className="fa fa-phone green"></i>
-		 					<p className="white">{contacts.acf.phone1}</p>
-		 				</div>
-		 			<div className="contAddr">
-		 				<i className="fa fa-map-marker green"></i>
-		 				<p className="white">	
-		 					{renderHTML(contacts.content.rendered)}
-		 					<br />
-		 					{renderHTML(contacts.acf.fullAddr)}
-		 				</p>
-		 			</div>
-		 			<div className="contPhone white">
-		 				<i className="fa fa-envelope green"></i>
-		 				<p className="white">{contacts.acf.email}</p>
-		 			</div>
-		 		</div>
-			</section>
+			<div className="footer">
+				<Grid>
+					<Row>
+						<Col md={6}>
+							<ul>
+								{body}
+							</ul>
+							<div className="clear"></div>
+						</Col>
+						<Col md={4} className="footer__contacts">
+							{contacts.acf.Phone}
+							<br />
+							(viber/whatsup)
+							<br />
+							<a href={contacts.acf.mail}>{contacts.acf.mail}</a>
+							<br />
+							{contacts.content.rendered}
+						</Col>
+						<Col md={2}>
+							<SocialFooter />
+						</Col>
+					</Row>
+				</Grid>	
+				<hr />
+				<Grid>
+					<Row>
+						<Col md={10} className="AllRightReserved">
+							weDOagency © all right reserved
+						</Col>
+						<Col md={2} className="backToTop">
+							back to top
+						</Col>
+					</Row>
+				</Grid>
+			</div>
 		)
 	}
 }
 
 const mapStateToProps = (state) => {
 	return {
+		useLang: state.lang.useLang,
+		menu: state.menu.entities,
 		contacts: state.contacts.entities,
-		loading: state.contacts.loading,
-		error: state.contacts.error
+		loading: state.contacts.loading
+
 	}
 }
 
-export default connect(mapStateToProps)(Footer)
+export default connect(mapStateToProps, {loadContacts})(Footer)

@@ -65,7 +65,7 @@ export function loadMenu(lang){
 export function * menuSaga(action){
 
 	try {
-		const response = yield call(axios.get, `http://test.wedoagency.ru/wp-json/menus/topMenu_${action.payload.lang}/menu`)
+		const response = yield call(axios.get, `/wp-json/menus/topMenu_${action.payload.lang}/menu`)
 
 		yield put({
 						type: LOAD_MENU_SUCCESS,

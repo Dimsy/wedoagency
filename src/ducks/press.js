@@ -10,9 +10,9 @@ import {PRESS_ru, PRESS_en} from '../config'
 
 export const moduleName = 'press'
 const prefix = `${appName}/${moduleName}`
-export const LOAD_PRESS_START = `${prefix}/LOAD_VIDEO_START`
-export const LOAD_PRESS_SUCCESS = `${prefix}/LOAD_VIDEO_SUCCESS`
-export const LOAD_PRESS_ERROR = `${prefix}/LOAD_VIDEO_ERROR`
+export const LOAD_PRESS_START = `${prefix}/LOAD_PRESS_START`
+export const LOAD_PRESS_SUCCESS = `${prefix}/LOAD_PRESS_SUCCESS`
+export const LOAD_PRESS_ERROR = `${prefix}/LOAD_PRESS_ERROR`
 
 
 // Reducer

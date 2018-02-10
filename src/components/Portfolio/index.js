@@ -11,7 +11,7 @@ import {PATH} from '../../config'
 class Portfolio extends Component{
 
 	componentDidMount(){
-        const useLang = this.props.useLang;
+    const useLang = this.props.useLang;
 		this.props.loadPortfolio(useLang);
 	}
 

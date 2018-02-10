@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {PATH} from '../../config'
+import {PATH} from '../../config';
 
 class SocialMenu extends Component{
 	render(){

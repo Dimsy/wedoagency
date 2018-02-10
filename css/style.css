@@ -213,8 +213,6 @@ p {
 
 .agency{
   height: 520px;
-  padding-top: 100px;
-  padding-bottom: 100px;
 }
 
 .agencyImg{
@@ -229,10 +227,17 @@ p {
 }
 
 .portfolio,
+.weInInstagram,
+.agency,
 .news{
-  background-color: #f7f7f7;
   padding-top: 100px;
   padding-bottom: 100px;
+}
+
+.portfolio,
+.footer,
+.news{
+  background-color: #f7f7f7;
 }
 
 .portfolio .carousel__slider{
@@ -391,4 +396,98 @@ p {
   height: 307px;
 }
 
+
+.weInInstagram h4 {
+  margin-bottom: 50px;
+  font-family: LatoSemibold;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 4px;
+  text-align: center;
+  color: #131313;
+} 
+
+.footer{
+  padding-top: 50px;
+}
+
+.menuFooter__Item a{
+  width: 33%;
+  margin-bottom: 20px;
+  float: left;
+  font-family: LatoRegular;
+  font-size: 11px;
+  line-height: 18px;
+  letter-spacing: 1.8px;
+  color: #131313;
+  opacity: 0.5;
+  text-transform: uppercase;
+}
+.footer__contacts {
+  margin-bottom: 33px;
+  font-family: LatoRegular;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 22px;
+  letter-spacing: 1px;
+  text-align: left;
+  color: #545454;
+}
+
+.footer__contacts a{
+   font-family: LatoRegular;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 32px;
+  letter-spacing: 1px;
+  text-align: left;
+  color: #131313;
+}
+
+.socialFooter {
+  position: relative;
+  padding-right: 4px;
+}
+
+.socialFooter li {
+  display: block;
+  height: 21px;
+  float: right;
+  padding-left: 6px;
+  padding-right: 6px;
+  
+}
+
+hr {
+  margin: 0;
+  opacity: 0.2;
+  background-color: #c9c9c9;
+}
+
+.AllRightReserved,
+.backToTop {
+  padding: 23px 0;
+  font-family: Lato;
+  font-size: 11px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2.18;
+  letter-spacing: 1.8px;
+  text-align: left;
+  color: #545454;
+  text-transform: uppercase;
+}
+
+.backToTop {
+  padding-right: 15px;
+  text-align: right;
+}
 

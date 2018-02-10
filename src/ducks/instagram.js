@@ -1,38 +1,38 @@
 import {appName} from '../config'
 import {Map, Record} from 'immutable'
 import {put, call, takeEvery} from 'redux-saga/effects'
-import axios from 'axios';
-import {CONTACTS_en, CONTACTS_ru} from '../config'
+import axios from 'axios'
+import {INSTAGRAM_ru, INSTAGRAM_en} from '../config'
+
  
 
 // Constants
 
-export const moduleName = 'contacts'
+export const moduleName = 'instagram'
 const prefix = `${appName}/${moduleName}`
-export const LOAD_CONTACTS_START = `${prefix}/LOAD_CONTACTS_START`
-export const LOAD_CONTACTS_SUCCESS = `${prefix}/LOAD_CONTACTS_SUCCESS`
-export const LOAD_CONTACTS_ERROR = `${prefix}/LOAD_CONTACTS_ERROR`
+export const LOAD_INSTAGRAM_START = `${prefix}/LOAD_INSTAGRAM_START`
+export const LOAD_INSTAGRAM_SUCCESS = `${prefix}/LOAD_INSTAGRAM_SUCCESS`
+export const LOAD_INSTAGRAM_ERROR = `${prefix}/LOAD_INSTAGRAM_ERROR`
 
 
 // Reducer
 
 const ReducerState = Record({
-	entities: Map(),
+	entities: new Map(),
 	error: null,
 	loading: true
 })
 
 export default function reducer(state = new ReducerState(), action) {
-	const {type, payload} = action
+	const {type, payload} = action;
 
 	switch(type){
-		case LOAD_CONTACTS_SUCCESS:
-
+		case LOAD_INSTAGRAM_SUCCESS:
 	 		return state
-	 						.setIn(['entities'], payload.response.data)
+	 						.setIn(['entities'], payload.response)
 	 		 				.setIn(['loading'], false)
 	 			
-		case LOAD_CONTACTS_ERROR:	
+		case LOAD_INSTAGRAM_ERROR:
 	 		return state
 	 						.setIn(['error'], payload.error)
 	 						.setIn(['loading'], false)
@@ -44,9 +44,9 @@ export default function reducer(state = new ReducerState(), action) {
 
 // Action Creators
 
-export function loadContacts(lang){
+export function loadInstagram(lang){
 	return {
-		type: LOAD_CONTACTS_START,
+		type: LOAD_INSTAGRAM_START,
 		payload: {lang}
 	}
 }
@@ -54,24 +54,25 @@ export function loadContacts(lang){
 
 //Sagas
 
-export function * loadContactsSaga(action){
-	const articleLang = action.payload.lang == 'ru' ? CONTACTS_ru : CONTACTS_en;	
+export function * loadInstagramSaga(action){
+	const articleLang = action.payload.lang == 'ru' ? INSTAGRAM_ru : INSTAGRAM_en;
+
 	try {
 		const response = yield call(axios.get, `/wp-json/wp/v2/posts/${articleLang}`)
 
 		yield put({
-						type: LOAD_CONTACTS_SUCCESS,
+						type: LOAD_INSTAGRAM_SUCCESS,
 						payload: {response}
 					})
 	} catch (error) {
 		
 		yield put({
-						type: LOAD_CONTACTS_ERROR,
+						type: LOAD_INSTAGRAM_ERROR,
 						payload: {error}
 					})
 	}
 }
 
 export function * saga() {
-	yield takeEvery(LOAD_CONTACTS_START, loadContactsSaga)
+	yield takeEvery(LOAD_INSTAGRAM_START, loadInstagramSaga);
 }

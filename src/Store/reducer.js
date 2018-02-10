@@ -6,7 +6,9 @@ import agencyInfoReducer, {moduleName as agencyInfoModule} from '../ducks/agency
 import langReducer, {moduleName as langModule} from '../ducks/lang';
 import portfolioReducer, {moduleName as portfolioModule} from '../ducks/portfolio';
 import newsReducer, {moduleName as newsModule} from '../ducks/news';
+import instagramReducer, {moduleName as instagramModule} from '../ducks/instagram';
 import contactsReducer, {moduleName as contactsModule} from '../ducks/contacts';
+import socialFooterReducer, {moduleName as socialFooterModule} from '../ducks/socialFooter';
 
 export default combineReducers({
 	[menuModule]: menuReducer,
@@ -15,6 +17,8 @@ export default combineReducers({
 	[portfolioModule]: portfolioReducer,
 	[pressModule]: pressReducer,
 	[newsModule]: newsReducer,
+	[instagramModule]: instagramReducer,
 	[contactsModule]: contactsReducer,
+	[socialFooterModule]: socialFooterReducer,
 	form: formReducer
 })

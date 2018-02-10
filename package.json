@@ -40,6 +40,7 @@
     "react": "^15.3.2",
     "react-bootstrap": "^0.32.0",
     "react-dom": "^15.6.2",
+    "react-iframe": "^1.1.0",
     "react-redux": "^5.0.6",
     "react-render-html": "^0.5.2",
     "react-router-dom": "^4.2.2",

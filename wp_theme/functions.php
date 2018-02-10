@@ -51,6 +51,19 @@ add_action( 'rest_api_init', function () {
     ) );
 } );
 
+//Добавление верхнего меню соцсетей 
+function get_social_footer() {
+    return wp_get_nav_menu_items('social_footer');
+}
+
+
+add_action( 'rest_api_init', function () {
+        register_rest_route( 'menus/social_footer', '/menu', array(
+        'methods' => 'GET',
+        'callback' => 'get_social_footer',
+    ) );
+} );
+
 
 
 

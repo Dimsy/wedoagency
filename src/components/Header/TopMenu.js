@@ -7,7 +7,8 @@ class TopMenu extends Component{
 	render(){
 		const {entities, loading, error} = this.props;
 
-		if (error) return (<section className="info"><ErrorCmp error={error} /></section>);
+
+		if (error) return (<ErrorCmp error={error} />);
 		if (loading) return <Loader/>;
 
 		const body = entities.map( item => <li key={item.ID}><MenuItem item={item}/></li>);
