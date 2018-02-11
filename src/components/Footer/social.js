@@ -16,8 +16,6 @@ class SocialFooter extends Component{
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);			
 
-		console.log("social", social);
-
 		const body = social.map(item => <li key={item.ID} className={item.title}>
 																			<a href={item.url} target="blank">
 																				<img src={`${PATH}/img/social/footer/${item.title}.svg`} />

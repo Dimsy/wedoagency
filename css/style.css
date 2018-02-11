@@ -489,5 +489,6 @@ hr {
 .backToTop {
   padding-right: 15px;
   text-align: right;
+  cursor: pointer;
 }
 

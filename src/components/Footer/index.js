@@ -6,6 +6,7 @@ import ErrorCmp from '../ErrorCmp';
 import {Link} from 'react-router-dom';
 import {loadContacts} from '../../ducks/contacts.js';
 import SocialFooter from './social';
+import BackToTop from './backToTop';
 
 class Footer extends Component{
 	componentDidMount(){
@@ -40,7 +41,7 @@ class Footer extends Component{
 							<div className="clear"></div>
 						</Col>
 						<Col md={4} className="footer__contacts">
-							{contacts.acf.Phone}
+							{contacts.acf.callWrite}{contacts.acf.Phone}
 							<br />
 							(viber/whatsup)
 							<br />
@@ -59,8 +60,8 @@ class Footer extends Component{
 						<Col md={10} className="AllRightReserved">
 							weDOagency © all right reserved
 						</Col>
-						<Col md={2} className="backToTop">
-							back to top
+						<Col md={2}>
+							<BackToTop  scrollStepInPx="50" delayInMs="16.66"/>							
 						</Col>
 					</Row>
 				</Grid>

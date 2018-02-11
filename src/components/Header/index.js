@@ -12,7 +12,6 @@ class Header extends Component {
 			<div className="header">
 				<Menu />
 				<div className="logoBlock"/>
-				<div className="headerImgBlock"/>
 			</div>
 		)
 
