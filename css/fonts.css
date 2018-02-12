@@ -32,3 +32,17 @@
 	font-style: normal;
 	font-weight: normal;
 }
+
+@font-face {
+	font-family: "LatoMedium";
+	src: url("../fonts/LatoMedium/Lato-Medium.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "LatoBold";
+	src: url("../fonts/LatoBold/LatoBold.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
