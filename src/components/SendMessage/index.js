@@ -4,16 +4,19 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import Form from './Form';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
+import {sendForm} from '../../ducks/form';
 
 class SendMessage extends Component{
 
+	submit = (values) => {
+		this.props.sendForm(values)
+	}
+
 	render(){
-		const {contacts, error, loading} = this.props;
+		const {contacts, error, loading, useLang} = this.props;
 
 		if (loading || !contacts || !contacts.acf.Phone) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);		
-
-		console.log('contacts', this.props);
 
 		return (
 			<Grid className="sendMessage">
@@ -50,9 +53,10 @@ class SendMessage extends Component{
 					<Col md={6}>
 						<h4>{contacts.acf.writeText}</h4>
 							<Form onSubmit={this.submit} 
+										useLang={useLang}
 										yourNamePlaceholder={contacts.acf.yourNamePlaceholder} 
-										emailText={contacts.acf.emailText} 
 										youMessagePlaceholder={contacts.acf.youMessagePlaceholder}
+										emailPlaceholder={contacts.acf.emailPlaceholder}
 										sendButtonText={contacts.acf.sendButtonText}/>
 					</Col> 
 				</Row>
@@ -63,10 +67,11 @@ class SendMessage extends Component{
 
 const mapStateToProps = state => {
 	return {
+		useLang: state.lang.useLang,
 		contacts: state.contacts.entities,
 		error: state.contacts.error,
 		loading: state.contacts.loading
 	}
 }
 
-export default connect(mapStateToProps)(SendMessage);
+export default connect(mapStateToProps, {sendForm})(SendMessage);

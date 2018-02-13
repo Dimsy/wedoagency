@@ -79,10 +79,10 @@ function prefix_send_email_to_admin() {
     // Send to appropriate email
     $_POST = json_decode(file_get_contents('php://input'), true);
 
-    $frm_name  = "VkusArom";
+    $frm_name  = "WedoAgency";
 		$to = "vfxq@rambler.ru";
-		$sitename  = "SweetFeel.su";
-		$subject   = "Новая заявка с сайта \"$sitename\"";
+		$sitename  = "WeDoAgeny.ru";
+		$subject   = "Новое сообщение с сайта \"$sitename\"";
 		
 		$name = trim(sanitize_text_field($_POST["name"]));
 		$email = trim(is_email($_POST["email"]));

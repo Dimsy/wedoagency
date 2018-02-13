@@ -7,6 +7,7 @@ import {saga as newsSaga} from '../ducks/news';
 import {saga as instagramSaga} from '../ducks/instagram';
 import {saga as contsactsSaga} from '../ducks/contacts';
 import {saga as socialFooterSaga} from '../ducks/socialFooter';
+import {saga as formSaga} from '../ducks/form';
 
 
 
@@ -19,6 +20,7 @@ export default function * () {
 		newsSaga(),
 		contsactsSaga(),
 		instagramSaga(),
-		socialFooterSaga()
+		socialFooterSaga(),
+		formSaga()
 	])
 } 
