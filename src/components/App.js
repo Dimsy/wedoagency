@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import {ConnectedRouter} from 'react-router-redux'
 import RouteRoot from './Routes/root'
+import RouteNews from './Routes/news'
 import RouteContacts from './Routes/contacts'
 import {loadMenu} from '../ducks/menu'
 import {loadContacts} from '../ducks/contacts'
@@ -29,6 +30,7 @@ class App extends Component {
 			<ConnectedRouter history={history}>
 				<div>
 					<Route path="/" component={RouteRoot} exact/>
+					<Route path="/news" component={RouteNews} exact/>
 					<Route path="/contacts" component={RouteContacts} exact/>
 				</div>
 			</ConnectedRouter>

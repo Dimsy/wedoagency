@@ -8,7 +8,9 @@ function Agency(){
  			<Row>
  				<Col md={6} className="agencyImg">
  				</Col>
- 				<Col md={5} mdOffset={1} className="agencyInfo">
+ 				<Col md={1}>
+ 				</Col>
+ 				<Col md={5} className="agencyInfo">
  					<AgencyInfo/>
  					</Col>
  			</Row>

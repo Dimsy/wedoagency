@@ -18,13 +18,15 @@ export const LOAD_NEWS_ERROR = `${prefix}/LOAD_NEWS_ERROR`
 // Reducer
 
 const ModelData = Record({
-	acf: new Map(),
+	acf: null,
 	id: null,
-	title: null
+	title: null,
+	date: null,
+	content: null
 })
 
 const ReducerState = Record({
-	entities: new Map(),
+	entities: null,
 	catName: null,
 	error: null,
 	loading: true
