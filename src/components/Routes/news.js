@@ -11,8 +11,8 @@ export default function RouteNews(props){
 			<Header/>
 			<NewsList />
 			<Portfolio />
-			<Instagram />
-			<Footer />
+			{/*<Instagram />
+			<Footer />*/}
 		</div>
 	)
 }

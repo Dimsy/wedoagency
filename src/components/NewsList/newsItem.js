@@ -10,7 +10,7 @@ class NewsItem extends Component{
 
 
 		const i18 = useLang == "ru" ? "ru" : "en-US";
-
+		
 		let date =  new Date(item.date);
 
 		var options = {
@@ -18,12 +18,6 @@ class NewsItem extends Component{
 		  month: 'long',
 		  year: 'numeric'
 		};
-
-
-
-	
-
-
 
 		return (
 			<Grid>

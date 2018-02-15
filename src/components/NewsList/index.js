@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import NewsItem from './NewsItem';
-import { loadNews } from '../../ducks/news';
+import { loadNews, updateNews } from '../../ducks/news';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import { Grid, Row, Col } from 'react-bootstrap';
@@ -9,9 +9,8 @@ import { Grid, Row, Col } from 'react-bootstrap';
 class NewsList extends Component{
 
 	componentDidMount(){
-    const useLang = this.props.useLang;
-    if (this.props.entities != null) return;
-
+    const { useLang } = this.props;
+    	// if (this.props.entities != null) return;
 		this.props.loadNews(useLang);
 	}
 
@@ -20,18 +19,33 @@ class NewsList extends Component{
 			this.props.loadNews(nextProps.useLang);
 	}
 
+	test = () => {
+		const { useLang } = this.props;
+		this.props.loadNews(useLang);
+	}
 	render(){
 		const { useLang, entities, loading, error} = this.props;
+
+		const posts = entities.toArray();
 
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);	
 		
-		const body = entities.map(item => <li key={item.id}><NewsItem item={item} /></li>);
+		const body = posts.map(item => <li key={item.id}><NewsItem item={item} /></li>);
+		const showMore = useLang == "ru" ? "Показать еще" : "en-US";
+
 
 		return (
-			<ul>
-				{body}
-			</ul>					
+			<div className="newsList">
+				<ul>
+					{body}
+				</ul>	
+				<div className="showMore">
+					<span onClick={this.test}>
+						{showMore }
+					</span>	
+				</div>	
+			</div>			
 		)
 	}
 }
@@ -45,4 +59,4 @@ const mapStateToProps = state => {
 	}
 }
 
-export default connect(mapStateToProps, { loadNews })(NewsList);
+export default connect(mapStateToProps, { loadNews, updateNews })(NewsList);

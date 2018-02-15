@@ -26,14 +26,24 @@ class News extends Component{
 
 		const {useLang, entities, catName, error, loading} = this.props;
 
+
+
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);			
 
-		const body = entities.map( (item) => 
-		 	<Slide key={item.id} index={item.id}>
-		 			<NewsInfo item={item}/>
+
+		const posts = entities.toArray();
+
+		
+		console.log("-- ent", entities, posts);
+
+	
+
+		const body = posts.map( (item) => 
+		  <Slide key={item.id} index={item.id}>
+		  			<NewsInfo item={item}/>
 		 	</Slide>
-		).toJS();
+		);
 
 		return (
 			<div className='news'>

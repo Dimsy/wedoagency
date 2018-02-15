@@ -655,7 +655,7 @@ hr {
 }
 
 .fullNews {
-  font-family: Lato;
+  font-family: LatoRegular;
   font-size: 14px;
   font-weight: 300;
   font-style: normal;
@@ -670,7 +670,7 @@ hr {
   display: inline-block;
   text-transform: uppercase;
   margin-top: 30px;
-  font-family: HelveticaNeueCyr;
+  font-family: "LatoBold";
   font-size: 13px;
   font-weight: 500;
   font-style: normal;
@@ -686,3 +686,62 @@ hr {
   margin-top: 70px;
   margin-bottom: 70px;
 }
+
+.newsList li:last-child .borderNews{
+  display: none;
+}
+
+.newsList .showMore{
+  margin-top: 100px;
+  margin-bottom: 100px;
+  font-family: "LatoBold";
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2.15;
+  letter-spacing: 2px;
+  color: #131313;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
