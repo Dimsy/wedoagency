@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Grid, Row, Col } from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 
 class NewsItem extends Component{
 	render(){
-		const { item, useLang } = this.props;
-		console.log("NewsItem", this.props);
-
-
-		const i18 = useLang == "ru" ? "ru" : "en-US";
+		const { item, useLang, location, match } = this.props;
 		
+		const i18 = useLang == "ru" ? "ru" : "en-US";
+		const showMore = useLang == "ru" ? "Читать далее" : "continue read";
 		let date =  new Date(item.date);
 
 		var options = {
@@ -35,7 +34,7 @@ class NewsItem extends Component{
 						<div className="fullNews">
 							{item.content.rendered}
 						</div>
-						<a href="#" className="linkToNews">{item.acf.knowMore}</a>
+						<Link to={`${match.path}/${item.id}`} className="linkToNews">{showMore}</Link>
 					</Col>
 				</Row>
 				<Row>

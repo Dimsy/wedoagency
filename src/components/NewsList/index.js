@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import NewsItem from './NewsItem';
-import { loadNews, updateNews } from '../../ducks/news';
+import { loadNewsList, clearNewsList } from '../../ducks/newsList';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import { Grid, Row, Col } from 'react-bootstrap';
@@ -9,31 +9,38 @@ import { Grid, Row, Col } from 'react-bootstrap';
 class NewsList extends Component{
 
 	componentDidMount(){
-    const { useLang } = this.props;
-    	// if (this.props.entities != null) return;
-		this.props.loadNews(useLang);
+    const { useLang, entities } = this.props;
+    
+    if ( entities.size == 0){
+			this.props.loadNewsList(useLang);
+    }
+		
 	}
 
 	componentWillReceiveProps(nextProps){
-		if(this.props.useLang != nextProps.useLang)
-			this.props.loadNews(nextProps.useLang);
+		if(this.props.useLang != nextProps.useLang){
+			this.props.clearNewsList();
+			this.props.loadNewsList(nextProps.useLang);
+		}
 	}
 
-	test = () => {
+	addingNews = () => {
 		const { useLang } = this.props;
-		this.props.loadNews(useLang);
+		this.props.loadNewsList(useLang);
 	}
 	render(){
-		const { useLang, entities, loading, error} = this.props;
-
-		const posts = entities.toArray();
+		const { useLang, entities, loading, error, count, location, match} = this.props;
 
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);	
-		
-		const body = posts.map(item => <li key={item.id}><NewsItem item={item} /></li>);
-		const showMore = useLang == "ru" ? "Показать еще" : "en-US";
 
+		const posts = entities.toArray();
+		
+		const showMore = useLang == "ru" ? "Показать еще" : "Show more";
+		const body = posts.map(item => <li key={item.id}><NewsItem item={item} localiton={location} match={match}/></li>);
+
+
+		const toggleShowMore = body.length != count  ? showMore : null;
 
 		return (
 			<div className="newsList">
@@ -41,8 +48,8 @@ class NewsList extends Component{
 					{body}
 				</ul>	
 				<div className="showMore">
-					<span onClick={this.test}>
-						{showMore }
+					<span onClick={this.addingNews}>
+						{toggleShowMore}
 					</span>	
 				</div>	
 			</div>			
@@ -53,10 +60,11 @@ class NewsList extends Component{
 const mapStateToProps = state => {
 	return {
 		useLang: state.lang.useLang,
-		entities: state.news.entities,
-		loading: state.news.loading,
-		error: state.news.error
+		count:  state.newsList.count,
+		entities: state.newsList.entities,
+		loading: state.newsList.loading,
+		error: state.newsList.error
 	}
 }
 
-export default connect(mapStateToProps, { loadNews, updateNews })(NewsList);
+export default connect(mapStateToProps, { loadNewsList, clearNewsList })(NewsList);

@@ -13,8 +13,13 @@ import {PATH} from '../../config'
 class News extends Component{
 
 	componentDidMount(){
-    const useLang = this.props.useLang;
-		this.props.loadNews(useLang);
+    const { useLang, entities } = this.props;
+
+    // console.log("---!!!!!!!!!!!!!", entities === undefined, entities.size );
+
+    if ( entities.size == 0){
+			this.props.loadNews(useLang);
+    }
 	}
 
 	componentWillReceiveProps(nextProps){
@@ -34,16 +39,12 @@ class News extends Component{
 
 		const posts = entities.toArray();
 
-		
-		console.log("-- ent", entities, posts);
-
-	
-
 		const body = posts.map( (item) => 
 		  <Slide key={item.id} index={item.id}>
 		  			<NewsInfo item={item}/>
 		 	</Slide>
 		);
+
 
 		return (
 			<div className='news'>
