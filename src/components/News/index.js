@@ -15,16 +15,15 @@ class News extends Component{
 	componentDidMount(){
     const { useLang, entities } = this.props;
 
-    // console.log("---!!!!!!!!!!!!!", entities === undefined, entities.size );
-
     if ( entities.size == 0){
 			this.props.loadNews(useLang);
     }
 	}
 
 	componentWillReceiveProps(nextProps){
-		if(this.props.useLang != nextProps.useLang)
+		if(this.props.useLang != nextProps.useLang){
 			this.props.loadNews(nextProps.useLang);
+		}
 	}
 
 	render(){

@@ -8,6 +8,15 @@ import renderHTML from 'react-render-html'
 import {Link} from 'react-router-dom';
 
 class NewsArticle extends Component{
+	// constructor() {
+ //    super();
+
+ //    this.state = {
+ //        intervalId: 0
+ //    };
+ //  }
+
+
 
 	componentDidMount(){
 		const { match } = this.props
@@ -16,8 +25,6 @@ class NewsArticle extends Component{
 
 	render(){
 		const {match, entities, useLang, loading, error} = this.props
-
-		console.log('---', match, this.props)
 		
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);	
@@ -30,20 +37,20 @@ class NewsArticle extends Component{
 
 		const date =  new Date(article.date);
 
-		var options = {
+		const options = {
 		  day: 'numeric',
 		  month: 'long',
 		  year: 'numeric'
 		};
 
-
-		console.log('article.content.firstPartArticle', article.content.firstPartArticle)
-
+		const divStyle = {
+			backgroundImage: `url(${article.acf.headImgNewsx2})`,
+			backgroundImage: `-webkit-image-set( url(${article.acf.headImgNews}) 1x, url(${article.acf.headImgNewsx2}) 2x )`
+		};
+		
 		return (
 			<div>
-				<div className="articleHeader">
-					<img src={article.acf.headImgNews} srcSet={ `${article.acf.headImgNewsx2} 2x`} /> 
-				</div>
+				<div className="articleImgNews" style={divStyle} />
 				<div className="articleDate">
 					{date.toLocaleString( i18, options)}
 				</div>
@@ -95,7 +102,9 @@ class NewsArticle extends Component{
 								<div className="articleContent">
 									{ renderHTML(article.acf.secondPartArticle) }
 								</div>
-								<Link to='/news' className="linkToAllNews">{ allNews }</Link>
+								<Link to='/news' className="linkToAllNews">
+									{ allNews }
+								</Link>
 							</Col>
 						</Row>
 					</Grid>
@@ -104,6 +113,19 @@ class NewsArticle extends Component{
 			</div>
 		)
 	}
+
+	// scrollStep() {
+ //    if (window.pageYOffset === 0) {
+ //        clearInterval(this.state.intervalId);
+ //    }
+ //    window.scroll(0, window.pageYOffset - this.props.scrollStepInPx);
+ //  }
+  
+ //  scrollToTop() {
+ //    let intervalId = setInterval(this.scrollStep.bind(this), this.props.delayInMs);
+ //    this.setState({ intervalId: intervalId });
+ //  }
+
 }
 
 const mapStateToProps = state => {

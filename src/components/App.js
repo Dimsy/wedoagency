@@ -13,6 +13,7 @@ import {loadContacts} from '../ducks/contacts'
 import {MENU, CONTACTS} from '../config.js'
 import history from '../history'
 import NotFound from './NotFound'
+import ScrollToTop from './ScrollToTop'
 
 class App extends Component {
 
@@ -31,16 +32,18 @@ class App extends Component {
 		
 		return (
 			<ConnectedRouter history={history}>
+				<ScrollToTop>
 				<div>
 					<Route path="/" component={RouteRoot} />
-					<Switch>
-						<Route path="/" component={RouteMainPage} exact/>
-						<Route path="/news" component={RouteNews} exact/>
-						<Route path="/news/:id" component={RouteNewsArticle} exact/>
-						<Route path="/contacts" component={RouteContacts} exact/>
-					</Switch>
+						<Switch>
+							<Route path="/" component={RouteMainPage} exact/>
+							<Route path="/news" component={RouteNews} exact/>
+							<Route path="/news/:id" component={RouteNewsArticle} exact/>
+							<Route path="/contacts" component={RouteContacts} exact/>
+						</Switch>
 					<Route path="/" component={RouteInstaFooter} />
 				</div>
+				</ScrollToTop>
 				{/*<Route path="/" component={RouteRoot} exact/>
 					<Route path="/news" component={RouteNews} exact/>
 					<Route path="/news/:id" component={RouteNewsItem} exact/>

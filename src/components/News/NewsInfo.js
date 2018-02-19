@@ -6,11 +6,19 @@ class NewsItem extends Component {
 	}
 
 	render(){
-		const {item} = this.props;
+		const {item, useLang} = this.props;
+
+		const date =  new Date(item.date);
+		
+		var options = {
+		  day: 'numeric',
+		  month:  'numeric',
+		  year: 'numeric'
+		};
 
 		const body = <div className="news__Info">
 								   <div className="news__info-item">{item.title.rendered}</div>
-								   <div className="news__info-itemdata ">{item.acf.DataOfFinnish}</div>
+								   <div className="news__info-itemdata ">{ date.toLocaleString( 'en-GB', options)}</div>
 								 </div>
 
 		return(
