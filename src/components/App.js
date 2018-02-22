@@ -8,6 +8,8 @@ import RouteNews from './Routes/news'
 import RouteNewsArticle from './Routes/newsItem'
 import RouteContacts from './Routes/contacts'
 import RouteInstaFooter from './Routes/instaFooter'
+import RouteAgencyPage from './Routes/agency'
+import RoutePressList from './Routes/press'
 import {loadMenu} from '../ducks/menu'
 import {loadContacts} from '../ducks/contacts'
 import {MENU, CONTACTS} from '../config.js'
@@ -20,7 +22,6 @@ class App extends Component {
 	componentDidMount(){
 		const useLang = this.props.useLang;
 		this.props.loadMenu(useLang)
-	// 	this.props.loadContacts(CONTACTS)
 	}
 	
 	componentWillReceiveProps(nextProps){
@@ -37,6 +38,9 @@ class App extends Component {
 					<Route path="/" component={RouteRoot} />
 						<Switch>
 							<Route path="/" component={RouteMainPage} exact/>
+							<Route path="/agency" component={RouteAgencyPage} exact/>
+							<Route path="/press" component={RoutePressList} exact/>
+							<Route path="/press/:id" component={RoutePressList} exact/>
 							<Route path="/news" component={RouteNews} exact/>
 							<Route path="/news/:id" component={RouteNewsArticle} exact/>
 							<Route path="/contacts" component={RouteContacts} exact/>

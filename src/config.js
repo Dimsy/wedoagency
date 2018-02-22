@@ -11,11 +11,19 @@ export const AGENCY_INFO_ru = '22';
 export const AGENCY_INFO_en = '24';
 
 
-//Вмдео и слоганы
+//Видео и слоганы
 // ru
 export const PRESS_ru = '64';
 //en 
 export const PRESS_en = '67';
+
+//Видео и слоганы
+// ru
+export const PRESS_LIST_ru = '11';
+//en 
+export const PRESS_LIST_en = '12';
+
+
 
 
 // Указывает категорию в WordPress, содержащую статьи для портфолио
@@ -44,3 +52,10 @@ export const INSTAGRAM_en = '157';
 export const CONTACTS_ru = '159';
 //en
 export const CONTACTS_en = '162';
+
+// Указывает страница агентства
+//ru
+export const AGENCY_PAGE_ru = '228';
+//en
+export const AGENCY_PAGE_en = '237';
+

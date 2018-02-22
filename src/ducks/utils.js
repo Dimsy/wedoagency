@@ -1,4 +1,4 @@
-import {Map, List, OrderedSet, fromJS} from 'immutable'
+import {Map, List, OrderedSet, OrderedMap, fromJS} from 'immutable'
 
 export function arrToOrderedMap(arr, Model){
 	return arr.reduce((acc, el) => acc.set(el.menu_order, new Model(el)), new Map({}));
@@ -6,6 +6,10 @@ export function arrToOrderedMap(arr, Model){
 
 export function arrToMap(arr, Model){
 	return arr.reduce((acc, el) => acc.set(el.id, new Model(el)), new Map({}));
+}
+
+export function arrToOrderedMapDate(arr, Model){
+ 	return arr.reduce((acc, el) => acc.set(el.acf.date, new Model(el)), Map({}));
 }
 
 

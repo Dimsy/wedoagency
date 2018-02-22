@@ -8,16 +8,7 @@ import renderHTML from 'react-render-html'
 import {Link} from 'react-router-dom';
 
 class NewsArticle extends Component{
-	// constructor() {
- //    super();
-
- //    this.state = {
- //        intervalId: 0
- //    };
- //  }
-
-
-
+	
 	componentDidMount(){
 		const { match } = this.props
 		this.props.loadNewsArticleList(match.params.id)
@@ -44,8 +35,11 @@ class NewsArticle extends Component{
 		};
 
 		const divStyle = {
-			backgroundImage: `url(${article.acf.headImgNewsx2})`,
-			backgroundImage: `-webkit-image-set( url(${article.acf.headImgNews}) 1x, url(${article.acf.headImgNewsx2}) 2x )`
+			backgroundImage: `-webkit-image-set( url(${article.acf.headImgNews}) 1x, url(${article.acf.headImgNewsx2}) 2x )`,
+			backgroundImage: `-moz-image-set( url(${article.acf.headImgNews}) 1x, url(${article.acf.headImgNewsx2}) 2x )`,
+			backgroundImage: `-o-image-set( url(${article.acf.headImgNews}) 1x, url(${article.acf.headImgNewsx2}) 2x )`,
+			backgroundImage: `-ms-image-set( url(${article.acf.headImgNews}) 1x, url(${article.acf.headImgNewsx2}) 2x )`,
+			backgroundImage: `url(${article.acf.headImgNewsx2})`
 		};
 		
 		return (
@@ -113,19 +107,6 @@ class NewsArticle extends Component{
 			</div>
 		)
 	}
-
-	// scrollStep() {
- //    if (window.pageYOffset === 0) {
- //        clearInterval(this.state.intervalId);
- //    }
- //    window.scroll(0, window.pageYOffset - this.props.scrollStepInPx);
- //  }
-  
- //  scrollToTop() {
- //    let intervalId = setInterval(this.scrollStep.bind(this), this.props.delayInMs);
- //    this.setState({ intervalId: intervalId });
- //  }
-
 }
 
 const mapStateToProps = state => {

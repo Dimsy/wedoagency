@@ -40,7 +40,7 @@ class News extends Component{
 
 		const body = posts.map( (item) => 
 		  <Slide key={item.id} index={item.id}>
-		  			<NewsInfo item={item}/>
+		  	<NewsInfo item={item}/>
 		 	</Slide>
 		);
 

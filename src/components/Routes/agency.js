@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Portfolio from '../Portfolio';
 import AgencyPage from '../AgencyPage';
 
-class RouteNewsArticle extends Component {
+class RouteAgencyPage extends Component {
 
 	render(){
 		
@@ -15,4 +15,4 @@ class RouteNewsArticle extends Component {
 	}
 }
 
-export default RouteNewsArticle
+export default RouteAgencyPage

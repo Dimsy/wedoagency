@@ -343,7 +343,7 @@ p {
 .press__slogan-small {
   margin-top: 30px;
   font-family: PlayfairDisplayItalic;
-  font-style: 18px;
+  font-size: 18px;
   line-height: 28px;
 }
 
@@ -691,7 +691,8 @@ hr {
   display: none;
 }
 
-.newsList .showMore{
+.newsList .showMore,
+.pressList .showMore{
   margin-top: 100px;
   margin-bottom: 100px;
   font-family: "LatoBold";
@@ -790,7 +791,73 @@ hr {
   color: #131313;
 }
 
+.articlePage h1 {
+  text-transform: none;
+}
 
+.articlePage .sign{
+  margin-top: 16px;
+  font-family: PlayfairDisplayItalic;
+  font-size: 16px;
+  line-height: 2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #131313;
+}
+
+.pressList .pressItem {
+  width: 304px;
+  height: 408px;
+  position: relative;
+  float: left;
+  margin: 10px;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+.pressList .pressItem__Inner{
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  opacity: 0.9;
+  background-color: #f7f7f7;
+  z-index: 20px;
+  width: 274px;
+  height: 378px;
+}
+
+.pressList .pressItem__Inner-title{
+  display: table-cell;
+  height: 331px;
+  width: 100%;
+  padding-left: 32px;
+  padding-right: 32px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  text-align: center;
+  font-family: LatoSemibold;
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2;
+  letter-spacing: 2px;
+  color: #131313;
+}
+
+
+.pressList .pressItem__Inner-date{
+  font-family: LatoLight;
+  font-size: 11px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2.55;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #131313;
+}
 
 
 
