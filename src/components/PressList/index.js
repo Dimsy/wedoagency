@@ -25,6 +25,17 @@ class PressList extends Component{
 		this.props.loadPressList(useLang);
 	}
 
+	sortBody = (a, b) => {
+
+		const aDate = a.props.children.props.item.acf.date
+		const bDate = b.props.children.props.item.acf.date
+
+		var aNumberForCompare = aDate.split('/').reverse().join()
+        var bNumberForCompare = bDate.split('/').reverse().join()	
+        		
+    return aNumberForCompare > bNumberForCompare ? -1 : (aNumberForCompare < bNumberForCompare ? 1 : 0);
+	 	
+	}
 	
 	render(){
 		const { useLang, entities, loading, error, count} = this.props;
@@ -34,8 +45,11 @@ class PressList extends Component{
 
 		const pressItems = entities.toArray();
 
-		const body = pressItems.map( item => <li key={item.id}><PressItem item={item} /></li>)
-		
+		const body = pressItems.map( item => <li key={item.id}><PressItem item={item} /></li>).sort(this.sortBody)
+
+		// const ab = body.sort(this.sortBody)
+
+
 		const showMore = useLang == "ru" ? "Показать еще" : "Show more";
 		const toggleShowMore = body.length != count  ? showMore : null;
 					
