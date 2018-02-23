@@ -47,6 +47,8 @@ export default function reducer(state = new ReducerState(), action) {
 	 						.setIn(['loading'], false)
 
 	 	case CLEAR_PRESS_LIST:	 	
+	 		console.log('clear');
+
 	 		POST_COUNTER = 0;
 	 		return state
 	 						.set('loading', true)
@@ -84,6 +86,9 @@ export function * pressListSaga(action){
 
 	try {
 		
+
+		console.log('articleLang', articleLang)
+
 		const response = yield call(axios.get, `/wp-json/wp/v2/posts?categories=${articleLang}&orderby=date&order=desc&per_page=3&offset=${POST_COUNTER}`);
 		POST_COUNTER = POST_COUNTER + 3;
 

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 
 class PressItem extends Component{
 	state = {
@@ -6,7 +7,7 @@ class PressItem extends Component{
 	}
 
 	render(){
-		const {item } = this.props
+		const {item, match } = this.props
 	
 		const background = {
 			backgroundImage: `-webkit-image-set( url(${item.acf.foto}) 1x, url(${item.acf.Fotox2}) 2x )`,
@@ -17,18 +18,20 @@ class PressItem extends Component{
 		};	
 
 		const body = <div className="pressItem__Inner">
-										<div className="pressItem__Inner-title">
-											{item.title.rendered}
-										</div>
-										<div className="pressItem__Inner-date">
-											{item.acf.date}
-										</div>
+									<div className="pressItem__Inner-title">
+										{item.title.rendered}
 									</div>
-
+									<div className="pressItem__Inner-date">
+										{item.acf.date}
+									</div>
+								</div>
+									
 		return (
-			<div className="pressItem" style={background} onMouseEnter={this.handlerMouseEnter} onMouseLeave={this.handlerMouseLeave}>
-				{ this.state.show && body }
-			</div>
+				<Link to={`${match.path}/${item.id}`}>
+					<div className="pressItem" style={background} onMouseEnter={this.handlerMouseEnter} onMouseLeave={this.handlerMouseLeave}>
+						{ this.state.show && body }
+					</div>
+				</Link>
 		)
 	}
 

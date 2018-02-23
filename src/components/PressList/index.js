@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {loadPressList} from '../../ducks/pressList.js';
+import {loadPressList, clearPressList} from '../../ducks/pressList.js';
 import {connect} from 'react-redux';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
@@ -15,14 +15,18 @@ class PressList extends Component{
 	}
 
 	componentWillReceiveProps(nextProps){
-		if(this.props.useLang != nextProps.useLang){
-			 this.props.loadPressList(nextProps.useLang);
+		const {useLang, clearPressList, loadPressList} = this.props
+		
+		if(useLang != nextProps.useLang){
+			clearPressList();
+			loadPressList(nextProps.useLang);
 		}
 	}
 
-	addingNews = () => {
-		const { useLang } = this.props;
-		this.props.loadPressList(useLang);
+	addingPress = () => {
+		const { useLang, loadPressList } = this.props;
+
+		loadPressList(useLang);
 	}
 
 	sortBody = (a, b) => {
@@ -38,17 +42,14 @@ class PressList extends Component{
 	}
 	
 	render(){
-		const { useLang, entities, loading, error, count} = this.props;
+		const { useLang, entities, loading, error, count, match} = this.props;
 
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);	
 
 		const pressItems = entities.toArray();
 
-		const body = pressItems.map( item => <li key={item.id}><PressItem item={item} /></li>).sort(this.sortBody)
-
-		// const ab = body.sort(this.sortBody)
-
+		const body = pressItems.map( item => <li key={item.id}><PressItem item={item} match={match}/></li>).sort(this.sortBody)
 
 		const showMore = useLang == "ru" ? "Показать еще" : "Show more";
 		const toggleShowMore = body.length != count  ? showMore : null;
@@ -62,7 +63,7 @@ class PressList extends Component{
 						</ul>
 						<div className='clear' />
 						<div className='showMore'>
-							<span onClick={this.addingNews}>
+							<span onClick={this.addingPress}>
 								{toggleShowMore}
 							</span>	
 						</div>	
@@ -83,4 +84,4 @@ const mapStateToProps = state => {
 	}
 }
 
-export default connect(mapStateToProps, {loadPressList})(PressList);
+export default connect(mapStateToProps, {loadPressList, clearPressList})(PressList);
