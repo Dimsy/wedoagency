@@ -10,6 +10,7 @@ import RouteContacts from './Routes/contacts'
 import RouteInstaFooter from './Routes/instaFooter'
 import RouteAgencyPage from './Routes/agency'
 import RoutePressList from './Routes/press'
+import RoutePressPage from './Routes/pressPage'
 import {loadMenu} from '../ducks/menu'
 import {loadContacts} from '../ducks/contacts'
 import {MENU, CONTACTS} from '../config.js'
@@ -40,7 +41,7 @@ class App extends Component {
 							<Route path="/" component={RouteMainPage} exact/>
 							<Route path="/agency" component={RouteAgencyPage} exact/>
 							<Route path="/press" component={RoutePressList} exact/>
-							<Route path="/press/:id" component={RoutePressList} exact/>
+							<Route path="/press/:id" component={RoutePressPage} exact/>
 							<Route path="/news" component={RouteNews} exact/>
 							<Route path="/news/:id" component={RouteNewsArticle} exact/>
 							<Route path="/contacts" component={RouteContacts} exact/>

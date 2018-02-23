@@ -3,6 +3,7 @@ import {saga as menuSaga} from '../ducks/menu'
 import {saga as agencyInfoSaga} from '../ducks/agencyInfo';
 import {saga as portfolioSaga} from '../ducks/portfolio';
 import {saga as pressSaga} from '../ducks/press';
+import {saga as pressPageSaga} from '../ducks/pressPage';
 import {saga as pressListSaga} from '../ducks/pressList';
 import {saga as newsSaga} from '../ducks/news';
 import {saga as agencyPageSaga} from '../ducks/agencyPage';
@@ -22,6 +23,7 @@ export default function * () {
 		portfolioSaga(),
 		pressSaga(),
 		pressListSaga(),
+		pressPageSaga(),
 		newsSaga(),
 		newsListSaga(),
 		newsArticleSaga(),
