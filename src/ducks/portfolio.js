@@ -2,7 +2,7 @@ import {appName} from '../config'
 import {Map, Record} from 'immutable'
 import {put, call, takeEvery} from 'redux-saga/effects'
 import axios from 'axios'
-import {PORTFOLIO_en, PORTFOLIO_ru} from '../config'
+import {PORTFOLIO_en, PORTFOLIO_ru, PORTFOLIO_LIST} from '../config'
 
 
 // Constants
@@ -15,8 +15,10 @@ export const LOAD_PORTFOLIO_ERROR = `${prefix}/LOAD_PORTFOLIO_ERROR`
 
 // Reducer
 const ReducerState = Record({
-	entities: new Map(),
+	entities: Map(),
 	catName: null,
+	portfolioList: Map(),
+	count: null,
 	error: null,
 	loading: true
 })
@@ -27,14 +29,16 @@ export default function reducer(state = new ReducerState(), action) {
 	switch(type){
 		case LOAD_PORTFOLIO_SUCCESS:
 	 		return state
-	 						.setIn(['entities'], payload.response)
-	 						.setIn(['catName'], payload.responseCatName.data.name)
-	 		 				.setIn(['loading'], false)
+	 						.set('entities', payload.response.data)
+	 						.set('catName', payload.responseCatName.data.name)
+	 						.set('portfolioList', payload.portfolioList.data)
+	 						.set('count', payload.countProjects)
+	 		 				.set('loading', false)
 	 			
 		case LOAD_PORTFOLIO_ERROR:
 	 		return state
-	 						.setIn(['error'], payload.error)
-	 						.setIn(['loading'], false)
+	 						.set('error', payload.error)
+	 						.set('loading', false)
 	}
 
 	return state
@@ -56,10 +60,14 @@ export function * loadPortfolioSaga(action){
 	try {
 		const response = yield call(axios.get, `/wp-json/wp/v2/posts?categories=${articleLang}`);
 		const responseCatName = yield call(axios.get, `/wp-json/wp/v2/categories/${articleLang}`);
+		const portfolioList = yield call(axios.get, `/wp-json/wp/v2/posts/${PORTFOLIO_LIST}`);
+
+		const count = yield call(axios.get, `/wp-json/wp/v2/categories/${articleLang}`);
+		const countProjects = count.data.count;
 
 		yield put({
 						type: LOAD_PORTFOLIO_SUCCESS,
-						payload: {response, responseCatName}
+						payload: {response, responseCatName, portfolioList, countProjects}
 					})
 	} catch (error) {
 		

@@ -7,6 +7,7 @@ import RouteMainPage from './Routes/mainPage'
 import RouteNews from './Routes/news'
 import RouteNewsArticle from './Routes/newsItem'
 import RouteContacts from './Routes/contacts'
+import RoutePortfolioList from './Routes/portfolioList'
 import RouteInstaFooter from './Routes/instaFooter'
 import RouteAgencyPage from './Routes/agency'
 import RoutePressList from './Routes/press'
@@ -41,6 +42,7 @@ class App extends Component {
 							<Route path="/" component={RouteMainPage} exact/>
 							<Route path="/agency" component={RouteAgencyPage} exact/>
 							<Route path="/press" component={RoutePressList} exact/>
+							<Route path="/portfolio" component={RoutePortfolioList} exact/>
 							<Route path="/press/:id" component={RoutePressPage} exact/>
 							<Route path="/news" component={RouteNews} exact/>
 							<Route path="/news/:id" component={RouteNewsArticle} exact/>

@@ -29,7 +29,7 @@ class Portfolio extends Component{
 		if (error) return (<ErrorCmp error={error} />);			
 
 		
-		const body = entities.data.map( (item) => 
+		const body = entities.map( (item) => 
       <Slide key={item.id} index={item.id}>
         <PortfolioItem item={item}/>
       </Slide>

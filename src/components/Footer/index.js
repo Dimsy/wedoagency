@@ -27,6 +27,10 @@ class Footer extends Component{
 		if(loading || !menu || !contacts || !contacts.acf.Phone) return <Loader />;
 
 		const menuSet = menu.toArray();
+
+		if (menuSet.length === 0){
+			return <div>Данные не доступны</div>
+		}
 		
 		const body = menuSet.map(item =><li key={item.ID} className="menuFooter__Item"><Link to={item.url}>{item.title}</Link></li>)
 

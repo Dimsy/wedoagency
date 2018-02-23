@@ -48,24 +48,24 @@ class AgencyPage extends Component {
 		return (
 			<div className="articlePage">
 				<div className="articleImgNews" style={header} />
-			<Grid>
- 				<Row>
- 					<Col md={6}>
- 					 <div style={collage} />
- 					</Col>
- 					<Col md={1}>
- 					</Col>
- 					<Col md={5} className="agencyInfo">
- 						<h1>
- 							{entities.title.rendered}
- 						</h1>
- 						{ renderHTML(entities.content.rendered)}
- 						<div className="sign">
- 							{entities.acf.sign}
- 						</div>
- 					</Col>
- 				</Row>
- 			</Grid>
+				<Grid>
+	 				<Row>
+	 					<Col md={6}>
+	 					 <div style={collage} />
+	 					</Col>
+	 					<Col md={1}>
+	 					</Col>
+	 					<Col md={5} className="agencyInfo">
+	 						<h1>
+	 							{entities.title.rendered}
+	 						</h1>
+	 						{ renderHTML(entities.content.rendered)}
+	 						<div className="sign">
+	 							{entities.acf.sign}
+	 						</div>
+	 					</Col>
+	 				</Row>
+	 			</Grid>
  			</div>
 		)
 	}	

@@ -27,11 +27,13 @@ export const PRESS_LIST_en = '12';
 
 
 // Указывает категорию в WordPress, содержащую статьи для портфолио
-//http://test.wedoagency.ru//wp-json/wp/v2/posts?categories=4
 //ru
 export const PORTFOLIO_ru = '9'
 //en
 export const PORTFOLIO_en = '4'
+
+// Статья, оформляющая портфолио
+export const PORTFOLIO_LIST = '313'
 
 // Указывает категорию в WordPress, содержащую статьи для портфолио
 //http://test.wedoagency.ru//wp-json/wp/v2/posts?categories=4

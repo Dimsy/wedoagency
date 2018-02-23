@@ -904,8 +904,38 @@ hr {
   margin-bottom: 90px;
 }
 
+.portfolioList h1{
+  text-align: center;
+}
 
+.portfolioList .portfolioList__item {
+  position: relative;
+  width: 304px;
+  height: 410px;
+  float: left;
+  margin: 10px;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
 
+.portfolioList .portfolioListItem__Info{
+  position: absolute;
+  width: 274px;
+  height: 370px;
+  top: 20px;
+  left: 15px;
+  opacity: 0.9;
+  background-color: #f7f7f7;
+}
+
+.portfolioList .portfolioItem__info-data{
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0 auto;
+  height: 332px;
+  width: 274px;
+}
 
 
 
