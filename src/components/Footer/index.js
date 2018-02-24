@@ -28,6 +28,8 @@ class Footer extends Component{
 
 		const menuSet = menu.toArray();
 
+		// console.log('----', contacts, contacts.acf.Phone)
+
 		if (menuSet.length === 0){
 			return <div>Данные не доступны</div>
 		}

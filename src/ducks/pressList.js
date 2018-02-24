@@ -85,13 +85,9 @@ export function * pressListSaga(action){
 	const articleLang = action.payload.lang == 'ru' ? PRESS_LIST_ru : PRESS_LIST_en;
 
 	try {
-		
-
-		console.log('articleLang', articleLang)
-
 		const response = yield call(axios.get, `/wp-json/wp/v2/posts?categories=${articleLang}&orderby=date&order=desc&per_page=3&offset=${POST_COUNTER}`);
+		
 		POST_COUNTER = POST_COUNTER + 3;
-
 
 		const count = yield call(axios.get, `/wp-json/wp/v2/categories/${articleLang}`);
 		const countArticles = count.data.count;

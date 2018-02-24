@@ -28,12 +28,12 @@ class Portfolio extends Component{
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);			
 
+		const portfolioSlider = entities.toArray();
 		
-		const body = entities.map( (item) => 
-      <Slide key={item.id} index={item.id}>
-        <PortfolioItem item={item}/>
-      </Slide>
-     )
+		const body = portfolioSlider.map( (item) => <Slide key={item.id} index={item.id}>
+        																					<PortfolioItem item={item}/>
+																		      			</Slide>
+     																					)
 
 		return (
 			<div className='portfolio'>

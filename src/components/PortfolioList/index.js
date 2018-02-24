@@ -7,10 +7,15 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import PortfolioListItem from './PortfolioListItem';
 
 class PortfolioList extends Component{
+
 	componentDidMount(){
 		const { useLang, loadPortfolio } = this.props
 
-		loadPortfolio(useLang)
+		if (this.props.entities.toArray().length < 9){
+			loadPortfolio(useLang)
+		}
+
+		
 	}
 
 	componentWillReceiveProps(nextProps){
@@ -25,18 +30,22 @@ class PortfolioList extends Component{
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);	
 
-		// const projectsItems = entities.toArray();
+		const projectsItems = entities.toArray();
 
-		const body = entities.map( item => <li key={item.id}><PortfolioListItem item={item} match={match}/></li>)
+		const body = projectsItems.map( item => <li key={item.id}><PortfolioListItem item={item} match={match}/></li>)
 		
 		if( body.length === 0 ){
 			return <div>Данные недоступны</div>
 		}
-		console.log('---', body.length);
-
+		
 		const showMore = useLang == "ru" ? "Показать еще" : "Show more";
 		const projects = useLang == "ru" ? "Проекты" : "Projects";
-		// const toggleShowMore = body.length != count  ? showMore : null;
+		const toggleShowMore = body.length != count ? <div className='showMore'>
+																									  <span onClick={this.addingPress}>
+																									    {showMore}
+																									  </span>
+																									</div>
+																								: null;
 
 		const header = {
 			backgroundImage: `-webkit-image-set( url(${portfolioList.acf.foto}) 1x, url(${portfolioList.acf.fotox2}) 2x )`,
@@ -62,16 +71,19 @@ class PortfolioList extends Component{
 								{body}
 							</ul>
 							<div className='clear' />
-							<div className='showMore'>
-								{/*<span onClick={this.addingPress}>
-									{toggleShowMore}
-								</span>	*/}
-							</div>	
+							{toggleShowMore}
 						</Col>
 					</Row>		
 				</Grid>
 			</div>	
 		)
+	}
+
+	addingPress = () => {
+		console.log('adding Press')
+
+		const { useLang } = this.props;
+		this.props.loadPortfolio(useLang);
 	}
 }
 

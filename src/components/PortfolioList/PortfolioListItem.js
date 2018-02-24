@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom'
 
 class PortfolioListItem extends Component{
 	state = {
@@ -17,11 +18,16 @@ class PortfolioListItem extends Component{
 		};	
 
 
-		console.log('---', Object.keys(item).length);
-		const body = <div className="portfolioListItem__Info">
-		 							 <div className="portfolioItem__info-data">{item.title.rendered}</div>
-								   <div className="news__info-itemdata ">{item.acf.DataOfFinnish}</div>
-		 						 </div>
+		if(Object.keys(item).length === 0) {
+			return null
+		}
+
+		const body = <Link to={`${match.path}/${item.id}`}>
+									 <div className="portfolioListItem__Info">
+		 							   <div className="portfolioItem__info-data">{item.title.rendered}</div>
+								     <div className="news__info-itemdata ">{item.acf.DataOfFinnish}</div>
+		 						   </div>
+		 						 </Link>  
 
 		return (
 				<div className="portfolioList__item" style={background} onMouseEnter={this.handlerMouseEnter} onMouseLeave={this.handlerMouseLeave}>
