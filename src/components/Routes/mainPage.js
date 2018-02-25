@@ -6,11 +6,13 @@ import Press from '../Press';
 import News from '../News';
 
 export default function MainPage(props){
+	const { match } = props
+
 	return (
 		<div>
 			<HeaderImgBlock/>
 			<Agency />
-			<Portfolio />
+			<Portfolio match={match}/>
 			<Press />
 			<News />
 		</div>

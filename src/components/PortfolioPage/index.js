@@ -27,6 +27,9 @@ class PortfolioPage extends Component{
 
 		const project = portfolioItem[0].toJS()
 
+
+		console.log('---', project)
+
 		const header = {
 			backgroundImage: `-webkit-image-set( url(${project.acf.headerPhoto}) 1x, url(${project.acf.headerPhotox2}) 2x )`,
 			backgroundImage: `-moz-image-set( url(${project.acf.headerPhoto}) 1x, url(${project.acf.headerPhotox2}) 2x )`,
@@ -35,7 +38,6 @@ class PortfolioPage extends Component{
 			backgroundImage: `url(${project.acf.headerPhoto})`,
 			marginBottom: '100px'
 		};
-		console.log('---', project)
 
 		const content = project.content.rendered.length != 0 ?  <div className="content">
 																															<h1>
@@ -45,59 +47,77 @@ class PortfolioPage extends Component{
 																													  </div> 
 																												 : null
 
-		const photo1 = project.acf.photo1 != false ? <img src={`${project.acf.photo1}`}  srcSet={`${project.acf.photo1x2} 2x`} alt="Изображение для прессы"/>
-																							 : null
+		// const photo1 = (!!project.acf.photo1) && (project.acf.photo1 != false)
+		// 											? <img src={`${project.acf.photo1}`}  srcSet={`${project.acf.photo1x2} 2x`} alt="Фото проекта 1"/>
+		// 											: null
 																										 
-		const photo2 = project.acf.photo2 != false ? <img src={`${project.acf.photo2}`}  srcSet={`${project.acf.photo2x2} 2x`} alt="Изображение для прессы"/>
-																							 : null
+		// const photo2 = (!!project.acf.photo2) && (project.acf.photo2 != false)  
+		// 											? <img src={`${project.acf.photo2}`}  srcSet={`${project.acf.photo2x2} 2x`} alt="Фото проекта 2"/>
+		// 											: null
 
-		const photo3 = project.acf.photo3 != false ? <img src={`${project.acf.photo3}`}  srcSet={`${project.acf.photo3x2} 2x`} alt="Изображение для прессы"/>
-																							 : null			
+		// const photo3 = (!!project.acf.photo3) && (project.acf.photo3 != false) 
+		// 											? <img src={`${project.acf.photo3}`}  srcSet={`${project.acf.photo3x2} 2x`} alt="Фото проекта 3"/>
+		// 		  							  : null			
 
-		const photo4 = project.acf.photo4 != false ? <img src={`${project.acf.photo4}`}  srcSet={`${project.acf.photo4x2} 2x`} alt="Изображение для прессы"/>
-																							 : null			
+		// const photo4 = (!!project.acf.photo4) && (project.acf.photo4 != false)
+		// 											? <img src={`${project.acf.photo4}`}  srcSet={`${project.acf.photo4x2} 2x`} alt="Фото проекта 4"/>
+		// 											: null			
 																							 
-		const photo5 = project.acf.photo5 != false ? <img src={`${project.acf.photo5}`}  srcSet={`${project.acf.photo5x2} 2x`} alt="Изображение для прессы"/>
-																							 : null			
+		// const photo5 = (!!project.acf.photo5) && (project.acf.photo5 != false) 
+		// 											? <img src={`${project.acf.photo5}`}  srcSet={`${project.acf.photo5x2} 2x`} alt="Фото проекта 5"/>
+		// 											: null			
 		
-		const photo6 = project.acf.photo6 != false ? <img src={`${project.acf.photo6}`}  srcSet={`${project.acf.photo6x2} 2x`} alt="Изображение для прессы"/>
-																							 : null			
+		// const photo6 = (!!project.acf.photo6) && (project.acf.photo6 != false) 
+		// 											? <img src={`${project.acf.photo6}`}  srcSet={`${project.acf.photo6x2} 2x`} alt="Фото проекта 6"/>
+		// 											: null			
 	  
-	  const photo7 = project.acf.photo7 != false ? <img src={`${project.acf.photo7}`}  srcSet={`${project.acf.photo7x2} 2x`} alt="Изображение для прессы"/>
-																							 : null			
+	 //  const photo7 = (!!project.acf.photo7) && (project.acf.photo7 != false)
+	 //  											? <img src={`${project.acf.photo7}`}  srcSet={`${project.acf.photo7x2} 2x`} alt="Фото проекта 7"/>
+		// 											: null			
 	  
-	  const photo8 = project.acf.photo8 != false ? <img src={`${project.acf.photo8}`}  srcSet={`${project.acf.photo8x2} 2x`} alt="Изображение для прессы"/>
-																							 : null			
+	 //  const photo8 = (!!project.acf.photo8) && (project.acf.photo8 != false)
+	 //  											? <img src={`${project.acf.photo8}`}  srcSet={`${project.acf.photo8x2} 2x`} alt="Фото проекта 8"/>
+		// 											: null			
 	  
-	  const photo9 = project.acf.photo9 != false ? <img src={`${project.acf.photo9}`}  srcSet={`${project.acf.photo9x2} 2x`} alt="Изображение для прессы"/>
-																							 : null			
+	 //  const photo9 = (!!project.acf.photo9) && (project.acf.photo9 != false)
+	 //  											? <img src={`${project.acf.photo9}`}  srcSet={`${project.acf.photo9x2} 2x`} alt="Фото проекта 9"/>
+		// 											: null			
 	  
-	  const photo10 = project.acf.photo10 != false ? <img src={`${project.acf.photo10}`}  srcSet={`${project.acf.photo10x2} 2x`} alt="Изображение для прессы"/>
-																							 : null			
+	 //  const photo10 = (!!project.acf.photo10) && (project.acf.photo10 != false)
+	 //  											? <img src={`${project.acf.photo10}`}  srcSet={`${project.acf.photo10x2} 2x`} alt="Фото проекта 10"/>
+		// 											: null			
 	  
-	  const photo11 = project.acf.photo11 != false ? <img src={`${project.acf.photo11}`}  srcSet={`${project.acf.photo11x2} 2x`} alt="Изображение для прессы"/>
-																							 : null			
+	 //  const photo11 = (!!project.acf.photo11) && (project.acf.photo11 != false)
+	 //  											? <img src={`${project.acf.photo11}`}  srcSet={`${project.acf.photo11x2} 2x`} alt="Фото проекта 11"/>
+		// 											: null			
 	  
-	  const photo12 = project.acf.photo12 != false ? <img src={`${project.acf.photo12}`}  srcSet={`${project.acf.photo12x2} 2x`} alt="Изображение для прессы"/>
-																							 : null		
+	 //  const photo12 = (!!project.acf.photo12) && (project.acf.photo12 != false)
+	 //  											? <img src={`${project.acf.photo12}`}  srcSet={`${project.acf.photo12x2} 2x`} alt="Фото проекта 12"/>
+		// 											: null		
 
-		const photo13 = project.acf.photo13 != false ? <img src={`${project.acf.photo13}`}  srcSet={`${project.acf.photo13x2} 2x`} alt="Изображение для прессы"/>
-																							 : null									
+		// const photo13 = (!!project.acf.photo13) && (project.acf.photo13 != false)
+		// 											? <img src={`${project.acf.photo13}`}  srcSet={`${project.acf.photo13x2} 2x`} alt="Фото проекта 13"/>
+		// 											: null									
 			
-		const photo14 = project.acf.photo14 != false ? <img src={`${project.acf.photo14}`}  srcSet={`${project.acf.photo14x2} 2x`} alt="Изображение для прессы"/>
-																							 : null	
+		// const photo14 = (!!project.acf.photo14) && (project.acf.photo14 != false)
+		// 											? <img src={`${project.acf.photo14}`}  srcSet={`${project.acf.photo14x2} 2x`} alt="Фото проекта 14"/>
+		// 											: null	
 																							 
-		const photo15 = project.acf.photo15 != false ? <img src={`${project.acf.photo15}`}  srcSet={`${project.acf.photo15x2} 2x`} alt="Изображение для прессы"/>
-																							 : null																						 																						 														 
+		// const photo15 = (!!project.acf.photo15) && (project.acf.photo15 != false)
+		// 											? <img src={`${project.acf.photo15}`}  srcSet={`${project.acf.photo15x2} 2x`} alt="Фото проекта 15"/>
+		// 											: null																						 																						 														 
 		
-		const photo16 = project.acf.photo16 != false ? <img src={`${project.acf.photo16}`}  srcSet={`${project.acf.photo16x2} 2x`} alt="Изображение для прессы"/>
-																							 : null																						 
+		// const photo16 = (!!project.acf.photo16) && (project.acf.photo16 != false)
+		// 											? <img src={`${project.acf.photo16}`}  srcSet={`${project.acf.photo16x2} 2x`} alt="Фото проекта 16"/>
+		// 											: null																						 
 
-		const photo17 = project.acf.photo17 != false ? <img src={`${project.acf.photo17}`}  srcSet={`${project.acf.photo17x2} 2x`} alt="Изображение для прессы"/>
-																							 : null	
+		// const photo17 = (!!project.acf.photo17) && (project.acf.photo17 != false)
+		// 											? <img src={`${project.acf.photo17}`}  srcSet={`${project.acf.photo17x2} 2x`} alt="Фото проекта 17"/>
+		// 											: null	
 
-		const photo18 = project.acf.photo18 != false ? <img src={`${project.acf.photo18}`}  srcSet={`${project.acf.photo18x2} 2x`} alt="Изображение для прессы"/>
-																							 : null																						 
+		// const photo18 = (!!project.acf.photo18) && (project.acf.photo18 != false)
+		// 											? <img src={`${project.acf.photo18}`}  srcSet={`${project.acf.photo18x2} 2x`} alt="Фото проекта 18"/>
+		// 											: null																						 
 
 		return(
 			<div className="portfolioPage__project">
@@ -106,13 +126,13 @@ class PortfolioPage extends Component{
 					<Row>
 						<Col md={12}>
 							{content}
-							{photo1}
+							{/*photo1*/}
 							<div className="clear" />
 						</Col>
 					</Row>
 					<Row>
 						<Col md={12} className="photoBlock">
-							{photo2}
+							{/*photo2}
 							{photo3}
 							{photo4}
 							{photo5}
@@ -128,7 +148,7 @@ class PortfolioPage extends Component{
 							{photo15}
 							{photo16}
 							{photo17}
-							{photo18}	
+							{photo18*/}	
 						</Col>
 					</Row>
 				</Grid>

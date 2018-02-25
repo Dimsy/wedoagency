@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 
 class NewsItem extends Component {
 	state = {
@@ -23,8 +24,10 @@ class NewsItem extends Component {
 
 		return(
 			<div className="news__wrapper" onMouseEnter={this.handlerMouseEnter} onMouseLeave={this.handlerMouseLeave}>
+				<Link to={`./news/${item.id}`}>
 		 			<img src={item.acf.StartFoto} srcSet={item.acf.StartFotox2} className="news__img"/>
 		 			{this.state.show && body}
+		 		</Link>	
 		 	</div>
 		)
 	}

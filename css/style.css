@@ -298,7 +298,15 @@ p {
 .portfolio .carousel__slide{
   height: 411px;
 }
-
+.sliderButtonsOpacity{
+  opacity: 0.5;
+}
+.sliderButtonsOpacity:hover{
+  opacity: 1;
+}
+.sliderButtonsOpacityRevert{
+  transform: rotate(180deg);
+}
 .portfolio .hidePixelsWrapper{
   position: relative;
 }

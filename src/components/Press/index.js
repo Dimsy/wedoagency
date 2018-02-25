@@ -21,10 +21,12 @@ class Press extends Component{
 
 	render(){
 
-		const {entities, loading, error} = this.props;
+		const {entities, loading, error, useLang} = this.props;
 
 		if (loading) return <Loader />;
-		if (error) return (<ErrorCmp error={error} />);				
+		if (error) return (<ErrorCmp error={error} />);	
+
+		const knowMore = useLang == "ru" ? "Узнать больше" : "Know more"				
 		
 		return (
 			<div className="press">
@@ -47,7 +49,7 @@ class Press extends Component{
 						<Col md={4}>
 							<h1>{entities.data.title.rendered}</h1>
 							<p>{entities.data.content.rendered}</p>
-							<Link to='#press' className="knowMore">{entities.data.acf.knowMore}</Link>
+							<Link to='./press' className="knowMore">{knowMore}</Link>
 						</Col>
 					</Row>
 				</Grid>

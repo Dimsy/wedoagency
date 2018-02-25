@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 
 class PortfolioItem extends Component{
 	state = {
@@ -6,7 +7,7 @@ class PortfolioItem extends Component{
 	}
 
 	render(){
-		const {item} = this.props;
+		const { item } = this.props;
 
 		const body = <div className="portfolioItem__Info">
 									 <div className="portfolioItem__info-data">{item.title.rendered}</div>
@@ -15,8 +16,10 @@ class PortfolioItem extends Component{
 
 		return (
 			<div className="portfolioItem__wrapper" onMouseEnter={this.handlerMouseEnter} onMouseLeave={this.handlerMouseLeave}>
-				<img src={item.acf.StartFoto} srcSet={item.acf.StartFotox2} className="portfolioItem__img"/>
-				{this.state.show && body}
+				<Link to={`./portfolio/${item.id}`}>
+					<img src={item.acf.StartFoto} srcSet={item.acf.StartFotox2} className="portfolioItem__img"/>
+					{this.state.show && body}
+				</Link>	
 			</div>
 		)
 	}
@@ -35,3 +38,5 @@ class PortfolioItem extends Component{
 }
 
 export default PortfolioItem
+
+//<Link to={`${location}/portfolio/${item.id}`}>

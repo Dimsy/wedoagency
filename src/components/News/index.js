@@ -30,19 +30,16 @@ class News extends Component{
 
 		const {useLang, entities, catName, error, loading} = this.props;
 
-
-
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);			
 
 
 		const posts = entities.toArray();
 
-		const body = posts.map( (item) => 
-		  <Slide key={item.id} index={item.id}>
-		  	<NewsInfo item={item}/>
-		 	</Slide>
-		);
+		const body = posts.map( (item) => <Slide key={item.id} index={item.id}>
+		  																	<NewsInfo item={item}/>
+		 																	</Slide>
+																		);
 
 
 		return (
@@ -54,8 +51,12 @@ class News extends Component{
 							<h1>{catName}</h1>
 							</Col>
 							<Col md={3} className="SliderButtons">
-								<ButtonNext><img src={`${PATH}/img/slider/next.svg`}/></ButtonNext>
-								<ButtonBack><img src={`${PATH}/img/slider/back.svg`}/></ButtonBack>
+								<ButtonNext>
+									<img src={`${PATH}/img/slider/next.svg`} className="sliderButtonsOpacity"/>
+								</ButtonNext>
+								<ButtonBack>
+									<img src={`${PATH}/img/slider/next.svg`} className="sliderButtonsOpacity sliderButtonsOpacityRevert"/>
+								</ButtonBack>
 								<div className="clear"/>
       		  	</Col>
 						</Row>

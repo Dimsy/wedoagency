@@ -19,9 +19,12 @@ class NewsArticle extends Component{
 		
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);	
-
 	
 		const article = entities;
+
+		if (!!article) {
+  		return <div>Данные временно не доступны</div>			
+		}
 
 		const i18 = useLang == "ru" ? "ru" : "en-US";
 		const allNews = useLang == "ru" ? "Все новости" : "all news";
