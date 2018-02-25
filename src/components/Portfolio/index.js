@@ -50,10 +50,12 @@ class Portfolio extends Component{
         	    </Col>
 				    </Row>
 				    <Row>
-        	    <Col md={12}>
+        	    <Col md={12} className="hidePixelsWrapper">
 						    <Slider>
                   {body}
         		    </Slider>
+        		    <div className="hidePixels">
+        		    </div>
         	    </Col>
             </Row>				
 				  </Grid>	

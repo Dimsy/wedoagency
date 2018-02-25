@@ -12,7 +12,7 @@ function Agency(){
  				</Col>
  				<Col md={5} className="agencyInfo">
  					<AgencyInfo/>
- 					</Col>
+ 				</Col>
  			</Row>
  		</Grid>
 	)

@@ -20,16 +20,22 @@ class AgencyInfo extends Component{
 
 
 	render(){
-		const {entities, loading, error} = this.props;
+		const {useLang, entities, loading, error} = this.props;
 
 		if (loading) return <Loader />;
-		if (error) return (<ErrorCmp error={error} />);												
+		if (error) return (<ErrorCmp error={error} />);		
+
+		if( Object.keys(entities.data).length ==0 ){
+			return <div>Данные врененно не доступны</div>
+		}
+
+		const knowMore = useLang == "ru" ? "Узнать больше" : "Know more"								
 	
 		return (
 			<div>
 				<h1>{entities.data.title.rendered}</h1>
 				<p>{entities.data.content.rendered}</p>
-				<Link to='#agency' className="knowMore">{entities.data.acf.knowMore}</Link>
+				<Link to='/agency' className="knowMore">{knowMore}</Link>
 			</div>
 		)
 	}

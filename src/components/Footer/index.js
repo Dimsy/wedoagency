@@ -24,7 +24,7 @@ class Footer extends Component{
 
 		const {useLang, menu, contacts, loading} = this.props
 
-		if(loading || !menu || !contacts || !contacts.acf.Phone) return <Loader />;
+		if(loading || !menu || !contacts) return <Loader />;
 
 		const menuSet = menu.toArray();
 
