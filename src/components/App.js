@@ -38,7 +38,7 @@ class App extends Component {
 			<ConnectedRouter history={history}>
 				<ScrollToTop>
 				<div>
-					{/*<Route path="/" component={RouteRoot} />*/}
+					<Route path="/" component={RouteRoot} />
 						<Switch>
 							<Route path="/" component={RouteMainPage} exact/>
 							<Route path="/agency" component={RouteAgencyPage} exact/>

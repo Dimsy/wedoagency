@@ -5,9 +5,9 @@ import ErrorCmp from '../ErrorCmp';
 import { Grid, Row, Col } from 'react-bootstrap';
 import renderHTML from 'react-render-html'
 import safeEval from 'safe-eval'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 class PortfolioPage extends Component{
-
 
 	a = (photos) => {
 		for (let key in photos){		
@@ -31,13 +31,10 @@ class PortfolioPage extends Component{
 
 	b = (photos) => {
 		for (let key in photos){
-			console.log('b', photos[key])
-		
 			const photoIndex = key.indexOf('photo')
 
 			const photo = key.substring(photoIndex)
-			photos[photo] = photos[key]
-									 
+			photos[photo] = photos[key]								 
 		}
 
 		const styleRight = {
@@ -63,8 +60,7 @@ class PortfolioPage extends Component{
 			const photoIndex = key.indexOf('photo')
 
 			const photo = key.substring(photoIndex)
-			photos[photo] = photos[key]
-									 
+			photos[photo] = photos[key]									 
 		}
 		
 		return (
@@ -80,15 +76,12 @@ class PortfolioPage extends Component{
 
 	d = (photos) => {
 
-		console.log(Object.keys(photos).length)
-			for (let key in photos){
+		for (let key in photos){
 			const photoIndex = key.indexOf('photo')
 
 			const photo = key.substring(photoIndex)
-			photos[photo] = photos[key]
-									 
+			photos[photo] = photos[key]									 
 		}
-		
 
 		return (
 			<Row key={photos.photo1+'_'+photos.photo1x2}>
@@ -125,6 +118,7 @@ class PortfolioPage extends Component{
 					<img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта" style={styleRight}/>
 					<img src={`${photos.photo3}`}  srcSet={`${photos.photo3x2} 2x`} alt="Фото проекта" style={styleRight}/>
 					<img src={`${photos.photo4}`}  srcSet={`${photos.photo4x2} 2x`} alt="Фото проекта" style={styleLeft}/>
+					<div className="clear" />
 				</Col>
 			</Row>
 		)	
@@ -143,14 +137,12 @@ class PortfolioPage extends Component{
 		}
 
 		const portfolioItem = portfolioSet.filter(item => item.id == match.params.id)
-		
 
 		if ( portfolioItem.length == 0){
 			return null
 		}
 
 		const project = portfolioItem[0].toJS()
-
 
 		const body = []
 		
@@ -172,9 +164,7 @@ class PortfolioPage extends Component{
 				const createBlock = safeEval(photoBlock[0], this)
 				body.push(createBlock(photos))			
 		 	}
-		}
-
-		console.log("----", body)
+		}	
 
 		const header = {
 			backgroundImage: `-webkit-image-set( url(${project.acf.headerPhoto}) 1x, url(${project.acf.headerPhotox2}) 2x )`,
@@ -195,25 +185,40 @@ class PortfolioPage extends Component{
 
 		const photoNextText = (!!project.acf.photoNextText) && (project.acf.photoNextText != false)
 		 											? <img src={`${project.acf.photoNextText}`}  srcSet={`${project.acf.photoNextTextx2} 2x`} alt="Фото проекта 1"/>
-		 											: null																											 
+		 											: null							
+
+		console.log('-----',  (project.acf.video.length > 0))
+		const videoBody = project.acf.video.length > 0 ? <iframe src={project.acf.video} width="960" height="540" 
+																															frameBorder="0" allowFullScreen className="showVideo" />
+																									 : <div style={{marginBottom: '90px'}} />
+																					 
 
 		return(
 			<div className="portfolioPage__project">
-				<div className="articleImgNews" style={header} />
-				<Grid>
-					<Row>
-						<Col md={12}>
-							{content}
-							{photoNextText}
-							<div className="clear" />
-						</Col>
-					</Row>
-					<Row>
-						<Col md={12} className="photoBlock">
-							{body}
-						</Col>
-					</Row>
-				</Grid>
+				<ReactCSSTransitionGroup transitionName="anim" transitionAppear={true} transitionAppearTimeout={2000}
+																 transitionEnter={false} transitionLeave={false}>
+  
+					<div className="articleImgNews" style={header} />
+					<Grid>
+						<Row>
+							<Col md={12}>
+								{content}
+								{photoNextText}
+								<div className="clear" />
+							</Col>
+						</Row>
+						<Row>
+							<Col md={12} className="photoBlock">
+								{body}
+							</Col>
+						</Row>
+						<Row>
+							<Col md={12}>
+								{videoBody}
+							</Col>
+						</Row>
+					</Grid>
+				</ReactCSSTransitionGroup>
 			</div>
 		)
 	}
