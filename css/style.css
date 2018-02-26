@@ -1010,7 +1010,7 @@ hr {
 
 .portfolioPage__project img{
   display: inline-block;
-  float: right;
+  float: left;
   margin: 10px; 
 }
 
