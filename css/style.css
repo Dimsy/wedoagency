@@ -1014,15 +1014,6 @@ hr {
   margin: 10px; 
 }
 
-.portfolioPage__project .photoBlock img{
-  /*display: -moz-inline-stack; /* ← Firefox 2 backwards compatibility */
-  display: block;
-  float: left;
-  margin: 10px;
-  vertical-align: top;
-}
-
-
 
 
 

@@ -1,4 +1,5 @@
 var path = require('path')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
 	devtool: 'inline-source-map',
@@ -12,23 +13,22 @@ module.exports = {
 		publicPath: '/static/'
 	},
 	devServer: {
-        proxy: [
-          {
-           context: ['/wp-json','/wp-admin'],
-            target: 'http://test.wedoagency.ru',
-            secure: false,
-            changeOrigin: true
-          }
-        ],
+    proxy: [
+      {
+       context: ['/wp-json','/wp-admin'],
+        target: 'http://test.wedoagency.ru',
+        secure: false,
+        changeOrigin: true
+      }
+    ],
 
-
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-            "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
-        },
-        
-        historyApiFallback: true
+    headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+        "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+    },
+    
+    historyApiFallback: true
     },
 	module: {
 	 	loaders: [
@@ -73,3 +73,9 @@ module.exports = {
 	 	]
   }
 }
+
+// plugins: [
+//     new UglifyJsPlugin({
+//       test: /\.js($|\?)/i
+//     })
+//   ]

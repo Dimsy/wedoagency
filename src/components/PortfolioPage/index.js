@@ -4,8 +4,49 @@ import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import { Grid, Row, Col } from 'react-bootstrap';
 import renderHTML from 'react-render-html'
+import safeEval from 'safe-eval'
 
 class PortfolioPage extends Component{
+
+	c = (photos) => {
+
+		for (let key in photos){
+			const photoIndex = key.indexOf('photo')
+
+			const photo = key.substring(photoIndex)
+			photos[photo] = photos[key]
+									 
+		}
+		
+		return (
+			<Row key={photos.photo1+'_'+photos.photo1x2}>
+				<Col md={12}>
+					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта"/>
+					<img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта"/>
+					<img src={`${photos.photo3}`}  srcSet={`${photos.photo3x2} 2x`} alt="Фото проекта"/>
+				</Col>
+			</Row>
+		)	
+	}
+
+	d = (photos) => {
+			for (let key in photos){
+			const photoIndex = key.indexOf('photo')
+
+			const photo = key.substring(photoIndex)
+			photos[photo] = photos[key]
+									 
+		}
+		
+		return (
+			<Row key={photos.photo1+'_'+photos.photo1x2}>
+				<Col md={12}>
+					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта"/>
+				</Col>
+			</Row>
+		)	
+	}
+
 	render(){
 		const { useLang, entities, loading, error, match, portfolioList} = this.props;
 
@@ -28,7 +69,29 @@ class PortfolioPage extends Component{
 		const project = portfolioItem[0].toJS()
 
 
-		console.log('---', project)
+		const body = []
+		
+		for (let key in project.acf){
+			const photoBlock = project.acf[key]
+	
+			if (~key.indexOf("block") && (photoBlock == 'a' || 'b' || 'c' || 'd' || 'e')) {
+				const photoBlockIndex = +project.acf[key].substring(1) 
+				const photos = {}
+	
+				for (key in project.acf ){
+					if(~key.indexOf(`bl${photoBlockIndex}`)){
+						
+						photos[key] = project.acf[key]
+					}
+				}
+
+
+				const createBlock = safeEval(photoBlock[0], this)
+				body.push(createBlock(photos))			
+		 	}
+		}
+
+		console.log("----", body)
 
 		const header = {
 			backgroundImage: `-webkit-image-set( url(${project.acf.headerPhoto}) 1x, url(${project.acf.headerPhotox2}) 2x )`,
@@ -46,6 +109,10 @@ class PortfolioPage extends Component{
 																															{renderHTML(project.content.rendered)}
 																													  </div> 
 																												 : null
+
+		const photoNextText = (!!project.acf.photoNextText) && (project.acf.photoNextText != false)
+		 											? <img src={`${project.acf.photoNextText}`}  srcSet={`${project.acf.photoNextTextx2} 2x`} alt="Фото проекта 1"/>
+		 											: null																											 
 
 		// const photo1 = (!!project.acf.photo1) && (project.acf.photo1 != false)
 		// 											? <img src={`${project.acf.photo1}`}  srcSet={`${project.acf.photo1x2} 2x`} alt="Фото проекта 1"/>
@@ -126,12 +193,13 @@ class PortfolioPage extends Component{
 					<Row>
 						<Col md={12}>
 							{content}
-							{/*photo1*/}
+							{photoNextText}
 							<div className="clear" />
 						</Col>
 					</Row>
 					<Row>
 						<Col md={12} className="photoBlock">
+							{body}
 							{/*photo2}
 							{photo3}
 							{photo4}
