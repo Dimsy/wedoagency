@@ -14,6 +14,62 @@ class NewsArticle extends Component{
 		this.props.loadNewsArticleList(match.params.id)
 	}
 
+	foto = (data, key) => {
+		const ftx2 = data['ftx2' + key.substring(4)] || data[key]
+
+		return ( 
+							<Row key={key}>
+								<Col md={12}>
+									<img src={data[key]} srcSet={ `${ftx2} 2x`} className="newsBodyImg"/> 
+								</Col>
+							</Row>
+					)		
+	}
+
+	slog = (key, item) => {
+
+		return (
+						<Row key={key}>
+							<Col md={3}>
+							</Col>
+							<Col md={6}>		
+								<div className="articleContent">
+									<h2>
+										{ renderHTML(item) }
+									</h2>
+								</div>
+							</Col>
+						</Row>
+					)
+	}
+
+	text = (key, item) => {
+		return (
+						<Row key={key}>
+							<Col md={2}>
+							</Col>
+							<Col md={8}>		
+								<div className="articleContent afterImg">
+									{ renderHTML(item) }
+								</div>
+							</Col>
+						</Row>
+					)
+	}
+
+	sortBody = (a, b) => {
+		const el1 = a.key
+		const el2 = b.key
+
+		if (el1.substring(4) > el2.substring(4)) {
+			return 1
+		}  else if (el1.substring(4) > el2.substring(4)) {
+			return -1
+		} else {
+			return 0
+		}
+	}
+
 	render(){
 		const {match, entities, useLang, loading, error} = this.props
 		
@@ -22,7 +78,8 @@ class NewsArticle extends Component{
 	
 		const article = entities;
 
-		if (!!article) {
+
+		if (!article) {
   		return <div>Данные временно не доступны</div>			
 		}
 
@@ -44,7 +101,30 @@ class NewsArticle extends Component{
 			backgroundImage: `-ms-image-set( url(${article.acf.headImgNews}) 1x, url(${article.acf.headImgNewsx2}) 2x )`,
 			backgroundImage: `url(${article.acf.headImgNewsx2})`
 		};
+
+		const body = []
+
+		for( const key in entities.acf){
 		
+				// console.log('++',key)
+			switch(key.substring(0, 4)){
+
+
+				case 'foto':
+				 	body.push(this.foto(entities.acf, key))
+				 	break;
+
+				case 'slog':
+					body.push(this.slog(key, entities.acf[key]))
+					break;
+
+				case 'text':
+					body.push(this.text(key, entities.acf[key]))	
+			}
+		}
+		
+		console.log('----', body.sort(this.sortBody))
+
 		return (
 			<div>
 				<div className="articleImgNews" style={divStyle} />
@@ -71,34 +151,11 @@ class NewsArticle extends Component{
 								<img src={article.acf.bodyImgNews} srcSet={ `${article.acf.bodyImgNewsx2} 2x`} className="newsBodyImg"/> 
 							</Col>
 						</Row>
-				
+			
+							{body}
+			
 						<Row>
-							<Col md={2}>
-							</Col>
-							<Col md={8}>		
-								<div className="articleContent afterImg">
-									{ renderHTML(article.acf.firstPartArticle)}
-								</div>
-							</Col>
-						</Row>
-						<Row>
-							<Col md={3}>
-							</Col>
-							<Col md={6}>		
-								<div className="articleContent">
-									<h2>
-										{article.acf.slogan}
-									</h2>
-								</div>
-							</Col>
-						</Row>
-						<Row>
-							<Col md={2}>
-							</Col>
-							<Col md={8}>		
-								<div className="articleContent">
-									{ renderHTML(article.acf.secondPartArticle) }
-								</div>
+							<Col>		
 								<Link to='/news' className="linkToAllNews">
 									{ allNews }
 								</Link>
