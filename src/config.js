@@ -10,6 +10,12 @@ export const AGENCY_INFO_ru = '22';
 //en 
 export const AGENCY_INFO_en = '24';
 
+// Награды / awards
+// ru
+export const AWARDS_ru = '13';
+//en 
+export const AWARDS_en = '14';
+
 
 //Видео и слоганы
 // ru
@@ -22,8 +28,6 @@ export const PRESS_en = '67';
 export const PRESS_LIST_ru = '11';
 //en 
 export const PRESS_LIST_en = '12';
-
-
 
 
 // Указывает категорию в WordPress, содержащую статьи для портфолио

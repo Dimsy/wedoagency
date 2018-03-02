@@ -41,7 +41,8 @@ class News extends Component{
 		 																	</Slide>
 																		);
 
-
+		const opacity = body.length > 3 ? {opacity: "1"} : {opacity: "0.3"}
+		
 		return (
 			<div className='news'>
 				<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={307} totalSlides={body.length} visibleSlides={3}>
@@ -52,10 +53,10 @@ class News extends Component{
 							</Col>
 							<Col md={3} className="SliderButtons">
 								<ButtonNext>
-									<img src={`${PATH}/img/slider/next.svg`} className="sliderButtonsOpacity"/>
+									<img src={`${PATH}/img/slider/next.svg`} style={opacity}/>
 								</ButtonNext>
 								<ButtonBack>
-									<img src={`${PATH}/img/slider/next.svg`} className="sliderButtonsOpacity sliderButtonsOpacityRevert"/>
+									<img src={`${PATH}/img/slider/next.svg`} className="sliderButtonsOpacityRevert" style={opacity}/>
 								</ButtonBack>
 								<div className="clear"/>
       		  	</Col>

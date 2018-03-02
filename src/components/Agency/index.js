@@ -1,20 +1,18 @@
 import React, {Component} from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col, Clearfix } from 'react-bootstrap';
 import AgencyInfo from './AgencyInfo';
 
-function Agency(){
+export default function Agency(){
 	return (
 		<Grid className="agency">
  			<Row>
- 				<Col md={6} className="agencyImg">
+ 				<Col md={6} mdOffset={1} sm={6} className="agencyImg">
  				</Col>
- 				<Col md={1}>
- 				</Col>
- 				<Col md={5} className="agencyInfo">
+ 				<Col md={5} sm={6} className="agencyInfo">
  					<AgencyInfo/>
  				</Col>
+ 				<div className="clear" />
  			</Row>
  		</Grid>
 	)
 }
-export default Agency

@@ -99,14 +99,12 @@ class NewsArticle extends Component{
 			backgroundImage: `-moz-image-set( url(${article.acf.headImgNews}) 1x, url(${article.acf.headImgNewsx2}) 2x )`,
 			backgroundImage: `-o-image-set( url(${article.acf.headImgNews}) 1x, url(${article.acf.headImgNewsx2}) 2x )`,
 			backgroundImage: `-ms-image-set( url(${article.acf.headImgNews}) 1x, url(${article.acf.headImgNewsx2}) 2x )`,
-			backgroundImage: `url(${article.acf.headImgNewsx2})`
+			backgroundImage: `url(${article.acf.headImgNews})`
 		};
 
 		const body = []
 
 		for( const key in entities.acf){
-		
-				// console.log('++',key)
 			switch(key.substring(0, 4)){
 
 
@@ -123,8 +121,6 @@ class NewsArticle extends Component{
 			}
 		}
 		
-		console.log('----', body.sort(this.sortBody))
-
 		return (
 			<div>
 				<div className="articleImgNews" style={divStyle} />

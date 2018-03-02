@@ -173,7 +173,7 @@ p {
 }
 
 .headerTopMenu li{
-  display: inline-block;
+  float: left;
 }
 
 .headerTopMenu li a,
@@ -192,7 +192,7 @@ p {
 
 .headerTopMenu a{
   display: block;
-  padding: 19px 25px 13px;
+  padding: 20px 25px 15px;
 }
 
 .headerLangSwitcher,
@@ -245,9 +245,9 @@ p {
   background-size: cover;
 }
 
-.agency{
+/*.agency{
   height: 520px;
-}
+}*/
 
 .agencyImg{
     height: 320px;
@@ -259,7 +259,9 @@ p {
     background-repeat: no-repeat;
     background-position: center center;
 }
-
+.agencyInfo{
+  padding-left: 84px;
+}
 .portfolio,
 .agency,
 .news{
@@ -298,12 +300,7 @@ p {
 .portfolio .carousel__slide{
   height: 411px;
 }
-.sliderButtonsOpacity{
-  opacity: 0.5;
-}
-.sliderButtonsOpacity:hover{
-  opacity: 1;
-}
+
 .sliderButtonsOpacityRevert{
   transform: rotate(180deg);
 }
@@ -1023,7 +1020,51 @@ hr {
   transition: opacity 2s linear;
 }
 
+.awards__Item {
+  width: 306px;
+  height: 400px;
+  margin: 10px;
+  padding-top: 50px;
+  background-color: #fff;
+}
 
+.awards__Item-Background{
+  width: 100%;
+  height: 198px;
+  margin-bottom: 50px;
+  -webkit-background-size: cover;
+  background-size: contain;
+  background-position: center, center;
+  background-repeat: no-repeat;
+}
+
+.awards__Item-content {
+  margin-bottom: 10px;
+  font-family: LatoRegular;
+  font-size: 11px;
+  font-stretch: normal;
+  line-height: 1.82;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #545454;
+  text-transform: uppercase;
+}
+
+.awards__Item-title{
+  font-family: LatoSemibold;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #131313;
+}
+
+.marginLeft10px{
+  margin-left: 10px;
+}
 
 
 

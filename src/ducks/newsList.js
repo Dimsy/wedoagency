@@ -44,7 +44,7 @@ export default function reducer(state = new ReducerState(), action) {
 			return state
 							.set('count', payload.countArticles )
 	 						.set('entities', state.get('entities').merge(arrToMap(payload.response.data, ModelData)))
-	 		 				.setIn(['loading'], false)
+	 		 				.set('loading', false)
 
 	 	case CLEAR_NEWS_LIST:	 	
 	 		POST_COUNTER = 0;
@@ -54,8 +54,8 @@ export default function reducer(state = new ReducerState(), action) {
  			
 		case LOAD_NEWS_LIST_ERROR:
 	 		return state
-	 						.setIn(['error'], payload.error)
-	 						.setIn(['loading'], false)
+	 						.set('error', payload.error)
+	 						.set('loading', false)
 	}
 
 	return state

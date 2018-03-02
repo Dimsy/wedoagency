@@ -21,12 +21,21 @@ class Press extends Component{
 
 	render(){
 
-		const {entities, loading, error, useLang} = this.props;
+		const {entities, loading, portfolio, error, useLang} = this.props;
 
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);	
 
-		const knowMore = useLang == "ru" ? "Узнать больше" : "Know more"				
+		const knowMore = useLang == "ru" ? "Узнать больше" : "Know more"	
+
+		const portfolioSet = portfolio.toArray()[0]
+
+		if (portfolioSet === undefined) {
+			return <div>Данные пока не доступны</div>
+		}
+
+		console.log('--', portfolioSet.acf)
+		
 		
 		return (
 			<div className="press">
@@ -63,13 +72,10 @@ const mapStateToProps = state => {
 	return {
 		useLang: state.lang.useLang,
 		entities: state.press.entities,
+		portfolio: state.portfolio.entities,
 		loading: state.press.loading,
 		error: state.press.error
 	}
 }
 
 export default connect(mapStateToProps, {loadPress})(Press);
-				// <video width="960" height="540" controls="controls">
-  		// 		<source src="https://vimeo.com/channels/staffpicks/210199384"/>
-  		// 		Элемент video не поддерживается вашим браузером. 
- 			// 	</video>

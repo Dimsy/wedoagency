@@ -187,7 +187,11 @@ class PortfolioPage extends Component{
 		 											? <img src={`${project.acf.photoNextText}`}  srcSet={`${project.acf.photoNextTextx2} 2x`} alt="Фото проекта 1"/>
 		 											: null							
 
-		console.log('-----',  (project.acf.video.length > 0))
+
+
+		// console.log('-----',  (project.acf.video.length > 0))
+
+		
 		const videoBody = project.acf.video.length > 0 ? <iframe src={project.acf.video} width="960" height="540" 
 																															frameBorder="0" allowFullScreen className="showVideo" />
 																									 : <div style={{marginBottom: '90px'}} />

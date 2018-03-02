@@ -24,8 +24,8 @@ class Instagram extends Component{
   }
 
   render() {
-		const iframe = '<iframe src="//lightwidget.com/widgets/7d52b3d0cd355dfbb19a7240c5f641b6.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 976px; Height: 488px; border: 0; overflow: hidden;"></iframe>'; 
-    
+		// const iframe = '<iframe src="//lightwidget.com/widgets/7d52b3d0cd355dfbb19a7240c5f641b6.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 976px; Height: 488px; border: 0; overflow: hidden;"></iframe>'; 
+    const iframe = '<iframe src="//lightwidget.com/widgets/440bebdcb20159179ba522219c06efb2.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>';
     const {instagram, loading} = this.props;
     if (loading) return <Loader />;
 

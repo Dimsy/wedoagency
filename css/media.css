@@ -1,0 +1,196 @@
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+  .headerTopMenu a {
+    padding: 20px 20px 15px;
+  }
+
+  .headerSocialMenu {
+    margin-right: 30px;
+  }
+
+  .portfolioItem__img{
+    width: 290px;
+    height: 380px;
+  }
+
+  .portfolioItem__wrapper {
+    width: 290px;
+    height: 380px;
+  }
+
+   .carousel__inner-slide{
+    width: 290px;
+    height: 380px;
+  }
+  .portfolio .carousel__slider,
+  .portfolio .carousel__slide {
+    height: 380px;
+  }
+
+  .container {
+    width: 100%; 
+  }
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+  .headerTopLine {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .headerTopMenu li a,
+  .headerLangSwitcher li{
+    letter-spacing: 1.2px;
+  }
+   .headerTopMenu a {
+    padding: 20px 10px 15px;
+  }
+
+  .headerSocialMenu {
+    margin-right: 20px;
+  }
+
+  .agencyImg{
+    height: 240px;
+    background-size: contain;
+  }
+
+  .container{
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .agencyInfo{
+    padding-left: 20px;
+  }
+  .portfolioItem__img{
+    width: 220px;
+    height: 308px;
+  }
+
+  .portfolioItem__wrapper {
+    width: 220px;
+    height: 308px;
+  }
+
+  .carousel__inner-slide{
+    width: 220px;
+    height: 308px;
+  }
+  .portfolio .carousel__slider,
+  .portfolio .carousel__slide {
+    height: 308px;
+  }
+	
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .header {
+    height: 104px;
+  }
+ 
+ .headerTopLine {
+    height: 100px;
+    position: relative;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-bottom: none;
+  }
+  .headerTopMenu{
+    display: table;
+    position: relative;
+    top: 50px;
+    height: 50px;
+    width: 100%;
+    border-top: 1px solid #f3f3f3;
+  }
+  
+  .headerTopMenu li{
+    display: table-cell; 
+    position: relative;
+    float: none;
+  }
+
+  .headerTopMenu li a{
+    display: block; 
+    position: relative;
+   /* width: 100%;*/ 
+    height: 100%;
+    text-align:center;
+  }
+
+  .headerSocialMenu {
+    position: relative;
+    top: -50px;
+  }
+  .headerLangSwitcher{
+    position: relative;
+    top: -50px;
+    right: 20px;
+  }
+  
+  .logoBlock{
+    position: relative;
+    top: -88px;
+    left: 20px;
+    height: 24px;
+    width: 150px; 
+    background-position: center center;
+    -webkit-background-size: contain;
+    background-size: contain;
+  }
+
+  .headerSocialMenu {
+    margin-right: 40px;
+  }
+
+  .headerImgBlock{
+    height: 400px;
+  }
+
+  
+
+  
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+       
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+
+}
+
+
+/*==========   Mobile First Method   ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}	

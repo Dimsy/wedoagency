@@ -50,7 +50,7 @@ class App extends Component {
 							<Route path="/news/:id" component={RouteNewsArticle} exact/>
 							<Route path="/contacts" component={RouteContacts} exact/>
 						</Switch>
-					<Route path="/" component={RouteInstaFooter} />
+				{/*	<Route path="/" component={RouteInstaFooter} />*/}
 				</div>
 				</ScrollToTop>
 				{/*<Route path="/" component={RouteRoot} exact/>
@@ -72,27 +72,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {loadMenu})(App)
-
-// return (
-// 			<div>
-// 				<ConnectedRouter history={history}>
-// 					<div>
-// 						<Route path="/" component={Menu} />
-// 						<Route path="/" component={ImgMenu} exact/>
-// 						<Route path="/" component={About} exact/>
-// 						<Route path="/" component={News} exact/>
-// 						<Route path="/news" component={ImgMenu} exact/>
-// 						<Route path="/news" component={About} exact/>
-// 						<Route path="/news" component={News} exact/>
-// 						<Route path="/catalogue" component={ImgMenu } exact/>
-// 						<Route path="/catalogue/:type" component={AromGroup} />
-// 						<Route path="/assortment" component={Assortment} exact/>
-// 						<Route path="/distribs" component={Distribs} exact/>
-// 						<Route path="/vendors" component={Vendors} exact/>
-// 						<Route path="/contacts" component={Contacts} exact/>	
-// 					</div>					
-// 				</ConnectedRouter>
-// 				<Footer />
-// 			</div>
-// 		)
-// 	}

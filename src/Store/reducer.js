@@ -1,6 +1,7 @@
 import {combineReducers} from 'redux'
 import { reducer as formReducer } from 'redux-form'
 import menuReducer, {moduleName as menuModule} from '../ducks/menu';
+import awardsReducer, {moduleName as awardsModule} from '../ducks/awards';
 import pressReducer, {moduleName as pressModule} from '../ducks/press';
 import pressPageReducer, {moduleName as pressPageModule} from '../ducks/pressPage';
 import agencyInfoReducer, {moduleName as agencyInfoModule} from '../ducks/agencyInfo';
@@ -19,6 +20,7 @@ export default combineReducers({
 	[menuModule]: menuReducer,
 	[langModule]: langReducer,
 	[agencyInfoModule]: agencyInfoReducer,
+	[awardsModule]: awardsReducer,
 	[portfolioModule]: portfolioReducer,
 	[pressModule]: pressReducer,
 	[pressPageModule]: pressPageReducer,

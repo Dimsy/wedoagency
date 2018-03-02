@@ -1,18 +1,13 @@
 import React, {Component} from 'react';
 import Portfolio from '../Portfolio';
 import AgencyPage from '../AgencyPage';
+import Awards from '../Awards';
 
-class RouteAgencyPage extends Component {
-
-	render(){
-		
-		return (
-			<div>
-				<AgencyPage location={this.props.location} match={this.props.match}/>
-				<Portfolio />
-			</div>
-		)
-	}
+export default function RouteAgencyPage(props){
+	return (
+		<div>
+			<AgencyPage location={props.location} match={props.match}/>
+			<Awards />
+		</div>
+	)
 }
-
-export default RouteAgencyPage

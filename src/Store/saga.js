@@ -1,5 +1,6 @@
 import {all} from 'redux-saga/effects'
 import {saga as menuSaga} from '../ducks/menu'
+import {saga as awardsSaga} from '../ducks/awards'
 import {saga as agencyInfoSaga} from '../ducks/agencyInfo';
 import {saga as portfolioSaga} from '../ducks/portfolio';
 import {saga as pressSaga} from '../ducks/press';
@@ -19,6 +20,7 @@ import {saga as formSaga} from '../ducks/form';
 export default function * () {
 	yield all([
 		menuSaga(),
+		awardsSaga(),
 		agencyInfoSaga(),
 		portfolioSaga(),
 		pressSaga(),
