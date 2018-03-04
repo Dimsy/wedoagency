@@ -38,15 +38,16 @@ class Footer extends Component{
 
 		return(
 			<div className="footer">
+		
 				<Grid>
 					<Row>
-						<Col md={6}>
+						<Col lg={6} md={6} sm={6}>
 							<ul>
 								{body}
 							</ul>
 							<div className="clear"></div>
 						</Col>
-						<Col md={4} className="footer__contacts">
+						<Col lg={4} md={6} sm={6} className="footer__contacts">
 							{contacts.acf.callWrite}{contacts.acf.Phone}
 							<br />
 							(viber/whatsup)
@@ -55,18 +56,18 @@ class Footer extends Component{
 							<br />
 							{contacts.content.rendered}
 						</Col>
-						<Col md={2}>
+						<Col lg={2} md={6} className="SocialFooterMd">
 							<SocialFooter />
-						</Col>
+						</Col>				
 					</Row>
 				</Grid>	
 				<hr />
 				<Grid>
 					<Row>
-						<Col md={10} className="AllRightReserved">
+						<Col md={8} className="AllRightReserved">
 							weDOagency © all right reserved
 						</Col>
-						<Col md={2}>
+						<Col md={4}>
 							<BackToTop  scrollStepInPx="50" delayInMs="16.66"/>							
 						</Col>
 					</Row>

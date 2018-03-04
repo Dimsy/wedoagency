@@ -49,7 +49,7 @@ class Portfolio extends Component{
 					    <Col sm={6} md={8}>
 					      <h1>{catName}</h1>
 					    </Col>
-					    <Col  sm={6} md={4} className="SliderButtons">
+					    <Col sm={6} md={4} className="SliderButtons">
 						    <ButtonNext>
 						    	<img src={`${PATH}/img/slider/next.svg`} style={opacity}/>
 						    </ButtonNext>

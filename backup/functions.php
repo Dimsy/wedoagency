@@ -11,8 +11,6 @@ function enqueue_styles() {
 	wp_enqueue_style( 'carousel');
 	wp_register_style('style', get_template_directory_uri().'/css/style.css');
 	wp_enqueue_style( 'style');
-	wp_register_style('media_wedoagency', get_template_directory_uri().'/css/media.css');
-	wp_enqueue_style( 'media_wedoagency');
 }
 add_action('wp_enqueue_scripts', 'enqueue_styles');
 
@@ -67,7 +65,18 @@ add_action( 'rest_api_init', function () {
 } );
 
 
+
+
 function prefix_send_email_to_admin() {
+    /**
+     * At this point, $_GET/$_POST variable are available
+     *
+     * We can do our normal processing here
+     */ 
+
+    // Sanitize the POST field
+    // Generate email content
+    // Send to appropriate email
     $_POST = json_decode(file_get_contents('php://input'), true);
 
     $frm_name  = "WedoAgency";

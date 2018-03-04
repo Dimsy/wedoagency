@@ -48,10 +48,10 @@ class News extends Component{
 				<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={307} totalSlides={body.length} visibleSlides={3}>
 					<Grid>
 						<Row>
-							<Col md={9}>
+							<Col  sm={6} md={8}>
 							<h1>{catName}</h1>
 							</Col>
-							<Col md={3} className="SliderButtons">
+							<Col  sm={6} md={4} className="SliderButtons">
 								<ButtonNext>
 									<img src={`${PATH}/img/slider/next.svg`} style={opacity}/>
 								</ButtonNext>
@@ -62,10 +62,11 @@ class News extends Component{
       		  	</Col>
 						</Row>
 						<Row>
-							<Col md={12}>
+							<Col md={12} className="newsHidderPosition">
 								<Slider>
 									{body}
 								</Slider>
+								<div className="hidder" />
 							</Col>
 						</Row>
 					</Grid>	
