@@ -6,9 +6,6 @@ import ErrorCmp from '../ErrorCmp';
 import {PATH} from '../../config';
 
 class SocialFooter extends Component{
-	componentDidMount(){
-		this.props.loadSocialFooter();
-	}
 
 	render(){
 		const {social, loading, error} = this.props;

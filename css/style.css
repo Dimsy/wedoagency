@@ -218,10 +218,22 @@ p {
   float: left;
   margin: 15px 5px 15px;
   height: 18px;
-  width: 18px;
   cursor: pointer;
+  text-align: center;
 }
-
+.socialFooter .vimeo img,
+.headerSocialMenu .vimeo img{
+  width: 18px;
+  height: 18px;
+}
+.socialFooter .youtube img,
+.headerSocialMenu .youtube{
+  padding-top: 3px;
+}
+.socialFooter .youtube img,
+.headerSocialMenu .youtube img{
+  width: 18px;
+}
 .logoBlock{
   height: 203px;
   background-image: url(../img/logo/wedo.png);

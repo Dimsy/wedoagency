@@ -99,6 +99,10 @@
     width: 220px;
     height: 308px;
   }
+  
+  .portfolio .hidePixels{
+    height: 308px;
+  }
 
   .portfolioItem__wrapper {
     width: 220px;

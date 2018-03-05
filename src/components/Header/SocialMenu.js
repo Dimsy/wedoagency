@@ -1,29 +1,43 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {loadSocialFooter} from '../../ducks/socialFooter.js';
+import Loader from '../Loader';
+import ErrorCmp from '../ErrorCmp';
 import {PATH} from '../../config';
 
 class SocialMenu extends Component{
+
+	componentDidMount(){
+		this.props.loadSocialFooter();
+	}
+
 	render(){
-		
+		const {social, loading, error} = this.props;
+
+		if (loading) return <Loader />;
+		if (error) return (<ErrorCmp error={error} />);			
+
+		const body = social.map(item => <li key={item.ID} className={item.title}>
+																			<a href={item.url} target="blank">
+																				<img src={`${PATH}/img/social/footer/${item.title}.svg`} />
+																			</a>
+																		</li>)
+		console.log('--- props', body);
+
 		return (
 			<ul className="headerSocialMenu">
-				<li>
-					<a href="http://vk.com" target="blank">   
-						<img src={`${PATH}/img/social/vk.svg`} />
-					</a>
-				</li>
-				<li>
-					<a href="http:instagram.com"  target="blank">   
-						<img src={`${PATH}/img/social/instagram.svg`}/>
-					</a>
-				</li>
-				<li>
-					<a href="http://facebook.com"  target="blank">   
-						<img src={`${PATH}/img/social/fb.svg`} />
-					</a>
-				</li>
+				{body}
 			</ul>
 		)
 	}
 }
 
-export default SocialMenu;
+const mapStateToProps = state => {
+	return {
+		social: state.socialFooter.entities,
+		loading: state.socialFooter.loading,
+		error: state.socialFooter.error
+	}
+}
+
+export default connect(mapStateToProps, {loadSocialFooter})(SocialMenu);
