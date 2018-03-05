@@ -5,16 +5,28 @@ import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 
 class Header extends Component {
+	state = {
+		show: false
+	}
 
 	render(){
 
 		return(
 			<div className="header">
-				<Menu />
+				<Menu show={this.state.show}/>
+				<button className={"mobile-menu-btn " + (this.state.show ? 'active' : null)} onClick={this.handleClick}>
+					<span></span>
+				</button>
 				<div className="logoBlock"/>
 			</div>
 		)
 
+	}
+
+	handleClick = () => {
+		this.setState({
+			show: !this.state.show
+		})
 	}
 }
 

@@ -3,16 +3,26 @@ import TopMenu from './TopMenu';
 import SocialMenu from './SocialMenu';
 import LangSwitcher from './LangSwitcher'
 
+class Menu extends Component{
+	
+	render(){
 
-const Menu = () => {
-	return (
-		<div className="headerTopLine">
-			<TopMenu />
-			<LangSwitcher />
-			<SocialMenu />
-			<div className="clear" />
-		</div>
-	)
+		console.log('--', this.props)
+
+		if (!this.props.show)	{
+			return null
+		}														
+
+
+		return (
+			<div className="headerTopLine">
+					<TopMenu />
+					<LangSwitcher />
+					<SocialMenu />	
+				<div className="clear" />
+			</div>
+		)
+	}
 }
 
 export default Menu

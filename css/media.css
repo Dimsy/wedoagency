@@ -155,6 +155,60 @@
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
+  .header{
+    position: relative;
+    width: 100%;
+    height: 50px;
+  }
+  .mobile-menu-btn {
+    display: block;
+  }
+  .headerTopLine {
+    position: relative;
+    top: 50px;
+    height: 520px;
+    padding: 0;
+    opacity: 0.95;
+    background-color: #f7f7f7;
+  }
+
+  .logoBlock {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    width: 120px;
+    height: 20px;
+    background-size: contain;
+    background-position: center center;
+  }
+  
+  .headerTopMenu{
+    padding-top: 30px;
+    padding-left: 20px;
+  }
+  .headerTopMenu li {
+    width: 100%;
+  }
+  .headerTopMenu li a{
+    padding: 0;
+    font-family: LatoLight;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.86;
+    letter-spacing: 2px;
+    text-align: left;
+    color: #131313;
+    text-transform: capitalize;
+    line-height: 26px;
+  }
+
+  .headerLangSwitcher, .headerSocialMenu{
+    float: none;
+    width: 100%;
+  }
+/*
   .header {
     height: 104px;
   }
@@ -184,7 +238,7 @@
   .headerTopMenu li a{
     display: block; 
     position: relative;
-   /* width: 100%;*/ 
+   
     height: 100%;
     text-align:center;
   }
@@ -219,7 +273,7 @@
   }
 
   
-
+*/
   
 
 }

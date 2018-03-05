@@ -155,6 +155,64 @@ p {
 .error {
   color: #ee0000 !important; }
 
+  /* КНопка мобильного меню*/
+
+.mobile-menu-btn {
+  display: none;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  float: left;
+  height: 50px;
+  margin-left: 10px;
+  outline: 0;
+  position: absolute;
+  top:0;
+  right: 0px;
+  width: 50px;
+}
+button:focus {
+  outline: none; 
+}
+.mobile-menu-btn span {
+  left: 10px;
+  top: 24px;
+}
+.mobile-menu-btn span::before {
+  top: -8px;
+}
+.mobile-menu-btn span::after {
+  bottom: -8px;
+}
+.mobile-menu-btn span::before, .mobile-menu-btn span::after {
+  content: '';
+}
+.mobile-menu-btn span,
+.mobile-menu-btn span::before,
+.mobile-menu-btn span::after {
+  display: block;
+  background-color: black;
+  height: 2px;
+  position: absolute;
+  transition: all .3s ease-in-out;
+  width: 25px;
+}
+.mobile-menu-btn.active span {
+  background-color: transparent;
+}
+.mobile-menu-btn.active span::before, .mobile-menu-btn.active span::after {
+  background-color: black;
+  top: 0;
+}
+.mobile-menu-btn.active span::before {
+  transform: rotate(45deg);
+}
+.mobile-menu-btn.active span::after {
+  transform: rotate(-45deg);
+}
+/* КОнец кнопки мобильного меню
+*/
+
 .uppercase {
   text-transform: uppercase; 
   font-family: Lato, sans-serif; }

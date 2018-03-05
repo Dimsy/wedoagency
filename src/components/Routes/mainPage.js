@@ -11,10 +11,10 @@ export default function MainPage(props){
 	return (
 		<div>
 			<HeaderImgBlock/>
-			<Agency />
+			{/*<Agency />
 			<Portfolio match={match}/>
 			<Press />
-			<News />
+			<News />*/}
 		</div>
 	)
 }
