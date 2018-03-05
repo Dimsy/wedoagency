@@ -13,7 +13,7 @@ class Header extends Component {
 
 		return(
 			<div className="header">
-				<Menu show={this.state.show}/>
+				<Menu show={this.state.show} closeMenu={this.closeMenu}/>
 				<button className={"mobile-menu-btn " + (this.state.show ? 'active' : null)} onClick={this.handleClick}>
 					<span></span>
 				</button>
@@ -26,6 +26,12 @@ class Header extends Component {
 	handleClick = () => {
 		this.setState({
 			show: !this.state.show
+		})
+	}
+
+	closeMenu = () => {
+		this.setState({
+			show: false
 		})
 	}
 }

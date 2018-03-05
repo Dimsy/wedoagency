@@ -16,9 +16,9 @@ class Menu extends Component{
 
 		return (
 			<div className="headerTopLine">
-					<TopMenu />
-					<LangSwitcher />
-					<SocialMenu />	
+					<TopMenu closeMenu={this.props.closeMenu}/>
+					<LangSwitcher closeMenu={this.props.closeMenu}/>
+					<SocialMenu closeMenu={this.props.closeMenu}/>	
 				<div className="clear" />
 			</div>
 		)

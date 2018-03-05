@@ -1,13 +1,16 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
-const MenuItem = ({item}) => {
+class MenuItem extends Component{
+	render(){
+		const {item, closeMenu} = this.props
 
-	return (
-		<Link to={item.url}>
-			{item.title}
-		</Link>
-	)
+		return(
+			<Link to={item.url} onClick={closeMenu}>
+				{item.title}
+	 		</Link>
+		)
+	}
 }
 
 export default MenuItem;

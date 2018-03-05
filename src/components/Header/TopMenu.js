@@ -5,13 +5,12 @@ import MenuItem from './MenuItem';
 
 class TopMenu extends Component{
 	render(){
-		const {entities, loading, error} = this.props;
-
+		const {entities, loading, error, closeMenu} = this.props;
 
 		if (error) return (<ErrorCmp error={error} />);
 		if (loading) return <Loader/>;
 
-		const body = entities.map( item => <li key={item.ID}><MenuItem item={item}/></li>);
+		const body = entities.map( item => <li key={item.ID}><MenuItem item={item} closeMenu={this.props.closeMenu}/></li>);
 		
 		return (
 			<ul className="headerTopMenu">
