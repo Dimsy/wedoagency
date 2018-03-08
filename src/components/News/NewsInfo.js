@@ -3,12 +3,11 @@ import {Link} from 'react-router-dom'
 
 class NewsItem extends Component {
 	state = {
-		show: false
+		show: true
 	}
 
 	render(){
 		const {item, useLang} = this.props;
-
 		const date =  new Date(item.date);
 		
 		var options = {
@@ -40,7 +39,7 @@ class NewsItem extends Component {
 
 	handlerMouseLeave = e => {
 		this.setState({
-			show: false
+			show: true
 		})
 	}
 }

@@ -24,7 +24,9 @@ html, body{
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box; 
+  outline: none;
+}
 
 html {
   line-height: 1; 
@@ -315,19 +317,27 @@ button:focus {
   background-size: cover;
 }
 
-/*.agency{
-  height: 520px;
-}*/
-
-.agencyImg{
-    height: 320px;
-    background-image: url(../img/agency/agency.jpg);
-    background-image: -webkit-image-set(url(../img/agency/agency.jpg) 1x, url(../img/agency/agency@2x.jpg) 2x);
-    background-image: -moz-image-set(url(../img/agency/agency.jpg) 1x, url(../img/agency/agency@2x.jpg) 2x);
-    background-image: -o-image-set(url(../img/agency/agency.jpg) 1x, url(../img/agency/agency@2x.jpg) 2x);
-    background-image: -ms-image-set(url(../img/agency/agency.jpg) 1x, url(../img/agency/agency@2x.jpg) 2x);
-    background-repeat: no-repeat;
-    background-position: center center;
+.agency{
+  width: 1020px;
+  margin: 0 auto;
+  padding: 100px 15px 100px 30px;
+}
+.agency img {
+    width: 100%;
+  }
+.agency__titile{
+    width: 50%;
+    float: right;
+    padding-left: 100px;
+  }
+.agency__foto {
+  width: 49%;
+  float: left;
+}
+.agency__content{
+  width: 50%;
+  float: right;
+  padding-left: 100px;
 }
 .agencyInfo{
   padding-left: 84px;
@@ -479,7 +489,6 @@ button:focus {
   width: 25px;
   top: 0px;
   right: 0;
-  background-color: #0c0;
 }
 .news__wrapper {
   width: 307px;

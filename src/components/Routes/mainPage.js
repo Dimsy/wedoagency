@@ -10,10 +10,10 @@ export default function MainPage(props){
 
 	return (
 		<div>
-			<HeaderImgBlock/>
-			{/*<Agency />
+			{/*}<HeaderImgBlock/>
+			<Agency />*/}
 			<Portfolio match={match}/>
-			<Press />
+				{/*}	<Press />
 			<News />*/}
 		</div>
 	)

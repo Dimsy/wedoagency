@@ -6,11 +6,18 @@ import ErrorCmp from '../ErrorCmp';
 
 class Header extends Component {
 	state = {
-		show: false
+		show: false,
+		width: 0
 	}
 
-	render(){
+	 componentWillMount(){
+    this.setState({width: window.innerWidth});
+    if(window.innerWidth > 768 ){
+    	this.setState({show: true});
+    }
+  }
 
+	render(){
 		return(
 			<div className="header">
 				<Menu show={this.state.show} closeMenu={this.closeMenu}/>
@@ -20,16 +27,19 @@ class Header extends Component {
 				<div className="logoBlock"/>
 			</div>
 		)
-
 	}
 
 	handleClick = () => {
+		if(window.innerWidth > 768 ) return;
+	
 		this.setState({
 			show: !this.state.show
 		})
 	}
 
 	closeMenu = () => {
+		if(window.innerWidth > 768 ) return;
+		
 		this.setState({
 			show: false
 		})

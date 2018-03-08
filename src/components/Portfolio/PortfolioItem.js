@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 class PortfolioItem extends Component{
 	state = {
-	 	show: false
+	 	show: true
 	}
 
 	render(){
@@ -32,11 +32,9 @@ class PortfolioItem extends Component{
 
 	handlerMouseLeave = e => {
 		this.setState({
-			show: false
+			show: true
 		})
 	}
 }
 
 export default PortfolioItem
-
-//<Link to={`${location}/portfolio/${item.id}`}>

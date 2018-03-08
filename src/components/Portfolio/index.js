@@ -30,6 +30,8 @@ class Portfolio extends Component{
 
 		const portfolioSlider = entities.toArray();
 
+		console.log('--portfolioSlider',portfolioSlider)
+
 		if (portfolioSlider.length == 0){
 			return <div>Данные временно не доступны</div>
 		}
@@ -59,7 +61,7 @@ class Portfolio extends Component{
 						    <div className="clear"/>
         	    </Col>
 				    </Row>
-				    <Row>
+				    <Row className="portfolioSlider">
         	    <Col md={12} className="hidePixelsWrapper">
 						    <Slider>
                   {body}

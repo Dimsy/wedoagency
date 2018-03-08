@@ -8,6 +8,24 @@
     margin-right: 30px;
   }
 
+  .agency{
+    width: 960px;
+  }
+  .agency__title{
+    width: 50%;
+    float: right;
+    padding-left: 75px;
+  }
+  .agency__foto {
+    width: 49%;
+    float: left;
+  }
+  .agency__content{
+    width: 50%;
+    float: right;
+    padding-left: 75px;
+  }
+
   .portfolioItem__img{
     width: 290px;
     height: 380px;
@@ -26,6 +44,7 @@
   .portfolio .carousel__slide {
     height: 380px;
   }
+
 
   .container {
     width: 100%; 
@@ -58,8 +77,14 @@
     height: 288px;
   }
 
+  .news__Info{
+    width: 258px;
+    height: 258px;
+  }
+
   .newsHidderPosition .hidder{
      height: 288px;
+     background-color: #f7f7f7;
   }
 }
 
@@ -82,9 +107,11 @@
     margin-right: 20px;
   }
 
-  .agencyImg{
-    height: 240px;
-    background-size: contain;
+  .agency{
+    width: 768px;
+  }
+  .agency img {
+    width: 100%;
   }
 
   .container{
@@ -137,6 +164,15 @@
     width: 220px;
     height: 220px;
   }
+  .news__Info{
+    width: 190px;
+    height: 190px;
+  }
+  .news__info-item {
+    display: table-cell;
+    height: 165px;
+    width: 190px;
+  }
 
   .newsHidderPosition .hidder{
      height: 220px;
@@ -163,6 +199,9 @@
   .mobile-menu-btn {
     display: block;
   }
+  .headerTopMenu{
+    float: none;
+  }
   .headerTopLine {
     position: relative;
     top: 50px;
@@ -171,7 +210,6 @@
     opacity: 0.95;
     background-color: #f7f7f7;
   }
-
   .logoBlock {
     position: absolute;
     top: 15px;
@@ -181,7 +219,39 @@
     background-size: contain;
     background-position: center center;
   }
-  
+  .agency{
+    width: 100%;
+    padding: 50px 20px;
+  }
+  .agency__title{
+    width: 100%;
+    float: none;
+    padding-left: 0px;
+  }
+  .agency__title h1{
+    text-transform: capitalize;
+  }
+  .agency__foto {
+    width: 100%;
+    float: none;
+  }
+  .agency__content{
+    width: 100%;
+    float: none;
+    padding-left: 0;
+    padding-top: 20px;
+  }
+  .agency__content .knowMore{
+    margin-top: 20px;
+  }
+  .AgencyMainPageBlock {
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .AgencyMainPageBlock h1{
+    text-transform: capitalize;
+  }
   .headerTopMenu{
     padding-top: 30px;
     padding-left: 20px;
@@ -208,83 +278,69 @@
     float: none;
     width: 100%;
   }
-/*
-  .header {
-    height: 104px;
+  .portfolio {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    overflow: hidden;
   }
- 
- .headerTopLine {
-    height: 100px;
-    position: relative;
-    padding-left: 0px;
-    padding-right: 0px;
-    border-bottom: none;
+
+  .portfolio h1{
+    text-transform: capitalize;
   }
-  .headerTopMenu{
-    display: table;
-    position: relative;
-    top: 50px;
-    height: 50px;
-    width: 100%;
-    border-top: 1px solid #f3f3f3;
+
+  .portfolio .container {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .carousel__inner-slide,
+  .portfolioItem__wrapper,
+  .portfolioItem__img{
+    width: 205px;
+    height: 275px;
   }
   
-  .headerTopMenu li{
-    display: table-cell; 
-    position: relative;
-    float: none;
+  .portfolio .hidePixels
+  .portfolio .carousel__slider,
+  .portfolio .carousel__slide {
+    height: 275px;
   }
 
-  .headerTopMenu li a{
-    display: block; 
-    position: relative;
-   
-    height: 100%;
-    text-align:center;
+  .portfolioSlider{
+    min-width: 700px;
   }
 
-  .headerSocialMenu {
-    position: relative;
-    top: -50px;
-  }
-  .headerLangSwitcher{
-    position: relative;
-    top: -50px;
-    right: 20px;
-  }
-  
-  .logoBlock{
-    position: relative;
-    top: -88px;
-    left: 20px;
-    height: 24px;
-    width: 150px; 
-    background-position: center center;
-    -webkit-background-size: contain;
-    background-size: contain;
+  .SliderButtons{
+    display: none;
   }
 
-  .headerSocialMenu {
-    margin-right: 40px;
+  .portfolioItem__Info{
+    width: 175px;
+    height: 235px;
+    padding: 0;
   }
-
-  .headerImgBlock{
-    height: 400px;
+  .portfolioItem__info-data{
+    height: 210px;
+    width: 175px;
+    margin: 0;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
   }
-
-  
-*/
-  
 
 }
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px) {
-       
+  .headerImgBlock{
+    height:320px;  
+  }       
 }
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 320px) {
+  .headerImgBlock{
+    height: 320px;
+  }
 
 }
 

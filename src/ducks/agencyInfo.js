@@ -29,7 +29,7 @@ export default function reducer(state = new ReducerState(), action) {
 	switch(type){
 		case LOAD_AGENCYINFO_SUCCESS:
 	 		return state
-	 						.setIn(['entities'], payload.response)
+	 						.setIn(['entities'], payload.response.data)
 	 		 				.setIn(['loading'], false)
 	 			
 		case LOAD_AGENCYINFO_ERROR:
