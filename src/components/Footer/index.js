@@ -9,17 +9,7 @@ import SocialFooter from './social';
 import BackToTop from './backToTop';
 
 class Footer extends Component{
-	componentDidMount(){
-    const useLang = this.props.useLang;
-		this.props.loadContacts(useLang);
-	}
-
-	componentWillReceiveProps(nextProps){
-		if(this.props.useLang != nextProps.useLang){
-			this.props.loadContacts(nextProps.useLang)
-    }
-	}
-
+	
 	render(){
 
 		const {useLang, menu, contacts, loading} = this.props

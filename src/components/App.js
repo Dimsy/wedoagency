@@ -23,13 +23,17 @@ import ScrollToTop from './ScrollToTop'
 class App extends Component {
 
 	componentDidMount(){
-		const useLang = this.props.useLang;
+		const useLang = this.props.useLang
 		this.props.loadMenu(useLang)
+		this.props.loadContacts(useLang)
 	}
+   
 	
 	componentWillReceiveProps(nextProps){
-		if(this.props.useLang != nextProps.useLang)
+		if(this.props.useLang != nextProps.useLang){
 			this.props.loadMenu(nextProps.useLang)
+			this.props.loadContacts(nextProps.useLang)
+		}
 	}
 
 	render(){
@@ -50,7 +54,7 @@ class App extends Component {
 							<Route path="/news/:id" component={RouteNewsArticle} exact/>
 							<Route path="/contacts" component={RouteContacts} exact/>
 						</Switch>
-					{/*<Route path="/" component={RouteInstaFooter} />*/}
+					<Route path="/" component={RouteInstaFooter} />
 				</div>
 				</ScrollToTop>
 			</ConnectedRouter>
@@ -65,4 +69,4 @@ const mapStateToProps = state => {
 	}
 }
 
-export default connect(mapStateToProps, {loadMenu})(App)
+export default connect(mapStateToProps, {loadMenu, loadContacts})(App)

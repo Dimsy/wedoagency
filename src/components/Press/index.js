@@ -57,7 +57,7 @@ class Press extends Component{
 			width: ((window.innerWidth - 40) + 'px'),
 			height: (((window.innerWidth - 40) / 16 * 9) + 'px')
 		}
-	
+		
 		const videoBlock = window.innerWidth < 576 ? style : undefined
 
 		const mobile = window.innerWidth < 768 ? true : false
@@ -74,9 +74,6 @@ class Press extends Component{
 
 		const desktopSlogan = mobile ? null 
 																 : <h3 className="press__slogan-small">{entities.data.acf.slogan3}</h3>														 
-
-		console.log('style', videoBlock)
-
 
 		return (
 			<div className="press">
