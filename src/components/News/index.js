@@ -61,7 +61,7 @@ class News extends Component{
 								<div className="clear"/>
       		  	</Col>
 						</Row>
-						<Row>
+						<Row className="newsSlider">
 							<Col md={12} className="newsHidderPosition">
 								<Slider>
 									{body}

@@ -431,19 +431,24 @@ button:focus {
   width: 307px;
   height: 411px;
 }
-.press iframe {
-    width: 960px;
-    height: 450px
-  }
+
+
 .press {
+  position: relative;
   padding-top: 86px;
   padding-bottom: 100px;
+}
+.press iframe {
+  width: 954px;
+  height: 538px;
 }
 
 .pressImg2 img{
   width: 306px;
   height: 408px;
 }
+
+
 
 
 .slogan {

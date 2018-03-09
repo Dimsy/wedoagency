@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 class PortfolioItem extends Component{
 	state = {
-	 	show: true
+	 	show: false
 	}
 
 	render(){
@@ -32,7 +32,7 @@ class PortfolioItem extends Component{
 
 	handlerMouseLeave = e => {
 		this.setState({
-			show: true
+			show: false
 		})
 	}
 }

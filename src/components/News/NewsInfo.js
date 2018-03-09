@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 class NewsItem extends Component {
 	state = {
-		show: true
+		show: false
 	}
 
 	render(){
@@ -39,7 +39,7 @@ class NewsItem extends Component {
 
 	handlerMouseLeave = e => {
 		this.setState({
-			show: true
+			show: false
 		})
 	}
 }

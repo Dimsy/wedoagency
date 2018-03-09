@@ -45,7 +45,19 @@
     height: 380px;
   }
 
-
+   .portfolioItem__Info{
+    width: 260px;
+    height: 340px;
+    padding-top: 26px;
+  }
+  .portfolioItem__info-data{
+    height: 288px;
+    width: 260px;
+    margin: 0;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
   .container {
     width: 100%; 
   } 
@@ -85,6 +97,11 @@
   .newsHidderPosition .hidder{
      height: 288px;
      background-color: #f7f7f7;
+  }
+
+  .press iframe {
+    width: 898px;
+    height: 505px;
   }
 }
 
@@ -182,6 +199,26 @@
   }
   .socialFooter li{
     float: left;
+  }
+
+
+  .portfolioItem__Info{
+    width: 195px;
+    height: 268px;
+    padding-top: 26px;
+  }
+  .portfolioItem__info-data{
+    height: 218px;
+    width: 195px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+  .press iframe {
+    position: relative;
+    left: -10px;
+    width: 700px;
+    height: 393px;
   }
 
   .socialFooter li:first-child{
@@ -304,9 +341,11 @@
   .portfolio .carousel__slide {
     height: 275px;
   }
-
+  .portfolio .carousel__slider{
+    height: 275px;
+  }
   .portfolioSlider{
-    min-width: 700px;
+    width: 700px;
   }
 
   .SliderButtons{
@@ -316,24 +355,200 @@
   .portfolioItem__Info{
     width: 175px;
     height: 235px;
-    padding: 0;
+    padding-top: 26px;
   }
   .portfolioItem__info-data{
-    height: 210px;
+    height: 184px;
     width: 175px;
     margin: 0;
     display: table-cell;
     vertical-align: middle;
     text-align: center;
   }
+  .portfolio .hidePixels{
+    height: 308px;
+  }
 
+  .press iframe{
+    left: 0;
+  }
+
+  .press {
+    position: relative;
+    padding-top: 36px;
+    padding-bottom: 50px;
+  }
+
+  .press img {
+    width: 100%;    
+    height: 100%; 
+  }
+
+  .press h1{
+    text-transform: capitalize;
+  }
+
+  .press iframe {
+    margin-top: 36px;    
+    margin-bottom: 50px; 
+    width: 540px;
+    height: 304px;
+  }
+
+   .press .col-sm-12 p{
+    margin-top: 20px;
+  }
+  .news{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    overflow: hidden;
+  }
+  .news .carousel__slider, 
+  .news .carousel__slide, 
+  .news .carousel__inner-slide{
+    height: 165px;
+  }
+  .news h1{
+    text-transform: capitalize;
+  }
+  .carousel__inner-slide,
+  .news__wrapper,
+  .news__wrapper img {
+    width: 165px;
+    height: 165px;
+  }
+  .news__Info {
+    width: 135px;
+    height: 135px;
+  }
+  .news__info-item
+   {
+    width: 135px;
+    height: 80px;
+    line-height: 1.6;
+  }
 }
+@media only screen and (max-width : 576px) {   
+  .portfolio .container {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .carousel__inner-slide,
+  .portfolioItem__wrapper,
+  .portfolioItem__img{
+    width: 205px;
+    height: 275px;
+  }
+  
+  .portfolio .hidePixels
+  .portfolio .carousel__slider,
+  .portfolio .carousel__slide {
+    height: 275px;
+  }
+  .portfolio .carousel__slider{
+    height: 275px;
+  }
+  .portfolioSlider{
+    width: 700px;
+  }
 
+  .SliderButtons{
+    display: none;
+  }
+
+  .portfolioItem__Info{
+    width: 175px;
+    height: 235px;
+    padding-top: 26px;
+  }
+  .portfolioItem__info-data{
+    height: 184px;
+    width: 175px;
+    margin: 0;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+  .press {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .news{
+    padding-left: 20px;
+  }
+  .newsSlider{
+    width: 700px;
+  }
+  .news .carousel__slider, 
+  .news .carousel__slide, 
+  .news .carousel__inner-slide{
+    height: 203px;
+  }
+  .news h1{
+    text-transform: capitalize;
+  }
+  .carousel__inner-slide,
+  .news__wrapper,
+  .news__wrapper img {
+    width: 203px;
+    height: 203px;
+  }
+  .news__Info {
+    width: 173px;
+    height: 173px;
+  }
+  .news__info-item
+   {
+    width: 173px;
+    height: 122px;
+    line-height: 1.6;
+  }
+}
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px) {
   .headerImgBlock{
     height:320px;  
   }       
+  .portfolio .container {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .carousel__inner-slide,
+  .portfolioItem__wrapper,
+  .portfolioItem__img{
+    width: 205px;
+    height: 275px;
+  }
+  
+  .portfolio .hidePixels
+  .portfolio .carousel__slider,
+  .portfolio .carousel__slide {
+    height: 275px;
+  }
+  .portfolio .carousel__slider{
+    height: 275px;
+  }
+  .portfolioSlider{
+    width: 700px;
+  }
+
+  .SliderButtons{
+    display: none;
+  }
+
+  .portfolioItem__Info{
+    width: 175px;
+    height: 235px;
+    padding-top: 26px;
+  }
+  .portfolioItem__info-data{
+    height: 184px;
+    width: 175px;
+    margin: 0;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
 }
 
 /* Custom, iPhone Retina */
