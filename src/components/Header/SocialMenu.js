@@ -1,15 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {loadSocialFooter} from '../../ducks/socialFooter.js';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import {PATH} from '../../config';
 
 class SocialMenu extends Component{
-
-	componentDidMount(){
-		this.props.loadSocialFooter();
-	}
 
 	render(){
 		const {social, loading, error} = this.props;
@@ -22,8 +17,7 @@ class SocialMenu extends Component{
 																				<img src={`${PATH}/img/social/footer/${item.title}.svg`} />
 																			</a>
 																		</li>)
-		console.log('--- props', body);
-
+		
 		return (
 			<ul className="headerSocialMenu">
 				{body}
@@ -40,4 +34,4 @@ const mapStateToProps = state => {
 	}
 }
 
-export default connect(mapStateToProps, {loadSocialFooter})(SocialMenu);
+export default connect(mapStateToProps)(SocialMenu);

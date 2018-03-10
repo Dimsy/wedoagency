@@ -9,6 +9,8 @@ class Instagram extends Component{
 	componentDidMount(){
     const useLang = this.props.useLang;
 	 	this.props.loadInstagram(useLang);
+
+	 	console.log(this.myInput)
 	}
 
 	componentWillReceiveProps(nextProps){
@@ -24,8 +26,9 @@ class Instagram extends Component{
   }
 
   render() {
-		// const iframe = '<iframe src="//lightwidget.com/widgets/7d52b3d0cd355dfbb19a7240c5f641b6.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 976px; Height: 488px; border: 0; overflow: hidden;"></iframe>'; 
-    const iframe = '<iframe src="//lightwidget.com/widgets/440bebdcb20159179ba522219c06efb2.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>';
+		// const iframe = '<iframe src="//lightwidget.com/widgets/440bebdcb20159179ba522219c06efb2.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>';
+    const iframe = '<iframe src="//lightwidget.com/widgets/0a00d569c66159a6bfb19fbb5db09900.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden; padding: " />'
+    	
     const {instagram, loading} = this.props;
     if (loading) return <Loader />;
 
@@ -34,13 +37,16 @@ class Instagram extends Component{
 				<h4>
 					{instagram.data.title.rendered}
 				</h4>			
-      	<Grid>
+      {/*	<Grid>
 					<Row>
-						<Col sm={12} >
-        			{<div dangerouslySetInnerHTML={ this.iframe(iframe) } />}
+						<Col sm={12} className="instagramPaddingRight" dangerouslySetInnerHTML={ this.iframe(iframe) }>
+      
       			</Col>
 					</Row>
-				</Grid>
+				</Grid>*/}
+				<div className="instagramPaddingRight">
+					<div dangerouslySetInnerHTML={ this.iframe(iframe) }/>
+				</div>
 			</div>
     )
   }
@@ -54,3 +60,5 @@ const mapStateToProps = state => {
 	}
 }
 export default connect(mapStateToProps, {loadInstagram})(Instagram)
+
+//  			{/*<div dangerouslySetInnerHTML={ this.iframe(iframe) }/>}

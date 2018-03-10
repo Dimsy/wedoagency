@@ -12,21 +12,12 @@ class TopMenu extends Component{
 		if (error || contactsError) return (<ErrorCmp error={error} />);
 		if (loading || contactsLoading) return <Loader/>;
 
-
-
 		const menu = entities.toArray();
-
-		const body = menu.map( item => <li key={item.ID}><MenuItem item={item} closeMenu={this.props.closeMenu}/></li>);
-		
-		
+		const body = menu.map( item => <li key={item.ID}><MenuItem item={item} closeMenu={this.props.closeMenu}/></li>);		
 		const mobile = window.innerWidth < 768 ? true : false
-
-		console.log('contacts', contacts.acf.Phone, mobile)
 
 		const phone = mobile ? <li className="mobileTopMenuPhone">{contacts.acf.Phone} (viber/whatsup)</li> : null
 		const email = mobile ? <li className="mobileTopMenuMail"><a href={`mailto:${contacts.acf.mail}`}>{contacts.acf.mail}</a></li> : null
-
-
 
 		return (
 			<ul className="headerTopMenu">

@@ -6,13 +6,9 @@ import LangSwitcher from './LangSwitcher'
 class Menu extends Component{
 	
 	render(){
-
-		console.log('--', this.props)
-
 		if (!this.props.show)	{
 			return null
 		}														
-
 
 		return (
 			<div className="headerTopLine">

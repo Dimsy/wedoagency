@@ -371,10 +371,10 @@ button:focus {
   margin-left: 20px;
 }
 
-/*.container {
+.container {
   width: 1019px;
 }
-*/
+
 .portfolio .carousel__slide{
   height: 411px;
 }
@@ -492,6 +492,7 @@ button:focus {
   width: 25px;
   top: 0px;
   right: 0;
+  background-color: #f7f7f7;
 }
 .news__wrapper {
   width: 307px;
@@ -562,6 +563,12 @@ button:focus {
 }
 .weInInstagram h4 {
   text-align: center;
+}
+.weInInstagram .instagramPaddingRight{
+  width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 5px;
 }
 
 .sendMessage h4 {
@@ -644,9 +651,12 @@ hr {
   color: #545454;
   text-transform: uppercase;
 }
+.AllRightReserved{
+  padding-left: 15px;
+}
 
 .backToTop {
-  padding-right: 15px;
+  padding-right: 8px;
   text-align: right;
   cursor: pointer;
 }

@@ -63,8 +63,6 @@ class Agency extends Component{
 	
 		const headerDesktop = !mobile ?	<h1>{entities.title.rendered}</h1> : null																
 
-		console.log('==', entities)
-
 		return (
 			
 			<Grid className="agency">

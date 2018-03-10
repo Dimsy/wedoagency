@@ -93,6 +93,11 @@
     width: 898px;
     height: 505px;
   }
+
+  .weInInstagram .instagramPaddingRight{
+    width: 922px;
+    padding-right: 5px;
+  }
 }
 
 /* Medium Devices, Desktops */
@@ -108,10 +113,6 @@
     display: flex;
     justify-content: space-between;
   }
-
-
-
-
   .headerTopLine {
     position: relative;
     top: 50px;
@@ -243,6 +244,12 @@
   .socialFooter li:first-child{
     padding-left: 0px;
   }
+  .weInInstagram .instagramPaddingRight{
+    width: 724px;
+    position: relative;
+    left: 50%;
+    margin-left: -370px;
+  }
 }
 
 /* Small Devices, Tablets */
@@ -343,6 +350,17 @@
 
   .portfolio h1{
     text-transform: capitalize;
+  }
+  .footer .SocialFooterMd{
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+  .footer__menu,
+  .copyRight {
+    display: none;
+  }
+  .footer__contacts a.footer__mail{
+    line-height: 42px;
   }
 /*
   .portfolio .container {
@@ -453,9 +471,11 @@
   .weInInstagram h4{
     margin-bottom: 30px;
   }
-  .weInInstagram .col-sm-12{
-    padding-left: 5px;
-    padding-right: 20px;
+  .weInInstagram .instagramPaddingRight{
+    width: 548px;
+    position: relative;
+    left: 50%;
+    margin-left: -280px;
   }
   
 }
@@ -539,14 +559,15 @@
     padding-bottom: 50px;
     /*overflow: hidden;*/
   }
-  .weInInstagram iframe {
-    padding-left: 15px;
-    padding-right: 00px;
+  
+  .footer__contacts{
+    padding-left: 35px;
   }
-  .weInInstagram .col-sm-12{
-    padding-left: 5px;
-    padding-right: 0px;
-    margin-right: -10px;
+  .footer .socialFooter{
+    padding-left: 20px;
+  }
+  .footer__label{
+    padding-left: 35px;
   }
 }
 /* Extra Small Devices, Phones */

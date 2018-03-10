@@ -5,7 +5,7 @@ import Footer from '../Footer';
 export default function RouteInstaFooter(props){
 	return (
 		<div>
-			<Instagram />
+			{/*<Instagram />*/}
 			<Footer />
 		</div>
 	)

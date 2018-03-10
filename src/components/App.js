@@ -19,6 +19,7 @@ import {MENU, CONTACTS} from '../config.js'
 import history from '../history'
 import NotFound from './NotFound'
 import ScrollToTop from './ScrollToTop'
+import {loadSocialFooter} from '../ducks/socialFooter';
 
 class App extends Component {
 
@@ -26,6 +27,7 @@ class App extends Component {
 		const useLang = this.props.useLang
 		this.props.loadMenu(useLang)
 		this.props.loadContacts(useLang)
+		this.props.loadSocialFooter();
 	}
    
 	
@@ -33,6 +35,7 @@ class App extends Component {
 		if(this.props.useLang != nextProps.useLang){
 			this.props.loadMenu(nextProps.useLang)
 			this.props.loadContacts(nextProps.useLang)
+			this.props.loadSocialFooter();
 		}
 	}
 
@@ -69,4 +72,4 @@ const mapStateToProps = state => {
 	}
 }
 
-export default connect(mapStateToProps, {loadMenu, loadContacts})(App)
+export default connect(mapStateToProps, {loadMenu, loadContacts, loadSocialFooter})(App)

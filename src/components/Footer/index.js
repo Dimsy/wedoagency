@@ -23,34 +23,38 @@ class Footer extends Component{
 		}
 		
 		const body = menuSet.map(item =><li key={item.ID} className="menuFooter__Item"><Link to={item.url}>{item.title}</Link></li>)
+		
+		const labelLang = useLang == "ru" ? <p>Свадебное агeство "weDOagency"</p> : <p>Wedding agency "weDOagency"</p>
+		const label = window.innerWidth < 768 ? <Col sm={12} className="footer__label">{labelLang}<p>2012-2018</p></Col> : null
 
 		return(
 			<div className="footer">
 		
 				<Grid>
 					<Row>
-						<Col lg={6} md={6} sm={6}>
+						{label}
+						<Col sm={6} md={6} lg={6} className="footer__menu">
 							<ul>
 								{body}
 							</ul>
 							<div className="clear"></div>
 						</Col>
-						<Col lg={4} md={6} sm={6} className="footer__contacts">
+						<Col lg={4} md={6} sm={12} className="footer__contacts">
 							{contacts.acf.callWrite}{contacts.acf.Phone}
 							<br />
 							(viber/whatsup)
 							<br />
-							<a href={contacts.acf.mail}>{contacts.acf.mail}</a>
+							<a href={contacts.acf.mail} className="footer__mail">{contacts.acf.mail}</a>
 							<br />
 							{contacts.content.rendered}
 						</Col>
-						<Col lg={2} md={6} className="SocialFooterMd">
+						<Col sm={12} lg={2} md={6} className="SocialFooterMd">
 							<SocialFooter />
 						</Col>				
 					</Row>
 				</Grid>	
 				<hr />
-				<Grid>
+				<Grid className="copyRight">
 					<Row>
 						<Col md={8} className="AllRightReserved">
 							weDOagency © all right reserved
@@ -71,7 +75,6 @@ const mapStateToProps = (state) => {
 		menu: state.menu.entities,
 		contacts: state.contacts.entities,
 		loading: state.contacts.loading
-
 	}
 }
 
