@@ -339,9 +339,7 @@ button:focus {
   float: right;
   padding-left: 100px;
 }
-.agencyInfo{
-  padding-left: 84px;
-}
+
 .portfolio,
 .agency,
 .news{
@@ -373,10 +371,10 @@ button:focus {
   margin-left: 20px;
 }
 
-.container {
+/*.container {
   width: 1019px;
 }
-
+*/
 .portfolio .carousel__slide{
   height: 411px;
 }

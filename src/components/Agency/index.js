@@ -5,11 +5,21 @@ import ErrorCmp from '../ErrorCmp';
 import {connect} from 'react-redux'
 import {loadAgencyInfo} from '../../ducks/agencyInfo.js'
 import {Link} from 'react-router-dom';
+import AgencyInfo from './AgencyInfo';
 
 class Agency extends Component{
+	constructor() {
+   super();
+    this.state = {
+      width: 'auto',
+      height: 'auto'
+    }
+  }
+
 	componentDidMount(){
 		const useLang = this.props.useLang;
 		this.props.loadAgencyInfo(useLang);
+		window.addEventListener("resize", this.updateDimensions.bind(this));
 	}
 	
 	componentWillReceiveProps(nextProps){
@@ -17,6 +27,17 @@ class Agency extends Component{
 			this.props.loadAgencyInfo(nextProps.useLang);
 		}
 	}
+
+	componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions.bind(this));
+  }
+
+  updateDimensions() {
+    this.setState({
+    	width: window.innerWidth, 
+    	height: window.innerHeight
+    });
+  }
 
 	render(){
 
@@ -29,22 +50,37 @@ class Agency extends Component{
 			return <div>Данные врененно не доступны</div>
 		}
 	
-		const knowMore = useLang == "ru" ? "Узнать больше" : "Know more"
+		const mobile = window.innerWidth < 768 ? true : false
+ 		const knowMore = useLang == "ru" ? "Узнать больше" : "Know more"
+
+
+		const headerMobile = mobile ? <Row>
+																		<Col sm={12}>
+																			<h1>{entities.title.rendered}</h1>
+																		</Col>
+																	</Row>
+																: null
+	
+		const headerDesktop = !mobile ?	<h1>{entities.title.rendered}</h1> : null																
+
+		console.log('==', entities)
 
 		return (
-			<div className="agency">
-			  <div className="agency__title">
-			  	<h1>{entities.title.rendered}</h1>
-				</div>
-				<div className="agency__foto">
-					<img src={entities.acf.agencyPhoto} srcSet={entities.acf.agencyPhotox2} />
-			 	</div>
-			 	<div className="agency__content">
-			 		<p>{entities.content.rendered}</p>
+			
+			<Grid className="agency">
+			{headerMobile}
+ 			<Row>
+ 				<Col sm={12} md={5} lg={5} lgOffset={1} className="agencyImg">
+ 						<img src={entities.acf.agencyPhoto} srcSet={`${entities.acf.agencyPhotox2} 2x`} alt="Изображение для прессы"/>
+ 				</Col>
+ 				<Col sm={12} md={6} lg={5} className="offset-lg-1">
+ 					{headerDesktop}
+					<p>{entities.content.rendered}</p>
 					<Link to='/agency' className="knowMore">{knowMore}</Link>
-				</div>
-				<div className="clear" />
-			</div>
+ 				</Col>
+ 				<div className="clear" />
+ 			</Row>
+ 		</Grid>
 	
 		)
 	}
@@ -59,3 +95,16 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {loadAgencyInfo})(Agency)
+// <div className="agency">
+// 			  <div className="agency__title">
+// 			  	<h1>{entities.title.rendered}</h1>
+// 				</div>
+// 				<div className="agency__foto">
+// 					<img src={entities.acf.agencyPhoto} srcSet={entities.acf.agencyPhotox2} />
+// 			 	</div>
+// 			 	<div className="agency__content">
+// 			 		<p>{entities.content.rendered}</p>
+// 					<Link to='/agency' className="knowMore">{knowMore}</Link>
+// 				</div>
+// 				<div className="clear" />
+// 			</div>

@@ -99,25 +99,6 @@ class Press extends Component{
 							<Link to='./press' className="knowMore">{knowMore}</Link>
 						</div>
 					</Row>
-
-
-
-				{/*	<Row> 
-						<Col md={3} sm={3}  className="pressImg1">
-							<img src={entities.data.acf.smallImg} srcSet={`${entities.data.acf.smallImg2x} 2x`} alt="Изображение для прессы"/>
-						 	<h3 className="press__slogan-small">{entities.data.acf.slogan3}</h3>
-							
-						</Col>
-						<Col md={5} sm={5} className="pressImg2">
-							<img src={entities.data.acf.bigImg} srcSet={`${entities.data.acf.bigImg2x} 2x`} alt="Изображение для прессы"/>
-						</Col>
-						<Col md={4} sm={4}>
-							<h1>{entities.data.title.rendered}</h1>
-							<p>{entities.data.content.rendered}</p>
-							<Link to='./press' className="knowMore">{knowMore}</Link>
-						</Col>
-					</Row>
-				*/}
 				</Grid>
 
 			</div>

@@ -36,7 +36,7 @@ class Instagram extends Component{
 				</h4>			
       	<Grid>
 					<Row>
-						<Col md={12}>
+						<Col sm={12} >
         			{<div dangerouslySetInnerHTML={ this.iframe(iframe) } />}
       			</Col>
 					</Row>

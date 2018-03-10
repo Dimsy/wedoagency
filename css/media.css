@@ -8,9 +8,6 @@
     margin-right: 30px;
   }
 
-  .agency{
-    width: 960px;
-  }
   .agency__title{
     width: 50%;
     float: right;
@@ -58,13 +55,6 @@
     vertical-align: middle;
     text-align: center;
   }
-  .container {
-    width: 100%; 
-  } 
-
-  .portfolio .container {
-    width: 990px; 
-  } 
 
   .press iframe {
     width: 960px;
@@ -155,25 +145,7 @@
     right: 100px;
     margin: 0;
   }
-  /*.headerTopLine {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  .headerTopMenu li a,
-  .headerLangSwitcher li{
-    letter-spacing: 1.2px;
-  }
-   .headerTopMenu a {
-    padding: 20px 10px 15px;
-  }
-
-  .headerSocialMenu {
-    margin-right: 20px;
-  }*/
-
-  .agency{
-    width: 768px;
-  }
+  
   .agency img {
     width: 100%;
   }
@@ -183,9 +155,9 @@
     padding-left: 0;
     padding-right: 0;
   }
-  .agencyInfo{
+  /*.agencyInfo{
     padding-left: 20px;
-  }
+  }*/
   .portfolioItem__img{
     width: 220px;
     height: 308px;
@@ -310,38 +282,15 @@
     background-size: contain;
     background-position: center center;
   }
-  .agency{
-    width: 100%;
-    padding: 50px 20px;
+  .agency {
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
-  .agency__title{
-    width: 100%;
-    float: none;
-    padding-left: 0px;
-  }
-  .agency__title h1{
+  .agency h1{
     text-transform: capitalize;
   }
-  .agency__foto {
-    width: 100%;
-    float: none;
-  }
-  .agency__content{
-    width: 100%;
-    float: none;
-    padding-left: 0;
-    padding-top: 20px;
-  }
-  .agency__content .knowMore{
-    margin-top: 20px;
-  }
-  .AgencyMainPageBlock {
-    margin-top: 50px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-  .AgencyMainPageBlock h1{
-    text-transform: capitalize;
+  .agency img {
+    padding-bottom: 20px;
   }
   .headerTopMenu{
     padding-top: 30px;
@@ -497,8 +446,24 @@
     height: 80px;
     line-height: 1.6;
   }
+  .weInInstagram {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .weInInstagram h4{
+    margin-bottom: 30px;
+  }
+  .weInInstagram .col-sm-12{
+    padding-left: 5px;
+    padding-right: 20px;
+  }
+  
 }
 @media only screen and (max-width : 576px) {   
+  .agency, .press, .news {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   .portfolio  {
     padding-left: 20px;
     overflow: hidden;
@@ -541,13 +506,7 @@
     vertical-align: middle;
     text-align: center;
   }
-  .press {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  .news{
-    padding-left: 20px;
-  }
+    
   .newsSlider{
     width: 700px;
   }
@@ -574,6 +533,20 @@
     width: 173px;
     height: 122px;
     line-height: 1.6;
+  }
+  .weInInstagram {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    /*overflow: hidden;*/
+  }
+  .weInInstagram iframe {
+    padding-left: 15px;
+    padding-right: 00px;
+  }
+  .weInInstagram .col-sm-12{
+    padding-left: 5px;
+    padding-right: 0px;
+    margin-right: -10px;
   }
 }
 /* Extra Small Devices, Phones */
