@@ -53,12 +53,7 @@ class Press extends Component{
 		const knowMore = useLang == "ru" ? "Узнать больше" : "Know more"	
 		
 
-		const style = {
-			width: ((window.innerWidth - 40) + 'px'),
-			height: (((window.innerWidth - 40) / 16 * 9) + 'px')
-		}
 		
-		const videoBlock = window.innerWidth < 576 ? style : undefined
 
 		const mobile = window.innerWidth < 768 ? true : false
 
@@ -81,8 +76,15 @@ class Press extends Component{
 				<h2 className="slogan">{entities.data.acf.slogan1}</h2>
 				<h2 className="slogan">{entities.data.acf.slogan2}</h2>
 
-			<iframe src="https://player.vimeo.com/video/210199384" frameBorder="0" allowFullScreen className="showVideo" style={videoBlock}/>
 				
+				<Grid>
+					<Row>
+						<div className="col-sm-12 embed-responsive embed-responsive-16by9 showVideo">
+							<iframe src="https://player.vimeo.com/video/210199384" frameBorder="0" 
+									allowFullScreen className="embed-responsive-item" style={{paddingLeft: "15px", paddingRight: "15px"}}/>
+						</div>
+					</Row>
+				</Grid>
 				<Grid>
 					{mobileHeader}
 					<Row>

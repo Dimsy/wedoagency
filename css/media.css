@@ -94,8 +94,8 @@
     height: 505px;
   }
 
-  .weInInstagram .instagramPaddingRight{
-    width: 922px;
+  .weInInstagram .col-sm-12{
+    padding-left: 5px;
     padding-right: 5px;
   }
 }
@@ -235,8 +235,6 @@
     text-align: center;
   }
   .press iframe {
-    position: relative;
-    left: -10px;
     width: 700px;
     height: 393px;
   }
@@ -246,9 +244,9 @@
   }
   .weInInstagram .instagramPaddingRight{
     width: 724px;
-    position: relative;
+    /*position: relative;
     left: 50%;
-    margin-left: -370px;
+    margin-left: -370px;*/
   }
 }
 
@@ -362,11 +360,6 @@
   .footer__contacts a.footer__mail{
     line-height: 42px;
   }
-/*
-  .portfolio .container {
-    margin: 0;
-    padding-left: 20px;
-  }*/
   .carousel__inner-slide,
   .portfolioItem__wrapper,
   .portfolioItem__img{
@@ -424,11 +417,9 @@
     text-transform: capitalize;
   }
 
-  .press iframe {
+  .press .showVideo {
     margin-top: 36px;    
     margin-bottom: 50px; 
-    width: 540px;
-    height: 304px;
   }
 
   .press .pressImg1,
@@ -555,17 +546,19 @@
     line-height: 1.6;
   }
   .weInInstagram {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    /*overflow: hidden;*/
+    padding: 50px 5px;
   }
   
   .footer__contacts{
-    padding-left: 35px;
+     padding-left: 20px;
+     margin-bottom: 0;
   }
+
   .footer .socialFooter{
     padding-left: 20px;
+    margin-top: 20px;
   }
+
   .footer__label{
     padding-left: 35px;
   }

@@ -457,7 +457,6 @@ button:focus {
 }
 
 .showVideo {
-  display: block;
   margin: 86px auto 100px;
 }
 
@@ -564,13 +563,10 @@ button:focus {
 .weInInstagram h4 {
   text-align: center;
 }
-.weInInstagram .instagramPaddingRight{
-  width: 980px;
-  margin-left: auto;
-  margin-right: auto;
+.weInInstagram{
+  padding-left: 5px;
   padding-right: 5px;
 }
-
 .sendMessage h4 {
   text-align: left;
  } 

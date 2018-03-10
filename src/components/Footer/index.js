@@ -24,45 +24,50 @@ class Footer extends Component{
 		
 		const body = menuSet.map(item =><li key={item.ID} className="menuFooter__Item"><Link to={item.url}>{item.title}</Link></li>)
 		
-		const labelLang = useLang == "ru" ? <p>Свадебное агeство "weDOagency"</p> : <p>Wedding agency "weDOagency"</p>
-		const label = window.innerWidth < 768 ? <Col sm={12} className="footer__label">{labelLang}<p>2012-2018</p></Col> : null
+		const labelLang = useLang == "ru" ? <p className="footer__contacts">Свадебное агeство "weDOagency"</p> : <p>Wedding agency "weDOagency"</p>
+		const label = window.innerWidth < 768 ? <Col sm={11} className="footer__contacts col-11">{labelLang}<p className="footer__contacts">2012-2018</p></Col> : null
 
 		return(
 			<div className="footer">
-		
-				<Grid>
-					<Row>
+			
+					<Grid>
+						<div className="row no-gutters">
+					
 						{label}
-						<Col sm={6} md={6} lg={6} className="footer__menu">
-							<ul>
+						<Col sm={6} md={6} lg={6} className="col-11">
+							<ul className={"footer__menu"}>
 								{body}
 							</ul>
 							<div className="clear"></div>
 						</Col>
-						<Col lg={4} md={6} sm={12} className="footer__contacts">
-							{contacts.acf.callWrite}{contacts.acf.Phone}
-							<br />
-							(viber/whatsup)
-							<br />
-							<a href={contacts.acf.mail} className="footer__mail">{contacts.acf.mail}</a>
-							<br />
-							{contacts.content.rendered}
+						
+						<Col sm={11} md={6} lg={4} className="col-11">
+							<div className="footer__contacts">
+								{contacts.acf.callWrite}{contacts.acf.Phone}
+								<br />
+								(viber/whatsup)
+								<br />
+								<a href={contacts.acf.mail} className="footer__mail">{contacts.acf.mail}</a>
+								<br />
+								{contacts.content.rendered}
+							</div>
 						</Col>
-						<Col sm={12} lg={2} md={6} className="SocialFooterMd">
+						<Col sm={11} lg={2} md={6} className="SocialFooterMd col-11">
 							<SocialFooter />
-						</Col>				
-					</Row>
+						</Col>		
+					</div>
 				</Grid>	
-				<hr />
+			
 				<Grid className="copyRight">
-					<Row>
+					<div className="row no-gutters">
 						<Col md={8} className="AllRightReserved">
 							weDOagency © all right reserved
 						</Col>
 						<Col md={4}>
 							<BackToTop  scrollStepInPx="50" delayInMs="16.66"/>							
 						</Col>
-					</Row>
+					
+					</div>
 				</Grid>
 			</div>
 		)
