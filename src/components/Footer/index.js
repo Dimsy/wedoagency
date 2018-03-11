@@ -24,8 +24,8 @@ class Footer extends Component{
 		
 		const body = menuSet.map(item =><li key={item.ID} className="menuFooter__Item"><Link to={item.url}>{item.title}</Link></li>)
 		
-		const labelLang = useLang == "ru" ? <p className="footer__contacts">Свадебное агeство "weDOagency"</p> : <p>Wedding agency "weDOagency"</p>
-		const label = window.innerWidth < 768 ? <Col sm={11} className="footer__contacts col-11">{labelLang}<p className="footer__contacts">2012-2018</p></Col> : null
+		const labelLang = useLang == "ru" ? 'Свадебное агeство "weDOagency"' : 'Wedding agency "weDOagency"'
+		const label = window.innerWidth < 768 ? <Col sm={11} className="col-11"><p className="footer__label">{labelLang}</p><p className="footer__label">2012-2018</p></Col> : null
 
 		return(
 			<div className="footer">

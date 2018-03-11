@@ -143,9 +143,9 @@ p {
   text-align: left;
   color: #545454;
 }
-.container {
+/*.container {
   padding-left: 30px;
-}
+}*/
 .loader {
   color: #787878; }
 
@@ -558,14 +558,14 @@ button:focus {
 }
 .weInInstagram{
   padding-top: 100px;
-  padding-bottom: 87px;
+  padding-bottom: 62px;
+}
+.weInInstagram .container{
+  padding-left: 5px;
+  padding-right: 5px;
 }
 .weInInstagram h4 {
   text-align: center;
-}
-.weInInstagram{
-  padding-left: 5px;
-  padding-right: 5px;
 }
 .sendMessage h4 {
   text-align: left;

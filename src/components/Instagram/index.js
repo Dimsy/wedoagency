@@ -26,7 +26,7 @@ class Instagram extends Component{
   }
 
   render() {
-	  const iframe = '<iframe src="//lightwidget.com/widgets/0a00d569c66159a6bfb19fbb5db09900.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden; padding: " />'
+	  const iframe = '<iframe src="//lightwidget.com/widgets/0a00d569c66159a6bfb19fbb5db09900.html" scrolling="no" allowtransparency="true" class="lightwidget-widget embed-responsive-item" style="width: 100%; border: 0; overflow: hidden; padding: " />'
     	
     const {instagram, loading} = this.props;
     if (loading) return <Loader />;
@@ -38,8 +38,9 @@ class Instagram extends Component{
 				</h4>			
 				<Grid>
 					<div className="row no-gutters">
-						<Col sm={12}>
-							<div dangerouslySetInnerHTML={ this.iframe(iframe) }/>
+						<Col sm={12} md={12} className="embed-responsive  embed-responsive-16by9" >
+							<iframe src="//lightwidget.com/widgets/0a00d569c66159a6bfb19fbb5db09900.html" scrolling="no" allowTransparency="true" 
+											className="lightwidget-widget embed-responsive-item" /> 
 						</Col>
 					</div>
 				</Grid>			

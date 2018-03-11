@@ -94,10 +94,6 @@
     height: 505px;
   }
 
-  .weInInstagram .col-sm-12{
-    padding-left: 5px;
-    padding-right: 5px;
-  }
   .articleImgNews{
     height: 400px;
   }
@@ -244,12 +240,6 @@
 
   .socialFooter li:first-child{
     padding-left: 0px;
-  }
-  .weInInstagram .instagramPaddingRight{
-    width: 724px;
-    /*position: relative;
-    left: 50%;
-    margin-left: -370px;*/
   }
 }
 
@@ -465,11 +455,16 @@
   .weInInstagram h4{
     margin-bottom: 30px;
   }
-  .weInInstagram .instagramPaddingRight{
-    width: 548px;
-    position: relative;
-    left: 50%;
-    margin-left: -280px;
+  .weInInstagram .container {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .footer__contacts {
+    margin-bottom: 0;
+  }
+  .socialFooter{
+    margin-top: 20px;
+    margin-bottom: 46px;
   }
   
 }
@@ -563,7 +558,7 @@
   }
 
   .footer__label{
-    padding-left: 35px;
+    padding-left: 20px;
   }
 }
 /* Extra Small Devices, Phones */
