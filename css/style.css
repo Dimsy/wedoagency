@@ -850,6 +850,7 @@ hr {
   height: 500px;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center center;
 }
 .articleDate {
   margin-top: 50px;
@@ -1097,6 +1098,15 @@ hr {
   width: 304px;
   float: left;
   margin-left: 10px;
+  font-family: LatoRegular;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2;
+  letter-spacing: 1px;
+  text-align: left;
+  color: #545454;
 }
 
 .portfolioPage__project .content h1{
@@ -1116,7 +1126,7 @@ hr {
 
 .portfolioPage__project img{
   display: inline-block;
-  float: left;
+  float: right;
   margin: 10px; 
 }
 
@@ -1174,7 +1184,20 @@ hr {
 .marginLeft10px{
   margin-left: 10px;
 }
-
+.agencyInfo{
+  font-family: LatoRegular;
+   font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: 1px;
+    text-align: left;
+    color: #545454;
+}
+.articlePage .collage{
+  height: 1050px;
+}
 
 
 

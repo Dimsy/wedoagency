@@ -57,7 +57,7 @@ class Footer extends Component{
 						</Col>		
 					</div>
 				</Grid>	
-			
+				<hr />
 				<Grid className="copyRight">
 					<div className="row no-gutters">
 						<Col md={8} className="AllRightReserved">

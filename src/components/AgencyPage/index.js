@@ -36,13 +36,13 @@ class AgencyPage extends Component {
 		};
 
 		const collage = {
-			height: '1130px',
 			backgroundRepeat: 'no-repeat',
 			backgroundImage: `-webkit-image-set( url(${entities.acf.collage}) 1x, url(${entities.acf.collagex2}) 2x )`,
 			backgroundImage: `-moz-image-set( url(${entities.acf.collage}) 1x, url(${entities.acf.collagex2}) 2x )`,
 			backgroundImage: `-o-image-set( url(${entities.acf.collage}) 1x, url(${entities.acf.collagex2}) 2x )`,
 			backgroundImage: `-ms-image-set( url(${entities.acf.collage}) 1x, url(${entities.acf.collagex2}) 2x )`,
-			backgroundImage: `url(${entities.acf.collage})`
+			backgroundImage: `url(${entities.acf.collage})`,
+			backgroundSize: 'cover'
 		};
 
 		return (
@@ -51,11 +51,10 @@ class AgencyPage extends Component {
 				<Grid>
 	 				<Row>
 	 					<Col md={6}>
-	 					 <div style={collage} />
+	 					 <div style={collage} className="collage" />
 	 					</Col>
-	 					<Col md={1}>
-	 					</Col>
-	 					<Col md={5} className="agencyInfo">
+	 					
+	 					<Col md={5} className="agencyInfo offset-md-1">
 	 						<h1>
 	 							{entities.title.rendered}
 	 						</h1>

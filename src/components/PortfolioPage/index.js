@@ -15,11 +15,12 @@ class PortfolioPage extends Component{
 
 			const photo = key.substring(photoIndex)
 			photos[photo] = photos[key]
-									 
 		}
-		
+
+		if (!photos.photo1 || !photos.photo1x2 || !photos.photo2 || !photos.photo2x2|| !photos.photo3 || !photos.photo3x2) return null
+
 		return (
-			<Row key={photos.photo1+'_'+photos.photo1x2}>
+			<Row key={photos.photo1+'_'+photos.photo1x+Date.now()}>
 				<Col md={12}>
 					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта"/>
 					<img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта"/>
@@ -42,8 +43,10 @@ class PortfolioPage extends Component{
 						float: "right"
 					}
 		
+		if (!photos.photo1 || !photos.photo1x2 || !photos.photo2 || !photos.photo2x2|| !photos.photo3 || !photos.photo3x2) return null
+
 		return (
-			<Row key={photos.photo1+'_'+photos.photo1x2}>
+			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()}>
 				<Col md={12}>
 					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта" style={styleRight}/>
 					<img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта" style={styleRight}/>
@@ -63,8 +66,10 @@ class PortfolioPage extends Component{
 			photos[photo] = photos[key]									 
 		}
 		
+		if (!photos.photo1 || !photos.photo1x2 || !photos.photo2 || !photos.photo2x2|| !photos.photo3 || !photos.photo3x2) return null
+
 		return (
-			<Row key={photos.photo1+'_'+photos.photo1x2}>
+			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()}>
 				<Col md={12}>
 					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта"/>
 					<img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта"/>
@@ -83,8 +88,10 @@ class PortfolioPage extends Component{
 			photos[photo] = photos[key]									 
 		}
 
+		if (!photos.photo1 || !photos.photo1x2 ) return null
+
 		return (
-			<Row key={photos.photo1+'_'+photos.photo1x2}>
+			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()}>
 				<Col md={12}>
 					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта"/>
 				</Col>
@@ -111,8 +118,10 @@ class PortfolioPage extends Component{
 						float: "left"
 					}				
 		
+	  if (!photos.photo1 || !photos.photo1x2 || !photos.photo2 || !photos.photo2x2|| !photos.photo3 || !photos.photo3x2 || !photos.photo4 || !photos.photo4x2) return null
+
 		return (
-			<Row key={photos.photo1+'_'+photos.photo1x2}>
+			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()}>
 				<Col md={12}>
 					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта" style={styleLeft}/>
 					<img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта" style={styleRight}/>
@@ -148,21 +157,24 @@ class PortfolioPage extends Component{
 		
 		for (let key in project.acf){
 			const photoBlock = project.acf[key]
-	
+
 			if (~key.indexOf("block") && (photoBlock == 'a' || 'b' || 'c' || 'd' || 'e')) {
+
 				const photoBlockIndex = +project.acf[key].substring(1) 
 				const photos = {}
+
 	
 				for (key in project.acf ){
-					if(~key.indexOf(`bl${photoBlockIndex}`)){
-						
+					if( key.substring(2 ,key.indexOf("_")) == photoBlockIndex){
+					
 						photos[key] = project.acf[key]
 					}
+			
 				}
 
 
 				const createBlock = safeEval(photoBlock[0], this)
-				body.push(createBlock(photos))			
+				body.push(createBlock(photos))		
 		 	}
 		}	
 
@@ -187,10 +199,6 @@ class PortfolioPage extends Component{
 		 											? <img src={`${project.acf.photoNextText}`}  srcSet={`${project.acf.photoNextTextx2} 2x`} alt="Фото проекта 1"/>
 		 											: null							
 
-
-
-		// console.log('-----',  (project.acf.video.length > 0))
-
 		
 		const videoBody = project.acf.video.length > 0 ? <iframe src={project.acf.video} width="960" height="540" 
 																															frameBorder="0" allowFullScreen className="showVideo" />
@@ -211,11 +219,7 @@ class PortfolioPage extends Component{
 								<div className="clear" />
 							</Col>
 						</Row>
-						<Row>
-							<Col md={12} className="photoBlock">
-								{body}
-							</Col>
-						</Row>
+						{body}
 						<Row>
 							<Col md={12}>
 								{videoBody}
@@ -239,3 +243,9 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(PortfolioPage)
+
+// <Row>
+// 							<Col md={12} className="photoBlock">
+// 								{body}
+// 							</Col>
+// 						</Row>
