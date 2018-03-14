@@ -142,10 +142,10 @@ class AgencyPage extends Component {
 						<Col md={5} className="info">
 							{date.toLocaleString( i18, options)}
 							<div className="header">
-								{entities.title.rendered}
+								{renderHTML(entities.title.rendered)}
 							</div>
 							<div className="content">
-								{entities.content.rendered}
+								{renderHTML(entities.content.rendered)}
 							</div>
 						</Col>
 		 			</Row>

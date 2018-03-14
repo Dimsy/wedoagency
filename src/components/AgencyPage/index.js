@@ -35,26 +35,17 @@ class AgencyPage extends Component {
 			marginBottom: '100px'
 		};
 
-		const collage = {
-			backgroundRepeat: 'no-repeat',
-			backgroundImage: `-webkit-image-set( url(${entities.acf.collage}) 1x, url(${entities.acf.collagex2}) 2x )`,
-			backgroundImage: `-moz-image-set( url(${entities.acf.collage}) 1x, url(${entities.acf.collagex2}) 2x )`,
-			backgroundImage: `-o-image-set( url(${entities.acf.collage}) 1x, url(${entities.acf.collagex2}) 2x )`,
-			backgroundImage: `-ms-image-set( url(${entities.acf.collage}) 1x, url(${entities.acf.collagex2}) 2x )`,
-			backgroundImage: `url(${entities.acf.collage})`,
-			backgroundSize: 'cover'
-		};
-
+		
 		return (
 			<div className="articlePage">
 				<div className="articleImgNews" style={header} />
 				<Grid>
 	 				<Row>
-	 					<Col md={6}>
-	 					 <div style={collage} className="collage" />
+	 					<Col md={6} className="agencyPage__collage">
+	 						<img src={`${entities.acf.collage}`} />
 	 					</Col>
 	 					
-	 					<Col md={5} className="agencyInfo offset-md-1">
+	 					<Col md={6} className="agencyInfo">
 	 						<h1>
 	 							{entities.title.rendered}
 	 						</h1>

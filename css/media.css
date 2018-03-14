@@ -241,6 +241,9 @@
   .socialFooter li:first-child{
     padding-left: 0px;
   }
+  .agencyPage__collage img{
+    height: 682px;
+  }
 }
 
 /* Small Devices, Tablets */
@@ -467,6 +470,7 @@
     margin-bottom: 46px;
   }
   
+  
 }
 @media only screen and (max-width : 576px) {   
   .agency, .press, .news {
@@ -640,3 +644,25 @@
 @media only screen and (min-width : 1200px) {
 
 }	
+
+@media (min-aspect-ratio: 16/9) {
+  #video_bg {
+    height: 300%;
+    top: -100%;
+  }
+}
+@media (max-aspect-ratio: 16/9) {
+  #video_bg {
+    width: 300%;
+    left: -100%;
+  }
+}
+@supports (object-fit: cover) {
+  #video_bg {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

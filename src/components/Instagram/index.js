@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {loadInstagram} from '../../ducks/instagram';
 import { Grid, Row, Col } from 'react-bootstrap';
-import Iframe from 'react-iframe';
 import Loader from '../Loader';
 
 class Instagram extends Component{
@@ -19,15 +18,14 @@ class Instagram extends Component{
     }
 	}
 
-	iframe = (iframe) => {
-    return {
-      __html: iframe
-    }
-  }
-
   render() {
-	  const iframe = '<iframe src="//lightwidget.com/widgets/0a00d569c66159a6bfb19fbb5db09900.html" scrolling="no" allowtransparency="true" class="lightwidget-widget embed-responsive-item" style="width: 100%; border: 0; overflow: hidden; padding: " />'
-    	
+  	const iframe = window.innerWidth < 769 ? <Col sm={12} md={12} className="embed-responsive embed-responsive-9by16" >
+  																						 <iframe src="//lightwidget.com/widgets/3fda9fb9b63957ac81d94af0e5aef36f.html" scrolling="no" allowTransparency="true" className="lightwidget-widget embed-responsive-item" />
+																					 	 </Col>
+																					 : <Col sm={12} md={12} className="embed-responsive embed-responsive-16by9" >
+																					 		 <iframe src="//lightwidget.com/widgets/0a00d569c66159a6bfb19fbb5db09900.html" scrolling="no" allowTransparency="true" className="lightwidget-widget embed-responsive-item" />
+																					 	 </Col>
+  	
     const {instagram, loading} = this.props;
     if (loading) return <Loader />;
 
@@ -38,10 +36,9 @@ class Instagram extends Component{
 				</h4>			
 				<Grid>
 					<div className="row no-gutters">
-						<Col sm={12} md={12} className="embed-responsive  embed-responsive-16by9" >
-							<iframe src="//lightwidget.com/widgets/0a00d569c66159a6bfb19fbb5db09900.html" scrolling="no" allowTransparency="true" 
-											className="lightwidget-widget embed-responsive-item" /> 
-						</Col>
+						
+							{iframe}
+						
 					</div>
 				</Grid>			
 			</div>
@@ -57,7 +54,3 @@ const mapStateToProps = state => {
 	}
 }
 export default connect(mapStateToProps, {loadInstagram})(Instagram)
-
-// <div className="instagramPaddingRight">
-// 					<div dangerouslySetInnerHTML={ this.iframe(iframe) }/>
-// 				</div>

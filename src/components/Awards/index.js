@@ -37,7 +37,7 @@ class Awards extends Component{
         																<AwardsItem item={item} />
 																			</Slide>)
 
-		const opacity = body.length > 3 ? {opacity: "1"} : {opacity: "0.3"}
+		const opacity = body.length > 3 ? {display: "block"} : {display: "none"}
 
 		return (
 			<div className='portfolio'>

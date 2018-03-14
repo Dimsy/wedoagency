@@ -104,7 +104,7 @@ h1, .h1 {
   letter-spacing: 3.5px;
   text-align: left;
   color: #131313; 
-  text-transform: uppercase;
+  text-transform: capitalize;
   margin-bottom: 30px;
 }
 
@@ -286,6 +286,10 @@ button:focus {
   width: 18px;
   height: 18px;
 }
+.headerSocialMenu img:hover{
+  fill: #131313;
+  background-color: #0c0;
+}
 .socialFooter .youtube img,
 .headerSocialMenu .youtube{
   padding-top: 3px;
@@ -307,11 +311,6 @@ button:focus {
 
 .headerImgBlock{
   height: 500px;
-  background-image: url(../img/logo/headerImgBlock.png);
-  background-image: -webkit-image-set(url(../img/logo/headerImgBlock.png) 1x, url(../img/logo/headerImgBlock@2x.png) 2x);
-  background-image: -moz-image-set(url(../img/logo/headerImgBlock.png) 1x, url(../img/logo/headerImgBlock@2x.png) 2x);
-  background-image: -o-image-set(url(../img/logo/headerImgBlock.png) 1x, url(../img/logo/headerImgBlock@2x.png) 2x);
-  background-image: -ms-image-set(url(../img/logo/headerImgBlock.png) 1x, url(../img/logo/headerImgBlock@2x.png) 2x);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1199,9 +1198,23 @@ hr {
   height: 1050px;
 }
 
+.agencyPage__collage img{
+    height: 800px;
+}
 
+.articlePage{
+  margin-bottom: 100px;
+}
+.video_bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1000;
+}
 
-
+.embed-responsive-9by16{
+  padding-bottom: 200%;
+}
 
 
 

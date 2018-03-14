@@ -50,10 +50,7 @@ class Press extends Component{
 			return <div>Данные пока не доступны</div>
 		}
 
-		const knowMore = useLang == "ru" ? "Узнать больше" : "Know more"	
-		
-
-		
+		const knowMore = useLang == "ru" ? "Узнать больше" : "Know more"		
 
 		const mobile = window.innerWidth < 768 ? true : false
 
@@ -68,7 +65,9 @@ class Press extends Component{
 																 : <h1>{entities.data.title.rendered}</h1>
 
 		const desktopSlogan = mobile ? null 
-																 : <h3 className="press__slogan-small">{entities.data.acf.slogan3}</h3>														 
+																 : <h3 className="press__slogan-small">{entities.data.acf.slogan3}</h3>	
+
+		const pressVideo = `https://player.vimeo.com/video/${entities.data.acf.video}`
 
 		return (
 			<div className="press">
@@ -80,7 +79,7 @@ class Press extends Component{
 				<Grid>
 					<Row>
 						<div className="col-sm-12 embed-responsive embed-responsive-16by9 showVideo">
-							<iframe src="https://player.vimeo.com/video/210199384" frameBorder="0" 
+							<iframe src={pressVideo} frameBorder="0" 
 									allowFullScreen className="embed-responsive-item" style={{paddingLeft: "15px", paddingRight: "15px"}}/>
 						</div>
 					</Row>

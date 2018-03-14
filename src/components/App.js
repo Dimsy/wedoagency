@@ -15,6 +15,7 @@ import RoutePressList from './Routes/press'
 import RoutePressPage from './Routes/pressPage'
 import {loadMenu} from '../ducks/menu'
 import {loadContacts} from '../ducks/contacts'
+import {loadHeader} from '../ducks/header'
 import {MENU, CONTACTS} from '../config.js'
 import history from '../history'
 import NotFound from './NotFound'
@@ -25,9 +26,11 @@ class App extends Component {
 
 	componentDidMount(){
 		const useLang = this.props.useLang
+		this.props.loadHeader()
 		this.props.loadMenu(useLang)
 		this.props.loadContacts(useLang)
 		this.props.loadSocialFooter();
+
 	}
    
 	
@@ -72,4 +75,4 @@ const mapStateToProps = state => {
 	}
 }
 
-export default connect(mapStateToProps, {loadMenu, loadContacts, loadSocialFooter})(App)
+export default connect(mapStateToProps, {loadMenu, loadContacts, loadSocialFooter, loadHeader})(App)

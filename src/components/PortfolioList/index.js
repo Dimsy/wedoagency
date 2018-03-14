@@ -39,7 +39,7 @@ class PortfolioList extends Component{
 		}
 		
 		const showMore = useLang == "ru" ? "Показать еще" : "Show more";
-		const projects = useLang == "ru" ? "Проекты" : "Projects";
+		const projects = useLang == "ru" ? "Портфолио" : "Portfolio";
 		const toggleShowMore = body.length != count ? <div className='showMore'>
 																									  <span onClick={this.addingPress}>
 																									    {showMore}

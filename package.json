@@ -29,6 +29,7 @@
     "style-loader": "^0.18.2"
   },
   "dependencies": {
+    "@u-wave/react-vimeo": "^0.3.1",
     "axios": "^0.16.2",
     "concurrently": "^3.5.0",
     "immutable": "^3.8.2",

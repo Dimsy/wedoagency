@@ -3,6 +3,11 @@ export const appName = 'wedoagency'
 
 //Путь к приложению в CMS
 export const PATH = 'http://test.wedoagency.ru/wp-content/themes/wp_theme/'
+ 
+// Background headera
+
+export const HEADER = "693"
+
 
 // AgencyInfo / Информация об агентстве
 // ru

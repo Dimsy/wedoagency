@@ -1,6 +1,7 @@
 import {combineReducers} from 'redux'
 import { reducer as formReducer } from 'redux-form'
 import menuReducer, {moduleName as menuModule} from '../ducks/menu';
+import headerReducer, {moduleName as headerModule} from '../ducks/header';
 import awardsReducer, {moduleName as awardsModule} from '../ducks/awards';
 import pressReducer, {moduleName as pressModule} from '../ducks/press';
 import pressPageReducer, {moduleName as pressPageModule} from '../ducks/pressPage';
@@ -17,6 +18,7 @@ import contactsReducer, {moduleName as contactsModule} from '../ducks/contacts';
 import socialFooterReducer, {moduleName as socialFooterModule} from '../ducks/socialFooter';
 
 export default combineReducers({
+	[headerModule]: headerReducer,
 	[menuModule]: menuReducer,
 	[langModule]: langReducer,
 	[agencyInfoModule]: agencyInfoReducer,
