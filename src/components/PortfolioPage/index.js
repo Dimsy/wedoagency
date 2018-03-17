@@ -21,38 +21,39 @@ class PortfolioPage extends Component{
 
 		return (
 			<Row key={photos.photo1+'_'+photos.photo1x+Date.now()} className="no-gutters">
-				<Col md={12}>
-					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта"/>
-					<img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта"/>
-					<img src={`${photos.photo3}`}  srcSet={`${photos.photo3x2} 2x`} alt="Фото проекта"/>
-				</Col>
+				<div className="col-6 blockA blockA_one">
+					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта 1" />
+				</div>
+				<div className="col-6 blockA blockA_two">
+					<img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта 2" />
+					<img src={`${photos.photo3}`}  srcSet={`${photos.photo3x2} 2x`} alt="Фото проекта 3" />
+					<div className="clear"/>
+				</div>
 			</Row>
 		)	
 	}
 
 	b = (photos) => {
+
 		for (let key in photos){
 			const photoIndex = key.indexOf('photo')
 
 			const photo = key.substring(photoIndex)
 			photos[photo] = photos[key]								 
 		}
-
-		const styleRight = {
-						display: "inline-block", 
-						float: "right"
-					}
 		
 		if (!photos.photo1 || !photos.photo1x2 || !photos.photo2 || !photos.photo2x2|| !photos.photo3 || !photos.photo3x2) return null
 
 		return (
 			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()} className="no-gutters">
-				<Col md={12}>
-					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта" style={styleRight}/>
-					<img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта" style={styleRight}/>
-					<img src={`${photos.photo3}`}  srcSet={`${photos.photo3x2} 2x`} alt="Фото проекта" style={styleRight}/>
+				<div className="col-6 blockB blockB_two">
+					<img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта" />
+					<img src={`${photos.photo3}`}  srcSet={`${photos.photo3x2} 2x`} alt="Фото проекта" />
+				</div>
+				<div className="col-6 blockB blockB_one">
+					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта" />
 					<div className="clear" />
-				</Col>
+				</div>
 			</Row>
 		)	
 	}
@@ -70,11 +71,11 @@ class PortfolioPage extends Component{
 
 		return (
 			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()} className="no-gutters">
-				<Col md={12}>
+				<div className="col-12 blockC">
 					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта"/>
 					<img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта"/>
 					<img src={`${photos.photo3}`}  srcSet={`${photos.photo3x2} 2x`} alt="Фото проекта"/>
-				</Col>
+				</div>
 			</Row>
 		)	
 	}
@@ -92,9 +93,9 @@ class PortfolioPage extends Component{
 
 		return (
 			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()} className="no-gutters">
-				<Col md={12}>
+				<div className="col-12 blockD">
 					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта"/>
-				</Col>
+				</div>
 			</Row>
 		)	
 	}
@@ -122,13 +123,13 @@ class PortfolioPage extends Component{
 
 		return (
 			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()} className="no-gutters">
-				<Col md={12}>
+				<div className="col-12 blockE">
 					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта" style={styleLeft}/>
 					<img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта" style={styleRight}/>
 					<img src={`${photos.photo3}`}  srcSet={`${photos.photo3x2} 2x`} alt="Фото проекта" style={styleRight}/>
 					<img src={`${photos.photo4}`}  srcSet={`${photos.photo4x2} 2x`} alt="Фото проекта" style={styleLeft}/>
 					<div className="clear" />
-				</Col>
+				</div>
 			</Row>
 		)	
 	}
@@ -172,7 +173,6 @@ class PortfolioPage extends Component{
 			
 				}
 
-
 				const createBlock = safeEval(photoBlock[0], this)
 				body.push(createBlock(photos))		
 		 	}
@@ -205,7 +205,10 @@ class PortfolioPage extends Component{
 																												 : null
 
 		const photoNextText = (!!project.acf.photoNextText) && (project.acf.photoNextText != false)
-		 											? <img src={`${project.acf.photoNextText}`}  srcSet={`${project.acf.photoNextTextx2} 2x`} alt="Фото проекта 1"/>
+		 											? <img src={`${project.acf.photoNextText}`}
+		 														 srcSet={`${project.acf.photoNextTextx2} 2x`}
+		 														 alt="Фото проекта"
+		 														 className="portfolioTitlePhoto" />
 		 											: null							
 
 		
@@ -228,8 +231,8 @@ class PortfolioPage extends Component{
   
 					{headerBlock}
 					<Grid>
-						<Row className="no-gutters">
-							<Col md={12}>
+						<Row>
+							<Col md={12} >
 								{content}
 								{photoNextText}
 								<div className="clear" />

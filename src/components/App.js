@@ -61,6 +61,7 @@ class App extends Component {
 							<Route path="/contacts" component={RouteContacts} exact/>
 						</Switch>
 					<Route path="/" component={RouteInstaFooter} />
+			
 				</div>
 				</ScrollToTop>
 			</ConnectedRouter>

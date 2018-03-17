@@ -1124,9 +1124,18 @@ hr {
 }
 
 .portfolioPage__project img{
-  display: inline-block;
-  float: right;
   margin: 10px; 
+}
+.portfolioTitlePhoto{
+  float: right;
+}
+.blockA img,
+.blockB img,
+.blockE img{
+  width: 470px;
+}
+.blockC img{
+  width: 306px;
 }
 
 .anim-appear {

@@ -97,6 +97,27 @@
   .articleImgNews{
     height: 400px;
   }
+
+  
+  .blockA img,
+  .blockB img,
+  .blockE img{
+    width: 442px;
+  }
+  .blockA_one img,
+  .blockB_one img{
+    height: 632px;
+  }
+  .blockA_two img,
+  .blockB_two img{
+    height: 304px;
+  }
+  .blockD img{
+    width: 904px;
+  }
+  .blockC img{
+    width: 288px;
+  }
 }
 
 /* Medium Devices, Desktops */
@@ -244,8 +265,24 @@
   .agencyPage__collage img{
     height: 682px;
   }
-  .portfolioPage__project img{
-    /*width: 100%;*/
+  .blockA img,
+  .blockB img,
+  .blockE img{
+    width: 330px;
+  }
+  .blockA_one img,
+  .blockB_one img{
+    height: 475px;
+  }
+  .blockA_two img,
+  .blockB_two img{
+    height: 226px;
+  }
+  .blockD img{
+    width: 680px;
+  }
+  .blockC img{
+    width: 213px;
   }
 }
 
@@ -474,6 +511,32 @@
   .socialFooter{
     margin-top: 20px;
     margin-bottom: 46px;
+  }
+  .portfolioPage__project .container{
+    padding-left: 0;
+  }
+  .portfolioTitlePhoto{
+    float: none;
+    width: 520px;
+  }
+  .blockA img,
+  .blockB img,
+  .blockE img{
+    width: 330px;
+  }
+  .blockA_one img,
+  .blockB_one img{
+    height: 475px;
+  }
+  .blockA_two img,
+  .blockB_two img{
+    height: 226px;
+  }
+  .blockD img{
+    width: 380px;
+  }
+  .blockC img{
+    width: 213px;
   }
   
   
