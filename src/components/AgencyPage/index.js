@@ -45,7 +45,7 @@ class AgencyPage extends Component {
 	 						<img src={`${entities.acf.collage}`} />
 	 					</Col>
 	 					
-	 					<Col md={6} className="agencyInfo">
+	 					<Col md={5} className="agencyInfo">
 	 						<h1>
 	 							{entities.title.rendered}
 	 						</h1>

@@ -20,7 +20,7 @@ class PortfolioPage extends Component{
 		if (!photos.photo1 || !photos.photo1x2 || !photos.photo2 || !photos.photo2x2|| !photos.photo3 || !photos.photo3x2) return null
 
 		return (
-			<Row key={photos.photo1+'_'+photos.photo1x+Date.now()}>
+			<Row key={photos.photo1+'_'+photos.photo1x+Date.now()} className="no-gutters">
 				<Col md={12}>
 					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта"/>
 					<img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта"/>
@@ -46,7 +46,7 @@ class PortfolioPage extends Component{
 		if (!photos.photo1 || !photos.photo1x2 || !photos.photo2 || !photos.photo2x2|| !photos.photo3 || !photos.photo3x2) return null
 
 		return (
-			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()}>
+			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()} className="no-gutters">
 				<Col md={12}>
 					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта" style={styleRight}/>
 					<img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта" style={styleRight}/>
@@ -69,7 +69,7 @@ class PortfolioPage extends Component{
 		if (!photos.photo1 || !photos.photo1x2 || !photos.photo2 || !photos.photo2x2|| !photos.photo3 || !photos.photo3x2) return null
 
 		return (
-			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()}>
+			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()} className="no-gutters">
 				<Col md={12}>
 					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта"/>
 					<img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта"/>
@@ -91,7 +91,7 @@ class PortfolioPage extends Component{
 		if (!photos.photo1 || !photos.photo1x2 ) return null
 
 		return (
-			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()}>
+			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()} className="no-gutters">
 				<Col md={12}>
 					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта"/>
 				</Col>
@@ -121,7 +121,7 @@ class PortfolioPage extends Component{
 	  if (!photos.photo1 || !photos.photo1x2 || !photos.photo2 || !photos.photo2x2|| !photos.photo3 || !photos.photo3x2 || !photos.photo4 || !photos.photo4x2) return null
 
 		return (
-			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()}>
+			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()} className="no-gutters">
 				<Col md={12}>
 					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта" style={styleLeft}/>
 					<img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта" style={styleRight}/>
@@ -178,6 +178,8 @@ class PortfolioPage extends Component{
 		 	}
 		}	
 
+
+
 		const header = {
 			backgroundImage: `-webkit-image-set( url(${project.acf.headerPhoto}) 1x, url(${project.acf.headerPhotox2}) 2x )`,
 			backgroundImage: `-moz-image-set( url(${project.acf.headerPhoto}) 1x, url(${project.acf.headerPhotox2}) 2x )`,
@@ -186,6 +188,13 @@ class PortfolioPage extends Component{
 			backgroundImage: `url(${project.acf.headerPhoto})`,
 			marginBottom: '100px'
 		};
+
+		const headerBlock = (window.innerWidth < 768 || !project.acf.headerVideo) ? <div className="articleImgNews" style={header} />
+																																							 : <div className="headerImgBlock" style={{overflow: 'hidden', marginBottom: '100px'}}>
+																																						    	<video id="video_bg" autoPlay="autoplay" loop="loop" >
+																																						  			<source src={project.acf.headerVideo} type="video/mp4" />
+																																						  		</video>
+																																						  	</div>
 
 		const content = project.content.rendered.length != 0 ?  <div className="content">
 																															<h1>
@@ -200,19 +209,26 @@ class PortfolioPage extends Component{
 		 											: null							
 
 		
-		const videoBody = project.acf.video.length > 0 ? <iframe src={project.acf.video} width="960" height="540" 
-																															frameBorder="0" allowFullScreen className="showVideo" />
-																									 : <div style={{marginBottom: '90px'}} />
-																					 
+		const videoPortfolio = `https://player.vimeo.com/video/${project.acf.video}`
 
+		const videoBody = project.acf.video.length > 0 ? <Row className="no-gutters">
+																											 <div className="col-sm-12 embed-responsive embed-responsive-16by9 showVideo">
+																											   <iframe src={videoPortfolio} 
+																												 				 frameBorder="0" 
+																																 allowFullScreen className="embed-responsive-item" 
+																																 style={{paddingLeft: "15px", paddingRight: "15px"}}/>
+																										     </div>
+																										 </Row>
+																									: <div style={{marginBottom: '90px'}} />
+					
 		return(
 			<div className="portfolioPage__project">
 				<ReactCSSTransitionGroup transitionName="anim" transitionAppear={true} transitionAppearTimeout={2000}
 																 transitionEnter={false} transitionLeave={false}>
   
-					<div className="articleImgNews" style={header} />
+					{headerBlock}
 					<Grid>
-						<Row>
+						<Row className="no-gutters">
 							<Col md={12}>
 								{content}
 								{photoNextText}
@@ -220,11 +236,7 @@ class PortfolioPage extends Component{
 							</Col>
 						</Row>
 						{body}
-						<Row>
-							<Col md={12}>
-								{videoBody}
-							</Col>
-						</Row>
+						{videoBody}
 					</Grid>
 				</ReactCSSTransitionGroup>
 			</div>
@@ -243,9 +255,8 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(PortfolioPage)
-
 // <Row>
-// 							<Col md={12} className="photoBlock">
-// 								{body}
+// 							<Col md={12}>
+// 								{videoBody}
 // 							</Col>
 // 						</Row>

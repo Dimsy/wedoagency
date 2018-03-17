@@ -30,6 +30,7 @@ class Agency extends Component{
 
 	componentWillUnmount() {
     window.removeEventListener("resize", this.updateDimensions.bind(this));
+    this.updateDimensions = false
   }
 
   updateDimensions() {

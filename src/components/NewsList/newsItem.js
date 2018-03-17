@@ -24,12 +24,16 @@ class NewsItem extends Component{
 					<Col md={2}>
 					</Col>
 					<Col md={8}>
-						<img src={item.acf.imgNews} srcSet={`${item.acf.imgNewsx2} 2x`}/> <br />
+						<Link to={`${match.path}/${item.id}`}>
+							<img src={item.acf.imgNews} srcSet={`${item.acf.imgNewsx2} 2x`}/> <br />
+						</Link>
 						<div className="dateNews">
 							{date.toLocaleString( i18, options)}
 						</div>
-						<div className="headerNews">
-							{item.title.rendered}
+						<div>
+							<Link to={`${match.path}/${item.id}`} className="headerNews">
+								{item.title.rendered}
+							</Link>
 						</div>
 						<div className="fullNews">
 							{item.content.rendered}

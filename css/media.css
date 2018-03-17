@@ -244,12 +244,18 @@
   .agencyPage__collage img{
     height: 682px;
   }
+  .portfolioPage__project img{
+    /*width: 100%;*/
+  }
 }
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
   .header{
     margin-bottom: 0px;
+    position: fixed;
+    background-color: #fff;
+    z-index: 100;
   }
   .headerImgBlock{
     height: 400px;
