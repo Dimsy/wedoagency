@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Loader from '../Loader';
 import MenuItem from './MenuItem';
+import ErrorCmp from '../ErrorCmp';
 
 class TopMenu extends Component{
 	render(){

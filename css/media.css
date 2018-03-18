@@ -176,9 +176,6 @@
     padding-left: 0;
     padding-right: 0;
   }
-  /*.agencyInfo{
-    padding-left: 20px;
-  }*/
   .portfolioItem__img{
     width: 220px;
     height: 308px;
@@ -240,8 +237,6 @@
   .socialFooter li{
     float: left;
   }
-
-
   .portfolioItem__Info{
     width: 195px;
     height: 268px;
@@ -258,12 +253,14 @@
     width: 700px;
     height: 393px;
   }
-
   .socialFooter li:first-child{
     padding-left: 0px;
   }
   .agencyPage__collage img{
     height: 682px;
+  }
+  .portfolioTitlePhoto{
+    width: 435px;
   }
   .blockA img,
   .blockB img,
@@ -297,14 +294,12 @@
   .headerImgBlock{
     height: 400px;
   }
-
   .mobile-menu-btn {
     display: block;
   }
   .headerTopMenu{
     float: none;
     display: block;
-
   }
   .headerTopMenu li{
     display: block;  
@@ -522,25 +517,24 @@
   .blockA img,
   .blockB img,
   .blockE img{
-    width: 330px;
+    width: 250px;
   }
   .blockA_one img,
   .blockB_one img{
-    height: 475px;
+    height: 361px;
   }
   .blockA_two img,
   .blockB_two img{
-    height: 226px;
+    height: 170px;
   }
   .blockD img{
-    width: 380px;
+    width: 520px;
   }
   .blockC img{
-    width: 213px;
+    width: 160px;
   }
-  
-  
 }
+
 @media only screen and (max-width : 576px) {   
   .agency, .press, .news {
     padding-left: 20px;
@@ -633,6 +627,42 @@
   .footer__label{
     padding-left: 20px;
   }
+  .portfolioPage__project .container {
+    width: 480px;
+  }
+
+  .portfolio__title{
+    margin-left: 10px;
+  }
+  .portfolioTitlePhoto{
+    float: none;
+    width: 460px;
+  }
+  .blockA img,
+  .blockB img,
+  .blockE img{
+    width: 220px;
+  }
+  .blockA_one img,
+  .blockB_one img{
+    height: 319px;
+  }
+  .blockA_two img,
+  .blockB_two img{
+    height: 150px;
+    width: 218px;
+  }
+  .blockA_two img:first-child,
+  .blockB_two img:first-child{
+    margin-bottom: 8px;
+  }
+  .blockD img{
+    width: 460px;
+  }
+  .blockC img{
+    width: 139px;
+  }
+  
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px) {
@@ -675,6 +705,45 @@
     display: table-cell;
     vertical-align: middle;
     text-align: center;
+  }
+  .portfolioPage__project .container {
+    width: 320px;
+  }
+  .portfolioTitlePhoto{
+    float: none;
+    width: 300px;
+  }
+  .blockA img,
+  .blockE img{
+    width: 140px;
+  }
+
+  .blockB_one img{
+    width: 146px;
+    height: auto;
+    margin-left: 4px;
+  }
+   .blockA_one img{
+    width: 146px;
+    height: auto;
+  }
+  .blockB_two img{
+    width: 136px;
+  }
+  .blockA_two img,
+  .blockB_two img{
+    height: auto;
+    width: 136px;
+  }
+  .blockA_two img:first-child,
+  .blockB_two img:first-child{
+    margin-bottom: 8px;
+  }
+  .blockD img{
+    width: 300px;
+  }
+  .blockC img{
+    width: 85px;
   }
 }
 

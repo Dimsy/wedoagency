@@ -197,9 +197,6 @@ class PortfolioPage extends Component{
 																																						  	</div>
 
 		const content = project.content.rendered.length != 0 ?  <div className="content">
-																															<h1>
-																																{project.title.rendered}
-																															</h1>	
 																															{renderHTML(project.content.rendered)}
 																													  </div> 
 																												 : null
@@ -231,12 +228,21 @@ class PortfolioPage extends Component{
   
 					{headerBlock}
 					<Grid>
-						<Row>
-							<Col md={12} >
+						<Row className="no-gutters">
+							<div className="col-12 portfolio__title">
+								<h1 >
+									{project.title.rendered}
+								</h1>	
+							</div>
+						</Row>
+						<Row className="no-gutters">
+							<div className="col-md-4" >
 								{content}
+							</div>
+							<div className="col-md-8" >
 								{photoNextText}
 								<div className="clear" />
-							</Col>
+							</div>
 						</Row>
 						{body}
 						{videoBody}
