@@ -22,10 +22,15 @@ class PortfolioListItem extends Component{
 			return null
 		}
 
-		const body = <Link to={`${match.path}/${item.id}`}>
-									 <div className="portfolioListItem__Info">
-		 							   <div className="portfolioItem__info-data">{item.title.rendered}</div>
-								     <div className="news__info-itemdata ">{item.acf.DataOfFinnish}</div>
+		const body =  <Link to={`${match.path}/${item.id}`}>
+										<div className="portfolioListItem__Info">
+											
+		 							   		<div className="portfolioItem__info-data">{item.title.rendered}</div>
+ 											
+ 											  <div className="news__info-itemdata portfolioItem__date">
+								     			{item.acf.DataOfFinnish}
+								      	</div>
+								    	
 		 						   </div>
 		 						 </Link>  
 

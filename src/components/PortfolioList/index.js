@@ -32,7 +32,10 @@ class PortfolioList extends Component{
 
 		const projectsItems = entities.toArray();
 
-		const body = projectsItems.map( item => <li key={item.id}><PortfolioListItem item={item} match={match}/></li>)
+		const body = projectsItems.map( item => <li key={item.id}>
+																 							<PortfolioListItem item={item} match={match}/>
+																 							<div className="portfolioItem__mobile-padding" />
+															 							</li>)
 		
 		if( body.length === 0 ){
 			return <div>Данные недоступны</div>
@@ -60,19 +63,19 @@ class PortfolioList extends Component{
 			<div className='portfolioList'>
 				<div className="articleImgNews" style={header} />
 				<Grid >
-					<Row>
+					<Row className="no-gutters">
 						<Col md={12}>
 							<h1>{projects}</h1>
 						</Col>
 					</Row>
-					<Row>
-						<Col md={12}>
-							<ul>
+					<Row className="no-gutters">
+						<div className="col-12">
+							<ul className="portfolio__containerItems">
 								{body}
 							</ul>
 							<div className='clear' />
 							{toggleShowMore}
-						</Col>
+						</div>
 					</Row>		
 				</Grid>
 			</div>	
@@ -80,8 +83,6 @@ class PortfolioList extends Component{
 	}
 
 	addingPress = () => {
-		console.log('adding Press')
-
 		const { useLang } = this.props;
 		this.props.loadPortfolio(useLang);
 	}

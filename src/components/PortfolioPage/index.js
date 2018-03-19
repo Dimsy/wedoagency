@@ -227,7 +227,7 @@ class PortfolioPage extends Component{
 																 transitionEnter={false} transitionLeave={false}>
   
 					{headerBlock}
-					<Grid>
+					<div className="container portfolioPage__container-padding">
 						<Row className="no-gutters">
 							<div className="col-12 portfolio__title">
 								<h1 >
@@ -239,14 +239,13 @@ class PortfolioPage extends Component{
 							<div className="col-md-4" >
 								{content}
 							</div>
-							<div className="col-md-8" >
+							<div className="col-md-8 portfolioPage__photoNextText" >
 								{photoNextText}
-								<div className="clear" />
 							</div>
 						</Row>
 						{body}
-						{videoBody}
-					</Grid>
+						{/*videoBody*/}
+					</div>
 				</ReactCSSTransitionGroup>
 			</div>
 		)

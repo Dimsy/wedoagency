@@ -1045,11 +1045,17 @@ hr {
 .portfolioList h1{
   text-align: center;
 }
-
+.portfolio__containerItems{
+  width: 100%;
+}
+.portfolio__containerItems li{
+  float: left;
+}
 .portfolioList .portfolioList__item {
+  /*display: inline-block;*/
   position: relative;
   width: 290px;
-  height: 410px;
+  height: 380px;
   float: left;
   margin: 10px;
   background-repeat: no-repeat;
@@ -1059,20 +1065,32 @@ hr {
 
 .portfolioList .portfolioListItem__Info{
   position: absolute;
-  width: 274px;
-  height: 370px;
   top: 20px;
   left: 15px;
   opacity: 0.9;
   background-color: #f7f7f7;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100% - 30px);
+  height: calc(100% - 40px);
+  justify-content: center;
+  align-items: center;
 }
 
 .portfolioList .portfolioItem__info-data{
-  display: table-cell;
-  vertical-align: middle;
-  margin: 0 auto;
-  height: 332px;
-  width: 274px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100% ;
+  height: 100%;
 }
 
 .portfolioList .showMore{
