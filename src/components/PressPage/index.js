@@ -122,33 +122,28 @@ class AgencyPage extends Component {
 			marginBottom: '10px'
 		};
 
-		const date = new Date(entities.acf.date)
-		
-		const options = {
-		  day: 'numeric',
-		  month: 'long',
-		  year: 'numeric'
-		};
+		console.log('----', entities.content.rendered);
 
 		return (
 			<div className="pressPage">
-				<Grid>
-					<Row>
+				<div className="container">
+					<div className="row">
 						<Col md={6}>
 							<div className="foto" style={foto}/>			
 						</Col>
 						<Col md={1}>
 						</Col>
 						<Col md={5} className="info">
-							{date.toLocaleString( i18, options)}
+							{entities.acf.date}
 							<div className="header">
 								{renderHTML(entities.title.rendered)}
 							</div>
 							<div className="content">
-								{renderHTML(entities.content.rendered)}
+								{/* entities.content.rendered*/}
+								<div dangerouslySetInnerHTML={{ __html:  entities.content.rendered }} />
 							</div>
 						</Col>
-		 			</Row>
+		 			</div>
 		 			<Row>
 		 				<Col md={6}>
 		 					{!!entities.acf.public1 && <div className="foto" style={public1}/>}
@@ -188,7 +183,7 @@ class AgencyPage extends Component {
 								</Link>
 		 				</Col>
 		 			</Row>	
- 				</Grid>
+ 				</div>
  			</div>
 		)
 	}	

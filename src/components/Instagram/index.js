@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {loadInstagram} from '../../ducks/instagram';
-import { Grid, Row, Col } from 'react-bootstrap';
 import Loader from '../Loader';
 
 class Instagram extends Component{
 	componentDidMount(){
     const useLang = this.props.useLang;
 	 	this.props.loadInstagram(useLang);
-
-	 	console.log(this.myInput)
 	}
 
 	componentWillReceiveProps(nextProps){
@@ -19,12 +16,12 @@ class Instagram extends Component{
 	}
 
   render() {
-  	const iframe = window.innerWidth < 769 ? <Col sm={12} md={12} className="embed-responsive embed-responsive-9by16" >
+  	const iframe = window.innerWidth < 769 ? <div className="col-sm-12 embed-responsive embed-responsive-9by16" >
   																						 <iframe src="//lightwidget.com/widgets/3fda9fb9b63957ac81d94af0e5aef36f.html" scrolling="no" allowTransparency="true" className="lightwidget-widget embed-responsive-item" />
-																					 	 </Col>
-																					 : <Col sm={12} md={12} className="embed-responsive embed-responsive-16by9" >
+																					 	 </div>
+																					 : <div className="col-sm-12 embed-responsive embed-responsive-16by9" >
 																					 		 <iframe src="//lightwidget.com/widgets/0a00d569c66159a6bfb19fbb5db09900.html" scrolling="no" allowTransparency="true" className="lightwidget-widget embed-responsive-item" />
-																					 	 </Col>
+																					 	 </div>
   	
     const {instagram, loading} = this.props;
     if (loading) return <Loader />;
@@ -34,13 +31,11 @@ class Instagram extends Component{
 				<h4>
 					{instagram.data.title.rendered}
 				</h4>			
-				<Grid>
+				<div className="container">
 					<div className="row no-gutters">
-						
-							{iframe}
-						
+						{iframe}				
 					</div>
-				</Grid>			
+				</div>			
 			</div>
     )
   }

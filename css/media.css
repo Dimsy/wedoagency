@@ -285,15 +285,19 @@
     width: 220px;
     height: 255px;
   }
-
   .portfolioList .portfolioListItem__Info{
     width: 190px;
     height: 219px;
   }
-
   .portfolioList .portfolioItem__info-data{
     height: 169px;
     width: 190px;
+  }
+  .newsList{
+    padding-top: 50px;
+  }
+  .newsList .newsList__title h1{
+    margin-bottom: 10px;
   }
 }
 
@@ -314,17 +318,15 @@
   .headerTopMenu{
     float: none;
     display: block;
+    position: fixed;
+    top: 50px;
+    bottom: 200px;
   }
   .headerTopMenu li{
     display: block;  
   }
   .headerTopLine {
-    position: relative;
-    top: 50px;
-    height: 410px;
-    padding: 0;
-    opacity: 0.95;
-    background-color: #f7f7f7;
+    height: 100vh;
   }
   .logoBlock {
     position: absolute;
@@ -345,9 +347,20 @@
   .agency img {
     padding-bottom: 20px;
   }
+  .headerTopLine{
+    background-image: url(../img/logo/bg_menu_mobile.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
   .headerTopMenu{
-    padding-top: 30px;
     padding-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .headerTopMenuList{
+    height: 224px;
+    margin: auto 0;
   }
   .headerTopMenu li {
     width: 100%;
@@ -365,13 +378,21 @@
     text-transform: capitalize;
     line-height: 32px;
   }
+  .mobileTopMenuContacts{
+    position: fixed;
+    left: 20px;
+    bottom: 100px;
+  }
   .mobileTopMenuPhone{
     font-family: LatoLight;
     color: #545454;
     font-size: 13px;
-    margin-top: 55px;
+    /*margin-top: 55px;*/
   }
-  .headerTopMenu li.mobileTopMenuMail a{
+  .mobileTopMenuContacts li{
+    line-height: 24px;
+  }
+  .mobileTopMenuContacts li.mobileTopMenuMail a{
     font-family: LatoBold;
     text-transform: none;
   }
@@ -379,14 +400,16 @@
     text-transform: none;
   }
   .headerSocialMenu{
-    position: absolute;
+    position: fixed;
     float: none;
+    top: auto;   
     left: 14px;
-    top: 350px;
+    bottom: 40px;
   }
   .headerLangSwitcher{
-    position: absolute;
-    top: 250px;
+    position: fixed;
+    top: auto;
+    bottom: 160px;
     left: 20px;
   }
   .portfolio {
@@ -562,6 +585,9 @@
     width: 130px;
     height: 95px;
   }
+  .newsList{
+    padding-top: 100px;
+  }
 }
 
 @media only screen and (max-width : 576px) {   
@@ -682,25 +708,6 @@
   .blockD img{
      width: calc(99% - 20px);
   }
-
-
-  /*.portfolio__title{
- 
-  .blockB_two img{
-    height: 150px;
-    width: 218px;
-  }
-  .blockA_two img:first-child,
-  .blockB_two img:first-child{
-    margin-bottom: 8px;
-  }
-  .blockD img{
-    width: 460px;
-  }
-  .blockC img{
-    width: 139px;
-  }
-  */
   .portfolio__containerItems{
     display: flex;
     flex-wrap: wrap;
@@ -744,6 +751,19 @@
     width: 100% ;
     height: 100%;
   }
+  .newsList__collection{
+    padding: 0 20px;
+  }
+  .newsList .newsList__title{
+    padding-left: 20px;
+  }
+  .newsList__collection .borderNews{
+    margin-top: 40px;
+    margin-bottom: 50px;
+  }
+  .newsList .showMore{
+    margin: 50px auto;
+  }
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px) {
@@ -786,13 +806,7 @@
     display: table-cell;
     vertical-align: middle;
     text-align: center;
-  }
-  /*.portfolioPage__photoNextText img {
-    width: calc(100% - 20px);
-    height: 68vw; 
-  }
-  */
-  
+  }  
   .blockA_one img, 
   .blockB_one img{
     height: calc(49vw * 1.443);
@@ -807,46 +821,7 @@
   }
   .blockD img{
      width: calc(99% - 20px);
-  }
- /* .portfolioPage__project .container {
-    width: 320px;
-  }
-  .portfolioTitlePhoto{
-    float: none;
-    width: 300px;
-  }
-  .blockA img,
-  .blockE img{
-    width: 140px;
-  }
-
-  .blockB_one img{
-    width: 146px;
-    height: auto;
-    margin-left: 4px;
-  }
-   .blockA_one img{
-    width: 146px;
-    height: auto;
-  }
-  .blockB_two img{
-    width: 136px;
-  }
-  .blockA_two img,
-  .blockB_two img{
-    height: auto;
-    width: 136px;
-  }
-  .blockA_two img:first-child,
-  .blockB_two img:first-child{
-    margin-bottom: 8px;
-  }
-  .blockD img{
-    width: 300px;
-  }
-  .blockC img{
-    width: 85px;
-  }*/
+  } 
 }
 
 @media only screen and (max-width : 400px) {

@@ -37,14 +37,24 @@ class NewsList extends Component{
 		const posts = entities.toArray();
 		
 		const showMore = useLang == "ru" ? "Показать еще" : "Show more";
+		const title = useLang == "ru" ? "Новости" : "News";
 		const body = posts.map(item => <li key={item.id}><NewsItem item={item} localiton={location} match={match}/></li>);
 
+		const mobileTitle = window.innerWidth < 992 ? <div className="container">
+																										<div className="row no-gutters">
+																											<div className="col-md-8 offset-md-2 newsList__title">
+																												<h1>{title}</h1> 
+																											</div>
+																										</div>
+																									</div>
+																								: null
 
 		const toggleShowMore = body.length != count  ? showMore : null;
 
 		return (
 			<div className="newsList">
-				<ul>
+				{mobileTitle}
+				<ul className="newsList__collection">
 					{body}
 				</ul>	
 				<div className="showMore">

@@ -9,7 +9,7 @@ class RoutePressPage extends Component {
 		return (
 			<div>
 				<PressPage location={this.props.location} match={this.props.match}/>
-				<Portfolio />
+				<Portfolio location={this.props.location} match={this.props.match}/>
 			</div>
 		)
 	}

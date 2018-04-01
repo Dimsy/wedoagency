@@ -16,9 +16,9 @@ class Form extends Component{
 		const { handleSubmit, pristine, reset, submitting,
 						yourNamePlaceholder, youMessagePlaceholder, emailPlaceholder, sendButtonText, useLang } = this.props
 		
-		const required 			= useLang == 'ru' ? rusRequired 			: enRequired;
-		const email 				= useLang == 'ru' ? rusEmail 					: enEmail;
-		const textOnly 			= useLang == 'ru' ? rusTextOnly 			: enTextOnly;
+		const required 		= useLang == 'ru' ? rusRequired 			: enRequired;
+		const email 		= useLang == 'ru' ? rusEmail 					: enEmail;
+		const textOnly 		= useLang == 'ru' ? rusTextOnly 			: enTextOnly;
 		const textNumbers 	= useLang == 'ru' ? rusTextNumbers		: enTextNumbers;
 		const minLength3  	= useLang == 'ru' ? ruMinLength3 			: enMinLength3;
 		const minLength20 	= useLang == 'ru' ? ruMinLength20 		: enMinLength20;

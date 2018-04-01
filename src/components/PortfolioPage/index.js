@@ -178,8 +178,6 @@ class PortfolioPage extends Component{
 		 	}
 		}	
 
-
-
 		const header = {
 			backgroundImage: `-webkit-image-set( url(${project.acf.headerPhoto}) 1x, url(${project.acf.headerPhotox2}) 2x )`,
 			backgroundImage: `-moz-image-set( url(${project.acf.headerPhoto}) 1x, url(${project.acf.headerPhotox2}) 2x )`,
@@ -228,15 +226,12 @@ class PortfolioPage extends Component{
   
 					{headerBlock}
 					<div className="container portfolioPage__container-padding">
-						<Row className="no-gutters">
-							<div className="col-12 portfolio__title">
-								<h1 >
-									{project.title.rendered}
-								</h1>	
-							</div>
-						</Row>
+						
 						<Row className="no-gutters">
 							<div className="col-md-4" >
+								<h1 className="portfolio__title">
+									{project.title.rendered}
+								</h1>	
 								{content}
 							</div>
 							<div className="col-md-8 portfolioPage__photoNextText" >
@@ -244,7 +239,7 @@ class PortfolioPage extends Component{
 							</div>
 						</Row>
 						{body}
-						{/*videoBody*/}
+						{videoBody}
 					</div>
 				</ReactCSSTransitionGroup>
 			</div>
@@ -263,8 +258,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(PortfolioPage)
-// <Row>
-// 							<Col md={12}>
-// 								{videoBody}
-// 							</Col>
-// 						</Row>

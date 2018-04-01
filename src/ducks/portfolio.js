@@ -13,7 +13,7 @@ export const LOAD_PORTFOLIO_START = `${prefix}/LOAD_PORTFOLIO_START`
 export const LOAD_PORTFOLIO_SUCCESS = `${prefix}/LOAD_PORTFOLIO_SUCCESS`
 export const LOAD_PORTFOLIO_ERROR = `${prefix}/LOAD_PORTFOLIO_ERROR`
 var POST_COUNTER = 0;
-const POSTS_STEP = 6;
+const POSTS_STEP = 12;
 
 const ModelData = Record({
 	acf: null,
@@ -69,7 +69,7 @@ export function * loadPortfolioSaga(action){
 	const articleLang = action.payload.lang == 'ru' ? PORTFOLIO_ru : PORTFOLIO_en;	
 
 	try {
-		const response = yield call(axios.get, `/wp-json/wp/v2/posts?categories=${articleLang}&orderby=date&order=desc&per_page=6&offset=${POST_COUNTER}`);
+		const response = yield call(axios.get, `/wp-json/wp/v2/posts?categories=${articleLang}&orderby=date&order=desc&per_page=12&offset=${POST_COUNTER}`);
 		const responseCatName = yield call(axios.get, `/wp-json/wp/v2/categories/${articleLang}`);
 		const portfolioList = yield call(axios.get, `/wp-json/wp/v2/posts/${PORTFOLIO_LIST}`);
 

@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import { Grid, Row, Col, Clearfix } from 'react-bootstrap';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import {connect} from 'react-redux'
 import {loadAgencyInfo} from '../../ducks/agencyInfo.js'
 import {Link} from 'react-router-dom';
-import AgencyInfo from './AgencyInfo';
+import renderHTML from 'react-render-html';
 
 class Agency extends Component{
 	constructor() {
@@ -41,7 +40,6 @@ class Agency extends Component{
   }
 
 	render(){
-
 		const {useLang, entities, loading, error} = this.props;
 
 		if (loading) return <Loader />;
@@ -55,31 +53,31 @@ class Agency extends Component{
  		const knowMore = useLang == "ru" ? "Узнать больше" : "Know more"
 
 
-		const headerMobile = mobile ? <Row>
-																		<Col sm={12}>
+		const headerMobile = mobile ? <div className="row">
+																		<div className="col-sm-12">
 																			<h1>{entities.title.rendered}</h1>
-																		</Col>
-																	</Row>
+																		</div>
+																	</div>
 																: null
 	
 		const headerDesktop = !mobile ?	<h1>{entities.title.rendered}</h1> : null																
 
 		return (
 			
-			<Grid className="agency">
+		<div className="container agency">
 			{headerMobile}
- 			<Row>
- 				<Col sm={12} md={5} lg={5} lgOffset={1} className="agencyImg">
+ 			<div className="row">
+ 				<div className="col-sm-12 col-md-6 col-lg-5 offset-lg-1 agencyImg">
  						<img src={entities.acf.agencyPhoto} srcSet={`${entities.acf.agencyPhotox2} 2x`} alt="Изображение для прессы"/>
- 				</Col>
- 				<Col sm={12} md={6} lg={5} className="offset-lg-1">
+ 				</div>
+ 				<div className="col-sm-12 col-md-6 col-lg-5 offset-lg-1">
  					{headerDesktop}
-					<p>{entities.content.rendered}</p>
+					{renderHTML(entities.content.rendered)}
 					<Link to='/agency' className="knowMore">{knowMore}</Link>
- 				</Col>
+ 				</div>
  				<div className="clear" />
- 			</Row>
- 		</Grid>
+ 			</div>
+ 		</div>
 	
 		)
 	}
@@ -94,16 +92,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {loadAgencyInfo})(Agency)
-// <div className="agency">
-// 			  <div className="agency__title">
-// 			  	<h1>{entities.title.rendered}</h1>
-// 				</div>
-// 				<div className="agency__foto">
-// 					<img src={entities.acf.agencyPhoto} srcSet={entities.acf.agencyPhotox2} />
-// 			 	</div>
-// 			 	<div className="agency__content">
-// 			 		<p>{entities.content.rendered}</p>
-// 					<Link to='/agency' className="knowMore">{knowMore}</Link>
-// 				</div>
-// 				<div className="clear" />
-// 			</div>

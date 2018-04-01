@@ -15,12 +15,14 @@ class PortfolioItem extends Component{
 								 </div>
 
 		return (
-			<div className="portfolioItem__wrapper" onMouseEnter={this.handlerMouseEnter} onMouseLeave={this.handlerMouseLeave}>
-				<Link to={`./portfolio/${item.id}`}>
-					<img src={item.acf.StartFoto} srcSet={item.acf.StartFotox2} className="portfolioItem__img"/>
-					{this.state.show && body}
-				</Link>	
-			</div>
+			<div>
+				<Link to={`/portfolio/${item.id}`}>
+					<div className="portfolioItem__wrapper" onMouseEnter={this.handlerMouseEnter} onMouseLeave={this.handlerMouseLeave}>
+						<img src={item.acf.StartFoto} srcSet={item.acf.StartFotox2} className="portfolioItem__img"/>
+						{this.state.show && body}
+					</div>
+				</Link>
+			</div>	
 		)
 	}
 

@@ -9,7 +9,7 @@ class RoutePressList extends Component {
 		return (
 			<div>
 				<PressList location={this.props.location} match={this.props.match}/>
-				<Portfolio />
+				<Portfolio location={this.props.location} match={this.props.match}/>
 			</div>
 		)
 	}

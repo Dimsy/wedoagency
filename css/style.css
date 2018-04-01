@@ -105,7 +105,7 @@ h1, .h1 {
   text-align: left;
   color: #131313; 
   text-transform: capitalize;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 h4 {
@@ -138,10 +138,12 @@ p {
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
-  line-height: 2;
+  line-height: 1.7;
   letter-spacing: 1px;
   text-align: left;
   color: #545454;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 /*.container {
   padding-left: 30px;
@@ -212,7 +214,8 @@ button:focus {
 .mobile-menu-btn.active span::after {
   transform: rotate(-45deg);
 }
-/* КОнец кнопки мобильного меню
+/*
+ Конец кнопки мобильного меню
 */
 
 .uppercase {
@@ -223,6 +226,10 @@ button:focus {
   text-align: center; }
 
 .headerTopLine {
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+  background-color: #fff;
   height: 50px;
   border-bottom: 1px solid #f3f3f3;
   padding-left: 13px;
@@ -299,14 +306,14 @@ button:focus {
   width: 18px;
 }
 .logoBlock{
-  height: 203px;
+  height: 253px;
   background-image: url(../img/logo/wedo.png);
   background-image: -webkit-image-set(url(../img/logo/wedo.png) 1x, url(../img/logo/wedo@2x.png) 2x);
   background-image: -moz-image-set(url(../img/logo/wedo.png) 1x, url(../img/logo/wedo@2x.png) 2x);
   background-image: -o-image-set(url(../img/logo/wedo.png) 1x, url(../img/logo/wedo@2x.png) 2x);
   background-image: -ms-image-set(url(../img/logo/wedo.png) 1x, url(../img/logo/wedo@2x.png) 2x);
   background-repeat: no-repeat;
-  background-position: center 60px;
+  background-position: center 110px;
 }
 
 .headerImgBlock{
@@ -315,7 +322,9 @@ button:focus {
   background-position: center center;
   background-size: cover;
 }
-
+.articlePage .headerImgBlock{
+  margin-bottom: 100px;
+}
 .agency{
   width: 1020px;
   margin: 0 auto;
@@ -350,6 +359,10 @@ button:focus {
 .footer,
 .news{
   background-color: #f7f7f7;
+}
+
+h1.portfolio__title{
+  text-transform: none !important;
 }
 
 .portfolio .carousel__slider{
@@ -412,7 +425,7 @@ button:focus {
 }
 .portfolioItem__info-data{
   display: block;
-  margin-bottom: 140px;
+  margin-bottom: 0px;
   font-family: LatoSemibold;
   text-transform: uppercase;
   font-size: 14px;
@@ -468,7 +481,7 @@ button:focus {
 
 .knowMore {
   display: inline-block;
-  margin-top: 30px;
+  margin-top: 20px;
   font-family: LatoSemibold;
   text-transform: uppercase;
   font-size: 13px;
@@ -568,6 +581,9 @@ button:focus {
 }
 .sendMessage h4 {
   text-align: left;
+ } 
+ .sendMessage h5 {
+  margin-top: 5px;
  } 
 
 .footer{
@@ -763,8 +779,8 @@ hr {
   outline: none;
   cursor: pointer;
 }
-
-.dateNews {
+.newsList__collection .dateNews a{
+  display: inline-block;
   margin-top: 30px;
   margin-bottom: 20px;
   font-family: LatoRegular;
@@ -776,6 +792,10 @@ hr {
   letter-spacing: 1px;
   text-align: left;
   color: #545454;
+}
+
+.newsList__collection img {
+  width: 100%;
 }
 
 .headerNews{
@@ -806,7 +826,7 @@ hr {
 .linkToNews {
   display: inline-block;
   text-transform: uppercase;
-  margin-top: 30px;
+  margin-top: 20px;
   font-family: "LatoBold";
   font-size: 13px;
   font-weight: 500;
@@ -850,6 +870,7 @@ hr {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  margin-bottom: 100px;
 }
 .articleDate {
   margin-top: 50px;
@@ -877,7 +898,9 @@ hr {
 .articleContent,
 .articleContent p{
   font-family: LatoRegular;
-  margin-bottom: 72px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding: 0;
   font-size: 14px;
   font-weight: 300;
   font-style: normal;
@@ -891,15 +914,17 @@ hr {
 .articleContent strong {
   font-family: LatoBold;
 }
-.newsBodyImg{
-  width: 960px;
+.newsArticleBlock .newsBodyImg{
+  width: 100%;
+  margin: 25px auto;
+}
+
+.newsArticleBlock .newsArticleVideo{
+  margin-bottom: 86px;
 }
 
 .afterImg {
   margin-top: 30px;
-}
-.articleContent p {
-  margin-bottom: 30px;
 }
 
 .articleContent h2{
@@ -928,7 +953,9 @@ hr {
   letter-spacing: 2px;
   color: #131313;
 }
-
+.newsArticleBlock .linkToAllNews{
+  margin-top: 75px;
+}
 .articlePage h1 {
   text-transform: none;
 }
@@ -1004,8 +1031,7 @@ hr {
   background-repeat: no-repeat;
 }
 
-.pressPage .info {
-  margin-top: 100px;  
+.pressPage .info { 
   font-family: LatoLight;
   font-size: 13px;
   font-weight: 300;
@@ -1042,8 +1068,10 @@ hr {
   margin-bottom: 90px;
 }
 
+
 .portfolioList h1{
   text-align: center;
+  margin-bottom: 100px;
 }
 .portfolio__containerItems{
   width: 100%;
@@ -1052,7 +1080,7 @@ hr {
   float: left;
 }
 .portfolioList .portfolioList__item {
-  /*display: inline-block;*/
+
   position: relative;
   width: 290px;
   height: 380px;
@@ -1143,10 +1171,10 @@ hr {
 
 .portfolioPage__project img{
   margin: 10px; 
+  max-width: 100%;
+  height: auto;
 }
-.portfolioTitlePhoto{
-  float: right;
-}
+
 .blockA img,
 .blockB img,
 .blockE img{
@@ -1225,6 +1253,10 @@ hr {
   height: 1050px;
 }
 
+.agencyVideo{
+  margin-top: 100px;
+}
+
 .agencyPage__collage img{
     height: 800px;
 }
@@ -1242,10 +1274,6 @@ hr {
 .embed-responsive-9by16{
   padding-bottom: 200%;
 }
-
-
-
-
 
 
 

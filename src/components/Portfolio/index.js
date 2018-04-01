@@ -21,6 +21,16 @@ class Portfolio extends Component{
     }
 	}
 
+	sortBody = (a, b) => {
+		const aDate = a.props.children.props.item.acf.DataOfFinnish
+		const bDate = b.props.children.props.item.acf.DataOfFinnish
+
+		var aNumberForCompare = aDate.split('/').reverse().join()
+    var bNumberForCompare = bDate.split('/').reverse().join()	
+        		
+    return aNumberForCompare > bNumberForCompare ? -1 : (aNumberForCompare < bNumberForCompare ? 1 : 0);	
+	}
+
 	render(){
 
 		const {useLang, entities, error, loading, catName, match} = this.props;
@@ -32,14 +42,20 @@ class Portfolio extends Component{
 
 		if (portfolioSlider.length == 0){
 			return <div>Данные временно не доступны</div>
-		}
+		}		
+
+		const checkId = this.props.match.params.id ? this.props.match.params.id : null;
 		
-		const body = portfolioSlider.map( (item) => <Slide key={item.id} index={item.id}>
+		const filtredBody = portfolioSlider.filter(item => item.id != this.props.match.params.id);
+
+		const body = filtredBody.map( (item) => <Slide key={item.id} index={item.id}>
         																					<PortfolioItem item={item} match={match}/>
 																		      			</Slide>
-     																					)
+     																					).sort(this.sortBody)
 
 		const opacity = body.length > 3 ? {opacity: "1"} : {opacity: "0.3"}
+
+		const title = this.selectTitle()
 
 		return (
 			<div className='portfolio'>
@@ -47,7 +63,7 @@ class Portfolio extends Component{
 			    <Grid>
 			 	    <Row>
 					    <Col sm={6} md={8}>
-					      <h1>{catName}</h1>
+					      <h1>{title}</h1>
 					    </Col>
 					    <Col sm={6} md={4} className="SliderButtons">
 						    <ButtonNext>
@@ -71,6 +87,17 @@ class Portfolio extends Component{
 				</CarouselProvider>
 			</div>	
 		)	
+	}
+
+	selectTitle = () => {
+		const {useLang, match} = this.props
+
+		if (useLang != 'ru'){
+			return match.path == '/' ? "Portfolio" : "All projects" 
+		}
+		
+		return match.path == '/' ? 'Портфолио' : "Все проекты"
+		
 	}
 }
 

@@ -60,10 +60,7 @@ class App extends Component {
 							<Route path="/news/:id" component={RouteNewsArticle} exact/>
 							<Route path="/contacts" component={RouteContacts} exact/>
 						</Switch>
-				{/*
 					<Route path="/" component={RouteInstaFooter} />
-				}
-			*/}
 				</div>
 				</ScrollToTop>
 			</ConnectedRouter>

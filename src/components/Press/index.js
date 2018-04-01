@@ -8,13 +8,12 @@ import {Link} from 'react-router-dom';
 
 class Press extends Component{
 	constructor() {
-	   super();
-	    this.state = {
-	      width: 'auto',
-	      height: 'auto'
-	    }
+	  super();
+	  this.state = {
+	    width: 'auto',
+	    height: 'auto'
 	  }
-
+	}
 
 	componentDidMount(){
 		const useLang = this.props.useLang;
@@ -96,8 +95,8 @@ class Press extends Component{
 						</div>
 						<div className="col-sm-12 col-md-4">
 							{desktopHeader}
-							<p>{entities.data.content.rendered}</p>
-							<Link to='./press' className="knowMore">{knowMore}</Link>
+							<div dangerouslySetInnerHTML={{ __html:  entities.data.content.rendered }} />
+							<Link to='/press' className="knowMore">{knowMore}</Link>
 						</div>
 					</Row>
 				</Grid>

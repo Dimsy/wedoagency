@@ -24,6 +24,16 @@ class PortfolioList extends Component{
 		}
 	}
 
+	sortBody = (a, b) => {
+		const aDate = a.props.children[0].props.item.acf.DataOfFinnish
+		const bDate = b.props.children[0].props.item.acf.DataOfFinnish
+
+	  var aNumberForCompare = aDate.split('/').reverse().join()
+  	var bNumberForCompare = bDate.split('/').reverse().join()	
+        		
+  	return aNumberForCompare > bNumberForCompare ? -1 : (aNumberForCompare < bNumberForCompare ? 1 : 0);	
+	}
+
 	render(){
 		const { useLang, entities, loading, error, count, match, portfolioList} = this.props;
 
@@ -35,7 +45,7 @@ class PortfolioList extends Component{
 		const body = projectsItems.map( item => <li key={item.id}>
 																 							<PortfolioListItem item={item} match={match}/>
 																 							<div className="portfolioItem__mobile-padding" />
-															 							</li>)
+															 							</li>).sort(this.sortBody)
 		
 		if( body.length === 0 ){
 			return <div>Данные недоступны</div>

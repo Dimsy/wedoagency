@@ -9,7 +9,7 @@ class RoutePortfolioPage extends Component {
 		return (
 			<div>
 				<PortfolioPage location={this.props.location} match={this.props.match}/>
-				<Portfolio />
+				<Portfolio location={this.props.location} match={this.props.match}/>
 			</div>
 		)
 	}

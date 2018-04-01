@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux'
 import { loadAgencyPage } from '../../ducks/agencyPage';
 import Loader from '../Loader';
@@ -31,21 +30,44 @@ class AgencyPage extends Component {
 			backgroundImage: `-moz-image-set( url(${entities.acf.foto}) 1x, url(${entities.acf.Fotox2}) 2x )`,
 			backgroundImage: `-o-image-set( url(${entities.acf.foto}) 1x, url(${entities.acf.Fotox2}) 2x )`,
 			backgroundImage: `-ms-image-set( url(${entities.acf.foto}) 1x, url(${entities.acf.Fotox2}) 2x )`,
-			backgroundImage: `url(${entities.acf.foto})`,
-			marginBottom: '100px'
+			backgroundImage: `url(${entities.acf.foto})`
 		};
 
 		
+
+		console.log("--",entities.acf.videoHeader)
+
+		const headerBlock = (window.innerWidth > 768 || entities.acf.videoHeader) ?	<div className="headerImgBlock" style={{overflow: 'hidden'}}>
+																																										<video id="video_bg" autoPlay="autoplay" loop="loop" >
+																																											<source src={entities.acf.videoHeader.url} type="video/mp4"></source>
+																																										</video>
+																																									</div>
+																																								: <div className="articleImgNews" style={header} />
+
+
+    const videoBlock = entities.acf.video ? <div className="row no-gutters">
+																									<div className="col">		
+																										<div className="embed-responsive embed-responsive-16by9 agencyVideo">
+																	 										<iframe src={ `https://player.vimeo.com/video/${entities.acf.video}` } 
+																	 														frameBorder="0" 
+																	 														allowFullScreen 
+																	 														className="embed-responsive-item" 
+																	 										/>
+																	 									</div>
+																	 								</div>	
+														 										</div>
+														 									: null
+		
 		return (
 			<div className="articlePage">
-				<div className="articleImgNews" style={header} />
-				<Grid>
-	 				<Row>
-	 					<Col md={6} className="agencyPage__collage">
+				{headerBlock}
+				<div className="container">
+	 				<div className="row no-gutters">
+	 					<div className="col-md-6 agencyPage__collage">
 	 						<img src={`${entities.acf.collage}`} />
-	 					</Col>
+	 					</div>
 	 					
-	 					<Col md={5} className="agencyInfo">
+	 					<div className="col-md-5 agencyInfo">
 	 						<h1>
 	 							{entities.title.rendered}
 	 						</h1>
@@ -53,9 +75,10 @@ class AgencyPage extends Component {
 	 						<div className="sign">
 	 							{entities.acf.sign}
 	 						</div>
-	 					</Col>
-	 				</Row>
-	 			</Grid>
+	 					</div>
+	 				</div>
+	 				{videoBlock}
+	 			</div>
  			</div>
 		)
 	}	

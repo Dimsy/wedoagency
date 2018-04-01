@@ -3,10 +3,12 @@ import SendMessage from '../SendMessage';
 import Portfolio from '../Portfolio';
 
 export default function RouteContacts(props){
+
+
 	return (
 		<div>
 			<SendMessage />
-			<Portfolio />
+			<Portfolio location={props.location} match={props.match}/>
 		</div>
 	)
 }

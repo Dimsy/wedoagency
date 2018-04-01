@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom';
 import {loadContacts} from '../../ducks/contacts.js';
 import SocialFooter from './social';
 import BackToTop from './backToTop';
+import renderHTML from 'react-render-html';
 
 class Footer extends Component{
 	
@@ -30,7 +31,7 @@ class Footer extends Component{
 		return(
 			<div className="footer">
 			
-					<Grid>
+					<div className="container">
 						<div className="row no-gutters">
 					
 						{label}
@@ -49,26 +50,25 @@ class Footer extends Component{
 								<br />
 								<a href={contacts.acf.mail} className="footer__mail">{contacts.acf.mail}</a>
 								<br />
-								{contacts.content.rendered}
+								{renderHTML( contacts.content.rendered)} 
 							</div>
 						</Col>
 						<Col sm={11} lg={2} md={6} className="SocialFooterMd col-11">
 							<SocialFooter />
 						</Col>		
 					</div>
-				</Grid>	
+				</div>	
 				<hr />
-				<Grid className="copyRight">
+				<div className="container copyRight">
 					<div className="row no-gutters">
-						<Col md={8} className="AllRightReserved">
+						<div className="col-md-8 AllRightReserved">
 							weDOagency © all right reserved
-						</Col>
-						<Col md={4}>
+						</div>
+						<div className="col-md-4">
 							<BackToTop  scrollStepInPx="50" delayInMs="16.66"/>							
-						</Col>
-					
+						</div>
 					</div>
-				</Grid>
+				</div>
 			</div>
 		)
 	}

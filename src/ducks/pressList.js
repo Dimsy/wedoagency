@@ -17,7 +17,7 @@ export const LOAD_PRESS_LIST_SUCCESS = `${prefix}/LOAD_PRESS_LIST_SUCCESS`
 export const LOAD_PRESS_LIST_ERROR = `${prefix}/LOAD_PRESS_LIST_ERROR`
 
 var POST_COUNTER = 0;
-const POSTS_STEP = 3;
+const POSTS_STEP = 9;
 
 // Reducer
 
@@ -85,9 +85,9 @@ export function * pressListSaga(action){
 	const articleLang = action.payload.lang == 'ru' ? PRESS_LIST_ru : PRESS_LIST_en;
 
 	try {
-		const response = yield call(axios.get, `/wp-json/wp/v2/posts?categories=${articleLang}&orderby=date&order=desc&per_page=3&offset=${POST_COUNTER}`);
+		const response = yield call(axios.get, `/wp-json/wp/v2/posts?categories=${articleLang}&orderby=date&order=desc&per_page=9&offset=${POST_COUNTER}`);
 		
-		POST_COUNTER = POST_COUNTER + 3;
+		POST_COUNTER = POST_COUNTER + 9;
 
 		const count = yield call(axios.get, `/wp-json/wp/v2/categories/${articleLang}`);
 		const countArticles = count.data.count;

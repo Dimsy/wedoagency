@@ -9,7 +9,7 @@ class RouteNewsArticle extends Component {
 		return (
 			<div>
 				<NewsArticle location={this.props.location} match={this.props.match}/>
-				<Portfolio />
+				<Portfolio match={this.props.match}/>
 			</div>
 		)
 	}

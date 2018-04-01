@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import { loadNewsArticleList } from '../../ducks/newsArticle';
-import { Grid, Row, Col } from 'react-bootstrap';
 import renderHTML from 'react-render-html'
 import {Link} from 'react-router-dom';
 
@@ -17,43 +16,46 @@ class NewsArticle extends Component{
 	foto = (data, key) => {
 		const ftx2 = data['ftx2' + key.substring(4)] || data[key]
 
+		if( !data[key] ) return null
+
 		return ( 
-							<Row key={key}>
-								<Col md={12}>
+							<div className="row no-gutters" key={key}>
+								<div className="col-md-12">
 									<img src={data[key]} srcSet={ `${ftx2} 2x`} className="newsBodyImg"/> 
-								</Col>
-							</Row>
+								</div>
+							</div>
 					)		
 	}
 
 	slog = (key, item) => {
 
+		if(!item) return null
+
 		return (
-						<Row key={key}>
-							<Col md={3}>
-							</Col>
-							<Col md={6}>		
+						<div className="row no-gutters" key={key}>
+							<div className="col-md-6 offset-md-3">		
 								<div className="articleContent">
 									<h2>
-										{ renderHTML(item) }
+										
+										<div dangerouslySetInnerHTML={{ __html: item }} />
 									</h2>
 								</div>
-							</Col>
-						</Row>
+							</div>
+						</div>
 					)
 	}
 
 	text = (key, item) => {
+		if(!item) return null
+
 		return (
-						<Row key={key}>
-							<Col md={2}>
-							</Col>
-							<Col md={8}>		
+						<div className="row no-gutters" key={key}>
+							<div className="col-md-8  offset-md-2">		
 								<div className="articleContent afterImg">
-									{ renderHTML(item) }
+									<div dangerouslySetInnerHTML={{ __html: item }} />
 								</div>
-							</Col>
-						</Row>
+							</div>
+						</div>
 					)
 	}
 
@@ -77,7 +79,6 @@ class NewsArticle extends Component{
 		if (error) return (<ErrorCmp error={error} />);	
 	
 		const article = entities;
-
 
 		if (!article) {
   		return <div>Данные временно не доступны</div>			
@@ -121,43 +122,55 @@ class NewsArticle extends Component{
 			}
 		}
 		
+
+		const videoBlock = entities.acf.videoNews ? <div className="row no-gutters">
+																									<div className="col">		
+																										<div className="embed-responsive embed-responsive-16by9 newsArticleVideo">
+																	 										<iframe src={ `https://player.vimeo.com/video/${entities.acf.videoNews}` } 
+																	 														frameBorder="0" 
+																	 														allowFullScreen 
+																	 														className="embed-responsive-item" 
+																	 										/>
+																	 									</div>
+																	 								</div>	
+														 										</div>
+														 									: null
+
 		return (
-			<div>
+			<div className="newsArticleBlock">
 				<div className="articleImgNews" style={divStyle} />
 				<div className="articleDate">
 					{date.toLocaleString( i18, options)}
 				</div>
 				<div>
-					<Grid>
-						<Row>
-							<Col md={2}>
-							</Col>
-							<Col md={8}>
+					<div className="container">
+						<div className="row no-gutters">
+							<div className="col-md-8 offset-md-2">
 								<div className="articleTitle">			
 									{article.title.rendered}
 								</div>			
 								<div className="articleContent">
-									{article.content.rendered}
+									<div dangerouslySetInnerHTML={{ __html: article.content.rendered }} />
 								</div>
-							</Col>
-						</Row>
+							</div>
+						</div>
 					
-						<Row>
-							<Col md={12}>
+						<div className="row no-gutters">
+							<div className="col-md-12">
 								<img src={article.acf.bodyImgNews} srcSet={ `${article.acf.bodyImgNewsx2} 2x`} className="newsBodyImg"/> 
-							</Col>
-						</Row>
+							</div>
+						</div>
 			
 							{body}
-			
-						<Row>
-							<Col>		
+							{videoBlock}
+						<div className="row no-gutters">
+							<div className="col">		
 								<Link to='/news' className="linkToAllNews">
 									{ allNews }
 								</Link>
-							</Col>
-						</Row>
-					</Grid>
+							</div>
+						</div>
+					</div>
 				</div>
 			
 			</div>
