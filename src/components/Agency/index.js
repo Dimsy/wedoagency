@@ -67,10 +67,10 @@ class Agency extends Component{
 		<div className="container agency">
 			{headerMobile}
  			<div className="row">
- 				<div className="col-sm-12 col-md-6 col-lg-5 offset-lg-1 agencyImg">
+ 				<div className="col-sm-12 col-md-6 agencyImg">
  						<img src={entities.acf.agencyPhoto} srcSet={`${entities.acf.agencyPhotox2} 2x`} alt="Изображение для прессы"/>
  				</div>
- 				<div className="col-sm-12 col-md-6 col-lg-5 offset-lg-1">
+ 				<div className="col-sm-12 col-md-5 offset-md-1">
  					{headerDesktop}
 					{renderHTML(entities.content.rendered)}
 					<Link to='/agency' className="knowMore">{knowMore}</Link>

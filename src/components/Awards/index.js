@@ -42,7 +42,7 @@ class Awards extends Component{
 		return (
 			<div className='portfolio'>
 		  	<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={411} totalSlides={3} visibleSlides={3}>
-			    <Grid>
+			    <div className="container">
 			 	    <Row>
 					    <Col md={9}>
 					      <h1 className="marginLeft10px">{catName}</h1>
@@ -57,15 +57,15 @@ class Awards extends Component{
 						    <div className="clear"/>
         	    </Col>
 				    </Row>
-				    <Row>
-        	    <Col md={12} className="hidePixelsWrapper">
+				    <div className="row awards__slide no-gutters">
+        	    <div className="col-md-12 hidePixelsWrapper">
 						    <Slider>
                   {body}
         		    </Slider>
         		    <div className="hidePixels" />
-        	    </Col>
-            </Row>				
-				  </Grid>	
+        	    </div>
+            </div>				
+				  </div>	
 				</CarouselProvider>
 			</div>	
 		)	

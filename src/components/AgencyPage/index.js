@@ -37,12 +37,12 @@ class AgencyPage extends Component {
 
 		console.log("--",entities.acf.videoHeader)
 
-		const headerBlock = (window.innerWidth > 768 || entities.acf.videoHeader) ?	<div className="headerImgBlock" style={{overflow: 'hidden'}}>
-																																										<video id="video_bg" autoPlay="autoplay" loop="loop" >
-																																											<source src={entities.acf.videoHeader.url} type="video/mp4"></source>
-																																										</video>
-																																									</div>
-																																								: <div className="articleImgNews" style={header} />
+		const headerBlock = (window.innerWidth > 768 || entities.acf.videoHeader) ?	<div className="headerImgBlock" style={{overflow: 'hidden'}} key={entities.acf.videoHeader}>
+																																									<video id="video_bg" autoPlay="autoplay" loop="loop" >
+																																										<source src={entities.acf.videoHeader.url} type="video/mp4"></source>
+																																									</video>
+																																								</div>
+																																							: <div className="articleImgNews" style={header} />
 
 
     const videoBlock = entities.acf.video ? <div className="row no-gutters">

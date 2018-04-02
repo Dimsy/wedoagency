@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="9px" height="16px" viewBox="0 0 9 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="10px" height="18px" viewBox="0 0 10 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: sketchtool 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
-    <title>7CA674CA-AEBB-4652-B888-72F508323543</title>
+    <title>78D13899-AC09-4BF3-A7ED-145AF424EEF5</title>
     <desc>Created with sketchtool.</desc>
     <defs></defs>
-    <g id="footer_mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-56.000000, -222.000000)">
-        <path d="M61.7777778,225.111111 L61.7777778,227.777778 L64.4444444,227.777778 L64,230.444444 L61.7777778,230.444444 L61.7777778,238 L58.6666667,238 L58.6666667,230.444444 L56,230.444444 L56,227.777778 L58.6666667,227.777778 L58.6666667,225.111111 C58.962963,223.037037 60.2962963,222 62.6666667,222 C63.2592593,222 63.8518519,222 64.4444444,222 L64.4444444,224.666667 L62.2222222,224.666667 C61.9259259,224.666667 61.7777778,224.814815 61.7777778,225.111111 Z" id="Rectangle-3-Copy-3" fill="#939597"></path>
+    <g id="component/footer" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1122.000000, -50.000000)" opacity="0.669999957">
+        <g id="подвал" fill="#939597">
+            <g id="social" transform="translate(1062.000000, 50.000000)">
+                <g id="facebook" transform="translate(56.000000, 0.000000)">
+                    <path d="M11,3.5 L11,6.5 L14,6.5 L13.5,9.5 L11,9.5 L11,18 L7.5,18 L7.5,9.5 L4.5,9.5 L4.5,6.5 L7.5,6.5 L7.5,3.5 C7.83333333,1.16666667 9.33333333,1.47254036e-29 12,4.41762107e-29 C12.6666667,-1.47254036e-29 13.3333333,-2.94508071e-29 14,0 L14,3 L11.5,3 C11.1666667,3 11,3.16666667 11,3.5 Z" id="Rectangle-3-Copy-4"></path>
+                </g>
+            </g>
+        </g>
     </g>
 </svg>

@@ -288,23 +288,13 @@ button:focus {
   cursor: pointer;
   text-align: center;
 }
-.socialFooter .vimeo img,
-.headerSocialMenu .vimeo img{
-  width: 18px;
-  height: 18px;
+.headerSocialMenu a,
+.socialFooter a{
+  display: block;
+  width: 19px;
+  height: 19px;
 }
-.headerSocialMenu img:hover{
-  fill: #131313;
-  background-color: #0c0;
-}
-.socialFooter .youtube img,
-.headerSocialMenu .youtube{
-  padding-top: 3px;
-}
-.socialFooter .youtube img,
-.headerSocialMenu .youtube img{
-  width: 18px;
-}
+
 .logoBlock{
   height: 253px;
   background-image: url(../img/logo/wedo.png);
@@ -363,6 +353,7 @@ button:focus {
 
 h1.portfolio__title{
   text-transform: none !important;
+  margin-left: 10px;
 }
 
 .portfolio .carousel__slider{
@@ -637,8 +628,8 @@ h1.portfolio__title{
   display: block;
   height: 18px;
   float: right;
-  padding-left: 6px;
-  padding-right: 6px;
+  padding-left: 4px;
+  padding-right: 4px;
   
 }
 
@@ -1211,7 +1202,7 @@ hr {
   background-repeat: no-repeat;
 }
 
-.awards__Item-content {
+.awards__Item-content p{
   margin-bottom: 10px;
   font-family: LatoRegular;
   font-size: 11px;

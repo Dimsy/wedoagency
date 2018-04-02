@@ -6,8 +6,14 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import renderHTML from 'react-render-html'
 import safeEval from 'safe-eval'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import VideoHeader from './VideoHeader'
+
 
 class PortfolioPage extends Component{
+
+	componentWillReceiveProps(){
+
+	}
 
 	a = (photos) => {
 		for (let key in photos){		
@@ -187,12 +193,10 @@ class PortfolioPage extends Component{
 			marginBottom: '100px'
 		};
 
+		console.log("project.acf.headerVideo", project.acf.headerVideo);
+
 		const headerBlock = (window.innerWidth < 768 || !project.acf.headerVideo) ? <div className="articleImgNews" style={header} />
-																																							 : <div className="headerImgBlock" style={{overflow: 'hidden', marginBottom: '100px'}}>
-																																						    	<video id="video_bg" autoPlay="autoplay" loop="loop" >
-																																						  			<source src={project.acf.headerVideo} type="video/mp4" />
-																																						  		</video>
-																																						  	</div>
+																																							: <VideoHeader src={project.acf.headerVideo} key={project.acf.headerVideo} />																																							
 
 		const content = project.content.rendered.length != 0 ?  <div className="content">
 																															{renderHTML(project.content.rendered)}

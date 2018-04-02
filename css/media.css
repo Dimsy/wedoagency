@@ -118,6 +118,18 @@
   .blockC img{
     width: 288px;
   }
+  .awards__Item {
+    width: 290px;
+    height: 380px;
+    margin: 0px;
+    padding-top: 40px;
+  }
+  .awards__Item-Background{
+    margin-bottom: 20px;
+  }
+  .hidePixelsWrapper{
+    left: 10px;
+  }
 }
 
 /* Medium Devices, Desktops */
@@ -298,6 +310,22 @@
   }
   .newsList .newsList__title h1{
     margin-bottom: 10px;
+  }
+  .awards__Item {
+    width: 220px;
+    height: 310px;
+    margin: 0px;
+    padding-top: 30px;
+  }
+  .awards__Item-Background{
+    margin-bottom: 20px;
+    height: 160px;
+  }
+  .hidePixelsWrapper{
+    left: 10px;
+  }
+  .awards__Item-content p{
+    margin-bottom: 8px;
   }
 }
 
@@ -587,6 +615,27 @@
   }
   .newsList{
     padding-top: 100px;
+  }
+  .awards__Item {
+    width: 165px;
+    height: 240px;
+    margin: 0px;
+    padding: 20px 5px 0;
+  }
+  .awards__Item-Background{
+    margin-bottom: 8px;
+    height: 115px;
+  }
+  .hidePixelsWrapper .carousel__slider{
+    height: 240px
+  }
+  .awards__Item-content p{
+    margin: 0px;
+    padding: 8px 0;
+  }
+  .awards__slide .hidePixels{
+    height: 240px;
+    width: 10px;
   }
 }
 
