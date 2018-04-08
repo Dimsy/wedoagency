@@ -17,14 +17,17 @@ class PressItem extends Component{
 			backgroundImage: `url(${item.acf.foto})`
 		};	
 
-		const body = <div className="pressItem__Inner">
-									<div className="pressItem__Inner-title">
-										{item.title.rendered}
-									</div>
-									<div className="pressItem__Inner-date">
-										{item.acf.date}
-									</div>
-								</div>
+		const body = window.innerWidth > 768 ? <div className="pressItem__Inner">
+																						 	<div className="pressItem__Inner-title">
+																						  	{item.title.rendered}
+																							</div>
+																							<div className="pressItem__Inner-date">
+																								{item.acf.date}
+																							</div>
+																						</div>
+																				 : null	
+
+
 									
 		return (
 				<Link to={`${match.path}/${item.id}`}>

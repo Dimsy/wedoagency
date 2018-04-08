@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { Grid, Row, Col } from 'react-bootstrap';
 import {loadAwards} from '../../ducks/awards.js';
 import AwardsItem from './AwardsItem'
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Image } from 'pure-react-carousel';	
@@ -39,15 +38,17 @@ class Awards extends Component{
 
 		const opacity = body.length > 3 ? {display: "block"} : {display: "none"}
 
+		const slideCount = window.innerWidth < 576 ? body.length + 1 : body.length
+
 		return (
-			<div className='portfolio'>
-		  	<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={411} totalSlides={3} visibleSlides={3}>
+			<div className='portfolio awards'>
+		  	<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={411} totalSlides={slideCount} visibleSlides={3}>
 			    <div className="container">
-			 	    <Row>
-					    <Col md={9}>
+			 	    <div className="row no-gutters">
+					    <div className="col-md-9">
 					      <h1 className="marginLeft10px">{catName}</h1>
-					    </Col>
-					  	<Col md={3} className="SliderButtons">
+					    </div>
+					  	<div className="col-md-3 SliderButtons">
 						    <ButtonNext>
 						    	<img src={`${PATH}/img/slider/next.svg`} style={opacity}/>
 						    </ButtonNext>
@@ -55,9 +56,9 @@ class Awards extends Component{
 						    	<img src={`${PATH}/img/slider/next.svg`} className="sliderButtonsOpacityRevert" style={opacity}/>
 						    </ButtonBack>
 						    <div className="clear"/>
-        	    </Col>
-				    </Row>
-				    <div className="row awards__slide no-gutters">
+        	    </div>
+				    </div>
+				    <div className="row awards__slide no-gutters portfolioSlider">
         	    <div className="col-md-12 hidePixelsWrapper">
 						    <Slider>
                   {body}

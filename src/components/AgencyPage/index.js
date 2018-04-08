@@ -4,6 +4,7 @@ import { loadAgencyPage } from '../../ducks/agencyPage';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import renderHTML from 'react-render-html'
+import VideoBlock from '../VideoBlock'
 
 
 class AgencyPage extends Component {
@@ -19,11 +20,15 @@ class AgencyPage extends Component {
 		}
 	}
 
+
 	render(){
 		const {match, entities, useLang, loading, error} = this.props
 		
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);	
+
+		console.log('--', entities)
+
 
 		const header = {
 			backgroundImage: `-webkit-image-set( url(${entities.acf.foto}) 1x, url(${entities.acf.Fotox2}) 2x )`,
@@ -33,30 +38,49 @@ class AgencyPage extends Component {
 			backgroundImage: `url(${entities.acf.foto})`
 		};
 
-		
-
-		console.log("--",entities.acf.videoHeader)
-
-		const headerBlock = (window.innerWidth > 768 || entities.acf.videoHeader) ?	<div className="headerImgBlock" style={{overflow: 'hidden'}} key={entities.acf.videoHeader}>
-																																									<video id="video_bg" autoPlay="autoplay" loop="loop" >
-																																										<source src={entities.acf.videoHeader.url} type="video/mp4"></source>
-																																									</video>
-																																								</div>
-																																							: <div className="articleImgNews" style={header} />
+		const headerBlock = window.innerWidth > 768  || entities.acf.videoHeader ? <div className="headerImgBlock" style={{overflow: 'hidden'}} key={entities.acf.videoHeader}>
+																											    	 		 <video id="video_bg" autoPlay="autoplay" loop="loop" >
+																											    	 			 <source src={entities.acf.videoHeader.url} type="video/mp4"></source>
+																											    	 		 </video>
+																											    	 	 </div>
+																											    	 : <div className="articleImgNews" style={header} />
 
 
-    const videoBlock = entities.acf.video ? <div className="row no-gutters">
-																									<div className="col">		
-																										<div className="embed-responsive embed-responsive-16by9 agencyVideo">
-																	 										<iframe src={ `https://player.vimeo.com/video/${entities.acf.video}` } 
-																	 														frameBorder="0" 
-																	 														allowFullScreen 
-																	 														className="embed-responsive-item" 
-																	 										/>
-																	 									</div>
-																	 								</div>	
-														 										</div>
-														 									: null
+    const videoBlock = entities.acf.video ? <VideoBlock video={entities.acf.video} class={'agencyVideo'}/> : null
+
+    if (window.innerWidth < 768){
+    		return (
+					<div className="articlePage">
+						{headerBlock}
+						<div className="container">
+							<div className="row no-gutters">
+								<div className="col-md-6">
+									<h1>
+			 							{entities.title.rendered}
+			 						</h1>
+								</div>
+								<div className="col-md-6">
+									{renderHTML(entities.content.rendered)}
+								</div>
+							</div>
+							<div className="row no-gutters">
+								<div className="col-md-6 agencyPage__collage">
+									<img src={`${entities.acf.collage}`} />
+								</div>
+								<div className="col-md-6">
+								<p>
+									{ renderHTML(entities.acf.extendText)}
+									</p>
+			 						<div className="sign">
+			 							{entities.acf.sign}
+			 						</div>
+								</div>
+							</div>
+							{videoBlock}
+						</div>
+ 					</div>
+				)
+    }
 		
 		return (
 			<div className="articlePage">
@@ -72,6 +96,7 @@ class AgencyPage extends Component {
 	 							{entities.title.rendered}
 	 						</h1>
 	 						{ renderHTML(entities.content.rendered)}
+	 						{ renderHTML(entities.acf.extendText)}
 	 						<div className="sign">
 	 							{entities.acf.sign}
 	 						</div>

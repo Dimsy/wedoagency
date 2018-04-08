@@ -3,7 +3,7 @@ import {loadPressList, clearPressList} from '../../ducks/pressList.js';
 import {connect} from 'react-redux';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
-import { Grid, Row, Col } from 'react-bootstrap';
+// import { Grid, Row, Col } from 'react-bootstrap';
 import PressItem from './pressItem';
 
 class PressList extends Component{
@@ -55,10 +55,10 @@ class PressList extends Component{
 		const toggleShowMore = body.length != count  ? showMore : null;
 					
 		return (
-			<Grid className='pressList'>
-				<Row>
-					<Col md={12}>
-						<ul>
+			<div className='container pressList'>
+				<div className="row no-gutters">
+					<div className="col-md-12">
+						<ul className="pressList_set">
 							{body}
 						</ul>
 						<div className='clear' />
@@ -67,9 +67,9 @@ class PressList extends Component{
 								{toggleShowMore}
 							</span>	
 						</div>	
-					</Col>
-				</Row>		
-			</Grid>
+					</div>
+				</div>		
+			</div>
 		)
 	}
 }

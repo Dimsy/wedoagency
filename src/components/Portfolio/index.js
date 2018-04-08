@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { Grid, Row, Col } from 'react-bootstrap';
 import {loadPortfolio} from '../../ducks/portfolio.js';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Image } from 'pure-react-carousel';
 import PortfolioItem from './PortfolioItem';
@@ -60,12 +59,12 @@ class Portfolio extends Component{
 		return (
 			<div className='portfolio'>
 		  	<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={411} totalSlides={body.length} visibleSlides={3}>
-			    <Grid>
-			 	    <Row>
-					    <Col sm={6} md={8}>
-					      <h1>{title}</h1>
-					    </Col>
-					    <Col sm={6} md={4} className="SliderButtons">
+			    <div className='container'>
+			 	    <div className='row no-gutters'>
+					    <div className="col-sm-8">
+					      <h1 className='portfolio__title'>{title}</h1>
+					    </div>
+					    <div className="col-md-4 col-sm-6 SliderButtons">
 						    <ButtonNext>
 						    	<img src={`${PATH}/img/slider/next.svg`} style={opacity}/>
 						    </ButtonNext>
@@ -73,17 +72,17 @@ class Portfolio extends Component{
 						    	<img src={`${PATH}/img/slider/next.svg`} className="sliderButtonsOpacityRevert" style={opacity}/>
 						    </ButtonBack>
 						    <div className="clear"/>
-        	    </Col>
-				    </Row>
-				    <Row className="portfolioSlider">
-        	    <Col md={12} className="hidePixelsWrapper">
+        	    </div>
+				    </div>
+				     <div className='row no-gutters portfolioSlider'>
+        	    <div className="col-md-12 hidePixelsWrapper">
 						    <Slider>
                   {body}
         		    </Slider>
         		    <div className="hidePixels" />
-        	    </Col>
-            </Row>				
-				  </Grid>	
+        	    </div>
+            </div>				
+				  </div>	
 				</CarouselProvider>
 			</div>	
 		)	

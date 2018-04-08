@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux'
 import { loadPressPage } from '../../ducks/pressPage';
 import Loader from '../Loader';
@@ -28,18 +27,25 @@ class AgencyPage extends Component {
 		const i18 = useLang == "ru" ? "ru" : "en-US";
 
 		const allPublics = useLang == "ru" ? "Все публикации" : "all publics";
+		const i18Date = useLang == "ru" ? "ru-RU" : "en-GB";
 
-		
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);	
 
+		const date = new Date(entities.acf.date);
+
+		var options = {
+		  day: 'numeric',
+		  month:  'long',
+		  year: 'numeric'
+		};
+		
 		const foto = {
 			backgroundImage: `-webkit-image-set( url(${entities.acf.foto}) 1x, url(${entities.acf.fotox2}) 2x )`,
 			backgroundImage: `-moz-image-set( url(${entities.acf.foto}) 1x, url(${entities.acf.fotox2}) 2x )`,
 			backgroundImage: `-o-image-set( url(${entities.acf.foto}) 1x, url(${entities.acf.fotox2}) 2x )`,
 			backgroundImage: `-ms-image-set( url(${entities.acf.foto}) 1x, url(${entities.acf.fotox2}) 2x )`,
-			backgroundImage: `url(${entities.acf.foto})`,
-			marginBottom: '10px'
+			backgroundImage: `url(${entities.acf.foto})`
 		};
 
 		const public1 = {
@@ -49,7 +55,7 @@ class AgencyPage extends Component {
 			backgroundImage: `-ms-image-set( url(${entities.acf.public1}) 1x, url(${entities.acf.public1x2}) 2x )`,
 			backgroundImage: `url(${entities.acf.public1})`,
 			marginTop: '10px',
-			marginBottom: '10px'
+			marginleft: '10px'
 		};
 
 		const public2 = {
@@ -58,8 +64,7 @@ class AgencyPage extends Component {
 			backgroundImage: `-o-image-set( url(${entities.acf.public2}) 1x, url(${entities.acf.public2x2}) 2x )`,
 			backgroundImage: `-ms-image-set( url(${entities.acf.public2}) 1x, url(${entities.acf.public2x2}) 2x )`,
 			backgroundImage: `url(${entities.acf.public2})`,
-			marginTop: '10px',
-			marginBottom: '10px'
+			marginTop: '10px'
 		};
 
 		const public3 = {
@@ -68,8 +73,7 @@ class AgencyPage extends Component {
 			backgroundImage: `-o-image-set( url(${entities.acf.public3}) 1x, url(${entities.acf.public3x2}) 2x )`,
 			backgroundImage: `-ms-image-set( url(${entities.acf.public3}) 1x, url(${entities.acf.public3x2}) 2x )`,
 			backgroundImage: `url(${entities.acf.public3})`,
-			marginTop: '10px',
-			marginBottom: '10px'
+			marginTop: '10px'
 		};
 
 		const public4 = {
@@ -78,8 +82,7 @@ class AgencyPage extends Component {
 			backgroundImage: `-o-image-set( url(${entities.acf.public4}) 1x, url(${entities.acf.public4x2}) 2x )`,
 			backgroundImage: `-ms-image-set( url(${entities.acf.public4}) 1x, url(${entities.acf.public4x2}) 2x )`,
 			backgroundImage: `url(${entities.acf.public4})`,
-			marginTop: '10px',
-			marginBottom: '10px'
+			marginTop: '10px'
 		};
 
 		const public5 = {
@@ -88,8 +91,7 @@ class AgencyPage extends Component {
 			backgroundImage: `-o-image-set( url(${entities.acf.public5}) 1x, url(${entities.acf.public5x2}) 2x )`,
 			backgroundImage: `-ms-image-set( url(${entities.acf.public5}) 1x, url(${entities.acf.public5x2}) 2x )`,
 			backgroundImage: `url(${entities.acf.public5})`,
-			marginTop: '10px',
-			marginBottom: '10px'
+			marginTop: '10px'
 		};
 
 		const public6 = {
@@ -98,8 +100,7 @@ class AgencyPage extends Component {
 			backgroundImage: `-o-image-set( url(${entities.acf.public6}) 1x, url(${entities.acf.public6x2}) 2x )`,
 			backgroundImage: `-ms-image-set( url(${entities.acf.public6}) 1x, url(${entities.acf.public6x2}) 2x )`,
 			backgroundImage: `url(${entities.acf.public6})`,
-			marginTop: '10px',
-			marginBottom: '10px'
+			marginTop: '10px'
 		};
 
 		const public7 = {
@@ -108,8 +109,7 @@ class AgencyPage extends Component {
 			backgroundImage: `-o-image-set( url(${entities.acf.public7}) 1x, url(${entities.acf.public7x2}) 2x )`,
 			backgroundImage: `-ms-image-set( url(${entities.acf.public7}) 1x, url(${entities.acf.public7x2}) 2x )`,
 			backgroundImage: `url(${entities.acf.public7})`,
-			marginTop: '10px',
-			marginBottom: '10px'
+			marginTop: '10px'
 		};
 	
 		const public8 = {
@@ -118,71 +118,73 @@ class AgencyPage extends Component {
 			backgroundImage: `-o-image-set( url(${entities.acf.public8}) 1x, url(${entities.acf.public8x2}) 2x )`,
 			backgroundImage: `-ms-image-set( url(${entities.acf.public8}) 1x, url(${entities.acf.public8x2}) 2x )`,
 			backgroundImage: `url(${entities.acf.public8})`,
-			marginTop: '10px',
-			marginBottom: '10px'
+			marginTop: '10px'
 		};
 
-		console.log('----', entities.content.rendered);
 
 		return (
 			<div className="pressPage">
 				<div className="container">
-					<div className="row">
-						<Col md={6}>
-							<div className="foto" style={foto}/>			
-						</Col>
-						<Col md={1}>
-						</Col>
-						<Col md={5} className="info">
-							{entities.acf.date}
-							<div className="header">
+					<div className="row no-gutters">
+						<div className='col-md-12'>
+							<div>
+								<div className="foto foto_title" style={foto}/>	
+							</div>
+							<div className="DateFormat">
+								{ date.toLocaleString( i18Date, options)}
+							</div>
+							<div className="headerTitle">
 								{renderHTML(entities.title.rendered)}
 							</div>
 							<div className="content">
-								{/* entities.content.rendered*/}
 								<div dangerouslySetInnerHTML={{ __html:  entities.content.rendered }} />
 							</div>
-						</Col>
-		 			</div>
-		 			<Row>
-		 				<Col md={6}>
+							<div className="clear" />
+						</div>	
+				 			</div>
+		 			<div className="row no-gutters">
+		 				<div className="col-md-6">
 		 					{!!entities.acf.public1 && <div className="foto" style={public1}/>}
-		 				</Col>
-		 				<Col md={6}>
-		 					{!!entities.acf.public2 && <div className="foto" style={public2}/>}
-		 				</Col>
-		 			</Row>	
-		 			<Row>
-		 				<Col md={6}>
+		 				</div>
+		 				<div className="col-md-6">
+		 					{!!entities.acf.public2 && <div className="foto foto_right" style={public2}/>}
+		 				</div>
+		 				<div className='clear' />
+		 			</div>	
+		 			<div className="row no-gutters">
+		 				<div className="col-md-6">
 		 					{!!entities.acf.public3 && <div className="foto" style={public3}/>}
-		 				</Col>
-		 				<Col md={6}>
-		 					{!!entities.acf.public4 && <div className="foto" style={public4}/>}
-		 				</Col>
-		 			</Row>	
-		 			<Row>
-		 				<Col md={6}>
+		 				</div>
+		 				<div className="col-md-6">
+		 					{!!entities.acf.public4 && <div className="foto foto_right" style={public4}/>}
+		 				</div>
+		 				<div className='clear' />
+		 			</div>	
+		 			<div className="row no-gutters">
+		 				<div className="col-md-6">
 		 					{!!entities.acf.public5 && <div className="foto" style={public5}/>}
-		 				</Col>
-		 				<Col md={6}>
-		 					{!!entities.acf.public6 && <div className="foto" style={public6}/>}
-		 				</Col>
-		 			</Row>	
-		 			<Row>
-		 				<Col md={6}>
+		 				</div>
+		 				<div className="col-md-6">
+		 					{!!entities.acf.public6 && <div className="foto foto_right" style={public6}/>}
+		 				</div>
+		 				<div className='clear' />
+		 			</div>	
+		 			<div className="row no-gutters">
+		 				<div className="col-md-6">
 		 					{!!entities.acf.public7 && <div className="foto" style={public7}/>}
-		 				</Col>
-		 				<Col md={6}>
-		 					{!!entities.acf.public8 && <div className="foto" style={public8}/>}
-		 				</Col>
-		 			</Row>
-		 			<Row>
-		 				<Col md={12}>
+		 				</div>
+		 				<div className="col-md-6">
+		 					{!!entities.acf.public8 && <div className="foto foto_right" style={public8}/>}
+		 				</div>
+		 				<div className='clear' />
+		 			</div>
+		 			<div className="row no-gutters">
+		 				<div className="col-md-12">
 		 					<Link to='/press' className="linkToAllNews">
 									{ allPublics }
 								</Link>
-		 				</Col>
-		 			</Row>	
+		 				</div>
+		 			</div>	
  				</div>
  			</div>
 		)

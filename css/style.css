@@ -391,10 +391,10 @@ h1.portfolio__title{
 
 .portfolio .hidePixels{
   height: 411px;
-  width: 30px;
+  width: 10px;
   position: absolute;
   top: 0;
-  right: 0;
+  right: -2px;
   z-index: 20;
   background-color: #f7f7f7; 
 }
@@ -976,6 +976,7 @@ hr {
   position: absolute;
   top: 15px;
   left: 15px;
+  padding-top: 28px;
   opacity: 0.9;
   background-color: #f7f7f7;
   z-index: 20px;
@@ -985,7 +986,7 @@ hr {
 
 .pressList .pressItem__Inner-title{
   display: table-cell;
-  height: 331px;
+  height: 322px;
   width: 100%;
   padding-left: 32px;
   padding-right: 32px;
@@ -1002,7 +1003,6 @@ hr {
   color: #131313;
 }
 
-
 .pressList .pressItem__Inner-date{
   font-family: LatoLight;
   font-size: 11px;
@@ -1014,12 +1014,21 @@ hr {
   text-align: center;
   color: #131313;
 }
-
 .pressPage .foto{
-  height: 627px;
-  width: 470px;
+  height: 648px;
+  width: 485px;
   background-size: cover;
   background-repeat: no-repeat;
+  margin-bottom: 10px;
+}
+
+.pressPage .foto_right{
+  float: right;
+}
+.pressPage .foto_title{
+ 
+  float: left;
+  margin-right: 80px;
 }
 
 .pressPage .info { 
@@ -1034,7 +1043,7 @@ hr {
   color: #131313;
 }
 
-.pressPage .header {
+.pressPage .headerTitle {
   margin-top: 20px;
   margin-bottom: 30px; 
   font-family: LatoLight;
@@ -1264,6 +1273,19 @@ hr {
 
 .embed-responsive-9by16{
   padding-bottom: 200%;
+}
+
+.DateFormat{
+  font-family: LatoLight;
+  padding-top: 20px;
+  font-size: 13px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2.15;
+  letter-spacing: 2px;
+  text-align: left;
+  color: #131313;
 }
 
 
