@@ -14,8 +14,6 @@ class PortfolioList extends Component{
 		if (this.props.entities.toArray().length < 9){
 			loadPortfolio(useLang)
 		}
-
-		
 	}
 
 	componentWillReceiveProps(nextProps){
@@ -68,10 +66,12 @@ class PortfolioList extends Component{
 			backgroundImage: `url(${portfolioList.acf.foto})`,
 			marginBottom: '100px'
 		} || null;
+
+		const titleArticle = window.innerWidth > 768 ? <div className="articleImgNews" style={header} /> : null
 					
 		return (
 			<div className='portfolioList'>
-				<div className="articleImgNews" style={header} />
+				{titleArticle}
 				<Grid >
 					<Row className="no-gutters">
 						<Col md={12}>

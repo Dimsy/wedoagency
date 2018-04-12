@@ -3,7 +3,6 @@ import {loadPressList, clearPressList} from '../../ducks/pressList.js';
 import {connect} from 'react-redux';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
-// import { Grid, Row, Col } from 'react-bootstrap';
 import PressItem from './pressItem';
 
 class PressList extends Component{
@@ -52,10 +51,16 @@ class PressList extends Component{
 		const body = pressItems.map( item => <li key={item.id}><PressItem item={item} match={match}/></li>).sort(this.sortBody)
 
 		const showMore = useLang == "ru" ? "Показать еще" : "Show more";
+		const title = useLang == "ru" ? "Пресса" : "Press";
 		const toggleShowMore = body.length != count  ? showMore : null;
 					
 		return (
 			<div className='container pressList'>
+				<div className="row no-gutters">
+					<div className="col-md-12">
+						<h1>{title}</h1>
+					</div>
+				</div>		
 				<div className="row no-gutters">
 					<div className="col-md-12">
 						<ul className="pressList_set">

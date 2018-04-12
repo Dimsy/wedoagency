@@ -46,7 +46,7 @@ class Awards extends Component{
 			    <div className="container">
 			 	    <div className="row no-gutters">
 					    <div className="col-md-9">
-					      <h1 className="marginLeft10px">{catName}</h1>
+					      <h1 className="portfolio__title">{catName}</h1>
 					    </div>
 					  	<div className="col-md-3 SliderButtons">
 						    <ButtonNext>
@@ -58,7 +58,7 @@ class Awards extends Component{
 						    <div className="clear"/>
         	    </div>
 				    </div>
-				    <div className="row awards__slide no-gutters portfolioSlider">
+				    <div className="row awards__slide portfolioSlider">
         	    <div className="col-md-12 hidePixelsWrapper">
 						    <Slider>
                   {body}

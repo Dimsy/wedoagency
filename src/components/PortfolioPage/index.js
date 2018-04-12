@@ -190,7 +190,6 @@ class PortfolioPage extends Component{
 			backgroundImage: `-o-image-set( url(${project.acf.headerPhoto}) 1x, url(${project.acf.headerPhotox2}) 2x )`,
 			backgroundImage: `-ms-image-set( url(${project.acf.headerPhoto}) 1x, url(${project.acf.headerPhotox2}) 2x )`,
 			backgroundImage: `url(${project.acf.headerPhoto})`,
-			marginBottom: '100px'
 		};
 
 		console.log("project.acf.headerVideo", project.acf.headerVideo);

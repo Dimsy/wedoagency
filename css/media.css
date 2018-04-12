@@ -60,6 +60,11 @@
     width: 960px;
   }
 
+  .press .slogan{
+    font-size: 20px;
+    line-height: 36px;
+  }
+
   .pressImg1 img{
     width: 206px; 
     height: 206px;  
@@ -146,7 +151,6 @@
     width: 455px;
   }
 }
-
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
   .header{
@@ -315,6 +319,9 @@
   .blockC img{
     width: 213px;
   }
+  .portfolioList {
+    padding-top: 100px;
+  }
   .portfolioList .portfolioList__item {
     width: 220px;
     height: 255px;
@@ -326,6 +333,13 @@
   .portfolioList .portfolioItem__info-data{
     height: 169px;
     width: 190px;
+  }
+  .portfolioList h1{
+    margin-bottom: 20px;
+    padding-left: 20px;
+    line-height: 36px;
+    font-size: 28px;
+    text-align: left;
   }
   .newsList{
     padding-top: 50px;
@@ -371,7 +385,6 @@
     padding-top: 100px;
   }
 }
-
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
   .header{
@@ -618,9 +631,6 @@
   .portfolioPage__project .container{
     padding-left: 0;
   }
-  .portfolio__title h1{
-    padding-left: 10px;
-  }
   .portfolioTitlePhoto{
     float: none;
     width: 520px;
@@ -697,9 +707,6 @@
     padding-left: 20px;
     padding-right: 20px;
   }
-  .pressList_set{
-    margin-top: 50px; 
-  }
   .pressList .pressItem{
     width: 160px;
     height: 215px;
@@ -731,8 +738,11 @@
     padding-left: 20px;
     padding-right: 20px;
   }
+  h1 {
+    font-size: 32px;
+  }
   .portfolio  {
-    padding-left: 20px;
+    padding-left: 10px;
     overflow: hidden;
   }
   .carousel__inner-slide,
@@ -752,6 +762,7 @@
   .portfolio .carousel__slider{
     height: 275px;
   }
+
   .portfolioSlider{
     width: 700px;
   }
@@ -806,8 +817,8 @@
   }
   
   .footer__contacts{
-     padding-left: 20px;
-     margin-bottom: 0;
+    padding-left: 20px;
+    margin-bottom: 0;
   }
 
   .footer .socialFooter{
@@ -897,8 +908,12 @@
     margin-top: 40px;
     margin-bottom: 50px;
   }
+  .portfolioList .showMore,
   .newsList .showMore{
     margin: 50px auto;
+  }
+  .portfolioList .showMore{
+    margin-bottom: 0; 
   }
   .awards__Item {
     width: 205px;
@@ -931,7 +946,7 @@
     margin-left: -10px;
   }
   .awards .marginLeft10px{
-    margin-left: -4px;
+    margin-left: 10px;
   }
   .agencyVideo{
     padding-left: 20px;
@@ -942,9 +957,50 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+  .pressList{
+    padding-top: 50px;
+  }
   .pressList .pressItem{
     width: calc(50vw - 28px);
     height: calc(49vw * 1.215);;
+  }
+  .newsArticleBlock .articleDate,
+  .newsArticleBlock .articleTitle{
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: left;
+  }
+  .newsArticleBlock .articleImgNews{
+    margin-bottom: 50px;
+  }
+  .articleContent{
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .newsArticleBlock .newsBodyImg{
+    margin: 0;
+    padding: 0 20px;
+  }
+  .newsArticleBlock .linkToAllNews{
+    margin: 50px auto;
+  }
+  .newsArticleBlock .newsArticleVideo{
+    margin-bottom: 0;
+    padding: 0 20px;
+  }
+  .pressList{
+    padding-top: 100px;
+  }
+  .pressList h1{
+    padding-left: 20px;
+  }
+
+  .pressList .portfoplio__title{
+    margin-left: 0;
+  }
+
+  .portfolioPage__project .articleImgNews{
+    margin-bottom: 50px;
   }
 }
 /* Extra Small Devices, Phones */
