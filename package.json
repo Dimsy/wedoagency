@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@u-wave/react-vimeo": "^0.3.1",
+    "animate": "^1.0.0",
     "axios": "^0.16.2",
     "concurrently": "^3.5.0",
     "immutable": "^3.8.2",
