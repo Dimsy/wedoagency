@@ -3,9 +3,8 @@ import { connect } from 'react-redux'
 import { loadAgencyPage } from '../../ducks/agencyPage';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
-import renderHTML from 'react-render-html'
 import VideoBlock from '../VideoBlock'
-
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 class AgencyPage extends Component {
 	
@@ -26,9 +25,6 @@ class AgencyPage extends Component {
 		
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);	
-
-		console.log('--', entities)
-
 
 		const header = {
 			backgroundImage: `-webkit-image-set( url(${entities.acf.foto}) 1x, url(${entities.acf.Fotox2}) 2x )`,
@@ -60,7 +56,7 @@ class AgencyPage extends Component {
 			 						</h1>
 								</div>
 								<div className="col-md-6">
-									{renderHTML(entities.content.rendered)}
+									<div dangerouslySetInnerHTML={{ __html: entities.content.rendered }} />
 								</div>
 							</div>
 							<div className="row no-gutters">
@@ -68,9 +64,9 @@ class AgencyPage extends Component {
 									<img src={`${entities.acf.collage}`} />
 								</div>
 								<div className="col-md-6">
-								<p>
-									{ renderHTML(entities.acf.extendText)}
-									</p>
+									<div className='p'>
+										<div dangerouslySetInnerHTML={{ __html: entities.acf.extendText }} />
+									</div>
 			 						<div className="sign">
 			 							{entities.acf.sign}
 			 						</div>
@@ -84,26 +80,32 @@ class AgencyPage extends Component {
 		
 		return (
 			<div className="articlePage">
-				{headerBlock}
-				<div className="container">
-	 				<div className="row no-gutters">
-	 					<div className="col-md-6 agencyPage__collage">
-	 						<img src={`${entities.acf.collage}`} />
-	 					</div>
-	 					
-	 					<div className="col-md-5 agencyInfo">
-	 						<h1>
-	 							{entities.title.rendered}
-	 						</h1>
-	 						{ renderHTML(entities.content.rendered)}
-	 						{ renderHTML(entities.acf.extendText)}
-	 						<div className="sign">
-	 							{entities.acf.sign}
-	 						</div>
-	 					</div>
-	 				</div>
-	 				{videoBlock}
-	 			</div>
+				<ReactCSSTransitionGroup transitionName="anim" 
+																 transitionAppear={true} 
+																 transitionAppearTimeout={2000}
+																 transitionEnter={false} 
+																 transitionLeave={false}>
+					{headerBlock}
+					<div className="container">
+		 				<div className="row no-gutters">
+		 					<div className="col-md-6 agencyPage__collage">
+		 						<img src={`${entities.acf.collage}`} />
+		 					</div>
+		 					
+		 					<div className="col-md-5 agencyInfo">
+		 						<h1>
+		 							{entities.title.rendered}
+		 						</h1>
+		 						<div dangerouslySetInnerHTML={{ __html: entities.content.rendered }} />
+		 						<div dangerouslySetInnerHTML={{ __html: entities.acf.extendText }} />
+		 						<div className="sign">
+		 							{entities.acf.sign}
+		 						</div>
+		 					</div>
+		 				</div>
+		 				{videoBlock}
+		 			</div>
+		 		</ReactCSSTransitionGroup>	
  			</div>
 		)
 	}	

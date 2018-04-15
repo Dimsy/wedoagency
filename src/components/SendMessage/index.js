@@ -4,6 +4,7 @@ import Form from './Form';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import {sendForm} from '../../ducks/form';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 class SendMessage extends Component{
 
@@ -19,49 +20,55 @@ class SendMessage extends Component{
 
 		return (
 			<div className="container sendMessage">
-				<div className="row">
-					<div className="col-md-5 offset-md-1">
-						<h4>{contacts.acf.contactsText}</h4>
-						<div className="row">
-							<div className="col-md-4" >
-								<h5>{contacts.acf.addressText}</h5>
+				<ReactCSSTransitionGroup transitionName="anim" 
+																 transitionAppear={true} 
+																 transitionAppearTimeout={2000}
+																 transitionEnter={false} 
+																 transitionLeave={false}>
+					<div className="row">
+						<div className="col-lg-5 offset-lg-1 col-md-6">
+							<h1>{contacts.acf.contactsText}</h1>
+							<div className="row">
+								<div className="col-md-3" >
+									<h5>{contacts.acf.addressText}</h5>
+								</div>
+								<div className="col-md-9">
+									<div dangerouslySetInnerHTML={{ __html: contacts.content.rendered }} />
+								</div>
 							</div>
-							<div className="col-md-8">
-								<div dangerouslySetInnerHTML={{ __html: contacts.content.rendered }} />
+							<div className="row">
+								<div className="col-md-3">
+									<h5>{contacts.acf.phoneText}</h5>
+								</div>
+								<div className="col-md-9">
+									<p>{contacts.acf.Phone} <br />
+									( viber / whatsapp)</p>
+								</div>
 							</div>
-						</div>
-						<div className="row">
-							<div className="col-md-4">
-								<h5>{contacts.acf.phoneText}</h5>
+							<div className="row">
+								<div className="col-md-3">
+									<h5>{contacts.acf.emailText}</h5>
+								</div>
+								
+								<div className="col-md-9">
+									<p>
+										{contacts.acf.mail}
+									</p>
+								</div>
+								
 							</div>
-							<div className="col-md-8">
-								<p>{contacts.acf.Phone} <br />
-								( viber / whatsapp)</p>
-							</div>
-						</div>
-						<div className="row">
-							<div className="col-md-4">
-								<h5>{contacts.acf.emailText}</h5>
-							</div>
-							
-							<div className="col-md-8">
-								<p>
-									{contacts.acf.mail}
-								</p>
-							</div>
-							
-						</div>
-					</div> 
-					<div className="col-md-6">
-						<h4>{contacts.acf.writeText}</h4>
-							<Form onSubmit={this.submit} 
-										useLang={useLang}
-										yourNamePlaceholder={contacts.acf.yourNamePlaceholder} 
-										youMessagePlaceholder={contacts.acf.youMessagePlaceholder}
-										emailPlaceholder={contacts.acf.emailPlaceholder}
-										sendButtonText={contacts.acf.sendButtonText}/>
-					</div> 
-				</div>
+						</div> 
+						<div className="col-md-6">
+							<h1>{contacts.acf.writeText}</h1>
+								<Form onSubmit={this.submit} 
+											useLang={useLang}
+											yourNamePlaceholder={contacts.acf.yourNamePlaceholder} 
+											youMessagePlaceholder={contacts.acf.youMessagePlaceholder}
+											emailPlaceholder={contacts.acf.emailPlaceholder}
+											sendButtonText={contacts.acf.sendButtonText}/>
+						</div> 
+					</div>
+				</ReactCSSTransitionGroup>	
 			</div>
 		)
 	}

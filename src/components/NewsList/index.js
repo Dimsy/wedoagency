@@ -5,6 +5,7 @@ import { loadNewsList, clearNewsList } from '../../ducks/newsList';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import { Grid, Row, Col } from 'react-bootstrap';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 class NewsList extends Component{
 
@@ -53,15 +54,21 @@ class NewsList extends Component{
 
 		return (
 			<div className="newsList">
-				{mobileTitle}
-				<ul className="newsList__collection">
-					{body}
-				</ul>	
-				<div className="showMore">
-					<span onClick={this.addingNews}>
-						{toggleShowMore}
-					</span>	
-				</div>	
+				<ReactCSSTransitionGroup transitionName="anim" 
+																 transitionAppear={true} 
+																 transitionAppearTimeout={2000}
+																 transitionEnter={false} 
+																 transitionLeave={false}>
+					{mobileTitle}
+					<ul className="newsList__collection">
+						{body}
+					</ul>	
+					<div className="showMore">
+						<span onClick={this.addingNews}>
+							{toggleShowMore}
+						</span>	
+					</div>	
+				</ReactCSSTransitionGroup>	
 			</div>			
 		)
 	}

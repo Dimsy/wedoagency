@@ -11,10 +11,6 @@ import VideoHeader from './VideoHeader'
 
 class PortfolioPage extends Component{
 
-	componentWillReceiveProps(){
-
-	}
-
 	a = (photos) => {
 		for (let key in photos){		
 			const photoIndex = key.indexOf('photo')
@@ -147,18 +143,19 @@ class PortfolioPage extends Component{
 		if (error) return (<ErrorCmp error={error} />);	
 
 		const portfolioSet = entities.toArray();
+		
 
 		if ( portfolioSet.length == 0){
 			return <div>Данные пока не доступны!</div>
 		}
 
-		const portfolioItem = portfolioSet.filter(item => item.id == match.params.id)
+		const portfolioItem = portfolioSet.find(item => item.id == match.params.id)
 
 		if ( portfolioItem.length == 0){
 			return null
 		}
 
-		const project = portfolioItem[0].toJS()
+		const project = portfolioItem.toJS()
 
 		const body = []
 		
@@ -192,13 +189,16 @@ class PortfolioPage extends Component{
 			backgroundImage: `url(${project.acf.headerPhoto})`,
 		};
 
-		console.log("project.acf.headerVideo", project.acf.headerVideo);
-
 		const headerBlock = (window.innerWidth < 768 || !project.acf.headerVideo) ? <div className="articleImgNews" style={header} />
-																																							: <VideoHeader src={project.acf.headerVideo} key={project.acf.headerVideo} />																																							
+																																							: <VideoHeader src={project.acf.headerVideo} key={project.acf.headerVideo} />				
+
+		const title = useLang == 'ru' ? project.title.rendered : project.acf.titleEn;
+																																																																										
+		const contentText = useLang == 'ru' ? project.content.rendered : project.acf.textEn;
+
 
 		const content = project.content.rendered.length != 0 ?  <div className="content">
-																															{renderHTML(project.content.rendered)}
+																															<div dangerouslySetInnerHTML={{ __html: contentText }} />
 																													  </div> 
 																												 : null
 
@@ -212,20 +212,23 @@ class PortfolioPage extends Component{
 		
 		const videoPortfolio = `https://player.vimeo.com/video/${project.acf.video}`
 
-		const videoBody = project.acf.video.length > 0 ? <Row className="no-gutters">
+		const videoBody = project.acf.video.length > 0 ? <div className="row no-gutters">
 																											 <div className="col-sm-12 embed-responsive embed-responsive-16by9 showVideo">
 																											   <iframe src={videoPortfolio} 
 																												 				 frameBorder="0" 
 																																 allowFullScreen className="embed-responsive-item" 
 																																 style={{paddingLeft: "15px", paddingRight: "15px"}}/>
 																										     </div>
-																										 </Row>
+																										 </div>
 																									: <div style={{marginBottom: '90px'}} />
 					
 		return(
 			<div className="portfolioPage__project">
-				<ReactCSSTransitionGroup transitionName="anim" transitionAppear={true} transitionAppearTimeout={2000}
-																 transitionEnter={false} transitionLeave={false}>
+				<ReactCSSTransitionGroup transitionName="anim" 
+																 transitionAppear={true} 
+																 transitionAppearTimeout={2000}
+																 transitionEnter={false} 
+																 transitionLeave={false}>
   
 					{headerBlock}
 					<div className="container portfolioPage__container-padding">
@@ -233,7 +236,7 @@ class PortfolioPage extends Component{
 						<Row className="no-gutters">
 							<div className="col-md-4" >
 								<h1 className="portfolio__title">
-									{project.title.rendered}
+									{title}
 								</h1>	
 								{content}
 							</div>

@@ -172,7 +172,7 @@
     padding: 0;
     background-color: #fff;
     border-top: 1px solid #f3f3f3;
-    border-bottom: none;
+    border-bottom: 1px solid #f3f3f3;
   }
   .headerTopMenuList{
     width: 100%;
@@ -180,6 +180,13 @@
     flex-wrap:  wrap;
     justify-content: space-between;
 
+  }
+  .sendMessage{
+    padding-top: 100px;
+  }
+  .sendMessage form input,
+  .sendMessage form textarea{
+    width: 100%;
   }
   .logoBlock {
     position: absolute;
@@ -403,6 +410,7 @@
     position: fixed;
     background-color: #fff;
     z-index: 100;
+    border-bottom: 1px solid #f3f3f3;
   }
   .headerImgBlock{
     height: 400px;
@@ -1058,6 +1066,9 @@
   .pressPage .DateFormat,
   .pressPage .headerTitle{
     margin-left: 20px;
+  }
+  .sendMessage{
+    padding: 100px 20px 50px;
   }
 }
 /* Extra Small Devices, Phones */

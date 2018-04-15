@@ -3,8 +3,8 @@ import {loadPortfolio} from '../../ducks/portfolio';
 import {connect} from 'react-redux';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
-import { Grid, Row, Col } from 'react-bootstrap';
 import PortfolioListItem from './PortfolioListItem';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 class PortfolioList extends Component{
 
@@ -71,23 +71,29 @@ class PortfolioList extends Component{
 					
 		return (
 			<div className='portfolioList'>
-				{titleArticle}
-				<Grid >
-					<Row className="no-gutters">
-						<Col md={12}>
-							<h1>{projects}</h1>
-						</Col>
-					</Row>
-					<Row className="no-gutters">
-						<div className="col-12">
-							<ul className="portfolio__containerItems">
-								{body}
-							</ul>
-							<div className='clear' />
-							{toggleShowMore}
+				<ReactCSSTransitionGroup transitionName="anim" 
+																 transitionAppear={true} 
+																 transitionAppearTimeout={2000}
+																 transitionEnter={false} 
+																 transitionLeave={false}>
+					{titleArticle}
+					<div className="container">
+						<div className="row no-gutters">
+							<div className="col-md-12">
+								<h1>{projects}</h1>
+							</div>
 						</div>
-					</Row>		
-				</Grid>
+						<div className="row no-gutters">
+							<div className="col-12">
+								<ul className="portfolio__containerItems">
+									{body}
+								</ul>
+								<div className='clear' />
+								{toggleShowMore}
+							</div>
+						</div>		
+					</div>
+				</ReactCSSTransitionGroup> 	
 			</div>	
 		)
 	}

@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import { loadNewsArticleList } from '../../ducks/newsArticle';
-import renderHTML from 'react-render-html'
 import {Link} from 'react-router-dom';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 class NewsArticle extends Component{
 	
@@ -138,41 +138,46 @@ class NewsArticle extends Component{
 
 		return (
 			<div className="newsArticleBlock">
-				<div className="articleImgNews" style={divStyle} />
-				<div className="articleDate">
-					{date.toLocaleString( i18, options)}
-				</div>
-				<div>
-					<div className="container">
-						<div className="row no-gutters">
-							<div className="col-md-8 offset-md-2">
-								<div className="articleTitle">			
-									{article.title.rendered}
-								</div>			
-								<div className="articleContent">
-									<div dangerouslySetInnerHTML={{ __html: article.content.rendered }} />
+				<ReactCSSTransitionGroup transitionName="anim" 
+																 transitionAppear={true} 
+																 transitionAppearTimeout={2000}
+																 transitionEnter={false} 
+																 transitionLeave={false}>
+					<div className="articleImgNews" style={divStyle} />
+					<div className="articleDate">
+						{date.toLocaleString( i18, options)}
+					</div>
+					<div>
+						<div className="container">
+							<div className="row no-gutters">
+								<div className="col-md-8 offset-md-2">
+									<div className="articleTitle">			
+										{article.title.rendered}
+									</div>			
+									<div className="articleContent">
+										<div dangerouslySetInnerHTML={{ __html: article.content.rendered }} />
+									</div>
+								</div>
+							</div>
+						
+							<div className="row no-gutters">
+								<div className="col-md-12">
+									<img src={article.acf.bodyImgNews} srcSet={ `${article.acf.bodyImgNewsx2} 2x`} className="newsBodyImg"/> 
+								</div>
+							</div>
+				
+								{body}
+								{videoBlock}
+							<div className="row no-gutters">
+								<div className="col">		
+									<Link to='/news' className="linkToAllNews">
+										{ allNews }
+									</Link>
 								</div>
 							</div>
 						</div>
-					
-						<div className="row no-gutters">
-							<div className="col-md-12">
-								<img src={article.acf.bodyImgNews} srcSet={ `${article.acf.bodyImgNewsx2} 2x`} className="newsBodyImg"/> 
-							</div>
-						</div>
-			
-							{body}
-							{videoBlock}
-						<div className="row no-gutters">
-							<div className="col">		
-								<Link to='/news' className="linkToAllNews">
-									{ allNews }
-								</Link>
-							</div>
-						</div>
 					</div>
-				</div>
-			
+				</ReactCSSTransitionGroup>
 			</div>
 		)
 	}

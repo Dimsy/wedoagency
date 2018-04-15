@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import {loadAgencyInfo} from '../../ducks/agencyInfo.js'
 import {Link} from 'react-router-dom';
 import renderHTML from 'react-render-html';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 class Agency extends Component{
 	constructor() {
@@ -65,18 +66,24 @@ class Agency extends Component{
 		return (
 			
 		<div className="container agency">
-			{headerMobile}
- 			<div className="row">
- 				<div className="col-sm-12 col-md-6 agencyImg">
- 						<img src={entities.acf.agencyPhoto} srcSet={`${entities.acf.agencyPhotox2} 2x`} alt="Изображение для прессы"/>
- 				</div>
- 				<div className="col-sm-12 col-md-5 offset-md-1">
- 					{headerDesktop}
-					{renderHTML(entities.content.rendered)}
-					<Link to='/agency' className="knowMore">{knowMore}</Link>
- 				</div>
- 				<div className="clear" />
- 			</div>
+			<ReactCSSTransitionGroup transitionName="anim" 
+																 transitionAppear={true} 
+																 transitionAppearTimeout={2000}
+																 transitionEnter={false} 
+																 transitionLeave={false}>
+				{headerMobile}
+	 			<div className="row">
+	 				<div className="col-sm-12 col-md-6 agencyImg">
+	 						<img src={entities.acf.agencyPhoto} srcSet={`${entities.acf.agencyPhotox2} 2x`} alt="Изображение для прессы"/>
+	 				</div>
+	 				<div className="col-sm-12 col-md-5 offset-md-1">
+	 					{headerDesktop}
+						{renderHTML(entities.content.rendered)}
+						<Link to='/agency' className="knowMore">{knowMore}</Link>
+	 				</div>
+	 				<div className="clear" />
+	 			</div>
+ 			</ReactCSSTransitionGroup>
  		</div>
 	
 		)

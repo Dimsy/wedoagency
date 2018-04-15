@@ -62,7 +62,7 @@ img, div {
   outline: none !important;
 }
 
-p, b {
+p, b, .p {
   line-height: 20px; }
 
 input {
@@ -132,7 +132,7 @@ h5 {
   color: #131313;
 }
 
-p {
+p, .p {
   font-family: LatoRegular;
   font-size: 14px;
   font-weight: normal;

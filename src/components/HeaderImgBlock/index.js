@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+
 
 class HeaderImgBlock extends Component{
 
@@ -26,9 +28,15 @@ class HeaderImgBlock extends Component{
 		
 		return (
 			<div className="headerImgBlock" style={{overflow: 'hidden'}}>
-				<video id="video_bg" autoPlay="autoplay" loop="loop" >
-					<source src={entities.acf.video} type="video/mp4"></source>
-				</video>
+				<ReactCSSTransitionGroup transitionName="anim" 
+																 transitionAppear={true} 
+																 transitionAppearTimeout={2000}
+																 transitionEnter={false} 
+																 transitionLeave={false}>
+					<video id="video_bg" autoPlay="autoplay" loop="loop" >
+						<source src={entities.acf.video} type="video/mp4"></source>
+					</video>
+				</ReactCSSTransitionGroup>	
 			</div>
 		)
 	}

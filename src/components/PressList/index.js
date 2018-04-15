@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import PressItem from './pressItem';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 class PressList extends Component{
 
@@ -63,20 +64,26 @@ class PressList extends Component{
 					
 		return (
 			<div className='container pressList'>
-				{showTitle}
-				<div className="row no-gutters">
-					<div className="col-md-12">
-						<ul className="pressList_set">
-							{body}
-						</ul>
-						<div className='clear' />
-						<div className='showMore'>
-							<span onClick={this.addingPress}>
-								{toggleShowMore}
-							</span>	
-						</div>	
-					</div>
-				</div>		
+				<ReactCSSTransitionGroup transitionName="anim" 
+																 transitionAppear={true} 
+																 transitionAppearTimeout={2000}
+																 transitionEnter={false} 
+																 transitionLeave={false}>
+					{showTitle}
+					<div className="row no-gutters">
+						<div className="col-md-12">
+							<ul className="pressList_set">
+								{body}
+							</ul>
+							<div className='clear' />
+							<div className='showMore'>
+								<span onClick={this.addingPress}>
+									{toggleShowMore}
+								</span>	
+							</div>	
+						</div>
+					</div>		
+				</ReactCSSTransitionGroup>	
 			</div>
 		)
 	}
