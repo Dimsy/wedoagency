@@ -4,7 +4,6 @@ import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
-
 class HeaderImgBlock extends Component{
 
 	render(){

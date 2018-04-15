@@ -145,11 +145,18 @@
   .pressList .pressItem__Inner-title{
     height: 303px;
   }
+<<<<<<< HEAD
   .pressPage .fotoTitle{
     width: 455px;
     height: 610px;
     margin-right: 20px;
     margin-bottom: 10px;
+=======
+ 
+  .pressPage .foto{
+    height: 610px;
+    width: 455px;
+>>>>>>> 826a9a8ddd1d7efb54475caff12954828a012407
   }
 }
 /* Medium Devices, Desktops */
@@ -172,7 +179,11 @@
     padding: 0;
     background-color: #fff;
     border-top: 1px solid #f3f3f3;
+<<<<<<< HEAD
     border-bottom: 1px solid #f3f3f3;
+=======
+    border-bottom: none;
+>>>>>>> 826a9a8ddd1d7efb54475caff12954828a012407
   }
   .headerTopMenuList{
     width: 100%;
@@ -181,6 +192,7 @@
     justify-content: space-between;
 
   }
+<<<<<<< HEAD
   .sendMessage{
     padding-top: 100px;
   }
@@ -188,6 +200,8 @@
   .sendMessage form textarea{
     width: 100%;
   }
+=======
+>>>>>>> 826a9a8ddd1d7efb54475caff12954828a012407
   .logoBlock {
     position: absolute;
     top: 15px;

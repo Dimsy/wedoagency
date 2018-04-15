@@ -4,7 +4,6 @@ import NewsItem from './NewsItem';
 import { loadNewsList, clearNewsList } from '../../ducks/newsList';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
-import { Grid, Row, Col } from 'react-bootstrap';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 class NewsList extends Component{

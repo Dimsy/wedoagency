@@ -143,7 +143,6 @@ class PortfolioPage extends Component{
 		if (error) return (<ErrorCmp error={error} />);	
 
 		const portfolioSet = entities.toArray();
-		
 
 		if ( portfolioSet.length == 0){
 			return <div>Данные пока не доступны!</div>
@@ -219,6 +218,7 @@ class PortfolioPage extends Component{
 																																 allowFullScreen className="embed-responsive-item" 
 																																 style={{paddingLeft: "15px", paddingRight: "15px"}}/>
 																										     </div>
+
 																										 </div>
 																									: <div style={{marginBottom: '90px'}} />
 					
@@ -229,7 +229,6 @@ class PortfolioPage extends Component{
 																 transitionAppearTimeout={2000}
 																 transitionEnter={false} 
 																 transitionLeave={false}>
-  
 					{headerBlock}
 					<div className="container portfolioPage__container-padding">
 						
