@@ -40,8 +40,7 @@ class AgencyPage extends Component {
 		  month:  'long',
 		  year: 'numeric'
 		};
-		
-<<<<<<< HEAD
+
 		return (
 			<div className="pressPage">
 				<ReactCSSTransitionGroup transitionName="anim" 
