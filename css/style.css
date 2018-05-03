@@ -683,7 +683,7 @@ hr {
   height: 46px;
   border: none;
   border-bottom:solid 1px #c9c9c9;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   outline: none;
 }
 
@@ -1305,6 +1305,6 @@ hr {
   margin-bottom: 100px;
 }
 
-
-
-
+.latoFont {
+  font-family: LatoRegular;
+}

@@ -2,9 +2,6 @@ import {SEND_FORM, START, SUCCESS, FAIL} from '../constants.js'
 
 import axios from 'axios'
 
-
-
-
 export function sendForm(values){
 
 	return ( (dispatch) => {

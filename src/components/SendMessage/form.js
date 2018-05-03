@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Field, reduxForm, SubmissionError, reset } from 'redux-form';
 import RenderedField from '../Forms/RenderedField';
+import {sendCustomForm} from '../../ducks/form';
 import { rusEmail, enEmail, 
 				 rusTextOnly, enTextOnly,
 				 rusTextNumbers, enTextNumbers,
@@ -12,9 +13,36 @@ import { rusEmail, enEmail,
 
 
 class Form extends Component{
+	state = {
+		name: '',
+		email: '',
+        message: '',
+        nameTouched: false,
+        emailTouched: false,
+		messageTouched: false
+	};
+
+    submit = (values) => {
+        sendCustomForm({
+            name: this.state.name,
+            email: this.state.email,
+            message: this.state.message
+        })
+    };
+
+	setName = (event) => this.setState({'name': event.target.value});
+    setNameWasTouched = () => this.setState({'nameTouched': true});
+
+	setEmail = (event) => this.setState({'email': event.target.value});
+    setEmailWasTouched = () => this.setState({'emailTouched': true});
+
+    setMessage = (event) => this.setState({'message': event.target.value});
+    setMessageWasTouched = () => this.setState({'messageTouched': true});
+
 	render(){
+		console.log(this.state);
 		const { handleSubmit, pristine, reset, submitting,
-						yourNamePlaceholder, youMessagePlaceholder, emailPlaceholder, sendButtonText, useLang } = this.props
+						yourNamePlaceholder, youMessagePlaceholder, emailPlaceholder, sendButtonText, useLang } = this.props;
 		
 		const required 		= useLang == 'ru' ? rusRequired 			: enRequired;
 		const email 		= useLang == 'ru' ? rusEmail 					: enEmail;
@@ -25,25 +53,59 @@ class Form extends Component{
 		const maxLength30 	= useLang == 'ru' ? ruMaxLength30   	: enMaxLength30;
 		const maxLength300 	= useLang == 'ru' ? ruMaxLength300   	: enMaxLength300;
 
+        const nameError = rusRequired(this.state.name) || textOnly(this.state.name) || minLength3(this.state.name) || maxLength30(this.state.name);
+        const emailError = rusRequired(this.state.email) || email(this.state.email);
+        const messageError = rusRequired(this.state.message) || textNumbers(this.state.message) || minLength20(this.state.message) || maxLength300(this.state.message);
+        const formError = !nameError && !emailError && !messageError;
 
-		return (
-			<form onSubmit={handleSubmit}>
-				<Field name="name" type="text" 
-					component={RenderedField} 
-					placeholder={yourNamePlaceholder} 
-					validate={[required, textOnly, minLength3, maxLength30]}
+        return (
+			<form onSubmit={handleSubmit(this.submit)} name="contacts" className="sendMessage latoFont">
+				<input
+                    name="name"
+					type="text"
+                    placeholder={yourNamePlaceholder}
+					value={this.state.name}
+					onChange={this.setName}
+                    onBlur={this.setNameWasTouched}
 				/>
-				<Field name="email" type="text" 
-					component={RenderedField} 
-					placeholder={emailPlaceholder}
-					validate={[required, email]}
+				{!!this.state.name && this.state.nameTouched &&
+					<div>
+						<span className="error">
+							{nameError}
+						</span>
+					</div>
+				}
+                <input
+                    name="email"
+                    type='text'
+                    placeholder={emailPlaceholder}
+                    value={this.state.email}
+                    onChange={this.setEmail}
+                    onBlur={this.setEmailWasTouched}
 				/>
-				<Field name="message" type="text" 
-					component={RenderedField}  
-					placeholder={youMessagePlaceholder} 
-					validate={[required, textNumbers, minLength20, maxLength300]}
+                {!!this.state.email && this.state.emailTouched &&
+					<div>
+						<span className="error">
+							{emailError}
+						</span>
+					</div>
+                }
+                <input
+                    name="message"
+                    type='text'
+                    placeholder={youMessagePlaceholder}
+                    value={this.state.message}
+                    onChange={this.setMessage}
+                    onBlur={this.setMessageWasTouched}
 				/>
-				<button type="submit" disabled={submitting}>{sendButtonText}</button>
+                {!!this.state.message && this.state.messageTouched &&
+					<div>
+						<span className="error">
+							{messageError}
+						</span>
+					</div>
+                }
+				<button type="submit" disabled={!formError}>{sendButtonText}</button>
 			</form>
 		)
 	}

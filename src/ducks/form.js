@@ -25,10 +25,22 @@ export function sendForm(values){
 	}
 }
 
+export function sendCustomForm(data) {
+    axios
+        .post('/wp-admin/admin-post.php', data)
+        .then(function (response) {
+            console.log('response:', response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
 
 //Sagas
 
 export function * sendFromSaga(action){
+
 	try {
 		const response = yield call(axios.post, '/wp-admin/admin-post.php', action.payload.values)
 

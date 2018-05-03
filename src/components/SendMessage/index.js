@@ -3,14 +3,14 @@ import {connect} from 'react-redux';
 import Form from './Form';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
-import {sendForm} from '../../ducks/form';
+import {sendCustomForm} from '../../ducks/form';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-
+//import {sendForm} from '../../AC';
 class SendMessage extends Component{
 
 	submit = (values) => {
-		this.props.sendForm(values)
-	}
+		this.props.sendCustomForm(values)
+	};
 
 	render(){
 		const {contacts, error, loading, useLang} = this.props;
@@ -21,10 +21,10 @@ class SendMessage extends Component{
 		return (
 			<div className="container sendMessage">
 				<ReactCSSTransitionGroup transitionName="anim" 
-																 transitionAppear={true} 
-																 transitionAppearTimeout={2000}
-																 transitionEnter={false} 
-																 transitionLeave={false}>
+					 transitionAppear={true}
+					 transitionAppearTimeout={2000}
+					 transitionEnter={false}
+					 transitionLeave={false}>
 					<div className="row">
 						<div className="col-lg-5 offset-lg-1 col-md-6">
 							<h1>{contacts.acf.contactsText}</h1>
@@ -60,12 +60,13 @@ class SendMessage extends Component{
 						</div> 
 						<div className="col-md-6">
 							<h1>{contacts.acf.writeText}</h1>
-								<Form onSubmit={this.submit} 
-											useLang={useLang}
-											yourNamePlaceholder={contacts.acf.yourNamePlaceholder} 
-											youMessagePlaceholder={contacts.acf.youMessagePlaceholder}
-											emailPlaceholder={contacts.acf.emailPlaceholder}
-											sendButtonText={contacts.acf.sendButtonText}/>
+							<Form	onSubmit={this.submit}
+									useLang={useLang}
+								 	contacts={contacts}
+									yourNamePlaceholder={contacts.acf.yourNamePlaceholder}
+									youMessagePlaceholder={contacts.acf.youMessagePlaceholder}
+									emailPlaceholder={contacts.acf.emailPlaceholder}
+									sendButtonText={contacts.acf.sendButtonText}/>
 						</div> 
 					</div>
 				</ReactCSSTransitionGroup>	
@@ -83,4 +84,4 @@ const mapStateToProps = state => {
 	}
 }
 
-export default connect(mapStateToProps, {sendForm})(SendMessage);
+export default connect(mapStateToProps, {sendCustomForm})(SendMessage);
