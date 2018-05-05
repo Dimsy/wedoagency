@@ -526,15 +526,23 @@ h1.portfolio__title{
 }
 
 .news__Info {
-  position: absolute;
-  z-index: 20;
-  top: 15px;
-  left: 15px;
-  width: 277px;
-  height: 277px;
-  padding-top: 26px;
-  opacity: 0.9;
-  background-color: #f7f7f7;
+    position: absolute;
+    z-index: 20;
+    top: 15px;
+    left: 15px;
+    width: 277px;
+    height: 277px;
+    padding-top: 26px;
+    background-color: #f7f7f7;
+    opacity: 0;
+    transition: opacity .5s ease-out;
+    -moz-transition: opacity .5s ease-out;
+    -webkit-transition: opacity .5s ease-out;
+    -o-transition: opacity .5s ease-out;
+}
+
+.news__Info:hover {
+    opacity: .9;
 }
 
 .news__info-item {

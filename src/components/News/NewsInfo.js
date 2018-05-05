@@ -19,13 +19,13 @@ class NewsItem extends Component {
 		const body = <div className="news__Info">
 								   <div className="news__info-item">{item.title.rendered}</div>
 								   <div className="news__info-itemdata ">{ date.toLocaleString( 'en-GB', options)}</div>
-								 </div>
+					 </div>;
 
 		return(
 			<div className="news__wrapper" onMouseEnter={this.handlerMouseEnter} onMouseLeave={this.handlerMouseLeave}>
 				<Link to={`./news/${item.id}`}>
 		 			<img src={item.acf.StartFoto} srcSet={item.acf.StartFotox2} className="news__img"/>
-		 			{this.state.show && body}
+		 			{body}
 		 		</Link>	
 		 	</div>
 		)
