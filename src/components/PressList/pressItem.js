@@ -17,7 +17,7 @@ class PressItem extends Component{
 			backgroundImage: `url(${item.acf.foto})`
 		};	
 
-		const body = window.innerWidth > 768 ? <div className="pressItem__Inner">
+		/*const body = window.innerWidth > 768 ? <div className="pressItem__Inner">
 																						 	<div className="pressItem__Inner-title">
 																						  	{item.title.rendered}
 																							</div>
@@ -25,14 +25,23 @@ class PressItem extends Component{
 																								{item.acf.date}
 																							</div>
 																						</div>
-																				 : null	
+																				 : null;*/
 
 
+		const body =
+			<div className="pressItem__Inner">
+				<div className="pressItem__Inner-title">
+					{item.title.rendered}
+				</div>
+				<div className="pressItem__Inner-date">
+					{item.acf.date}
+				</div>
+        	</div>;
 									
 		return (
 				<Link to={`${match.path}/${item.id}`}>
 					<div className="pressItem" style={background} onMouseEnter={this.handlerMouseEnter} onMouseLeave={this.handlerMouseLeave}>
-						{ this.state.show && body }
+						{body}
 					</div>
 				</Link>
 		)

@@ -975,26 +975,36 @@ hr {
 }
 
 .pressList .pressItem {
-  width: 304px;
-  height: 408px;
-  position: relative;
-  float: left;
-  margin: 10px;
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  background-size: cover;
+    width: 304px;
+    height: 408px;
+    position: relative;
+    float: left;
+    margin: 10px;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
 }
 
+
 .pressList .pressItem__Inner{
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  padding-top: 28px;
-  opacity: 0.9;
-  background-color: #f7f7f7;
-  z-index: 20px;
-  width: 274px;
-  height: 378px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding-top: 28px;
+
+    background-color: #f7f7f7;
+    z-index: 20px;
+    width: 274px;
+    height: 378px;
+    opacity: 0;
+    transition: opacity .5s ease-out;
+    -moz-transition: opacity .5s ease-out;
+    -webkit-transition: opacity .5s ease-out;
+    -o-transition: opacity .5s ease-out;
+}
+
+.pressItem div:hover {
+    opacity: .9;
 }
 
 .pressList .pressItem__Inner-title{
