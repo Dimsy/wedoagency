@@ -66,7 +66,7 @@ export function loadPortfolio(lang){
 
 //Sagas
 export function * loadPortfolioSaga(action){
-	const articleLang = action.payload.lang == 'ru' ? PORTFOLIO_ru : PORTFOLIO_en;	
+	const articleLang = action.payload.lang == 'ru' ? PORTFOLIO_ru : PORTFOLIO_en;
 
 	try {
 		const response = yield call(axios.get, `/wp-json/wp/v2/posts?categories=${articleLang}&orderby=date&order=desc&per_page=12&offset=${POST_COUNTER}`);

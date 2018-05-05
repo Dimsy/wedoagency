@@ -31,7 +31,6 @@ class Portfolio extends Component{
 	}
 
 	render(){
-
 		const {useLang, entities, error, loading, catName, match} = this.props;
 
 		if (loading) return <Loader />;
@@ -54,7 +53,7 @@ class Portfolio extends Component{
 
 		const opacity = body.length > 3 ? {opacity: "1"} : {opacity: "0.3"}
 
-		const title = this.selectTitle()
+		const title = this.selectTitle();
 
 		return (
 			<div className='portfolio'>

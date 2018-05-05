@@ -9,7 +9,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 class PortfolioList extends Component{
 
 	componentDidMount(){
-		const { useLang, loadPortfolio } = this.props
+		const { useLang, loadPortfolio } = this.props;
 
 		if (this.props.entities.toArray().length < 9){
 			loadPortfolio(useLang)
@@ -26,10 +26,10 @@ class PortfolioList extends Component{
 		const aDate = a.props.children[0].props.item.acf.DataOfFinnish
 		const bDate = b.props.children[0].props.item.acf.DataOfFinnish
 
-	  var aNumberForCompare = aDate.split('/').reverse().join()
-  	var bNumberForCompare = bDate.split('/').reverse().join()	
+		var aNumberForCompare = aDate.split('/').reverse().join()
+		var bNumberForCompare = bDate.split('/').reverse().join()
         		
-  	return aNumberForCompare > bNumberForCompare ? -1 : (aNumberForCompare < bNumberForCompare ? 1 : 0);	
+  		return aNumberForCompare > bNumberForCompare ? -1 : (aNumberForCompare < bNumberForCompare ? 1 : 0);
 	}
 
 	render(){

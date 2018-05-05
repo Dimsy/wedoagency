@@ -68,6 +68,46 @@ class Press extends Component{
 
 		const pressVideo = `https://player.vimeo.com/video/${entities.data.acf.video}`
 
+		const screenBlock =
+            <Grid>
+                {mobileHeader}
+                <Row>
+                    <div className="col-sm-6 col-md-3 pressImg1">
+                        <img src={entities.data.acf.smallImg} srcSet={`${entities.data.acf.smallImg2x} 2x`} alt="Изображение для прессы"/>
+                        {desktopSlogan}
+                    </div>
+                    <div className="col-sm-6 col-md-5 pressImg2">
+                        <img src={entities.data.acf.bigImg} srcSet={`${entities.data.acf.bigImg2x} 2x`} alt="Изображение для прессы"/>
+                    </div>
+                    <div className="col-sm-12 col-md-4">
+                        {desktopHeader}
+                        <div dangerouslySetInnerHTML={{ __html:  entities.data.content.rendered }} />
+                        <Link to='/press' className="knowMore">{knowMore}</Link>
+                    </div>
+                </Row>
+            </Grid>;
+
+        const mobileBlock =
+            <Grid>
+                {mobileHeader}
+                <Row className="dropFlex">
+                    <div className="col-sm-6 col-md-3 pressImg1">
+                        <img src={entities.data.acf.smallImg} srcSet={`${entities.data.acf.smallImg2x} 2x`} alt="Изображение для прессы"/>
+                        {desktopSlogan}
+                    </div>
+                    <div className="col-sm-6 col-md-5 pressImg2">
+                        <img src={entities.data.acf.bigImg} srcSet={`${entities.data.acf.bigImg2x} 2x`} alt="Изображение для прессы"/>
+                    </div>
+				</Row>
+				<Row>
+                    <div className="col-sm-12 col-md-4">
+                        {desktopHeader}
+                        <div dangerouslySetInnerHTML={{ __html:  entities.data.content.rendered }} />
+                        <Link to='/press' className="knowMore">{knowMore}</Link>
+                    </div>
+                </Row>
+            </Grid>;
+
 		return (
 			<div className="press">
 	
@@ -83,23 +123,7 @@ class Press extends Component{
 						</div>
 					</Row>
 				</Grid>
-				<Grid>
-					{mobileHeader}
-					<Row>
-						<div className="col-sm-6 col-md-3 pressImg1">
-							<img src={entities.data.acf.smallImg} srcSet={`${entities.data.acf.smallImg2x} 2x`} alt="Изображение для прессы"/>
-						 	{desktopSlogan}
-						</div>
-						<div className="col-sm-6 col-md-5 pressImg2">
-							<img src={entities.data.acf.bigImg} srcSet={`${entities.data.acf.bigImg2x} 2x`} alt="Изображение для прессы"/>
-						</div>
-						<div className="col-sm-12 col-md-4">
-							{desktopHeader}
-							<div dangerouslySetInnerHTML={{ __html:  entities.data.content.rendered }} />
-							<Link to='/press' className="knowMore">{knowMore}</Link>
-						</div>
-					</Row>
-				</Grid>
+				{mobile ? mobileBlock : screenBlock}
 
 			</div>
 		)

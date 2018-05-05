@@ -40,7 +40,7 @@ class Form extends Component{
     setMessageWasTouched = () => this.setState({'messageTouched': true});
 
 	render(){
-		console.log(this.state);
+
 		const { handleSubmit, pristine, reset, submitting,
 						yourNamePlaceholder, youMessagePlaceholder, emailPlaceholder, sendButtonText, useLang } = this.props;
 		

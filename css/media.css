@@ -776,7 +776,10 @@
   }
 }
 
-@media only screen and (max-width : 576px) {   
+@media only screen and (max-width : 576px) {
+  .dropFlex {
+    flex-wrap: nowrap;
+  }
   .agency, .press, .news {
     padding-left: 20px;
     padding-right: 20px;
