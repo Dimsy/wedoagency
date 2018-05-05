@@ -22,8 +22,7 @@ class Socials extends Component{
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);
 		const body = social.sort(this.sortByTitle).map(item => <SocialMenuItem item={item} key={item.ID}/>);
-        console.log(social);
-		//placementClass
+
 		return (
 			<ul className={placementClass}>
 				{body}
