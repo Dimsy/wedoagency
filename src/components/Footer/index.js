@@ -55,7 +55,7 @@ class Footer extends Component{
 							</div>
 						</Col>
 						<Col sm={11} lg={2} md={6} className="col-11" style={{float: 'right'}}>
-							<div classname="socialFooterContainer">
+							<div className="socialFooterContainer">
 								<Socials placementClass='socialFooter'/>
 							</div>
 						</Col>		

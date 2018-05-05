@@ -9,17 +9,18 @@ class PortfolioItem extends Component{
 	render(){
 		const { item } = this.props;
 
-		const body = <div className="portfolioItem__Info">
-									 <div className="portfolioItem__info-data">{item.title.rendered}</div>
-								   <div className="news__info-itemdata ">{item.acf.DataOfFinnish}</div>
-								 </div>
+		const body =
+			<div className="portfolioItem__Info">
+				<div className="portfolioItem__info-data">{item.title.rendered}</div>
+				<div className="news__info-itemdata ">{item.acf.DataOfFinnish}</div>
+			</div>;
 
 		return (
 			<div>
 				<Link to={`/portfolio/${item.id}`}>
 					<div className="portfolioItem__wrapper" onMouseEnter={this.handlerMouseEnter} onMouseLeave={this.handlerMouseLeave}>
 						<img src={item.acf.StartFoto} srcSet={item.acf.StartFotox2} className="portfolioItem__img"/>
-						{this.state.show && body}
+						{body}
 					</div>
 				</Link>
 			</div>	
