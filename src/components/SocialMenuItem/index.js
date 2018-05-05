@@ -61,7 +61,7 @@ class SocialMenuItem extends Component {
    	};
 		
    	const style = !this.state.hover ? divStyle : divStyleHover
-
+		console.log(item.title);
 		return(
 			<li className={item.title}>
 				<a href={item.url} target="blank" onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover} style={style} />

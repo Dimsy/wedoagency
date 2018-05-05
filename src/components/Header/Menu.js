@@ -5,6 +5,7 @@ import LangSwitcher from './LangSwitcher'
 import {connect} from 'react-redux';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
+import Socials from '../Socials/Socials';
 
 
 class Menu extends Component{
@@ -31,7 +32,7 @@ class Menu extends Component{
 					<TopMenu closeMenu={this.props.closeMenu}/>
 					<LangSwitcher closeMenu={this.props.closeMenu}/>
 					{mobileContacts}
-					<SocialMenu closeMenu={this.props.closeMenu}/>	
+					<Socials placementClass='headerSocialMenu'/>
 				<div className="clear" />
 			</div>
 		)

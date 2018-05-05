@@ -8,6 +8,7 @@ import {loadContacts} from '../../ducks/contacts.js';
 import SocialFooter from './social';
 import BackToTop from './backToTop';
 import renderHTML from 'react-render-html';
+import Socials from '../Socials/Socials';
 
 class Footer extends Component{
 	
@@ -53,15 +54,17 @@ class Footer extends Component{
 								{renderHTML( contacts.content.rendered)} 
 							</div>
 						</Col>
-						<Col sm={11} lg={2} md={6} className="SocialFooterMd col-11">
-							<SocialFooter />
+						<Col sm={11} lg={2} md={6} className="col-11" style={{float: 'right'}}>
+							<div classname="socialFooterContainer">
+								<Socials placementClass='socialFooter'/>
+							</div>
 						</Col>		
 					</div>
 				</div>	
 				<hr />
 				<div className="container copyRight">
 					<div className="row no-gutters">
-						<div className="col-md-8 AllRightReserved">
+						<div className="col-md-8 AllRightReserved latoFont">
 							weDOagency © all right reserved
 						</div>
 						<div className="col-md-4">

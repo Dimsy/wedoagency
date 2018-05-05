@@ -24,7 +24,7 @@ class BackToTop extends Component{
 	render(){
 		
 		return (
-			<div className="backToTop" onClick={ () => { this.scrollToTop(); }}>
+			<div className="backToTop latoFont" onClick={ () => { this.scrollToTop(); }}>
 				back to top
 			</div>
 		)

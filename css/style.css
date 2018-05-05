@@ -629,13 +629,18 @@ h1.portfolio__title{
 .socialFooter {
   position: relative;
   padding-right: 4px;
-  margin-bottom: 48px;      
+  margin-bottom: 48px;
+  display: inline-block;
+  float: right;
+}
+
+.socialFooterContainer {
+  display: inline-block;
 }
 
 .socialFooter li {
-  display: block;
+  display: inline-block;
   height: 18px;
-  float: right;
   padding-left: 4px;
   padding-right: 4px;
   
