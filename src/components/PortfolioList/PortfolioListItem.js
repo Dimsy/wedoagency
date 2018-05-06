@@ -36,7 +36,7 @@ class PortfolioListItem extends Component{
 
 		return (
 				<div className="portfolioList__item" style={background} onMouseEnter={this.handlerMouseEnter} onMouseLeave={this.handlerMouseLeave}>
-					{this.state.show && body}
+					{body}
 				</div>
 		)
 	}

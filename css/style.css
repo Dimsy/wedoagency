@@ -1140,7 +1140,7 @@ hr {
   position: absolute;
   top: 20px;
   left: 15px;
-  opacity: 0.9;
+  opacity: 0;
   background-color: #f7f7f7;
   display: -webkit-flex;
   display: -moz-flex;
@@ -1152,6 +1152,13 @@ hr {
   height: calc(100% - 40px);
   justify-content: center;
   align-items: center;
+  transition: opacity .5s ease-out;
+  -moz-transition: opacity .5s ease-out;
+  -webkit-transition: opacity .5s ease-out;
+  -o-transition: opacity .5s ease-out;
+}
+.portfolioList .portfolioListItem__Info:hover{
+  opacity: .9;
 }
 
 .portfolioList .portfolioItem__info-data{
