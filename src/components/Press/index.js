@@ -73,11 +73,13 @@ class Press extends Component{
                 {mobileHeader}
                 <Row>
                     <div className="col-sm-6 col-md-3 pressImg1">
-                        <img src={entities.data.acf.smallImg} srcSet={`${entities.data.acf.smallImg2x} 2x`} alt="Изображение для прессы"/>
+						{entities.data.acf.smallImg2x &&
+                        <img src={entities.data.acf.smallImg} srcSet={`${entities.data.acf.smallImg2x} 2x`} alt="Изображение для прессы"/>}
                         {desktopSlogan}
                     </div>
                     <div className="col-sm-6 col-md-5 pressImg2">
-                        <img src={entities.data.acf.bigImg} srcSet={`${entities.data.acf.bigImg2x} 2x`} alt="Изображение для прессы"/>
+                        {entities.data.acf.bigImg &&
+                        <img src={entities.data.acf.bigImg} srcSet={`${entities.data.acf.bigImg2x} 2x`} alt="Изображение для прессы"/>}
                     </div>
                     <div className="col-sm-12 col-md-4">
                         {desktopHeader}
@@ -92,11 +94,13 @@ class Press extends Component{
                 {mobileHeader}
                 <Row className="dropFlex">
                     <div className="col-sm-6 col-md-3 pressImg1">
-                        <img src={entities.data.acf.smallImg} srcSet={`${entities.data.acf.smallImg2x} 2x`} alt="Изображение для прессы"/>
+                        {entities.data.acf.smallImg2x &&
+                        <img src={entities.data.acf.smallImg} srcSet={`${entities.data.acf.smallImg2x} 2x`} alt="Изображение для прессы"/>}
                         {desktopSlogan}
                     </div>
                     <div className="col-sm-6 col-md-5 pressImg2">
-                        <img src={entities.data.acf.bigImg} srcSet={`${entities.data.acf.bigImg2x} 2x`} alt="Изображение для прессы"/>
+                        {entities.data.acf.bigImg &&
+                        <img src={entities.data.acf.bigImg} srcSet={`${entities.data.acf.bigImg2x} 2x`} alt="Изображение для прессы"/>}
                     </div>
 				</Row>
 				<Row>
