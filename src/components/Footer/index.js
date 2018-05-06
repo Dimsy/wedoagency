@@ -45,7 +45,7 @@ class Footer extends Component{
 						
 						<Col sm={11} md={6} lg={4} className="col-11">
 							<div className="footer__contacts">
-								{contacts.acf.callWrite}{contacts.acf.Phone}
+								{contacts.acf.callWrite}&nbsp;{contacts.acf.Phone}
 								<br />
 								(viber/whatsapp)
 								<br />
