@@ -47,7 +47,7 @@ class Footer extends Component{
 							<div className="footer__contacts">
 								{contacts.acf.callWrite}{contacts.acf.Phone}
 								<br />
-								(viber/whatsup)
+								(viber/whatsapp)
 								<br />
 								<a href={contacts.acf.mail} className="footer__mail">{contacts.acf.mail}</a>
 								<br />
