@@ -72,17 +72,14 @@ module.exports = {
 	 			]
 	 		}
 	 	]
-  }  
+  }
 }
-
-  // ]
-  // }production
-  // ,
-  //   plugins: [
-  //     new webpack.DefinePlugin({
-  //       'process.env.NODE_ENV': JSON.stringify('production')
-  //     }),
-  //     new UglifyJsPlugin({
-  //       test: /\.js($|\?)/i
-  //     })
-  //   ]
+/*
+plugins: [
+    new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify('production')
+    }),
+    new UglifyJsPlugin({
+        test: /\.js($|\?)/i
+    })
+]*/
