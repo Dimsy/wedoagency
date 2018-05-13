@@ -6,6 +6,7 @@ import PortfolioItem from './PortfolioItem';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import {PATH} from '../../config'
+import './portfolio.css';
 
 class Portfolio extends Component{
 
@@ -56,7 +57,7 @@ class Portfolio extends Component{
 		const title = this.selectTitle();
 
 		return (
-			<div className='portfolio'>
+			<div className='portfolio portfolioFadeIn'>
 		  	<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={411} totalSlides={body.length} visibleSlides={3}>
 			    <div className='container'>
 			 	    <div className='row no-gutters'>

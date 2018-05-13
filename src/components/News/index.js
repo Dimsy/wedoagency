@@ -9,6 +9,7 @@ import ErrorCmp from '../ErrorCmp';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import {OrderedSet} from 'immutable';
 import {PATH} from '../../config'
+import './news.css';
 
 class News extends Component{
 
@@ -44,7 +45,7 @@ class News extends Component{
 		const opacity = body.length > 3 ? {opacity: "1"} : {opacity: "0.3"}
 		
 		return (
-			<div className='news'>
+			<div className='news newsFadeIn'>
 				<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={307} totalSlides={body.length} visibleSlides={3}>
 					<Grid>
 						<Row>

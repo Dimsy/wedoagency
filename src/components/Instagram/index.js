@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {loadInstagram} from '../../ducks/instagram';
 import Loader from '../Loader';
+import './instagramCustom.css'
 
 class Instagram extends Component{
 	componentDidMount(){
@@ -16,12 +17,13 @@ class Instagram extends Component{
 	}
 
   render() {
-  	const iframe = window.innerWidth < 769 ? <div className="col-sm-12 embed-responsive embed-responsive-9by16" >
-  																						 <iframe src="//lightwidget.com/widgets/3fda9fb9b63957ac81d94af0e5aef36f.html" scrolling="no" allowTransparency="true" className="lightwidget-widget embed-responsive-item" />
-																					 	 </div>
-																					 : <div className="col-sm-12 embed-responsive embed-responsive-16by9" >
-																					 		 <iframe src="//lightwidget.com/widgets/0a00d569c66159a6bfb19fbb5db09900.html" scrolling="no" allowTransparency="true" className="lightwidget-widget embed-responsive-item" />
-																					 	 </div>
+  	const iframe = window.innerWidth < 769
+		?	<div className="col-sm-12 embed-responsive embed-responsive-9by16 instaFadeIn">
+				<iframe src="//lightwidget.com/widgets/3fda9fb9b63957ac81d94af0e5aef36f.html" scrolling="no" allowTransparency="true" className="lightwidget-widget embed-responsive-item" />
+			</div>
+		:	<div className="col-sm-12 embed-responsive embed-responsive-16by9 instaFadeIn">
+				<iframe src="//lightwidget.com/widgets/0a00d569c66159a6bfb19fbb5db09900.html" scrolling="no" allowTransparency="true" className="lightwidget-widget embed-responsive-item" />
+			</div>;
   	
     const {instagram, loading} = this.props;
     if (loading) return <Loader />;
