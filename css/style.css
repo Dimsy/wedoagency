@@ -463,7 +463,6 @@ h1.portfolio__title{
 
 .pressImg2 img{
   width: 306px;
-  height: 408px;
 }
 
 
@@ -1079,12 +1078,14 @@ hr {
 
 .pressPage .headerTitle {
   margin-top: 20px;
-  margin-bottom: 30px; 
+  margin-bottom: 10px;
   font-family: LatoLight;
   line-height: 1.29;
   font-size: 28px;
 }
-
+.pressPageMarginBottom10 {
+  margin-bottom: 10px !important;
+}
 .pressPage .content {
   font-family: LatoLight;
   font-size: 14px;

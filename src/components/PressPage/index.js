@@ -27,7 +27,7 @@ class AgencyPage extends Component {
 		const {match, entities, useLang, loading, error} = this.props
 		const i18 = useLang == "ru" ? "ru" : "en-US";
 
-		const allPublics = useLang == "ru" ? "Все публикации" : "all publics";
+		const allPublics = useLang == "ru" ? "Все публикации" : "all publications";
 		const i18Date = useLang == "ru" ? "ru-RU" : "en-GB";
 
 		if (loading) return <Loader />;
@@ -49,12 +49,12 @@ class AgencyPage extends Component {
 																 transitionEnter={false} 
 																 transitionLeave={false}>
 					<div className="container">
-						<div className="row no-gutters">
+						<div className="row no-gutters pressPageMarginBottom10">
 							<div className='col-md-12'>
 								<div className="fotoTitle">
 									{!!entities.acf.public1 && <img src={entities.acf.foto} srcSet={entities.acf.fotox2} />}
 								</div>
-								<div >
+								<div style={{height: '650px'}}>
 									<div className="DateFormat">
 										{ date.toLocaleString( i18Date, options)}
 									</div>

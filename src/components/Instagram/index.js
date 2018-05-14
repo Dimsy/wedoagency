@@ -24,20 +24,22 @@ class Instagram extends Component{
 		:	<div className="col-sm-12 embed-responsive embed-responsive-16by9 instaFadeIn">
 				<iframe src="//lightwidget.com/widgets/0a00d569c66159a6bfb19fbb5db09900.html" scrolling="no" allowTransparency="true" className="lightwidget-widget embed-responsive-item" />
 			</div>;
-  	
+
+	const instaPcStyle = window.innerWidth < 769 ? null : {width: '930px',marginLeft: '10px'};
+
     const {instagram, loading} = this.props;
     if (loading) return <Loader />;
 
     return (
-    	<div className="weInInstagram">
+		<div className="weInInstagram">
 				<h4>
 					{instagram.data.title.rendered}
-				</h4>			
+				</h4>
 				<div className="container">
-					<div className="row no-gutters">
-						{iframe}				
+					<div className="row no-gutters" style={instaPcStyle}>
+						{iframe}
 					</div>
-				</div>			
+				</div>
 			</div>
     )
   }

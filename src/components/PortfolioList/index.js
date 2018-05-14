@@ -91,7 +91,7 @@ class PortfolioList extends Component{
 								<div className='clear' />
 								{toggleShowMore}
 							</div>
-						</div>		
+						</div>
 					</div>
 				</ReactCSSTransitionGroup> 	
 			</div>	

@@ -58,6 +58,7 @@ class Portfolio extends Component{
 
 		return (
 			<div className='portfolio portfolioFadeIn'>
+
 		  	<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={411} totalSlides={body.length} visibleSlides={3}>
 			    <div className='container'>
 			 	    <div className='row no-gutters'>
@@ -82,7 +83,7 @@ class Portfolio extends Component{
         		    <div className="hidePixels" />
         	    </div>
             </div>				
-				  </div>	
+				  </div>
 				</CarouselProvider>
 			</div>	
 		)	
