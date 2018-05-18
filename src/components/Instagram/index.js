@@ -25,7 +25,7 @@ class Instagram extends Component{
 				<iframe src="//lightwidget.com/widgets/0a00d569c66159a6bfb19fbb5db09900.html" scrolling="no" allowTransparency="true" className="lightwidget-widget embed-responsive-item" />
 			</div>;
 
-	const instaPcStyle = window.innerWidth < 769 ? null : {width: '930px',marginLeft: '10px'};
+	const instaPcStyle = window.innerWidth < 769 ? null : {width: '975px',marginLeft: '10px'};
 
     const {instagram, loading} = this.props;
     if (loading) return <Loader />;
