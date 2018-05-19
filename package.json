@@ -51,6 +51,7 @@
     "redux-form": "^7.2.1",
     "redux-saga": "^0.16.0",
     "safe-eval": "^0.3.0",
-    "scroll-to-element": "^2.0.0"
+    "scroll-to-element": "^2.0.0",
+    "lodash": "*.*"
   }
 }

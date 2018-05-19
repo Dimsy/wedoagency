@@ -12,7 +12,6 @@ figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
-  padding: 0;
   border: 0;
   font: inherit;
   font-size: 100%;
@@ -991,7 +990,7 @@ hr {
 }
 
 .pressList .pressItem {
-    width: 304px;
+    width: 301px;
     height: 408px;
     position: relative;
     float: left;
@@ -1004,9 +1003,8 @@ hr {
 
 .pressList .pressItem__Inner{
     position: absolute;
-    top: 15px;
-    left: 15px;
-    padding-top: 28px;
+    top: 10px;
+    left: 10px;
 
     background-color: #f7f7f7;
     z-index: 20px;
