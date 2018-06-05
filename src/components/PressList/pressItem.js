@@ -2,9 +2,39 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 
 class PressItem extends Component{
-	state = {
-		show: false
-	}
+    state = {
+        show: false,
+        showVeil: false
+    }
+
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+        this.redirectToLink = this.redirectToLink.bind(this);
+    }
+
+    redirectToLink() {
+        const { item, match } = this.props;
+        const link = `${match.path}/${item.id}`;
+        window.location.href = link
+    }
+
+    handleClick (e) {
+        if (e.defaultPrevented) {
+            return;
+        }
+        e.preventDefault();
+        this.setState({showVeil: true});
+        setTimeout(this.redirectToLink, 2000);
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        if (nextState.showVeil === true) {
+            document.getElementById('veil').className = "veil vFadeIn";
+        } else {
+            document.getElementById('veil').className = "veil";
+        }
+    }
 
 	render(){
 		const {item, match } = this.props
@@ -39,7 +69,7 @@ class PressItem extends Component{
         	</div>;
 									
 		return (
-				<Link to={`${match.path}/${item.id}`}>
+				<Link to={`${match.path}/${item.id}`} onClick={this.handleClick}>
 					<div className="pressItem" style={background} onMouseEnter={this.handlerMouseEnter} onMouseLeave={this.handlerMouseLeave}>
 						{body}
 					</div>

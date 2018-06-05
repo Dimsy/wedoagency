@@ -65,7 +65,7 @@ class Portfolio extends Component{
 					    <div className="col-sm-8">
 					      <h1 className='portfolio__title'>{title}</h1>
 					    </div>
-					    <div className="col-md-4 col-sm-6 SliderButtons">
+					    <div className="SliderButtonsPortfolio col-md-4 col-sm-6">
 						    <ButtonNext>
 						    	<img src={`${PATH}/img/slider/next.svg`} style={opacity}/>
 						    </ButtonNext>

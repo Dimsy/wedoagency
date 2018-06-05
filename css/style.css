@@ -227,7 +227,7 @@ button:focus {
 .headerTopLine {
   position: fixed;
   width: 100%;
-  z-index: 9999;
+  z-index: 99;
   background-color: #fff;
   height: 50px;
   border-bottom: 1px solid #f3f3f3;
@@ -269,6 +269,21 @@ button:focus {
 .headerLangSwitcher li{
   display: inline-block;
   padding: 19px 2px 13px;
+}
+
+
+.portfolio__containerItems li:first-child{
+  margin-left: -20px;
+}
+
+.portfolio__containerItems li:nth-child(4){
+  margin-left: -20px;
+}
+.portfolio__containerItems li:nth-child(7){
+  margin-left: -20px;
+}
+.portfolio__containerItems li:nth-child(10){
+  margin-left: -20px;
 }
 
 .headerLangSwitcher li:first-child,
@@ -367,8 +382,22 @@ h1.portfolio__title{
 }
 
 .SliderButtons{
-  padding-right: 25px;
+  padding-right: 39px;
 }
+
+.SliderButtonsPortfolio{
+  padding-right: 21px !important;
+}
+
+.SliderButtonsPortfolio button{
+  float: right;
+  margin-top: 10px;
+  padding-left: 15px;
+  border: none;
+  background: transparent;
+}
+
+
 .SliderButtons button{
   float: right;
   margin-top: 10px;
@@ -1123,6 +1152,7 @@ hr {
 .portfolio__containerItems li{
   float: left;
 }
+
 .portfolioList .portfolioList__item {
   position: relative;
   width: 301px;
@@ -1228,10 +1258,14 @@ hr {
 .blockA img,
 .blockB img,
 .blockE img{
-  width: 470px;
+  width: 467px;
 }
 .blockC img{
-  width: 306px;
+  width: 309px;
+}
+
+.blockD img{
+  width: 967px;
 }
 
 .anim-appear {

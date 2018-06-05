@@ -13,11 +13,11 @@ import Socials from '../Socials/Socials';
 class Footer extends Component{
 	
 	render(){
-
 		const {useLang, menu, contacts, loading} = this.props
 
 		if(loading || !menu || !contacts) return <Loader />;
 
+        console.log(contacts);
 		const menuSet = menu.toArray();
 
 		if (menuSet.length === 0){
@@ -65,7 +65,7 @@ class Footer extends Component{
 				<div className="container copyRight">
 					<div className="row no-gutters">
 						<div className="col-md-8 AllRightReserved latoFont">
-							weDOagency © all right reserved
+							{contacts.acf.orgname}
 						</div>
 						<div className="col-md-4">
 							<BackToTop  scrollStepInPx="50" delayInMs="16.66"/>							

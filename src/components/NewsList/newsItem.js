@@ -5,6 +5,40 @@ import {Link} from 'react-router-dom';
 
 
 class NewsItem extends Component{
+    state = {
+        show: false,
+        showVeil: false
+    }
+
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+        this.redirectToLink = this.redirectToLink.bind(this);
+    }
+
+    redirectToLink() {
+        const { item, match } = this.props;
+        const link = `${match.path}/${item.id}`;
+        window.location.href = link
+    }
+
+    handleClick (e) {
+        if (e.defaultPrevented) {
+            return;
+        }
+        e.preventDefault();
+        this.setState({showVeil: true});
+        setTimeout(this.redirectToLink, 2000);
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        if (nextState.showVeil === true) {
+            document.getElementById('veil').className = "veil vFadeIn";
+        } else {
+            document.getElementById('veil').className = "veil";
+        }
+    }
+
 	render(){
 		const { item, useLang, location, match } = this.props;
 		
@@ -53,7 +87,7 @@ class NewsItem extends Component{
 						<div dangerouslySetInnerHTML={{ __html:  item.content.rendered }} />
 							{/*item.content.rendered*/}
 						</div>
-						<Link to={`${match.path}/${item.id}`} className="linkToNews">{showMore}</Link>
+						<Link to={`${match.path}/${item.id}`} className="linkToNews" onClick={this.handleClick}>{showMore}</Link>
 					</div>
 				</Row>
 				<Row className="no-gutters">

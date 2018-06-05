@@ -325,6 +325,33 @@
   .portfolioTitlePhoto{
     width: 435px;
   }
+
+  .portfolio__containerItems li:first-child{
+    margin-left: -20px;
+  }
+
+  .portfolio__containerItems li:nth-child(3){
+    margin-left: -20px;
+  }
+  .portfolio__containerItems li:nth-child(4){
+    margin-left: 0px;
+  }
+  .portfolio__containerItems li:nth-child(5){
+    margin-left: -20px;
+  }
+  .portfolio__containerItems li:nth-child(7){
+    margin-left: -20px;
+  }
+  .portfolio__containerItems li:nth-child(10){
+    margin-left: 0px;
+  }
+  .portfolio__containerItems li:nth-child(9){
+    margin-left: -20px;
+  }
+  .portfolio__containerItems li:nth-child(11){
+    margin-left: -20px;
+  }
+
   .blockA img,
   .blockB img,
   .blockE img{
@@ -426,7 +453,7 @@
     margin-bottom: 0px;
     position: fixed;
     background-color: #fff;
-    z-index: 100;
+    z-index: 50;
     border-bottom: 1px solid #f3f3f3;
   }
   .headerImgBlock{
@@ -480,14 +507,16 @@
   }
   .headerTopMenuList{
     margin: auto 0;
+    padding-left: 0px !important;
   }
   .headerTopMenu li {
     width: 100%;
   }
   .headerTopMenu li a{
     padding: 10px;
+    padding-left: 0px;
     font-family: LatoLight;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
     font-style: normal;
     font-stretch: normal;
@@ -495,11 +524,11 @@
     text-align: left;
     color: #131313;
     text-transform: capitalize;
-    line-height: 32px;
+    line-height: 26px;
   }
   .mobileTopMenuContacts{
     position: fixed;
-    left: 20px;
+    left: -17px;
     bottom: 100px;
   }
   .mobileTopMenuPhone{
@@ -522,14 +551,14 @@
     position: fixed;
     float: none;
     top: auto;   
-    left: 14px;
+    left: -22px;
     bottom: 40px;
   }
   .headerLangSwitcher{
     position: fixed;
     top: auto;
     bottom: 160px;
-    left: 20px;
+    left: -17px;
   }
   .portfolio {
     padding-top: 50px;
@@ -567,6 +596,10 @@
   }
 
   .SliderButtons{
+    display: none;
+  }
+
+  .SliderButtonsPortfolio {
     display: none;
   }
 
@@ -825,6 +858,10 @@
   }
 
   .SliderButtons{
+    display: none;
+  }
+
+  .SliderButtonsPortfolio{
     display: none;
   }
 
@@ -1117,6 +1154,10 @@
   }
 
   .SliderButtons{
+    display: none;
+  }
+
+  .SliderButtonsPortfolio{
     display: none;
   }
 

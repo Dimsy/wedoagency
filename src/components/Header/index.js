@@ -3,11 +3,13 @@ import {connect} from 'react-redux';
 import Menu from './Menu';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
+import VeilWorkaround from "../VeilWorkaround/VeilWorkaround";
 
 class Header extends Component {
+
 	state = {
-		show: false,
-	}
+		show: false
+	};
 
 
 	 componentWillMount(){
@@ -17,7 +19,6 @@ class Header extends Component {
 
     }
   }
-
 
 	componentDidMount(){
 		window.addEventListener("resize", this.updateDimensions.bind(this));
@@ -44,6 +45,7 @@ class Header extends Component {
 	render(){
 		return(
 			<div className="header">
+				<VeilWorkaround/>
 				<Menu show={this.state.show} closeMenu={this.closeMenu}/>
 				<button className={"mobile-menu-btn " + (this.state.show ? 'active' : null)} onClick={this.handleClick}>
 					<span></span>

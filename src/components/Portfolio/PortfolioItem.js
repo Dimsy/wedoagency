@@ -1,9 +1,42 @@
 import React, {Component} from 'react'
+import VeilWorkaround from '../VeilWorkaround/VeilWorkaround';
+import Header from '../Header'
 import {Link} from 'react-router-dom'
 
 class PortfolioItem extends Component{
+
 	state = {
-	 	show: false
+        show: false,
+		showVeil: false
+    }
+
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+        this.redirectToLink = this.redirectToLink.bind(this);
+    }
+
+    redirectToLink() {
+        const { item } = this.props;
+        const link = `/portfolio/${item.id}`;
+        window.location.href = link
+	}
+
+    handleClick (e) {
+        if (e.defaultPrevented) {
+            return;
+        }
+        e.preventDefault();
+        this.setState({showVeil: true});
+        setTimeout(this.redirectToLink, 2000);
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+		if (nextState.showVeil === true) {
+            document.getElementById('veil').className = "veil vFadeIn";
+		} else {
+            document.getElementById('veil').className = "veil";
+		}
 	}
 
 	render(){
@@ -17,7 +50,8 @@ class PortfolioItem extends Component{
 
 		return (
 			<div>
-				<Link to={`/portfolio/${item.id}`}>
+				<VeilWorkaround/>
+				<Link to={`/portfolio/${item.id}`} onClick={this.handleClick}>
 					<div className="portfolioItem__wrapper" onMouseEnter={this.handlerMouseEnter} onMouseLeave={this.handlerMouseLeave}>
 						<img src={item.acf.StartFoto} srcSet={item.acf.StartFotox2} className="portfolioItem__img"/>
 						{body}

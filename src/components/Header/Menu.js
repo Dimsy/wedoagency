@@ -22,7 +22,7 @@ class Menu extends Component{
 
 		const mobile = window.innerWidth < 768 ? true : false
 
-		const phone = mobile ? <li className="mobileTopMenuPhone">{contacts.acf.Phone} (viber/whatsup)</li> : null
+		const phone = mobile ? <li className="mobileTopMenuPhone">{contacts.acf.Phone} (viber/whatsapp)</li> : null
 		const email = mobile ? <li className="mobileTopMenuMail"><a href={`mailto:${contacts.acf.mail}`}>{contacts.acf.mail}</a></li> : null
 
 		const mobileContacts = phone && email ? <ul className="mobileTopMenuContacts">{phone}{email}</ul> : null				

@@ -8,13 +8,41 @@ import renderHTML from 'react-render-html';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 class Agency extends Component{
-	constructor() {
-   super();
-    this.state = {
-      width: 'auto',
-      height: 'auto'
+
+
+    state = {
+        show: false,
+        showVeil: false,
+        width: 'auto',
+        height: 'auto'
     }
-  }
+
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+        this.redirectToLink = this.redirectToLink.bind(this);
+    }
+
+    redirectToLink() {
+        window.location.href = `/agency`
+    }
+
+    handleClick (e) {
+        if (e.defaultPrevented) {
+            return;
+        }
+        e.preventDefault();
+        this.setState({showVeil: true});
+        setTimeout(this.redirectToLink, 2000);
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        if (nextState.showVeil === true) {
+            document.getElementById('veil').className = "veil vFadeIn";
+        } else {
+            document.getElementById('veil').className = "veil";
+        }
+    }
 
 	componentDidMount(){
 		const useLang = this.props.useLang;
@@ -79,7 +107,7 @@ class Agency extends Component{
 	 				<div className="col-sm-12 col-md-5 offset-md-1">
 	 					{headerDesktop}
 						{renderHTML(entities.content.rendered)}
-						<Link to='/agency' className="knowMore">{knowMore}</Link>
+						<Link to='/agency' className="knowMore" onClick={this.handleClick}>{knowMore}</Link>
 	 				</div>
 	 				<div className="clear" />
 	 			</div>
