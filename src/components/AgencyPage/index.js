@@ -26,21 +26,29 @@ class AgencyPage extends Component {
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);	
 
-		const header = {
-			backgroundImage: `-webkit-image-set( url(${entities.acf.foto}) 1x, url(${entities.acf.Fotox2}) 2x )`,
-			backgroundImage: `-moz-image-set( url(${entities.acf.foto}) 1x, url(${entities.acf.Fotox2}) 2x )`,
-			backgroundImage: `-o-image-set( url(${entities.acf.foto}) 1x, url(${entities.acf.Fotox2}) 2x )`,
-			backgroundImage: `-ms-image-set( url(${entities.acf.foto}) 1x, url(${entities.acf.Fotox2}) 2x )`,
-			backgroundImage: `url(${entities.acf.foto})`
-		};
+        const headerPC = {
+            backgroundImage: `-webkit-image-set( url(${entities.acf.foto}) 1x, url(${entities.acf.Fotox2}) 2x )`,
+            backgroundImage: `-moz-image-set( url(${entities.acf.foto}) 1x, url(${entities.acf.Fotox2}) 2x )`,
+            backgroundImage: `-o-image-set( url(${entities.acf.foto}) 1x, url(${entities.acf.Fotox2}) 2x )`,
+            backgroundImage: `-ms-image-set( url(${entities.acf.foto}) 1x, url(${entities.acf.Fotox2}) 2x )`,
+            backgroundImage: `url(${entities.acf.foto})`
+        };
 
-		const headerBlock = window.innerWidth > 768  || entities.acf.videoHeader ? <div className="headerImgBlock" style={{overflow: 'hidden'}} key={entities.acf.videoHeader}>
-																											    	 		 <video id="video_bg" autoPlay="autoplay" loop="loop" >
-																											    	 			 <source src={entities.acf.videoHeader.url} type="video/mp4"></source>
-																											    	 		 </video>
-																											    	 	 </div>
-																											    	 : <div className="articleImgNews" style={header} />
+        const headerMobile = {
+            backgroundImage: `-webkit-image-set( url(${entities.acf.headerPhotoMobile}) 1x, url(${entities.acf.headerPhotoMobilex2}) 2x )`,
+            backgroundImage: `-moz-image-set( url(${entities.acf.headerPhotoMobile}) 1x, url(${entities.acf.headerPhotoMobilex2}) 2x )`,
+            backgroundImage: `-o-image-set( url(${entities.acf.headerPhotoMobile}) 1x, url(${entities.acf.headerPhotoMobilex2}) 2x )`,
+            backgroundImage: `-ms-image-set( url(${entities.acf.headerPhotoMobile}) 1x, url(${entities.acf.headerPhotoMobilex2}) 2x )`,
+            backgroundImage: `url(${entities.acf.headerPhotoMobile})`
+        };
 
+        const headerBlock = entities.acf.videoHeader
+            ? <div className="headerImgBlock" style={{overflow: 'hidden'}} key={entities.acf.videoHeader}>
+                <video id="video_bg" autoPlay="autoplay" loop="loop" >
+                    <source src={entities.acf.videoHeader.url} type="video/mp4"></source>
+                </video>
+            </div>
+            : window.innerWidth < 768 ? <div className="articleImgNews" style={headerMobile} /> : <div className="articleImgNews" style={headerPC} />;
 
     const videoBlock = entities.acf.video ? <VideoBlock video={entities.acf.video} class={'agencyVideo'}/> : null
 

@@ -179,8 +179,8 @@ class PortfolioPage extends Component{
 				body.push(createBlock(photos))		
 		 	}
 		}	
-
-		const header = {
+		//headerPhotoMobile
+		const headerPC = {
 			backgroundImage: `-webkit-image-set( url(${project.acf.headerPhoto}) 1x, url(${project.acf.headerPhotox2}) 2x )`,
 			backgroundImage: `-moz-image-set( url(${project.acf.headerPhoto}) 1x, url(${project.acf.headerPhotox2}) 2x )`,
 			backgroundImage: `-o-image-set( url(${project.acf.headerPhoto}) 1x, url(${project.acf.headerPhotox2}) 2x )`,
@@ -188,8 +188,19 @@ class PortfolioPage extends Component{
 			backgroundImage: `url(${project.acf.headerPhoto})`,
 		};
 
-		const headerBlock = (window.innerWidth < 768 || !project.acf.headerVideo) ? <div className="articleImgNews" style={header} />
-																																							: <VideoHeader src={project.acf.headerVideo} key={project.acf.headerVideo} />				
+        const headerMobile = {
+            backgroundImage: `-webkit-image-set( url(${project.acf.headerPhotoMobile}) 1x, url(${project.acf.headerPhotoMobilex2}) 2x )`,
+            backgroundImage: `-moz-image-set( url(${project.acf.headerPhotoMobile}) 1x, url(${project.acf.headerPhotoMobilex2}) 2x )`,
+            backgroundImage: `-o-image-set( url(${project.acf.headerPhotoMobile}) 1x, url(${project.acf.headerPhotoMobilex2}) 2x )`,
+            backgroundImage: `-ms-image-set( url(${project.acf.headerPhotoMobile}) 1x, url(${project.acf.headerPhotoMobilex2}) 2x )`,
+            backgroundImage: `url(${project.acf.headerPhotoMobile})`,
+        };
+
+		const headerBlock = project.acf.headerVideo
+			? <VideoHeader src={project.acf.headerVideo} key={project.acf.headerVideo} />
+			: window.innerWidth < 768 ? <div className="articleImgNews" style={headerMobile} /> : <div className="articleImgNews" style={headerPC} />
+
+		//const headerBlock = (window.innerWidth < 768 || !project.acf.headerVideo) ? <div className="articleImgNews" style={header} />: <VideoHeader src={project.acf.headerVideo} key={project.acf.headerVideo} />
 
 		const title = useLang == 'ru' ? project.title.rendered : project.acf.titleEn;
 																																																																										
