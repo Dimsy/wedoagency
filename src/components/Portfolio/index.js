@@ -7,6 +7,7 @@ import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import {PATH} from '../../config'
 import './portfolio.css';
+import $ from "jquery";
 
 class Portfolio extends Component{
 
@@ -35,8 +36,8 @@ class Portfolio extends Component{
 		const {useLang, entities, error, loading, catName, match} = this.props;
 
 		if (loading) return <Loader />;
-		if (error) return (<ErrorCmp error={error} />);			
-
+		if (error) return (<ErrorCmp error={error} />);
+        $("#veil").removeClass('fadein').addClass("fadeout");
 		const portfolioSlider = entities.toArray();
 
 		if (portfolioSlider.length == 0){

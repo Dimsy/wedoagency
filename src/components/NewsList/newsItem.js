@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Row } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import $ from "jquery";
 
 
 class NewsItem extends Component{
@@ -33,9 +34,7 @@ class NewsItem extends Component{
 
     componentWillUpdate(nextProps, nextState) {
         if (nextState.showVeil === true) {
-            document.getElementById('veil').className = "veil vFadeIn";
-        } else {
-            document.getElementById('veil').className = "veil";
+            $("#veil").removeClass("fadeout").addClass("fadein");
         }
     }
 

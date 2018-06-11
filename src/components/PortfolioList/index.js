@@ -5,6 +5,7 @@ import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import PortfolioListItem from './PortfolioListItem';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import $ from "jquery";
 
 class PortfolioList extends Component{
 
@@ -34,9 +35,12 @@ class PortfolioList extends Component{
 
 	render(){
 		const { useLang, entities, loading, error, count, match, portfolioList} = this.props;
-
 		if (loading) return <Loader />;
-		if (error) return (<ErrorCmp error={error} />);	
+		if (error) return (<ErrorCmp error={error} />);
+
+        //document.getElementById('veil').style.visibility = "hidden";
+            $("#veil").removeClass('fadein').addClass("fadeout");
+
 
 		const projectsItems = entities.toArray();
 

@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import VeilWorkaround from '../VeilWorkaround/VeilWorkaround';
 import Header from '../Header'
 import {Link} from 'react-router-dom'
+import $ from "jquery";
 
 class PortfolioItem extends Component{
 
@@ -32,11 +33,9 @@ class PortfolioItem extends Component{
     }
 
     componentWillUpdate(nextProps, nextState) {
-		if (nextState.showVeil === true) {
-            document.getElementById('veil').className = "veil vFadeIn";
-		} else {
-            document.getElementById('veil').className = "veil";
-		}
+        if (nextState.showVeil === true) {
+            $("#veil").removeClass("fadeout").addClass("fadein");
+        }
 	}
 
 	render(){

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
+import $ from "jquery";
 
 class PortfolioListItem extends Component{
     state = {
@@ -30,9 +31,7 @@ class PortfolioListItem extends Component{
 
     componentWillUpdate(nextProps, nextState) {
         if (nextState.showVeil === true) {
-            document.getElementById('veil').className = "veil vFadeIn";
-        } else {
-            document.getElementById('veil').className = "veil";
+            $("#veil").removeClass("fadeout").addClass("fadein");
         }
     }
 

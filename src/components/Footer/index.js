@@ -17,7 +17,6 @@ class Footer extends Component{
 
 		if(loading || !menu || !contacts) return <Loader />;
 
-        console.log(contacts);
 		const menuSet = menu.toArray();
 
 		if (menuSet.length === 0){

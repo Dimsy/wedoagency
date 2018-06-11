@@ -6,6 +6,7 @@ import {loadAgencyInfo} from '../../ducks/agencyInfo.js'
 import {Link} from 'react-router-dom';
 import renderHTML from 'react-render-html';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import $ from "jquery";
 
 class Agency extends Component{
 
@@ -38,9 +39,7 @@ class Agency extends Component{
 
     componentWillUpdate(nextProps, nextState) {
         if (nextState.showVeil === true) {
-            document.getElementById('veil').className = "veil vFadeIn";
-        } else {
-            document.getElementById('veil').className = "veil";
+            $("#veil").removeClass("fadeout").addClass("fadein");
         }
     }
 
@@ -72,7 +71,9 @@ class Agency extends Component{
 		const {useLang, entities, loading, error} = this.props;
 
 		if (loading) return <Loader />;
-		if (error) return (<ErrorCmp error={error} />);		
+		if (error) return (<ErrorCmp error={error} />);
+        //document.getElementById('veil').style.visibility = "hidden";
+            $("#veil").removeClass('fadein').addClass("fadeout");
 
 		if( Object.keys(entities).length ==0 ){
 			return <div>Данные врененно не доступны</div>

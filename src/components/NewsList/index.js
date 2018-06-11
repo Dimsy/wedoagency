@@ -5,6 +5,7 @@ import { loadNewsList, clearNewsList } from '../../ducks/newsList';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import $ from "jquery";
 
 class NewsList extends Component{
 
@@ -32,7 +33,11 @@ class NewsList extends Component{
 		const { useLang, entities, loading, error, count, location, match} = this.props;
 
 		if (loading) return <Loader />;
-		if (error) return (<ErrorCmp error={error} />);	
+		if (error) return (<ErrorCmp error={error} />);
+        //document.getElementById('veil').style.visibility = "hidden";
+
+            $("#veil").removeClass('fadein').addClass("fadeout");
+
 
 		const posts = entities.toArray();
 		

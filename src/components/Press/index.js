@@ -43,7 +43,7 @@ class Press extends Component{
 		const {entities, loading, pressList, error, useLang} = this.props;
 
 		if (loading) return <Loader />;
-		if (error) return (<ErrorCmp error={error} />);	
+		if (error) return (<ErrorCmp error={error} />);
 
 		if (pressList === undefined) {
 			return <div>Данные пока не доступны</div>

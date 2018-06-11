@@ -5,6 +5,7 @@ import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import {sendCustomForm} from '../../ducks/form';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import $ from "jquery";
 //import {sendForm} from '../../AC';
 class SendMessage extends Component{
 
@@ -16,7 +17,11 @@ class SendMessage extends Component{
 		const {contacts, error, loading, useLang} = this.props;
 
 		if (loading || !contacts || !contacts.acf.Phone) return <Loader />;
-		if (error) return (<ErrorCmp error={error} />);		
+		if (error) return (<ErrorCmp error={error} />);
+        //document.getElementById('veil').style.visibility = "hidden";
+
+            $("#veil").removeClass('fadein').addClass("fadeout");
+
 
 		return (
 			<div className="container sendMessage">

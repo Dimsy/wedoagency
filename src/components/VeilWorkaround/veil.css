@@ -1,5 +1,4 @@
 .veil {
-    display: none;
     position: fixed;
     width: 100%;
     height: 100%;
@@ -9,31 +8,34 @@
     background: white;
     z-index: 100;
     opacity: 1;
-    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 2s; /* Firefox < 16 */
-    -ms-animation: fadein 2s; /* Internet Explorer */
-    -o-animation: fadein 2s; /* Opera < 12.1 */
-    animation: fadein 2s;
 }
 
-.vFadeIn {
-    display: block;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    left: 0;
-    top: 0;
-    background: white;
-    z-index: 100;
-    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 2s; /* Firefox < 16 */
-    -ms-animation: fadein 2s; /* Internet Explorer */
-    -o-animation: fadein 2s; /* Opera < 12.1 */
-    animation: fadein 2s;
+@-webkit-keyframes fadeout{
+    0%{opacity:1;visibility:visible;}
+    99%{opacity:0;}
+    100%{opacity:0;visibility: hidden;}
+}
+.fadeout {
+    -webkit-animation:fadeout 1s linear;
+    visibility:hidden;
+}
+@-webkit-keyframes fadein{
+    0%{opacity:0;visibility:visible;}
+    100%{opacity:1;}
+}
+.fadein {
+    -webkit-animation:fadein 1s linear;
 }
 
-@-webkit-keyframes fadein {
-    0%,100% { opacity: 0; }
-    50% { opacity: 1; }
+.veilLogo {
+    height: 253px;
+    background-image: url(../../../img/logo/wedo.png);
+    background-image: -webkit-image-set(url(../../../img/logo/wedo.png) 1x, url(../../../img/logo/wedo@2x.png) 2x);
+    background-image: -moz-image-set(url(../../../img/logo/wedo.png) 1x, url(../../../img/logo/wedo@2x.png) 2x);
+    background-image: -o-image-set(url(../../../img/logo/wedo.png) 1x, url(../../../img/logo/wedo@2x.png) 2x);
+    background-image: -ms-image-set(url(../../../img/logo/wedo.png) 1x, url(../../../img/logo/wedo@2x.png) 2x);
+    background-repeat: no-repeat;
+    background-position: center 110px;
+    margin-top: 300px;
+    opacity: 0.5;
 }

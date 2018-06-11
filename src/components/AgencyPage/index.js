@@ -5,6 +5,7 @@ import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import VideoBlock from '../VideoBlock'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import $ from "jquery";
 
 class AgencyPage extends Component {
 	
@@ -24,7 +25,11 @@ class AgencyPage extends Component {
 		const {match, entities, useLang, loading, error} = this.props
 		
 		if (loading) return <Loader />;
-		if (error) return (<ErrorCmp error={error} />);	
+		if (error) return (<ErrorCmp error={error} />);
+        //document.getElementById('veil').style.visibility = "hidden";
+
+            $("#veil").removeClass('fadein').addClass("fadeout");
+
 
         const headerPC = {
             backgroundImage: `-webkit-image-set( url(${entities.acf.foto}) 1x, url(${entities.acf.Fotox2}) 2x )`,

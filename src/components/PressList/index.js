@@ -5,6 +5,7 @@ import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import PressItem from './pressItem';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import $ from "jquery";
 
 class PressList extends Component{
 
@@ -45,7 +46,10 @@ class PressList extends Component{
 		const { useLang, entities, loading, error, count, match} = this.props;
 
 		if (loading) return <Loader />;
-		if (error) return (<ErrorCmp error={error} />);	
+		if (error) return (<ErrorCmp error={error} />);
+
+            $("#veil").removeClass('fadein').addClass("fadeout");
+
 
 		const pressItems = entities.toArray();
 

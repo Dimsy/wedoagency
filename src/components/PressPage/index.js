@@ -31,7 +31,7 @@ class AgencyPage extends Component {
 		const i18Date = useLang == "ru" ? "ru-RU" : "en-GB";
 
 		if (loading) return <Loader />;
-		if (error) return (<ErrorCmp error={error} />);	
+		if (error) return (<ErrorCmp error={error} />);
 
 		const date = new Date(entities.acf.date);
 

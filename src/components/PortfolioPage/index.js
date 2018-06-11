@@ -140,7 +140,7 @@ class PortfolioPage extends Component{
 		const { useLang, entities, loading, error, match, portfolioList} = this.props;
 
 		if (loading) return <Loader />;
-		if (error) return (<ErrorCmp error={error} />);	
+		if (error) return (<ErrorCmp error={error} />);
 
 		const portfolioSet = entities.toArray();
 
