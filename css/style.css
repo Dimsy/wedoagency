@@ -272,20 +272,6 @@ button:focus {
 }
 
 
-.portfolio__containerItems li:first-child{
-  margin-left: -20px;
-}
-
-.portfolio__containerItems li:nth-child(4){
-  margin-left: -20px;
-}
-.portfolio__containerItems li:nth-child(7){
-  margin-left: -20px;
-}
-.portfolio__containerItems li:nth-child(10){
-  margin-left: -20px;
-}
-
 .headerLangSwitcher li:first-child,
 .headerLangSwitcher li:last-child{
   cursor: pointer;

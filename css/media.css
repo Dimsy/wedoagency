@@ -351,6 +351,9 @@
   .portfolio__containerItems li:nth-child(11){
     margin-left: -20px;
   }
+  .portfolio__containerItems li:nth-child(12){
+    margin-left: 0px;
+  }
 
   .blockA img,
   .blockB img,
