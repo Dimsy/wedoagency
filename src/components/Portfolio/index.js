@@ -56,11 +56,12 @@ class Portfolio extends Component{
 		const opacity = body.length > 3 ? {opacity: "1"} : {opacity: "0.3"}
 
 		const title = this.selectTitle();
+        const mobile = window.innerWidth < 768 ? true : false;
 
 		return (
 			<div className='portfolio portfolioFadeIn'>
 
-		  	<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={411} totalSlides={body.length} visibleSlides={3}>
+		  	<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={411} totalSlides={mobile ? body.length + 2 : body.length} visibleSlides={3}>
 			    <div className='container'>
 			 	    <div className='row no-gutters'>
 					    <div className="col-sm-8">
