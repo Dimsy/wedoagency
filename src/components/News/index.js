@@ -43,10 +43,11 @@ class News extends Component{
 																		);
 
 		const opacity = body.length > 3 ? {opacity: "1"} : {opacity: "0.3"}
-		
+        const mobile = window.innerWidth < 768 ? true : false;
+
 		return (
 			<div className='news newsFadeIn'>
-				<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={307} totalSlides={body.length} visibleSlides={3}>
+				<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={307} totalSlides={mobile ? body.length+2 : body.length} visibleSlides={3}>
 					<Grid>
 						<Row>
 							<Col  sm={6} md={8}>

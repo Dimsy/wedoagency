@@ -37,7 +37,7 @@ class MenuItem extends Component{
 
 	render(){
 		const {item, closeMenu} = this.props
-
+        console.log('item',item.url);
 		return(
 			<Link to={item.url} onClick={this.handleClick}>
 				{item.title}

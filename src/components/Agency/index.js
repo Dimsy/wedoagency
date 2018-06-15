@@ -75,9 +75,11 @@ class Agency extends Component{
         //document.getElementById('veil').style.visibility = "hidden";
             $("#veil").removeClass('fadein').addClass("fadeout");
 
-		if( Object.keys(entities).length ==0 ){
+		if( Object.keys(entities).length == 0 ){
 			return <div>Данные врененно не доступны</div>
 		}
+
+		console.log(Object.keys(entities));
 	
 		const mobile = window.innerWidth < 768 ? true : false
  		const knowMore = useLang == "ru" ? "Узнать больше" : "Know more"
