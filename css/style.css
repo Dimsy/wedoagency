@@ -272,6 +272,13 @@ button:focus {
 }
 
 
+.portfolio__containerItems li:nth-child(3n){
+  margin-left: 0px;
+}
+.portfolio__containerItems li:nth-child(4n){
+  margin-left: 0px;
+}
+
 .headerLangSwitcher li:first-child,
 .headerLangSwitcher li:last-child{
   cursor: pointer;

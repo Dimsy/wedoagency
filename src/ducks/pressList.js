@@ -86,7 +86,6 @@ export function * pressListSaga(action){
 
 	try {
 		const response = yield call(axios.get, `/wp-json/wp/v2/posts?categories=${articleLang}&orderby=date&order=desc&per_page=9&offset=${POST_COUNTER}`);
-		console.log('response111',response);
 		POST_COUNTER = POST_COUNTER + 9;
 
 		const count = yield call(axios.get, `/wp-json/wp/v2/categories/${articleLang}`);

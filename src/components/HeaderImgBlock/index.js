@@ -29,7 +29,6 @@ class HeaderImgBlock extends Component{
             backgroundImage: `url(${entities.acf.headerPhotoMobile})`
         };
 
-		console.log('main', entities.acf);
 		//headerPhotoMobile
 
 		if (entities.acf.video) {
