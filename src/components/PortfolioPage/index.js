@@ -196,9 +196,10 @@ class PortfolioPage extends Component{
             backgroundImage: `url(${project.acf.headerPhotoMobile})`,
         };
 
-		const headerBlock = project.acf.headerVideo
-			? <VideoHeader src={project.acf.headerVideo} key={project.acf.headerVideo} />
-			: window.innerWidth < 768 ? <div className="articleImgNews" style={headerMobile} /> : <div className="articleImgNews" style={headerPC} />
+		const headerBlock = window.innerWidth < 768 ? <div className="articleImgNews" style={headerMobile} />
+			: project.acf.headerVideo
+				? <VideoHeader src={project.acf.headerVideo} key={project.acf.headerVideo} />
+				: <div className="articleImgNews" style={headerPC} />
 
 		//const headerBlock = (window.innerWidth < 768 || !project.acf.headerVideo) ? <div className="articleImgNews" style={header} />: <VideoHeader src={project.acf.headerVideo} key={project.acf.headerVideo} />
 

@@ -47,13 +47,13 @@ class AgencyPage extends Component {
             backgroundImage: `url(${entities.acf.headerPhotoMobile})`
         };
 
-        const headerBlock = entities.acf.videoHeader
+        const headerBlock = window.innerWidth < 768 ? <div className="articleImgNews" style={headerMobile} />
+			: entities.acf.videoHeader
             ? <div className="headerImgBlock" style={{overflow: 'hidden'}} key={entities.acf.videoHeader}>
                 <video id="video_bg" autoPlay="autoplay" loop="loop" >
                     <source src={entities.acf.videoHeader.url} type="video/mp4"></source>
                 </video>
-            </div>
-            : window.innerWidth < 768 ? <div className="articleImgNews" style={headerMobile} /> : <div className="articleImgNews" style={headerPC} />;
+            </div> : <div className="articleImgNews" style={headerPC} />;
 
     const videoBlock = entities.acf.video ? <VideoBlock video={entities.acf.video} class={'agencyVideo'}/> : null
 
