@@ -26,7 +26,7 @@ class PortfolioListItem extends Component{
         }
         e.preventDefault();
         this.setState({showVeil: true});
-        setTimeout(this.redirectToLink, 2000);
+        setTimeout(this.redirectToLink, 3000);
     }
 
     componentWillUpdate(nextProps, nextState) {

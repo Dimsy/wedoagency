@@ -19,10 +19,10 @@ class Instagram extends Component{
   render() {
   	const iframe = window.innerWidth < 769
 		?	<div className="col-sm-12 embed-responsive embed-responsive-9by16 instaFadeIn">
-				<iframe src="//lightwidget.com/widgets/3fda9fb9b63957ac81d94af0e5aef36f.html" scrolling="no" allowTransparency="true" className="lightwidget-widget embed-responsive-item" />
+				<iframe src="//lightwidget.com/widgets/85fd9a22321956e1a2d9bbbb00905c55.html" scrolling="no" allowTransparency="true" className="lightwidget-widget embed-responsive-item" />
 			</div>
 		:	<div className="col-sm-12 embed-responsive embed-responsive-16by9 instaFadeIn">
-				<iframe src="//lightwidget.com/widgets/0a00d569c66159a6bfb19fbb5db09900.html" scrolling="no" allowTransparency="true" className="lightwidget-widget embed-responsive-item" />
+				<iframe src="//lightwidget.com/widgets/85fd9a22321956e1a2d9bbbb00905c55.html" scrolling="no" allowTransparency="true" className="lightwidget-widget embed-responsive-item" />
 			</div>;
 
 	const instaPcStyle = window.innerWidth < 769 ? null : {width: '982px',marginLeft: '10px'};
