@@ -40,7 +40,7 @@ class Press extends Component{
 
 	render(){
 
-		const {entities, loading, pressList, error, useLang} = this.props;
+		const {entities, loading, error, useLang} = this.props;
 
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);
@@ -48,42 +48,42 @@ class Press extends Component{
 		if (pressList === undefined) {
 			return <div>Данные пока не доступны</div>
 		}
-
+        const {response, pressList} = entities;
 		const knowMore = useLang == "ru" ? "Узнать больше" : "Know more"		
 
 		const mobile = window.innerWidth < 768 ? true : false
 
 		const mobileHeader = mobile ? <Row>
 																		<div className="col-12">
-																			<h1>{entities.data.title.rendered}</h1>
+																			<h1>{response.title.rendered}</h1>
 																		</div>	
 																	</Row>
 																: null
 
 		const desktopHeader = mobile ? null
-																 : <h1>{entities.data.title.rendered}</h1>
+																 : <h1>{response.title.rendered}</h1>
 
 		const desktopSlogan = mobile ? null 
-																 : <h3 className="press__slogan-small">{entities.data.acf.slogan3}</h3>	
+																 : <h3 className="press__slogan-small">{response.acf.slogan3}</h3>
 
-		const pressVideo = `https://player.vimeo.com/video/${entities.data.acf.video}`
+		const pressVideo = `https://player.vimeo.com/video/${response.acf.video}`
 
 		const screenBlock =
             <Grid>
                 {mobileHeader}
                 <Row>
                     <div className="col-sm-6 col-md-3 pressImg1">
-						{entities.data.acf.smallImg2x &&
-                        <img src={entities.data.acf.smallImg} srcSet={`${entities.data.acf.smallImg2x} 2x`} alt="Изображение для прессы"/>}
+						{response.acf.smallImg2x &&
+                        <img src={response.acf.smallImg} srcSet={`${response.acf.smallImg2x} 2x`} alt="Изображение для прессы"/>}
                         {desktopSlogan}
                     </div>
                     <div className="col-sm-6 col-md-5 pressImg2">
-                        {entities.data.acf.bigImg &&
-                        <img src={entities.data.acf.bigImg} srcSet={`${entities.data.acf.bigImg2x} 2x`} alt="Изображение для прессы"/>}
+                        {response.acf.bigImg &&
+                        <img src={response.acf.bigImg} srcSet={`${response.acf.bigImg2x} 2x`} alt="Изображение для прессы"/>}
                     </div>
                     <div className="col-sm-12 col-md-4">
                         {desktopHeader}
-                        <div dangerouslySetInnerHTML={{ __html:  entities.data.content.rendered }} />
+                        <div dangerouslySetInnerHTML={{ __html:  response.content.rendered }} />
                         <Link to='/press' className="knowMore">{knowMore}</Link>
                     </div>
                 </Row>
@@ -94,19 +94,19 @@ class Press extends Component{
                 {mobileHeader}
                 <Row className="dropFlex">
                     <div className="col-sm-6 col-md-3 pressImg1">
-                        {entities.data.acf.smallImg2x &&
-                        <img src={entities.data.acf.smallImg} srcSet={`${entities.data.acf.smallImg2x} 2x`} alt="Изображение для прессы"/>}
+                        {response.acf.smallImg2x &&
+                        <img src={response.acf.smallImg} srcSet={`${response.acf.smallImg2x} 2x`} alt="Изображение для прессы"/>}
                         {desktopSlogan}
                     </div>
                     <div className="col-sm-6 col-md-5 pressImg2">
-                        {entities.data.acf.bigImg &&
-                        <img src={entities.data.acf.bigImg} srcSet={`${entities.data.acf.bigImg2x} 2x`} alt="Изображение для прессы"/>}
+                        {response.acf.bigImg &&
+                        <img src={response.acf.bigImg} srcSet={`${response.acf.bigImg2x} 2x`} alt="Изображение для прессы"/>}
                     </div>
 				</Row>
 				<Row>
                     <div className="col-sm-12 col-md-4">
                         {desktopHeader}
-                        <div dangerouslySetInnerHTML={{ __html:  entities.data.content.rendered }} />
+                        <div dangerouslySetInnerHTML={{ __html:  response.content.rendered }} />
                         <Link to='/press' className="knowMore">{knowMore}</Link>
                     </div>
                 </Row>
@@ -115,8 +115,8 @@ class Press extends Component{
 		return (
 			<div className="press">
 	
-				<h2 className="slogan">{entities.data.acf.slogan1}</h2>
-				<h2 className="slogan">{entities.data.acf.slogan2}</h2>
+				<h2 className="slogan">{response.acf.slogan1}</h2>
+				<h2 className="slogan">{response.acf.slogan2}</h2>
 
 				
 				<Grid>

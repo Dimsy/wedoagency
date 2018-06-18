@@ -3,6 +3,7 @@ import {Map, Record} from 'immutable'
 import {put, call, takeEvery} from 'redux-saga/effects'
 import axios from 'axios'
 import {PRESS_ru, PRESS_en} from '../config'
+import {PRESS_LIST_ru, PRESS_LIST_en} from '../config';
 
  
 
@@ -29,7 +30,7 @@ export default function reducer(state = new ReducerState(), action) {
 	switch(type){
 		case LOAD_PRESS_SUCCESS:
 	 		return state
-	 						.setIn(['entities'], payload.response)
+	 						.setIn(['entities'], payload.resp)
 	 		 				.setIn(['loading'], false)
 	 			
 		case LOAD_PRESS_ERROR:
@@ -56,13 +57,20 @@ export function loadPress(lang){
 
 export function * loadPressSaga(action){
 	const articleLang = action.payload.lang == 'ru' ? PRESS_ru : PRESS_en;
+    const pressListLang = action.payload.lang == 'ru' ? PRESS_LIST_ru : PRESS_LIST_en;
 
 	try {
 		const response = yield call(axios.get, `/wp-json/wp/v2/posts/${articleLang}`)
+        const pressListResponse = yield call(axios.get, `/wp-json/wp/v2/posts?categories=${pressListLang}&orderby=date&order=desc&per_page=9&offset=0`);
+
+		const resp = {
+			response: response.data,
+			pressList: pressListResponse.data
+		}
 
 		yield put({
 						type: LOAD_PRESS_SUCCESS,
-						payload: {response}
+						payload: {resp}
 					})
 	} catch (error) {
 		
