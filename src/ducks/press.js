@@ -65,7 +65,7 @@ export function * loadPressSaga(action){
 
 		const resp = {
 			response: response.data,
-			pressList: pressListResponse.data
+            pressListT: pressListResponse.data
 		}
 
 		yield put({

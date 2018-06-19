@@ -40,7 +40,7 @@ class Press extends Component{
 
 	render(){
 
-		const {entities, loading, error, useLang} = this.props;
+		const {entities, loading, error, pressList, useLang} = this.props;
 
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);
@@ -48,7 +48,8 @@ class Press extends Component{
 		if (pressList === undefined) {
 			return <div>Данные пока не доступны</div>
 		}
-        const {response, pressList} = entities;
+        const {response, pressListT} = entities;
+		console.log(pressListT);
 		const knowMore = useLang == "ru" ? "Узнать больше" : "Know more"		
 
 		const mobile = window.innerWidth < 768 ? true : false
@@ -93,14 +94,14 @@ class Press extends Component{
             <Grid>
                 {mobileHeader}
                 <Row className="dropFlex">
-                    <div className="col-sm-6 col-md-3 pressImg1">
-                        {response.acf.smallImg2x &&
-                        <img src={response.acf.smallImg} srcSet={`${response.acf.smallImg2x} 2x`} alt="Изображение для прессы"/>}
+                    <div className="col-sm-6 col-md-5 pressImg2">
+                        {pressListT[0].acf.foto &&
+                        <img src={pressListT[0].acf.foto} srcSet={`${pressListT[0].acf.fotox2} 2x`} alt="Изображение для прессы"/>}
                         {desktopSlogan}
                     </div>
                     <div className="col-sm-6 col-md-5 pressImg2">
-                        {response.acf.bigImg &&
-                        <img src={response.acf.bigImg} srcSet={`${response.acf.bigImg2x} 2x`} alt="Изображение для прессы"/>}
+                        {pressListT[1].acf.foto &&
+                        <img src={pressListT[1].acf.foto} srcSet={`${pressListT[1].acf.fotox2} 2x`} alt="Изображение для прессы"/>}
                     </div>
 				</Row>
 				<Row>
