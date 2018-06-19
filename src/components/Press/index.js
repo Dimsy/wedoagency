@@ -5,15 +5,43 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import {Link} from 'react-router-dom';
+import $ from "jquery";
 
 class Press extends Component{
 	constructor() {
 	  super();
+        this.handleClick = this.handleClick.bind(this);
+        this.redirectToLink = this.redirectToLink.bind(this);
 	  this.state = {
 	    width: 'auto',
 	    height: 'auto'
 	  }
 	}
+
+    state = {
+        show: false,
+        showVeil: false
+    }
+
+    redirectToLink() {
+        const link = `/press`;
+        window.location.href = link
+    }
+
+    handleClick (e) {
+        if (e.defaultPrevented) {
+            return;
+        }
+        e.preventDefault();
+        this.setState({showVeil: true});
+        setTimeout(this.redirectToLink, 3000);
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        if (nextState.showVeil === true) {
+            $("#veil").removeClass("fadeout").addClass("fadein");
+        }
+    }
 
 	componentDidMount(){
 		const useLang = this.props.useLang;
@@ -49,7 +77,7 @@ class Press extends Component{
 			return <div>Данные пока не доступны</div>
 		}
         const {response, pressListT} = entities;
-		console.log(pressListT);
+
 		const knowMore = useLang == "ru" ? "Узнать больше" : "Know more"		
 
 		const mobile = window.innerWidth < 768 ? true : false
@@ -85,7 +113,7 @@ class Press extends Component{
                     <div className="col-sm-12 col-md-4">
                         {desktopHeader}
                         <div dangerouslySetInnerHTML={{ __html:  response.content.rendered }} />
-                        <Link to='/press' className="knowMore">{knowMore}</Link>
+                        <Link to='/press' className="knowMore" onClick={this.handleClick}>{knowMore}</Link>
                     </div>
                 </Row>
             </Grid>;
@@ -108,7 +136,7 @@ class Press extends Component{
                     <div className="col-sm-12 col-md-4">
                         {desktopHeader}
                         <div dangerouslySetInnerHTML={{ __html:  response.content.rendered }} />
-                        <Link to='/press' className="knowMore">{knowMore}</Link>
+                        <Link to='/press' className="knowMore" onClick={this.handleClick}>{knowMore}</Link>
                     </div>
                 </Row>
             </Grid>;
