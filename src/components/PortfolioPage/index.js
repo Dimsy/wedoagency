@@ -7,9 +7,61 @@ import renderHTML from 'react-render-html'
 import safeEval from 'safe-eval'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import VideoHeader from './VideoHeader'
-
+import $ from "jquery";
 
 class PortfolioPage extends Component{
+
+	componentWillMount() {
+        $.fn.visible = function(partial) {
+
+            var $t            = $(this),
+                $w            = $(window),
+                viewTop       = $w.scrollTop(),
+                viewBottom    = viewTop + $w.height(),
+                _top          = $t.offset().top,
+                _bottom       = _top + $t.height(),
+                compareTop    = partial === true ? _bottom : _top,
+                compareBottom = partial === true ? _top : _bottom;
+
+            return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+
+        };
+
+        $(window).scroll(function(event) {
+			console.log('upd')
+            $(".iBlock img").each(function(i, el) {
+                var el = $(el);
+                if (el.visible(true)) {
+                    el.addClass("come-in");
+                }
+            });
+
+        });
+	}
+
+	componentWillUpdate() {
+        var win = $(window);
+        var allMods = $(".module");
+
+// Already visible modules
+        allMods.each(function(i, el) {
+            var el = $(el);
+            if (el.visible(true)) {
+                el.addClass("already-visible");
+            }
+        });
+
+        win.scroll(function(event) {
+
+            allMods.each(function(i, el) {
+                var el = $(el);
+                if (el.visible(true)) {
+                    el.addClass("come-in");
+                }
+            });
+
+        });
+	}
 
 	a = (photos) => {
 		for (let key in photos){		
@@ -23,10 +75,10 @@ class PortfolioPage extends Component{
 
 		return (
 			<Row key={photos.photo1+'_'+photos.photo1x+Date.now()} className="no-gutters">
-				<div className="col-6 blockA blockA_one">
+				<div className="col-6 blockA blockA_one iBlock">
 					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта 1" />
 				</div>
-				<div className="col-6 blockA blockA_two">
+				<div className="col-6 blockA blockA_two iBlock">
 					<img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта 2" />
 					<img src={`${photos.photo3}`}  srcSet={`${photos.photo3x2} 2x`} alt="Фото проекта 3" />
 					<div className="clear"/>
@@ -48,11 +100,11 @@ class PortfolioPage extends Component{
 
 		return (
 			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()} className="no-gutters">
-				<div className="col-6 blockB blockB_two">
+				<div className="col-6 blockB blockB_two iBlock">
 					<img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта" />
 					<img src={`${photos.photo3}`}  srcSet={`${photos.photo3x2} 2x`} alt="Фото проекта" />
 				</div>
-				<div className="col-6 blockB blockB_one">
+				<div className="col-6 blockB blockB_one iBlock">
 					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта" />
 					<div className="clear" />
 				</div>
@@ -73,7 +125,7 @@ class PortfolioPage extends Component{
 
 		return (
 			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()} className="no-gutters">
-				<div className="col-12 blockC">
+				<div className="col-12 blockC iBlock">
 					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта"/>
 					<img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта"/>
 					<img src={`${photos.photo3}`}  srcSet={`${photos.photo3x2} 2x`} alt="Фото проекта"/>
@@ -95,7 +147,7 @@ class PortfolioPage extends Component{
 
 		return (
 			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()} className="no-gutters">
-				<div className="col-12 blockD">
+				<div className="col-12 blockD iBlock">
 					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта"/>
 				</div>
 			</Row>
@@ -125,7 +177,7 @@ class PortfolioPage extends Component{
 
 		return (
 			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()} className="no-gutters">
-				<div className="col-12 blockE">
+				<div className="col-12 blockE iBlock">
 					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта" style={styleLeft}/>
 					<img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта" style={styleRight}/>
 					<img src={`${photos.photo3}`}  srcSet={`${photos.photo3x2} 2x`} alt="Фото проекта" style={styleRight}/>

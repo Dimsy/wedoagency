@@ -106,20 +106,25 @@
   .blockB img,
   .blockE img{
     width: 442px;
+    object-fit: cover;
   }
   .blockA_one img,
   .blockB_one img{
     height: 632px;
+    object-fit: cover;
   }
   .blockA_two img,
   .blockB_two img{
     height: 304px;
+    object-fit: cover;
   }
   .blockD img{
     width: 904px;
+    object-fit: cover;
   }
   .blockC img{
     width: 288px;
+    object-fit: cover;
   }
   .awards__Item {
     width: 290px;
@@ -917,17 +922,21 @@
   .blockB_one img{
     width: calc(99% - 20px);
     height: calc(49vw * 1.443);
+    object-fit: cover;
   }
   .blockA_two img, 
   .blockB_two img{
     width: calc(99% - 20px);
     height: calc(49vw * 0.68);
+    object-fit: cover;
   }
   .blockC img{
     width: calc(33% - 20px);
+    object-fit: cover;
   }
   .blockD img{
      width: calc(99% - 20px);
+     object-fit: cover;
   }
   .portfolio__containerItems{
     display: flex;
@@ -1156,17 +1165,21 @@
   .blockA_one img, 
   .blockB_one img{
     height: calc(49vw * 1.443);
+    object-fit: cover;
   }
   .blockA_two img, 
   .blockB_two img{
     width: calc(99% - 20px);
     height: calc(49vw * 0.661);
+    object-fit: cover;
   }
   .blockC img{
     width: calc(33% - 20px);
+    object-fit: cover;
   }
   .blockD img{
      width: calc(99% - 20px);
+    object-fit: cover;
   } 
 
   .agencyPage__collage{
@@ -1183,6 +1196,7 @@
   .blockB_two img{
     width: calc(99% - 20px);
     height: calc(49vw * 0.655);
+    object-fit: cover;
   }
 }
 
@@ -1191,6 +1205,7 @@
   .blockB_two img{
     width: calc(99% - 20px);
     height: calc(49vw * 0.65);
+    object-fit: cover;
   }
 }
 
@@ -1251,4 +1266,16 @@
     height: 100%;
     object-fit: cover;
   }
+}
+
+.come-in {
+  transform: translateY(150px);
+  animation: come-in 0.8s ease forwards;
+}
+.come-in:nth-child(odd) {
+  animation-duration: 0.6s; /* So they look staggered */
+}
+
+@keyframes come-in {
+  to { transform: translateY(0);}
 }

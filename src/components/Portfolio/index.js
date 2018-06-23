@@ -61,7 +61,11 @@ class Portfolio extends Component{
 		return (
 			<div className='portfolio portfolioFadeIn'>
 
-		  	<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={411} totalSlides={mobile ? body.length + 2 : body.length} visibleSlides={3}>
+		  	<CarouselProvider naturalSlideWidth={327}
+							  naturalSlideHeight={411}
+                              lockOnWindowScroll={true}
+							  totalSlides={mobile ? body.length + 2 : body.length}
+							  visibleSlides={3}>
 			    <div className='container'>
 			 	    <div className='row no-gutters'>
 					    <div className="col-sm-8">
