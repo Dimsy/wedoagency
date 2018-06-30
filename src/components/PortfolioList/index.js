@@ -8,6 +8,9 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import $ from "jquery";
 
 class PortfolioList extends Component{
+    state = {
+        visibleItems: 11
+    };
 
 	componentDidMount(){
 		const { useLang, loadPortfolio } = this.props;
@@ -43,12 +46,24 @@ class PortfolioList extends Component{
 
 
 		const projectsItems = entities.toArray();
-
+		/*
 		const body = projectsItems.map( item => <li key={item.id}>
 																 							<PortfolioListItem item={item} match={match}/>
 																 							<div className="portfolioItem__mobile-padding" />
 															 							</li>).sort(this.sortBody)
-		
+		*/
+		let body = [];
+		for (let i=0; i<= projectsItems.length-1; i++) {
+
+			if (i <= this.state.visibleItems) {
+                body.push(
+                    <li key={projectsItems[i].id}>
+                        <PortfolioListItem item={projectsItems[i]} match={match}/>
+                        <div className="portfolioItem__mobile-padding"/>
+                    </li>)
+            }
+
+		}
 		if( body.length === 0 ){
 			return <div>Данные недоступны</div>
 		}
@@ -104,7 +119,8 @@ class PortfolioList extends Component{
 
 	addingPress = () => {
 		const { useLang } = this.props;
-		this.props.loadPortfolio(useLang);
+		this.setState({visibleItems: this.state.visibleItems + 12})
+		//this.props.loadPortfolio(useLang);
 	}
 }
 

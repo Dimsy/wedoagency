@@ -8,10 +8,15 @@ import safeEval from 'safe-eval'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import VideoHeader from './VideoHeader'
 import $ from "jquery";
+import {loadPortfolioItem} from "../../ducks/portfolioItem";
 
 class PortfolioPage extends Component{
 
 	componentWillMount() {
+		const id = window.location.href.split('/').pop();
+
+        this.props.loadPortfolioItem(id);
+
         $.fn.visible = function(partial) {
 
             var $t            = $(this),
@@ -189,24 +194,14 @@ class PortfolioPage extends Component{
 	}
 
 	render(){
-		const { useLang, entities, loading, error, match, portfolioList} = this.props;
-
+		const { useLang, entities, loading, error, match, selectedPortfolio} = this.props;
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);
 
-		const portfolioSet = entities.toArray();
+		if (selectedPortfolio) console.log(selectedPortfolio);
 
-		if ( portfolioSet.length == 0){
-			return <div>Данные пока не доступны!</div>
-		}
 
-		const portfolioItem = portfolioSet.find(item => item.id == match.params.id)
-
-		if ( portfolioItem.length == 0){
-			return null
-		}
-
-		const project = portfolioItem.toJS()
+		const project = selectedPortfolio
 
 		const body = []
 		
@@ -322,8 +317,9 @@ const mapStateToProps = state => {
 		entities: state.portfolio.entities,
 		portfolioList: state.portfolio.portfolioList,
 		loading: state.portfolio.loading,
-		error: state.portfolio.error
+		error: state.portfolio.error,
+        selectedPortfolio: state.portfolioItem.selectedPortfolio
 	}
 }
 
-export default connect(mapStateToProps)(PortfolioPage)
+export default connect(mapStateToProps, {loadPortfolioItem})(PortfolioPage);

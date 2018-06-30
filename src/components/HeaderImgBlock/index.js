@@ -30,9 +30,10 @@ class HeaderImgBlock extends Component{
         };
 
 		//headerPhotoMobile
-
-		if (entities.acf.video) {
-			return (
+		if (window.innerWidth < 768) {
+            return <div className="headerImgBlock" style={photoMobile}/>
+		} else if (entities.acf.video) {
+            return (
                 <div className="headerImgBlock" style={{overflow: 'hidden'}}>
                     <ReactCSSTransitionGroup transitionName="anim"
                                              transitionAppear={true}
@@ -44,13 +45,10 @@ class HeaderImgBlock extends Component{
                         </video>
                     </ReactCSSTransitionGroup>
                 </div>
-			)
-		} else if (window.innerWidth < 768) {
-            return <div className="headerImgBlock" style={photoMobile}/>
+            )
 		} else {
-            return <div className="headerImgBlock" style={photoPC}/>
-		}
-	}
+                return <div className="headerImgBlock" style={photoPC}/>}
+        	}
 }
 
 const mapStateToProps = state => {

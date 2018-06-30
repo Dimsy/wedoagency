@@ -4,6 +4,7 @@ import {saga as headerSaga} from '../ducks/header'
 import {saga as awardsSaga} from '../ducks/awards'
 import {saga as agencyInfoSaga} from '../ducks/agencyInfo';
 import {saga as portfolioSaga} from '../ducks/portfolio';
+import {saga as portfolioItemSaga} from '../ducks/portfolioItem';
 import {saga as pressSaga} from '../ducks/press';
 import {saga as pressPageSaga} from '../ducks/pressPage';
 import {saga as pressListSaga} from '../ducks/pressList';
@@ -25,6 +26,7 @@ export default function * () {
 		headerSaga(),
 		agencyInfoSaga(),
 		portfolioSaga(),
+        portfolioItemSaga(),
 		pressSaga(),
 		pressListSaga(),
 		pressPageSaga(),

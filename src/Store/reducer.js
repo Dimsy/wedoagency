@@ -9,6 +9,7 @@ import agencyInfoReducer, {moduleName as agencyInfoModule} from '../ducks/agency
 import agencyPageReducer, {moduleName as agencyPageModule} from '../ducks/agencyPage';
 import langReducer, {moduleName as langModule} from '../ducks/lang';
 import portfolioReducer, {moduleName as portfolioModule} from '../ducks/portfolio';
+import portfolioItemReducer, {moduleName as portfolioItemModule} from '../ducks/portfolioItem';
 import newsReducer, {moduleName as newsModule} from '../ducks/news';
 import newsArticleReducer, {moduleName as newsArticleModule} from '../ducks/newsArticle';
 import pressListReducer, {moduleName as pressListModule} from '../ducks/pressList';
@@ -24,6 +25,7 @@ export default combineReducers({
 	[agencyInfoModule]: agencyInfoReducer,
 	[awardsModule]: awardsReducer,
 	[portfolioModule]: portfolioReducer,
+    [portfolioItemModule]: portfolioItemReducer,
 	[pressModule]: pressReducer,
 	[pressPageModule]: pressPageReducer,
 	[pressListModule]: pressListReducer,
