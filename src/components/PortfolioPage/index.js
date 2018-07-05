@@ -176,19 +176,21 @@ class PortfolioPage extends Component{
 		const styleLeft = {
 						display: "inline-block", 
 						float: "left"
-					}				
+					}
 		
 	  if (!photos.photo1 || !photos.photo1x2 || !photos.photo2 || !photos.photo2x2|| !photos.photo3 || !photos.photo3x2 || !photos.photo4 || !photos.photo4x2) return null
 
 		return (
 			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()} className="no-gutters">
-				<div className="col-12 blockE iBlock">
+				<div className="col-6 blockE iBlock">
 					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта" style={styleLeft}/>
-					<img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта" style={styleRight}/>
-					<img src={`${photos.photo3}`}  srcSet={`${photos.photo3x2} 2x`} alt="Фото проекта" style={styleRight}/>
-					<img src={`${photos.photo4}`}  srcSet={`${photos.photo4x2} 2x`} alt="Фото проекта" style={styleLeft}/>
-					<div className="clear" />
+                    <img src={`${photos.photo3}`}  srcSet={`${photos.photo3x2} 2x`} alt="Фото проекта" style={styleLeft}/>
 				</div>
+                <div className="col-6 blockE iBlock blockE_dropM">
+                    <img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта" style={styleLeft}/>
+                    <img src={`${photos.photo4}`}  srcSet={`${photos.photo4x2} 2x`} alt="Фото проекта" style={styleLeft}/>
+                </div>
+                <div className="clear" />
 			</Row>
 		)	
 	}

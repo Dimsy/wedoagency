@@ -6,6 +6,7 @@ import ErrorCmp from '../ErrorCmp';
 import PortfolioListItem from './PortfolioListItem';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import $ from "jquery";
+import moment from 'moment';
 
 class PortfolioList extends Component{
     state = {
@@ -27,13 +28,15 @@ class PortfolioList extends Component{
 	}
 
 	sortBody = (a, b) => {
-		const aDate = a.props.children[0].props.item.acf.DataOfFinnish
-		const bDate = b.props.children[0].props.item.acf.DataOfFinnish
+		const aDate = a.acf.DataOfFinnish;
+		const bDate = b.acf.DataOfFinnish;
 
-		var aNumberForCompare = aDate.split('/').reverse().join()
-		var bNumberForCompare = bDate.split('/').reverse().join()
-        		
-  		return aNumberForCompare > bNumberForCompare ? -1 : (aNumberForCompare < bNumberForCompare ? 1 : 0);
+		if (aDate === bDate) return 0;
+		var aNumberForCompare = moment(aDate.split('/').reverse().join('-'));
+		var bNumberForCompare = moment(bDate.split('/').reverse().join('-'));
+
+		return aNumberForCompare.isAfter(bNumberForCompare) ? -1 : 1;
+  		//return aNumberForCompare > bNumberForCompare ? -1 : (aNumberForCompare < bNumberForCompare ? 1 : 0);
 	}
 
 	render(){
@@ -53,12 +56,13 @@ class PortfolioList extends Component{
 															 							</li>).sort(this.sortBody)
 		*/
 		let body = [];
-		for (let i=0; i<= projectsItems.length-1; i++) {
+		let sortedItems = projectsItems.sort(this.sortBody);
+		for (let i=0; i<= sortedItems.length-1; i++) {
 
 			if (i <= this.state.visibleItems) {
                 body.push(
-                    <li key={projectsItems[i].id}>
-                        <PortfolioListItem item={projectsItems[i]} match={match}/>
+                    <li key={sortedItems[i].id}>
+                        <PortfolioListItem item={sortedItems[i]} match={match}/>
                         <div className="portfolioItem__mobile-padding"/>
                     </li>)
             }

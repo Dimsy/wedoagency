@@ -44,7 +44,8 @@ class PressItem extends Component{
 			backgroundImage: `-o-image-set( url(${item.acf.foto}) 1x, url(${item.acf.Fotox2}) 2x )`,
 			backgroundImage: `-ms-image-set( url(${item.acf.foto}) 1x, url(${item.acf.Fotox2}) 2x )`,
 			backgroundImage: `url(${item.acf.foto})`
-		};	
+		};
+        const mobile = window.innerWidth < 768 ? true : false;
 
 		/*const body = window.innerWidth > 768 ? <div className="pressItem__Inner">
 																						 	<div className="pressItem__Inner-title">
@@ -55,16 +56,22 @@ class PressItem extends Component{
 																							</div>
 																						</div>
 																				 : null;*/
-
-
+		const cellStyle = {
+			display: "table-cell",
+        	verticalAlign: "middle",
+    	}
 		const body =
 			<div className="pressItem__Inner">
-				<div className="pressItem__Inner-title">
-					{item.title.rendered}
-				</div>
-				<div className="pressItem__Inner-date">
-					{item.acf.date}
-				</div>
+					<div className="pressItem__Inner-title">
+						<div style={cellStyle} className={!mobile ? "pcCell" : ""}>
+							{item.title.rendered}
+						</div>
+					</div>
+					<div className="pressItem__Inner-date">
+						<div>
+							{item.acf.date}
+						</div>
+					</div>
         	</div>;
 									
 		return (

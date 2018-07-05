@@ -1027,25 +1027,28 @@ hr {
     position: absolute;
     top: 10px;
     left: 10px;
-
+    display: table;
     background-color: #f7f7f7;
     z-index: 20px;
-    width: 274px;
-    height: 378px;
+    width: 280px;
+    height: 385px;
     opacity: 0;
     transition: opacity .5s ease-out;
     -moz-transition: opacity .5s ease-out;
     -webkit-transition: opacity .5s ease-out;
     -o-transition: opacity .5s ease-out;
 }
-
+.pressList .pcCell {
+  padding-left: 32px;
+  padding-right: 32px;
+}
 .pressItem div:hover {
     opacity: .9;
 }
 
 .pressList .pressItem__Inner-title{
-  display: table-cell;
-  height: 322px;
+  display: table-row;
+  height: 355px;
   width: 100%;
   padding-left: 32px;
   padding-right: 32px;
@@ -1249,9 +1252,14 @@ hr {
 }
 
 .blockA img,
-.blockB img,
-.blockE img{
+.blockB img{
   width: 467px;
+}
+.blockE img{
+  width: 474px;
+}
+.blockE_dropM img {
+  margin-left: 4px;
 }
 .blockC img{
   width: 309px;

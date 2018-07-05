@@ -54,6 +54,7 @@
     "safe-eval": "^0.3.0",
     "scroll-to-element": "^2.0.0",
     "lodash": "*.*",
-    "jquery": "*.*"
+    "jquery": "*.*",
+    "moment": "*.*"
   }
 }

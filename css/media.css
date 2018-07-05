@@ -408,7 +408,7 @@
     height: 204px;
   }
   .pressList .pressItem__Inner-title{
-    height: 209px;
+    height: 203px !important;
   }
   .pressPage {
     padding-top: 100px;
@@ -687,9 +687,11 @@
     width: 520px;
   }
   .blockA img,
-  .blockB img,
-  .blockE img{
+  .blockB img{
     width: 250px;
+  }
+  .blockE img{
+    width: 157px;
   }
   .blockA_one img,
   .blockB_one img{
@@ -986,6 +988,7 @@
   }
   .newsList .newsList__title{
     padding-left: 20px;
+    margin-bottom: 20px;
   }
   .newsList__collection .borderNews{
     margin-top: 40px;
