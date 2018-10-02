@@ -5,6 +5,7 @@ import ErrorCmp from '../ErrorCmp';
 import { loadNewsArticleList } from '../../ducks/newsArticle';
 import {Link} from 'react-router-dom';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import $ from "jquery";
 
 class NewsArticle extends Component{
 	
@@ -30,7 +31,6 @@ class NewsArticle extends Component{
 	slog = (key, item) => {
 
 		if(!item) return null
-
 		return (
 						<div className="row no-gutters" key={key}>
 							<div className="col-md-6 offset-md-3">		
@@ -47,6 +47,7 @@ class NewsArticle extends Component{
 
 	text = (key, item) => {
 		if(!item) return null
+        item = item.split('a href').join('a target="_blank" href');
 
 		return (
 						<div className="row no-gutters" key={key}>
@@ -148,7 +149,7 @@ class NewsArticle extends Component{
 						{date.toLocaleString( i18, options)}
 					</div>
 					<div>
-						<div className="container">
+						<div className="container" id="container">
 							<div className="row no-gutters">
 								<div className="col-md-8 offset-md-2">
 									<div className="articleTitle">			

@@ -20,8 +20,6 @@ class SendMessage extends Component{
 		if (error) return (<ErrorCmp error={error} />);
         //document.getElementById('veil').style.visibility = "hidden";
 
-            $("#veil").removeClass('fadein').addClass("fadeout");
-
 
 		return (
 			<div className="container sendMessage">

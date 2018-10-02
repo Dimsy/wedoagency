@@ -913,7 +913,8 @@
   
   .portfolioPage__photoNextText img {
     width: calc(100% - 20px);
-    height: 68vw; 
+    height: 68vw;
+    object-fit: cover;
   }
   
   .portfolioPage__project .container {
