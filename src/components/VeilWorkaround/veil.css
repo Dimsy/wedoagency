@@ -35,17 +35,16 @@
     -webkit-animation:fadeinSlow 3s linear;
 }
 
-
 .veilLogo {
-        height: 253px;
+        height: calc(100vh - 100px);
         background-image: url(http://test.wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png);
         background-image: -webkit-image-set(url(http://test.wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png) 1x, url(http://test.wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo@2x.png) 2x);
         background-image: -moz-image-set(url(http://test.wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png) 1x, url(http://test.wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo@2x.png) 2x);
         background-image: -o-image-set(url(http://test.wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png) 1x, url(http://test.wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo@2x.png) 2x);
         background-image: -ms-image-set(url(http://test.wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png) 1x, url(http://test.wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo@2x.png) 2x);
         background-repeat: no-repeat;
-        background-position: 800px 110px;
-        margin-top: 300px;
+        margin-top: calc(50vh - 26px);
+        margin-left: calc(50vw - 153px);
         opacity: 0.1;
     overflow: hidden;
     }
