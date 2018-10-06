@@ -55,6 +55,7 @@
     "scroll-to-element": "^2.0.0",
     "lodash": "*.*",
     "jquery": "*.*",
-    "moment": "*.*"
+    "moment": "*.*",
+    "axios-progress-bar": "*.*"
   }
 }

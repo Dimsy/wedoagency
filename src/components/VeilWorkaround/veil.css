@@ -64,3 +64,7 @@
         opacity: 0.1;
     }
 }
+
+#nprogress .bar {
+    background: black !important;
+}
