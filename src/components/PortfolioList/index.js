@@ -7,6 +7,7 @@ import PortfolioListItem from './PortfolioListItem';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import $ from "jquery";
 import moment from 'moment';
+import VideoHeader from '../PortfolioPage/VideoHeader'
 
 class PortfolioList extends Component{
     state = {
@@ -90,8 +91,13 @@ class PortfolioList extends Component{
 			marginBottom: '100px'
 		} || null;
 
-		const titleArticle = window.innerWidth > 768 ? <div className="articleImgNews" style={header} /> : null
-					
+		//const titleArticle = window.innerWidth > 768 ? <div className="articleImgNews" style={header} /> : null
+
+        const titleArticle = window.innerWidth < 768 ? <div className="articleImgNews" style={header} />
+            : portfolioList.acf.headerVideo
+                ? <VideoHeader src={portfolioList.acf.headerVideo.url} key={portfolioList.acf.headerVideo.url} />
+                : <div className="articleImgNews" style={header} />
+
 		return (
 			<div className='portfolioList'>
 				<ReactCSSTransitionGroup transitionName="anim" 
