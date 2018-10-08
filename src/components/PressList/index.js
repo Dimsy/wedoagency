@@ -6,6 +6,7 @@ import ErrorCmp from '../ErrorCmp';
 import PressItem from './pressItem';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import $ from "jquery";
+import {Helmet} from "react-helmet";
 
 class PressList extends Component{
 
@@ -68,6 +69,9 @@ class PressList extends Component{
 					
 		return (
 			<div className='container pressList'>
+                <Helmet>
+                    <title>WeDoAgency | {title}</title>
+                </Helmet>
 				<ReactCSSTransitionGroup transitionName="anim" 
 																 transitionAppear={true} 
 																 transitionAppearTimeout={2000}

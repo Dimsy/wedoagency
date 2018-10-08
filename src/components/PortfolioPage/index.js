@@ -9,6 +9,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import VideoHeader from './VideoHeader'
 import $ from "jquery";
 import {loadPortfolioItem} from "../../ducks/portfolioItem";
+import {Helmet} from "react-helmet";
 
 class PortfolioPage extends Component{
 
@@ -285,6 +286,9 @@ class PortfolioPage extends Component{
 					
 		return(
 			<div className="portfolioPage__project">
+				<Helmet>
+					<title>WeDoAgency | {title}</title>
+				</Helmet>
 				<ReactCSSTransitionGroup transitionName="anim" 
 																 transitionAppear={true} 
 																 transitionAppearTimeout={2000}

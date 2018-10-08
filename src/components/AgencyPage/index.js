@@ -6,6 +6,7 @@ import ErrorCmp from '../ErrorCmp';
 import VideoBlock from '../VideoBlock'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import $ from "jquery";
+import {Helmet} from "react-helmet";
 
 class AgencyPage extends Component {
 	
@@ -60,6 +61,9 @@ class AgencyPage extends Component {
     if (window.innerWidth < 768){
     		return (
 					<div className="articlePage">
+                        <Helmet>
+                            <title>WeDoAgency | {entities.title.rendered}</title>
+                        </Helmet>
 						{headerBlock}
 						<div className="container">
 							<div className="row no-gutters">
@@ -93,6 +97,9 @@ class AgencyPage extends Component {
 		
 		return (
 			<div className="articlePage">
+                <Helmet>
+                    <title>WeDoAgency | {entities.title.rendered}</title>
+                </Helmet>
 				<ReactCSSTransitionGroup transitionName="anim" 
 																 transitionAppear={true} 
 																 transitionAppearTimeout={2000}

@@ -8,6 +8,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import $ from "jquery";
 import moment from 'moment';
 import VideoHeader from '../PortfolioPage/VideoHeader'
+import {Helmet} from "react-helmet";
 
 class PortfolioList extends Component{
     state = {
@@ -100,6 +101,9 @@ class PortfolioList extends Component{
 
 		return (
 			<div className='portfolioList'>
+                <Helmet>
+                    <title>WeDoAgency | {projects}</title>
+                </Helmet>
 				<ReactCSSTransitionGroup transitionName="anim" 
 																 transitionAppear={true} 
 																 transitionAppearTimeout={2000}

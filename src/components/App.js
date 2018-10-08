@@ -5,6 +5,7 @@ import {ConnectedRouter} from 'react-router-redux'
 import RouteRoot from './Routes/root'
 import RouteMainPage from './Routes/mainPage'
 import RouteNews from './Routes/news'
+import RouteKids from './Routes/kids'
 import RouteNewsArticle from './Routes/newsItem'
 import RouteContacts from './Routes/contacts'
 import RoutePortfolioList from './Routes/portfolioList'
@@ -58,6 +59,7 @@ class App extends Component {
 							<Route path="/press/:id" component={RoutePressPage} exact/>
 							<Route path="/news" component={RouteNews} exact/>
 							<Route path="/news/:id" component={RouteNewsArticle} exact/>
+                            <Route path="/kids" component={() => window.location = 'http://kids.wedoagency.ru/'} exact/>
 							<Route path="/contacts" component={RouteContacts} exact/>
 						</Switch>
 					<Route path="/" component={RouteInstaFooter} />

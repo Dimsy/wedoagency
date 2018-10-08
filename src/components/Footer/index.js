@@ -86,7 +86,7 @@ class Footer extends Component{
 								<br />
 								(viber/whatsapp)
 								<br />
-								<a href={contacts.acf.mail} className="footer__mail">{contacts.acf.mail}</a>
+								<a className="footer__mail">{contacts.acf.mail}</a>
 								<br />
 								{renderHTML( contacts.content.rendered)} 
 							</div>

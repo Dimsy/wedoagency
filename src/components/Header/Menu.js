@@ -30,7 +30,7 @@ class Menu extends Component{
 		return (
 			<div className="headerTopLine">
 					<TopMenu closeMenu={this.props.closeMenu}/>
-					<LangSwitcher closeMenu={this.props.closeMenu}/>
+				{/*<LangSwitcher closeMenu={this.props.closeMenu}/>*/}
 					{mobileContacts}
 					<Socials placementClass='headerSocialMenu'/>
 				<div className="clear" />

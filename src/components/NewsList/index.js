@@ -6,6 +6,7 @@ import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import $ from "jquery";
+import {Helmet} from "react-helmet";
 
 class NewsList extends Component{
 
@@ -58,6 +59,9 @@ class NewsList extends Component{
 
 		return (
 			<div className="newsList">
+                <Helmet>
+                    <title>WeDoAgency | {title}</title>
+                </Helmet>
 				<ReactCSSTransitionGroup transitionName="anim" 
 																 transitionAppear={true} 
 																 transitionAppearTimeout={2000}

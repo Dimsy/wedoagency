@@ -6,7 +6,8 @@ import ErrorCmp from '../ErrorCmp';
 import {sendCustomForm} from '../../ducks/form';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import $ from "jquery";
-//import {sendForm} from '../../AC';
+import {Helmet} from "react-helmet";
+
 class SendMessage extends Component{
 
 	submit = (values) => {
@@ -23,6 +24,9 @@ class SendMessage extends Component{
 
 		return (
 			<div className="container sendMessage">
+                <Helmet>
+                    <title>WeDoAgency | {contacts.acf.contactsText}</title>
+                </Helmet>
 				<ReactCSSTransitionGroup transitionName="anim" 
 					 transitionAppear={true}
 					 transitionAppearTimeout={2000}
