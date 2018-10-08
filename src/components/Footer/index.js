@@ -9,9 +9,39 @@ import SocialFooter from './social';
 import BackToTop from './backToTop';
 import renderHTML from 'react-render-html';
 import Socials from '../Socials/Socials';
+import $ from "jquery";
 
 class Footer extends Component{
-	
+    constructor() {
+        super();
+        this.redirectToLink = this.redirectToLink.bind(this);
+    }
+
+    state = {
+        show: false,
+        showVeil: false
+    }
+
+    redirectToLink(item) {
+        const link = item.url;
+        window.location.href = link
+    }
+
+    handleClick (item, event) {
+        if (event.defaultPrevented) {
+            return;
+        }
+        event.preventDefault();
+        this.setState({showVeil: true});
+        setTimeout(this.redirectToLink(item), 3000);
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        if (nextState.showVeil === true) {
+            $("#veil").removeClass("fadeout").addClass("fadein");
+        }
+    }
+
 	render(){
 		const {useLang, menu, contacts, loading} = this.props
 
@@ -23,7 +53,15 @@ class Footer extends Component{
 			return <div>Данные не доступны</div>
 		}
 		
-		const body = menuSet.map(item =><li key={item.ID} className="menuFooter__Item"><Link to={item.url}>{item.title}</Link></li>)
+		const body = menuSet.map(item => {
+			return (
+				<li key={item.ID} className="menuFooter__Item">
+					<Link to={item.url}  onClick={this.handleClick.bind(this, item)}>
+						{item.title}
+						</Link>
+				</li>)
+			}
+		)
 		
 		const labelLang = useLang == "ru" ? 'Свадебное агeство "WeDoAgency"' : 'Wedding agency "WeDoAgency"'
 		const label = window.innerWidth < 768 ? <Col sm={11} className="col-11"><p className="footer__label">{labelLang}</p><p className="footer__label">2012-2018</p></Col> : null
