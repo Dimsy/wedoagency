@@ -14,7 +14,7 @@ class VeilWorkaround extends Component{
     render(){
         return (
             <div className="veil" id="veil">
-                <div className="veilLogo"/>
+                <div className="veilLogo fadeout" id="veilLogo"/>
                 {loadProgressBar()}
             </div>
         )

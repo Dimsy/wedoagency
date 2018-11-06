@@ -32,6 +32,8 @@ class PortfolioListItem extends Component{
     componentWillUpdate(nextProps, nextState) {
         if (nextState.showVeil === true) {
             $("#veil").removeClass("fadeout").addClass("fadeinSlow");
+
+            $("#veilLogo").removeClass("fadeout").addClass("fadeinSlow");
         }
     }
 
