@@ -41,6 +41,7 @@ class NewsList extends Component{
 
 
 		const posts = entities.toArray();
+		console.log(posts)
 		
 		const showMore = useLang == "ru" ? "Показать еще" : "Show more";
 		const title = useLang == "ru" ? "Новости" : "News";

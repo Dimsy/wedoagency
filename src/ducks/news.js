@@ -69,7 +69,7 @@ export function * newsSaga(action){
 	const articleLang = action.payload.lang == 'ru' ? NEWS_ru : NEWS_en;
 
 	try {
-		const response = yield call(axios.get, `/wp-json/wp/v2/posts?categories=${articleLang}&order=desc&per_page=6`); 
+		const response = yield call(axios.get, `/wp-json/wp/v2/posts?categories=${articleLang}&orderby=date&order=desc&per_page=10`);
 		const responseCatName = yield call(axios.get, `/wp-json/wp/v2/categories/${articleLang}`);
 
 		yield put({

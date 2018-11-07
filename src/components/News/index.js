@@ -10,8 +10,23 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 import {OrderedSet} from 'immutable';
 import {PATH} from '../../config'
 import './news.css';
+import moment from 'moment';
 
 class News extends Component{
+
+    sortBody = (a, b) => {
+    	console.log('a,b')
+    	console.log(a,b)
+        const aDate = a.date;
+        const bDate = b.date;
+
+        if (aDate === bDate) return 0;
+        var aNumberForCompare = moment(aDate.split('/').reverse().join('-'));
+        var bNumberForCompare = moment(bDate.split('/').reverse().join('-'));
+
+        return aNumberForCompare.isAfter(bNumberForCompare) ? -1 : 1;
+        //return aNumberForCompare > bNumberForCompare ? -1 : (aNumberForCompare < bNumberForCompare ? 1 : 0);
+    }
 
 	componentDidMount(){
     const { useLang, entities } = this.props;
@@ -34,13 +49,14 @@ class News extends Component{
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);			
 
-
-		const posts = entities.toArray();
-
+		console.log(entities)
+		const posts = entities.toArray().sort(this.sortBody);
+		console.log(posts)
 		const body = posts.map( (item) => <Slide key={item.id} index={item.id}>
 		  																	<NewsInfo item={item}/>
 		 																	</Slide>
 																		);
+		console.log(body)
 
 		const opacity = body.length > 3 ? {opacity: "1"} : {opacity: "0.3"}
         const mobile = window.innerWidth < 768 ? true : false;
