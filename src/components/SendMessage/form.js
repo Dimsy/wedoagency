@@ -59,7 +59,7 @@ class Form extends Component{
         const formError = !nameError && !emailError && !messageError;
 
         return (
-			<form onSubmit={handleSubmit(this.submit)} name="contacts" className="sendMessage latoFont">
+			<form onSubmit={handleSubmit(this.submit)} name="contacts" className="latoFont">
 				<input
                     name="name"
 					type="text"

@@ -63,7 +63,7 @@ class PortfolioList extends Component{
 
 			if (i <= this.state.visibleItems) {
                 body.push(
-                    <li key={sortedItems[i].id}>
+                    <li key={sortedItems[i].id} className="pItemFadeIn">
                         <PortfolioListItem item={sortedItems[i]} match={match}/>
                         <div className="portfolioItem__mobile-padding"/>
                     </li>)

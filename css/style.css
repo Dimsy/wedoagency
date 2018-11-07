@@ -1380,3 +1380,11 @@ hr {
 .latoFont {
   font-family: LatoRegular;
 }
+
+@-webkit-keyframes pItemFadeIn{
+  0%{opacity:0;visibility:visible;}
+  100%{opacity:1;}
+}
+.pItemFadeIn {
+  -webkit-animation:pItemFadeIn 2s linear;
+}
