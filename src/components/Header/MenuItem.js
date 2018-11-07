@@ -32,6 +32,7 @@ class MenuItem extends Component{
     componentWillUpdate(nextProps, nextState) {
         if (nextState.showVeil === true) {
             $("#veil").removeClass("fadeout").addClass("fadein");
+            $("#veilLogo").removeClass("fadeout");
         }
     }
 
