@@ -6,6 +6,8 @@ import { loadNewsArticleList } from '../../ducks/newsArticle';
 import {Link} from 'react-router-dom';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import $ from "jquery";
+import {Helmet} from "react-helmet";
+
 
 class NewsArticle extends Component{
 	
@@ -139,6 +141,9 @@ class NewsArticle extends Component{
 
 		return (
 			<div className="newsArticleBlock">
+				<Helmet>
+					<title>WeDoAgency | {entities.title.rendered}</title>
+				</Helmet>
 				<ReactCSSTransitionGroup transitionName="anim" 
 																 transitionAppear={true} 
 																 transitionAppearTimeout={2000}

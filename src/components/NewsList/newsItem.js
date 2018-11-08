@@ -4,7 +4,6 @@ import { Row } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import $ from "jquery";
 
-
 class NewsItem extends Component{
     state = {
         show: false,
