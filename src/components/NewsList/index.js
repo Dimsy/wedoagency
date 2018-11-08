@@ -7,6 +7,7 @@ import ErrorCmp from '../ErrorCmp';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import $ from "jquery";
 import {Helmet} from "react-helmet";
+import moment from 'moment';
 
 class NewsList extends Component{
 
@@ -30,6 +31,21 @@ class NewsList extends Component{
 		const { useLang } = this.props;
 		this.props.loadNewsList(useLang);
 	}
+
+    sortBody = (a, b) => {
+        console.log('a,b')
+        console.log(a.date,b.date)
+        const aDate = a.date;
+        const bDate = b.date;
+
+        if (aDate === bDate) return 0;
+        var aNumberForCompare = moment(aDate.split('/').reverse().join('-'));
+        var bNumberForCompare = moment(bDate.split('/').reverse().join('-'));
+
+        return aNumberForCompare.isAfter(bNumberForCompare) ? -1 : 1;
+        //return aNumberForCompare > bNumberForCompare ? -1 : (aNumberForCompare < bNumberForCompare ? 1 : 0);
+    }
+
 	render(){
 		const { useLang, entities, loading, error, count, location, match} = this.props;
 
@@ -40,7 +56,7 @@ class NewsList extends Component{
             $("#veil").removeClass('fadein').addClass("fadeout");
 
 
-		const posts = entities.toArray();
+		const posts = entities.toArray().sort(this.sortBody);;
 		console.log(posts)
 		
 		const showMore = useLang == "ru" ? "Показать еще" : "Show more";
