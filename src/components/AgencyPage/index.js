@@ -78,7 +78,7 @@ class AgencyPage extends Component {
 							</div>
 							<div className="row no-gutters">
 								<div className="col-md-6 agencyPage__collage">
-									<img src={`${entities.acf.collage}`} />
+									<img rel="image_src" src={`${entities.acf.collage}`} />
 								</div>
 								<div className="col-md-6">
 									<div className='p'>

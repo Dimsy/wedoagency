@@ -103,7 +103,7 @@ class Agency extends Component{
 				{headerMobile}
 	 			<div className="row">
 	 				<div className="col-sm-12 col-md-6 agencyImg">
-	 						<img src={entities.acf.agencyPhoto} srcSet={`${entities.acf.agencyPhotox2} 2x`} alt="Изображение для прессы"/>
+	 						<img rel="image_src" src={entities.acf.agencyPhoto} srcSet={`${entities.acf.agencyPhotox2} 2x`} alt="Изображение для прессы"/>
 	 				</div>
 	 				<div className="col-sm-12 col-md-5 offset-md-1">
 	 					{headerDesktop}

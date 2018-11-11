@@ -246,7 +246,9 @@ class PortfolioPage extends Component{
             backgroundImage: `url(${project.acf.headerPhotoMobile})`,
         };
 
-		const headerBlock = window.innerWidth < 768 ? <div className="articleImgNews" style={headerMobile} />
+        const isMobile = window.innerWidth < 768;
+
+		const headerBlock = isMobile ? <div className="articleImgNews" style={headerMobile} />
 			: project.acf.headerVideo
 				? <VideoHeader src={project.acf.headerVideo} key={project.acf.headerVideo} />
 				: <div className="articleImgNews" style={headerPC} />
@@ -304,19 +306,37 @@ class PortfolioPage extends Component{
                 </div>
         );
 
+        const photoEl = <div className="row">
+                            <div className={isMobile ? "col-xs-6" : "col-md-3"} style={{paddingLeft: '25px'}}>
+                                <p className={'text-muted'} style={{paddingTop: '0px', float: 'left'}}>Фотограф:&nbsp;&nbsp;&nbsp;</p>
+                            </div>
+                            <div className={isMobile ? "col-xs-6" : "col-md-3"} >
+                                {photographers_el}
+                            </div>
+                        </div>;
+
+        const videoEl = <div className="row" style={{marginBottom: '70px'}}>
+                            <div className={isMobile ? "col-xs-6" : "col-md-3"} style={{paddingLeft: '25px'}}>
+                                <p className={'text-muted'} style={{paddingTop: '0px', float: 'left'}}>Видеограф:&nbsp;</p>
+                            </div>
+                            <div className={isMobile ? "col-xs-6" : "col-md-3"} >
+                                {videographs_el}
+                            </div>
+                        </div>;
+
 		const photovideoElement =	<div className="row" style={{marginBottom: '70px'}}>
-										<div className="col-md-3" style={{paddingLeft: '25px'}}>
-											<p className={'text-muted'} style={{paddingTop: '0px', float: 'left'}}>Фотограф:&nbsp;</p>
-										</div>
-										<div className="col-md-3" >
-											{photographers_el}
-										</div>
-										<div className="col-md-3" >
+                                        <div className={"col-md-3"} style={{paddingLeft: '25px'}}>
+                                            <p className={'text-muted'} style={{paddingTop: '0px', float: 'left'}}>Фотограф:&nbsp;</p>
+                                        </div>
+                                        <div  className={"col-md-3"} >
+                                            {photographers_el}
+                                        </div>
+                                        <div  className={"col-md-3"} >
                                             <p className={'text-muted'} style={{paddingTop: '0px', float: 'left'}}>Видеограф:&nbsp;</p>
-										</div>
-										<div className="col-md-3" >
-											{videographs_el}
-										</div>
+                                        </div>
+                                        <div  className={"col-md-3"} >
+                                            {videographs_el}
+                                        </div>
 									</div>;
 
 		return(
@@ -344,7 +364,9 @@ class PortfolioPage extends Component{
 						</Row>
 						{body}
 						{videoBody}
-                        {photographers_list.length && videographs_list.length ? photovideoElement : null}
+                        {photographers_list.length && videographs_list.length && !isMobile ? photovideoElement : null}
+                        {photographers_list.length && videographs_list.length && isMobile ? photoEl : null}
+                        {photographers_list.length && videographs_list.length && isMobile ? videoEl : null}
 					</div>
 				</ReactCSSTransitionGroup>
 			</div>
