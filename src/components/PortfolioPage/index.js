@@ -292,27 +292,27 @@ class PortfolioPage extends Component{
 
         const photographers_el = photographers_list.map(
         	(item) =>
-				<div className="row">
-					<b key={item} className="col-md-12" >{item}</b>
+				<div key={item} className="row">
+                    <p style={{paddingTop: '0px'}}><b key={item} className="col-md-12" >{item}</b></p>
 				</div>
 			);
 
         const videographs_el = videographs_list.map(
             (item) =>
-                <div className="row">
-                    <b key={item} className="col-md-12" >{item}</b>
+                <div key={item} className="row">
+                    <p style={{paddingTop: '0px'}}><b key={item} className="col-md-12" >{item}</b></p>
                 </div>
         );
 
-		const photovideoElement =	<div className="row" >
-										<div className="col-md-3" >
-											Фотограф:&nbsp;
+		const photovideoElement =	<div className="row" style={{marginBottom: '70px'}}>
+										<div className="col-md-3" style={{paddingLeft: '25px'}}>
+											<p className={'text-muted'} style={{paddingTop: '0px', float: 'left'}}>Фотограф:&nbsp;</p>
 										</div>
 										<div className="col-md-3" >
 											{photographers_el}
 										</div>
 										<div className="col-md-3" >
-											Видеограф:&nbsp;
+                                            <p className={'text-muted'} style={{paddingTop: '0px', float: 'left'}}>Видеограф:&nbsp;</p>
 										</div>
 										<div className="col-md-3" >
 											{videographs_el}
@@ -331,7 +331,6 @@ class PortfolioPage extends Component{
 																 transitionLeave={false}>
 					{headerBlock}
 					<div className="container portfolioPage__container-padding">
-                        {photovideoElement}
 						<Row className="no-gutters">
 							<div className="col-md-4" >
 								<h1 className="portfolio__title">
@@ -345,6 +344,7 @@ class PortfolioPage extends Component{
 						</Row>
 						{body}
 						{videoBody}
+                        {photographers_list.length && videographs_list.length ? photovideoElement : null}
 					</div>
 				</ReactCSSTransitionGroup>
 			</div>
