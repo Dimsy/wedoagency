@@ -98,13 +98,21 @@ class NewsArticle extends Component{
 		  year: 'numeric'
 		};
 
-		const divStyle = {
-			backgroundImage: `-webkit-image-set( url(${article.acf.headImgNews}) 1x, url(${article.acf.headImgNewsx2}) 2x )`,
-			backgroundImage: `-moz-image-set( url(${article.acf.headImgNews}) 1x, url(${article.acf.headImgNewsx2}) 2x )`,
-			backgroundImage: `-o-image-set( url(${article.acf.headImgNews}) 1x, url(${article.acf.headImgNewsx2}) 2x )`,
-			backgroundImage: `-ms-image-set( url(${article.acf.headImgNews}) 1x, url(${article.acf.headImgNewsx2}) 2x )`,
-			backgroundImage: `url(${article.acf.headImgNews})`
-		};
+        const headerPC = {
+            backgroundImage: `-webkit-image-set( url(${article.acf.headImgNews}) 1x, url(${article.acf.headImgNewsx2}) 2x )`,
+            backgroundImage: `-moz-image-set( url(${article.acf.headImgNews}) 1x, url(${article.acf.headImgNewsx2}) 2x )`,
+            backgroundImage: `-o-image-set( url(${article.acf.headImgNews}) 1x, url(${article.acf.headImgNewsx2}) 2x )`,
+            backgroundImage: `-ms-image-set( url(${article.acf.headImgNews}) 1x, url(${article.acf.headImgNewsx2}) 2x )`,
+            backgroundImage: `url(${article.acf.headImgNews})`
+        };
+
+        const headerMobile = {
+            backgroundImage: `-webkit-image-set( url(${article.acf.headerPhotoMobile}) 1x, url(${article.acf.headerPhotoMobilex2}) 2x )`,
+            backgroundImage: `-moz-image-set( url(${article.acf.headerPhotoMobile}) 1x, url(${article.acf.headerPhotoMobilex2}) 2x )`,
+            backgroundImage: `-o-image-set( url(${article.acf.headerPhotoMobile}) 1x, url(${article.acf.headerPhotoMobilex2}) 2x )`,
+            backgroundImage: `-ms-image-set( url(${article.acf.headerPhotoMobile}) 1x, url(${article.acf.headerPhotoMobilex2}) 2x )`,
+            backgroundImage: `url(${article.acf.headerPhotoMobile})`
+        };
 
 		const body = []
 
@@ -149,7 +157,7 @@ class NewsArticle extends Component{
 																 transitionAppearTimeout={2000}
 																 transitionEnter={false} 
 																 transitionLeave={false}>
-					<div className="articleImgNews" style={divStyle} />
+					<div className="articleImgNews" style={window.innerWidth < 768 ? headerMobile : headerPC} />
 					<div className="articleDate">
 						{date.toLocaleString( i18, options)}
 					</div>

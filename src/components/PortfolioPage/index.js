@@ -282,21 +282,56 @@ class PortfolioPage extends Component{
 																										     </div>
 
 																										 </div>
-																									: <div style={{marginBottom: '90px'}} />
-					
+																									: <div style={{marginBottom: '90px'}} />;
+
+		const photographers_list = project.acf.photographers_list ? project.acf.photographers_list.split(/\n/) : [];
+		const videographs_list = project.acf.videograph_list ? project.acf.videograph_list.split(/\n/) : [];
+
+		console.log(photographers_list);
+        console.log(videographs_list);
+
+        const photographers_el = photographers_list.map(
+        	(item) =>
+				<div className="row">
+					<b key={item} className="col-md-12" >{item}</b>
+				</div>
+			);
+
+        const videographs_el = videographs_list.map(
+            (item) =>
+                <div className="row">
+                    <b key={item} className="col-md-12" >{item}</b>
+                </div>
+        );
+
+		const photovideoElement =	<div className="row" >
+										<div className="col-md-3" >
+											Фотограф:&nbsp;
+										</div>
+										<div className="col-md-3" >
+											{photographers_el}
+										</div>
+										<div className="col-md-3" >
+											Видеограф:&nbsp;
+										</div>
+										<div className="col-md-3" >
+											{videographs_el}
+										</div>
+									</div>;
+
 		return(
 			<div className="portfolioPage__project">
 				<Helmet>
 					<title>WeDoAgency | {title}</title>
 				</Helmet>
-				<ReactCSSTransitionGroup transitionName="anim" 
-																 transitionAppear={true} 
+				<ReactCSSTransitionGroup transitionName="anim"
+																 transitionAppear={true}
 																 transitionAppearTimeout={2000}
-																 transitionEnter={false} 
+																 transitionEnter={false}
 																 transitionLeave={false}>
 					{headerBlock}
 					<div className="container portfolioPage__container-padding">
-						
+                        {photovideoElement}
 						<Row className="no-gutters">
 							<div className="col-md-4" >
 								<h1 className="portfolio__title">

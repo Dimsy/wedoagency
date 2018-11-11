@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 import ErrorCmp from '../ErrorCmp';
 import renderHTML from 'react-render-html'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import {Helmet} from "react-helmet";
 
 class AgencyPage extends Component {
 	
@@ -43,6 +44,9 @@ class AgencyPage extends Component {
 
 		return (
 			<div className="pressPage">
+                <Helmet>
+                    <title>WeDoAgency | {entities.title.rendered}</title>
+                </Helmet>
 				<ReactCSSTransitionGroup transitionName="anim" 
 																 transitionAppear={true} 
 																 transitionAppearTimeout={2000}
