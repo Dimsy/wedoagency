@@ -61,24 +61,46 @@ class News extends Component{
 		const opacity = body.length > 3 ? {opacity: "1"} : {opacity: "0.3"}
         const mobile = window.innerWidth < 768 ? true : false;
 
+		const pcButtonsBlock =	<Row>
+									<Col  sm={6} md={8}>
+										<h1>{catName}</h1>
+									</Col>
+									<Col  sm={6} md={4} className="SliderButtons">
+										<ButtonNext>
+											<img src={`${PATH}/img/slider/next.svg`} style={opacity}/>
+										</ButtonNext>
+										<ButtonBack>
+											<img src={`${PATH}/img/slider/next.svg`} className="sliderButtonsOpacityRevert" style={opacity}/>
+										</ButtonBack>
+										<div className="clear"/>
+									</Col>
+								</Row>;
+
+        const mobileButtonsBlock =	<Row className="no-gutters">
+										<Col xs={6}>
+											<h1>{catName}</h1>
+										</Col>
+										<Col xs={6}>
+											<div style={{marginLeft: "125px"}}>
+												<div className="SliderButtonsPortfolio" style={{paddingRight: "0px", display: "block"}}>
+													<ButtonNext style={{paddingLeft: "0px", marginLeft: "10px"}}>
+														<img src={`${PATH}/img/slider/arrow.png`} style={opacity}/>
+													</ButtonNext>
+													<ButtonBack>
+														<img src={`${PATH}/img/slider/arrow.png`} className="sliderButtonsOpacityRevert" style={opacity}/>
+													</ButtonBack>
+													<div className="clear"/>
+												</div>
+											</div>
+										</Col>
+									</Row>;
+
+
 		return (
 			<div className='news newsFadeIn'>
 				<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={307} totalSlides={mobile ? body.length+2 : body.length} visibleSlides={3}>
 					<Grid>
-						<Row>
-							<Col  sm={6} md={8}>
-							<h1>{catName}</h1>
-							</Col>
-							<Col  sm={6} md={4} className="SliderButtons">
-								<ButtonNext>
-									<img src={`${PATH}/img/slider/next.svg`} style={opacity}/>
-								</ButtonNext>
-								<ButtonBack>
-									<img src={`${PATH}/img/slider/next.svg`} className="sliderButtonsOpacityRevert" style={opacity}/>
-								</ButtonBack>
-								<div className="clear"/>
-      		  	</Col>
-						</Row>
+                        {mobile ? mobileButtonsBlock : pcButtonsBlock}
 						<Row className="newsSlider">
 							<Col md={12} className="newsHidderPosition">
 								<Slider>

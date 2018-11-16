@@ -58,6 +58,42 @@ class Portfolio extends Component{
 		const title = this.selectTitle();
         const mobile = window.innerWidth < 768 ? true : false;
 
+        const mobileButtonsStyle = {
+        	display: "block"
+		};
+
+        const mobileButtonsBlock =	<div className='row no-gutters'>
+										<div>
+                                            <h1 className='portfolio__title'>{title}</h1>
+										</div>
+										<div style={{marginLeft: "80px"}}>
+											<div className="SliderButtonsPortfolio col-md-4 col-sm-6" style={mobileButtonsStyle}>
+												<ButtonNext style={{paddingLeft: "0px", marginLeft: "10px"}}>
+													<img src={`${PATH}/img/slider/arrow.png`} style={opacity}/>
+												</ButtonNext>
+												<ButtonBack>
+													<img src={`${PATH}/img/slider/arrow.png`} className="sliderButtonsOpacityRevert" style={opacity}/>
+												</ButtonBack>
+												<div className="clear"/>
+											</div>
+										</div>
+									</div>;
+
+        const pcButtonsBlock =	<div className='row no-gutters'>
+										<div className="col-sm-8">
+											<h1 className='portfolio__title'>{title}</h1>
+										</div>
+										<div className="SliderButtonsPortfolio col-md-4 col-sm-6">
+											<ButtonNext>
+												<img src={`${PATH}/img/slider/next.svg`} style={opacity}/>
+											</ButtonNext>
+											<ButtonBack>
+												<img src={`${PATH}/img/slider/next.svg`} className="sliderButtonsOpacityRevert" style={opacity}/>
+											</ButtonBack>
+											<div className="clear"/>
+										</div>
+									</div>;
+
 		return (
 			<div className='portfolio portfolioFadeIn'>
 
@@ -67,20 +103,7 @@ class Portfolio extends Component{
 							  totalSlides={mobile ? body.length + 2 : body.length}
 							  visibleSlides={3}>
 			    <div className='container'>
-			 	    <div className='row no-gutters'>
-					    <div className="col-sm-8">
-					      <h1 className='portfolio__title'>{title}</h1>
-					    </div>
-					    <div className="SliderButtonsPortfolio col-md-4 col-sm-6">
-						    <ButtonNext>
-						    	<img src={`${PATH}/img/slider/next.svg`} style={opacity}/>
-						    </ButtonNext>
-						    <ButtonBack>
-						    	<img src={`${PATH}/img/slider/next.svg`} className="sliderButtonsOpacityRevert" style={opacity}/>
-						    </ButtonBack>
-						    <div className="clear"/>
-        	    </div>
-				    </div>
+					{mobile ? mobileButtonsBlock : pcButtonsBlock}
 				     <div className='row no-gutters portfolioSlider'>
         	    <div className="col-md-12 hidePixelsWrapper">
 						    <Slider>

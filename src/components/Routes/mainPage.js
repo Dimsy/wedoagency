@@ -13,9 +13,6 @@ export default function MainPage(props){
 		<div>
             <Helmet>
                 <title>WeDoAgency</title>
-                <meta property="og:title" content="WeDoAgency"/>
-                <meta property="og:description" content="WeDoAgency — event-агентство с многолетним опытом работы в организации грандиозных мероприятий: от закрытых вечеринок во Французских Альпах до светских церемоний глянцевых журналов в капризной Москве."/>
-                <meta property="og:image" content="http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png">
 			</Helmet>
 			<HeaderImgBlock/>
 			<Agency />
