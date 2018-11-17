@@ -63,10 +63,10 @@ class Portfolio extends Component{
 		};
 
         const mobileButtonsBlock =	<div className='row no-gutters'>
-										<div>
+										<div style={{width: "60%"}}>
                                             <h1 className='portfolio__title'>{title}</h1>
 										</div>
-										<div style={{marginLeft: "80px"}}>
+										<div style={{width: "40%"}}>
 											<div className="SliderButtonsPortfolio col-md-4 col-sm-6" style={mobileButtonsStyle}>
 												<ButtonNext style={{paddingLeft: "0px", marginLeft: "10px"}}>
 													<img src={`${PATH}/img/slider/arrow.png`} style={opacity}/>

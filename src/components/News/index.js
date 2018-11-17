@@ -77,22 +77,20 @@ class News extends Component{
 								</Row>;
 
         const mobileButtonsBlock =	<Row className="no-gutters">
-										<Col xs={6}>
+										<div style={{width: "60%"}}>
 											<h1>{catName}</h1>
-										</Col>
-										<Col xs={6}>
-											<div style={{marginLeft: "125px"}}>
-												<div className="SliderButtonsPortfolio" style={{paddingRight: "0px", display: "block"}}>
-													<ButtonNext style={{paddingLeft: "0px", marginLeft: "10px"}}>
-														<img src={`${PATH}/img/slider/arrow.png`} style={opacity}/>
-													</ButtonNext>
-													<ButtonBack>
-														<img src={`${PATH}/img/slider/arrow.png`} className="sliderButtonsOpacityRevert" style={opacity}/>
-													</ButtonBack>
-													<div className="clear"/>
-												</div>
+										</div>
+										<div style={{width: "40%"}}>
+											<div className="SliderButtonsPortfolio" style={{paddingRight: "0px", display: "block"}}>
+												<ButtonNext style={{paddingLeft: "0px", marginLeft: "10px"}}>
+													<img src={`${PATH}/img/slider/arrow.png`} style={opacity}/>
+												</ButtonNext>
+												<ButtonBack>
+													<img src={`${PATH}/img/slider/arrow.png`} className="sliderButtonsOpacityRevert" style={opacity}/>
+												</ButtonBack>
+												<div className="clear"/>
 											</div>
-										</Col>
+										</div>
 									</Row>;
 
 
