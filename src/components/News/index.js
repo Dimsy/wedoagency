@@ -11,8 +11,35 @@ import {OrderedSet} from 'immutable';
 import {PATH} from '../../config'
 import './news.css';
 import moment from 'moment';
+import $ from "jquery";
+import {Link} from 'react-router-dom';
 
 class News extends Component{
+    constructor() {
+        super();
+        this.handleClick = this.handleClick.bind(this);
+        this.redirectToLink = this.redirectToLink.bind(this);
+    }
+
+    state = {
+        show: false,
+        showVeil: false
+    }
+
+    redirectToLink() {
+        const link = `/news`;
+        window.location.href = link
+    }
+
+    handleClick (e) {
+        $("#veil").removeClass("fadeout").addClass("fadein");
+        $("#veilLogo").removeClass("fadeout").addClass("fadein");
+        if (e.defaultPrevented) {
+            return;
+        }
+        e.preventDefault();
+        setTimeout(this.redirectToLink, 3000);
+    }
 
     sortBody = (a, b) => {
     	console.log('a,b')
@@ -93,7 +120,6 @@ class News extends Component{
 										</div>
 									</Row>;
 
-
 		return (
 			<div className='news newsFadeIn'>
 				<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={307} totalSlides={mobile ? body.length+2 : body.length} visibleSlides={3}>
@@ -105,6 +131,7 @@ class News extends Component{
 									{body}
 								</Slider>
 								<div className="hidder" />
+                                <Link to='/news' className="knowMore" onClick={this.handleClick}>Смотреть все</Link>
 							</Col>
 						</Row>
 					</Grid>	

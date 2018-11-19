@@ -43,6 +43,7 @@ class Header extends Component {
 
 
 	render(){
+	 	console.log(window.location.pathname)
 		return(
 			<div className="header">
 				<VeilWorkaround/>
@@ -50,7 +51,7 @@ class Header extends Component {
 				<button className={"mobile-menu-btn " + (this.state.show ? 'active' : null)} onClick={this.handleClick}>
 					<span></span>
 				</button>
-				<div className="logoBlock"/>
+				<div className={window.location.pathname === "/kids" ? "logoKidsBlock" : "logoBlock"}/>
 			</div>
 		)
 	}

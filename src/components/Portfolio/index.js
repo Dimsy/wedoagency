@@ -7,9 +7,35 @@ import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import {PATH} from '../../config'
 import './portfolio.css';
+import {Link} from 'react-router-dom';
 import $ from "jquery";
 
 class Portfolio extends Component{
+    constructor() {
+        super();
+        this.handleClick = this.handleClick.bind(this);
+        this.redirectToLink = this.redirectToLink.bind(this);
+    }
+
+    state = {
+        show: false,
+        showVeil: false
+    }
+
+    redirectToLink() {
+        const link = `/portfolio`;
+        window.location.href = link
+    }
+
+    handleClick (e) {
+        $("#veil").removeClass("fadeout").addClass("fadein");
+        $("#veilLogo").removeClass("fadeout").addClass("fadein");
+        if (e.defaultPrevented) {
+            return;
+        }
+        e.preventDefault();
+        setTimeout(this.redirectToLink, 3000);
+    }
 
 	componentDidMount(){
     const useLang = this.props.useLang;
@@ -27,7 +53,7 @@ class Portfolio extends Component{
 		const bDate = b.props.children.props.item.acf.DataOfFinnish
 
 		var aNumberForCompare = aDate.split('/').reverse().join()
-    var bNumberForCompare = bDate.split('/').reverse().join()	
+    	var bNumberForCompare = bDate.split('/').reverse().join()
         		
     return aNumberForCompare > bNumberForCompare ? -1 : (aNumberForCompare < bNumberForCompare ? 1 : 0);	
 	}
@@ -97,22 +123,23 @@ class Portfolio extends Component{
 		return (
 			<div className='portfolio portfolioFadeIn'>
 
-		  	<CarouselProvider naturalSlideWidth={327}
-							  naturalSlideHeight={411}
-                              lockOnWindowScroll={true}
-							  totalSlides={mobile ? body.length + 2 : body.length}
-							  visibleSlides={3}>
-			    <div className='container'>
-					{mobile ? mobileButtonsBlock : pcButtonsBlock}
-				     <div className='row no-gutters portfolioSlider'>
-        	    <div className="col-md-12 hidePixelsWrapper">
-						    <Slider>
-                  {body}
-        		    </Slider>
-        		    <div className="hidePixels" />
-        	    </div>
-            </div>				
-				  </div>
+				<CarouselProvider naturalSlideWidth={327}
+								  naturalSlideHeight={411}
+								  lockOnWindowScroll={true}
+								  totalSlides={mobile ? body.length + 2 : body.length}
+								  visibleSlides={3}>
+					<div className='container'>
+						{mobile ? mobileButtonsBlock : pcButtonsBlock}
+						 <div className='row no-gutters portfolioSlider'>
+							<div className="col-md-12 hidePixelsWrapper">
+								<Slider>
+									{body}
+								</Slider>
+								<div className="hidePixels" />
+							</div>
+                            <Link to='/portfolio' className="knowMore" onClick={this.handleClick}>Смотреть все</Link>
+						</div>
+					  </div>
 				</CarouselProvider>
 			</div>	
 		)	
