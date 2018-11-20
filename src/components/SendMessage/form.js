@@ -105,6 +105,7 @@ class Form extends Component{
 						</span>
 					</div>
                 }
+                <br/>
 				<button type="submit" disabled={!formError}>{sendButtonText}</button>
 			</form>
 		)

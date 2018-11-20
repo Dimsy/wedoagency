@@ -6,6 +6,7 @@ import awardsReducer, {moduleName as awardsModule} from '../ducks/awards';
 import pressReducer, {moduleName as pressModule} from '../ducks/press';
 import pressPageReducer, {moduleName as pressPageModule} from '../ducks/pressPage';
 import agencyInfoReducer, {moduleName as agencyInfoModule} from '../ducks/agencyInfo';
+import kidsInfoReducer, {moduleName as kidsInfoModule} from '../ducks/kids';
 import agencyPageReducer, {moduleName as agencyPageModule} from '../ducks/agencyPage';
 import langReducer, {moduleName as langModule} from '../ducks/lang';
 import portfolioReducer, {moduleName as portfolioModule} from '../ducks/portfolio';
@@ -36,5 +37,6 @@ export default combineReducers({
 	[instagramModule]: instagramReducer,
 	[contactsModule]: contactsReducer,
 	[socialFooterModule]: socialFooterReducer,
+	[kidsInfoModule]: kidsInfoReducer,
 	form: formReducer
 })

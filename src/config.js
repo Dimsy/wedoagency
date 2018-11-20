@@ -8,6 +8,8 @@ export const PATH = 'http://wedoagency.ru/wp-content/themes/wp_theme'
 
 export const HEADER = "693"
 
+export const KIDS_INFO_ru = '3177';
+export const KIDS_INFO_en = '3177';
 
 // AgencyInfo / Информация об агентстве
 // ru
