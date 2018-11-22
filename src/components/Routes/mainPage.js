@@ -4,6 +4,7 @@ import Agency from '../Agency';
 import Portfolio from '../Portfolio';
 import Press from '../Press';
 import News from '../News';
+import Instagram from '../Instagram';
 import {Helmet} from "react-helmet";
 
 export default function MainPage(props){
@@ -19,6 +20,7 @@ export default function MainPage(props){
 			<Portfolio match={match}/>
 			<Press />
 			<News />
+			<Instagram/>
 		</div>
 	)
 }

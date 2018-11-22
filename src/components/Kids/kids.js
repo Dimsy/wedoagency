@@ -10,6 +10,7 @@ import {loadKidsInfo} from '../../ducks/kids.js'
 import {sendCustomForm} from '../../ducks/form';
 import { Grid, Row, Col } from 'react-bootstrap';
 import {PATH} from '../../config'
+import Instagram from '../Instagram';
 
 class Kids extends Component{
 
@@ -66,23 +67,7 @@ class Kids extends Component{
                             </div>
                         </div>
                         <div style={{width: "100%", textAlign: "center", marginBottom: "20px"}}>
-                            <div className="kidsImg" style={{background: `url(${kidsInfo.acf.photo1}) 50% 50% no-repeat`}}>
-                            </div>
-                            <div className="kidsImg" style={{background: `url(${kidsInfo.acf.photo2}) 50% 50% no-repeat`}}>
-                            </div>
-                            <div className="kidsImg" style={{background: `url(${kidsInfo.acf.photo3}) 50% 50% no-repeat`}}>
-                            </div>
-                            <div className="kidsImg" style={{background: `url(${kidsInfo.acf.photo4}) 50% 50% no-repeat`}}>
-                            </div>
-                            <br/>
-                            <div className="kidsImg" style={{background: `url(${kidsInfo.acf.photo5}) 50% 50% no-repeat`}}>
-                            </div>
-                            <div className="kidsImg" style={{background: `url(${kidsInfo.acf.photo6}) 50% 50% no-repeat`}}>
-                            </div>
-                            <div className="kidsImg" style={{background: `url(${kidsInfo.acf.photo7}) 50% 50% no-repeat`}}>
-                            </div>
-                            <div className="kidsImg" style={{background: `url(${kidsInfo.acf.photo8}) 50% 50% no-repeat`}}>
-                            </div>
+                            <Instagram />
                         </div>
                         <div style={{width: "100%", display: "inline-flex", marginBottom: "50px"}}>
                             <div style={{width: "50%", display: "inline-block", paddingRight: "42px"}}>

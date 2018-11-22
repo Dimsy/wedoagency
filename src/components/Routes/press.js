@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Portfolio from '../Portfolio';
 import PressList from '../PressList';
+import Instagram from '../Instagram';
 
 class RoutePressList extends Component {
 
@@ -10,6 +11,7 @@ class RoutePressList extends Component {
 			<div>
 				<PressList location={this.props.location} match={this.props.match}/>
 				<Portfolio location={this.props.location} match={this.props.match}/>
+				<Instagram/>
 			</div>
 		)
 	}
