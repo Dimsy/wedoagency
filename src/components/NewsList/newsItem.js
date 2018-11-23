@@ -61,6 +61,7 @@ class NewsItem extends Component{
 											</div>
 												
 		const photoBlock =<Link to={`${match.path}/${item.id}`}>
+
 												<img src={item.acf.imgNews} srcSet={`${item.acf.imgNewsx2} 2x`}/> <br />
 											</Link>	
 
