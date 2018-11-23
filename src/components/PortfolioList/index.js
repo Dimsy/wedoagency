@@ -29,7 +29,7 @@ class PortfolioList extends Component{
 		}
 	}
 
-	sortBody = (a, b) => {
+	sortBodyByDate = (a, b) => {
 		const aDate = a.acf.DataOfFinnish;
 		const bDate = b.acf.DataOfFinnish;
 
@@ -40,6 +40,26 @@ class PortfolioList extends Component{
 		return aNumberForCompare.isAfter(bNumberForCompare) ? -1 : 1;
   		//return aNumberForCompare > bNumberForCompare ? -1 : (aNumberForCompare < bNumberForCompare ? 1 : 0);
 	}
+
+    sortBodyByPublicDate = (a, b) => {
+        const aDate = a.acf.publicDate;
+        const bDate = b.acf.publicDate;
+
+        if (aDate === bDate) return 0;
+        var aNumberForCompare = moment(aDate.split('/').reverse().join('-'));
+        var bNumberForCompare = moment(bDate.split('/').reverse().join('-'));
+
+        return aNumberForCompare.isAfter(bNumberForCompare) ? -1 : 1;
+        //return aNumberForCompare > bNumberForCompare ? -1 : (aNumberForCompare < bNumberForCompare ? 1 : 0);
+    }
+
+	filterByIsPublicDate = (item) => {
+		return !!item.acf.publicDate;
+	};
+
+    filterByNoPublicDate = (item) => {
+        return !item.acf.publicDate;
+    };
 
 	render(){
 		const { useLang, entities, loading, error, count, match, portfolioList} = this.props;
@@ -58,7 +78,13 @@ class PortfolioList extends Component{
 															 							</li>).sort(this.sortBody)
 		*/
 		let body = [];
-		let sortedItems = projectsItems.sort(this.sortBody);
+		let filtredPublic = projectsItems.filter(this.filterByIsPublicDate);
+		let sortedPublic = filtredPublic.sort(this.sortBodyByPublicDate);
+
+		let filteredNoPublic = projectsItems.filter(this.filterByNoPublicDate);
+		let sortedNoPublic = filteredNoPublic.sort(this.sortBodyByDate);
+
+		let sortedItems = sortedPublic.concat(sortedNoPublic);
 		for (let i=0; i<= sortedItems.length-1; i++) {
 
 			if (i <= this.state.visibleItems) {
@@ -83,7 +109,7 @@ class PortfolioList extends Component{
 																									</div>
 																								: null;
 
-		const header = {
+		const headerPc = {
 			backgroundImage: `-webkit-image-set( url(${portfolioList.acf.foto}) 1x, url(${portfolioList.acf.fotox2}) 2x )`,
 			backgroundImage: `-moz-image-set( url(${portfolioList.acf.foto}) 1x, url(${portfolioList.acf.fotox2}) 2x )`,
 			backgroundImage: `-o-image-set( url(${portfolioList.acf.foto}) 1x, url(${portfolioList.acf.fotox2}) 2x )`,
@@ -92,12 +118,21 @@ class PortfolioList extends Component{
 			marginBottom: '100px'
 		} || null;
 
+        const headerMobile = {
+            backgroundImage: `-webkit-image-set( url(${portfolioList.acf.photoMobile}) 1x, url(${portfolioList.acf.photoMobile}) 2x )`,
+            backgroundImage: `-moz-image-set( url(${portfolioList.acf.photoMobile}) 1x, url(${portfolioList.acf.photoMobile}) 2x )`,
+            backgroundImage: `-o-image-set( url(${portfolioList.acf.photoMobile}) 1x, url(${portfolioList.acf.photoMobile}) 2x )`,
+            backgroundImage: `-ms-image-set( url(${portfolioList.acf.photoMobile}) 1x, url(${portfolioList.acf.photoMobile}) 2x )`,
+            backgroundImage: `url(${portfolioList.acf.photoMobile})`,
+            marginBottom: '100px'
+        } || null;
+
 		//const titleArticle = window.innerWidth > 768 ? <div className="articleImgNews" style={header} /> : null
 
-        const titleArticle = window.innerWidth < 768 ? <div className="articleImgNews" style={header} />
+        const titleArticle = window.innerWidth < 768 ? <div className="articleImgNews" style={headerMobile} />
             : portfolioList.acf.headerVideo
                 ? <VideoHeader src={portfolioList.acf.headerVideo.url} key={portfolioList.acf.headerVideo.url} />
-                : <div className="articleImgNews" style={header} />
+                : <div className="articleImgNews" style={headerPc} />
 
 		return (
 			<div className='portfolioList'>

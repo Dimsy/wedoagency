@@ -161,6 +161,7 @@ p, .p {
   /* КНопка мобильного меню*/
 
 .mobile-menu-btn {
+  margin-right: 5px;
   display: none;
   background-color: transparent;
   border: 0;
@@ -398,7 +399,11 @@ h1.portfolio__title{
 }
 
 .SliderButtonsPortfolio{
-  padding-right: 21px !important;
+  padding-right: 15px !important;
+}
+
+.SliderButtonsPortfolioDropRight {
+  padding-right: 0px !important;
 }
 
 .SliderButtonsPortfolio button{

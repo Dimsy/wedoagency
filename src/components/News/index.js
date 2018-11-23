@@ -108,8 +108,8 @@ class News extends Component{
 											<h1>{catName}</h1>
 										</div>
 										<div style={{width: "40%"}}>
-											<div className="SliderButtonsPortfolio" style={{paddingRight: "0px", display: "block"}}>
-												<ButtonNext style={{paddingLeft: "0px", marginLeft: "10px"}}>
+											<div className="SliderButtonsPortfolio SliderButtonsPortfolioDropRight" style={{paddingRight: "0px", display: "block"}}>
+												<ButtonNext style={{paddingLeft: "0px",paddingRight: "0px", marginLeft: "10px"}}>
 													<img src={`${PATH}/img/slider/arrow.png`} style={opacity}/>
 												</ButtonNext>
 												<ButtonBack>

@@ -325,19 +325,25 @@ class PortfolioPage extends Component{
                         </div>;
 
 		const photovideoElement =	<div className="row" style={{marginBottom: '70px'}}>
-                                        <div className={"col-md-3"} style={{paddingLeft: '25px'}}>
-                                            <p className={'text-muted'} style={{paddingTop: '0px', float: 'left'}}>Фотограф:&nbsp;</p>
-                                        </div>
-                                        <div  className={"col-md-3"} >
-                                            {photographers_el}
-                                        </div>
-                                        <div  className={"col-md-3"} >
-                                            <p className={'text-muted'} style={{paddingTop: '0px', float: 'left'}}>Видеограф:&nbsp;</p>
-                                        </div>
-                                        <div  className={"col-md-3"} >
-                                            {videographs_el}
-                                        </div>
+										{!!photographers_list.length &&
+											<div className={"col-md-3"} style={{paddingLeft: '25px'}}>
+												<p className={'text-muted'} style={{paddingTop: '0px', float: 'left'}}>Фотограф:&nbsp;</p>
+											</div>}
+            							{!!photographers_list.length &&
+											<div  className={"col-md-3"} >
+												{photographers_el}
+											</div>}
+										{!!videographs_list.length &&
+											<div  className={"col-md-3"} >
+												<p className={'text-muted'} style={{paddingTop: '0px', float: 'left'}}>Видеограф:&nbsp;</p>
+											</div>}
+            							{!!videographs_list.length &&
+											<div  className={"col-md-3"} >
+												{videographs_el}
+											</div>}
 									</div>;
+
+		console.log("photographers_list.length || !!videographs_list.length",photographers_list.length || !!videographs_list.length)
 
 		return(
 			<div className="portfolioPage__project">
@@ -364,9 +370,9 @@ class PortfolioPage extends Component{
 						</Row>
 						{body}
 						{videoBody}
-                        {photographers_list.length && videographs_list.length && !isMobile ? photovideoElement : null}
-                        {photographers_list.length && videographs_list.length && isMobile ? photoEl : null}
-                        {photographers_list.length && videographs_list.length && isMobile ? videoEl : null}
+                        {(!!photographers_list.length || !!videographs_list.length) && !isMobile ? photovideoElement : null}
+                        {(!!photographers_list.length || !!videographs_list.length) && isMobile ? photoEl : null}
+                        {(!!photographers_list.length || !!videographs_list.length) && isMobile ? videoEl : null}
 					</div>
 				</ReactCSSTransitionGroup>
 			</div>
