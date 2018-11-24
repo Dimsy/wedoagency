@@ -12,8 +12,8 @@ class AgencyPage extends Component {
 	
 	componentDidMount(){
 		const { match, loadPressPage } = this.props
-		
-		loadPressPage(match.params.id)
+		console.log("match.params.id",match.params.id)
+		loadPressPage( match.params.id, isNaN(match.params.id))
 	}
 
 	componentWillReceiveProps(nextProps){

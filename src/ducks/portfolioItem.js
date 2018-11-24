@@ -27,7 +27,7 @@ export default function reducer(state = new ReducerState(), action) {
     switch(type){
         case LOAD_PORTFOLIO_ITEM_SUCCESS:
             return state
-                .set('selectedPortfolio', payload.selectedPortfolio.data)
+                .set('selectedPortfolio', payload.isSlug ? payload.selectedPortfolio.data[0] : payload.selectedPortfolio.data)
                 .set('loading', false)
 
         case LOAD_PORTFOLIO_ITEM_ERROR:
@@ -39,11 +39,12 @@ export default function reducer(state = new ReducerState(), action) {
     return state
 }
 
-export function loadPortfolioItem(id){
+export function loadPortfolioItem(id, isSlug){
     console.log('id',id)
+    console.log('isSlug',isSlug)
     return {
         type: LOAD_PORTFOLIO_ITEM_START,
-        payload: {id}
+        payload: {id, isSlug}
     }
 }
 
@@ -51,14 +52,15 @@ export function loadPortfolioItem(id){
 
 //Sagas
 export function * loadPortfolioItemSaga(action){
-    console.log('loadPortfolioItemSaga')
+    console.log('loadPortfolioItemSasdga')
     console.log(action.payload)
     try {
-        const selectedPortfolio = yield call(axios.get, `/wp-json/wp/v2/posts/${action.payload.id}`);
+        const matchUrl = action.payload.isSlug ? `/wp-json/wp/v2/posts?slug=${action.payload.id}` : `/wp-json/wp/v2/posts/${action.payload.id}`;
+        const selectedPortfolio = yield call(axios.get, matchUrl);
 
         yield put({
             type: LOAD_PORTFOLIO_ITEM_SUCCESS,
-            payload: {selectedPortfolio}
+            payload: {selectedPortfolio, isSlug: action.payload.isSlug}
         })
     } catch (error) {
 

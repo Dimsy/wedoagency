@@ -31,11 +31,10 @@ const ReducerState = Record({
 
 export default function reducer(state = new ReducerState(), action) {
 	const {type, payload} = action
-
 	switch(type){
 		case LOAD_PRESS_PAGE_SUCCESS:
 			return state
-							.set('entities', payload.response.data)
+							.set('entities', payload.isSlug ? payload.response.data[0] : payload.response.data)
 	 		 				.setIn(['loading'], false)
  			
 		case LOAD_PRESS_PAGE_ERROR:
@@ -50,23 +49,25 @@ export default function reducer(state = new ReducerState(), action) {
 
 // Action Creators
 
-export function loadPressPage(id){
+export function loadPressPage(id, isSlug){
 	return {
 		type: LOAD_PRESS_PAGE_START,
-		payload: {id}
+		payload: {id, isSlug}
 	}
 }
 
 //Sagas
 
 export function * pressPageSaga(action){
+	try {
+        const matchUrl = action.payload.isSlug ? `/wp-json/wp/v2/posts?slug=${action.payload.id}` : `/wp-json/wp/v2/posts/${action.payload.id}`;
+        const response = yield call(axios.get, matchUrl);
 
-	try {	
-		const response = yield call(axios.get, `/wp-json/wp/v2/posts/${action.payload.id}`);
+		//const response = yield call(axios.get, `/wp-json/wp/v2/posts/${action.payload.id}`);
 
 		yield put({
 						type: LOAD_PRESS_PAGE_SUCCESS,
-						payload: {response}
+						payload: {response, isSlug: action.payload.isSlug}
 					})
 	} catch (error) {
 		
