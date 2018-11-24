@@ -51,6 +51,18 @@ class Kids extends Component{
             marginTop: "30px"
         }
 
+        const logo = {
+            height: "240px",
+            backgroundImage: `-webkit-image-set( url(../img/logo/wedo-kids.png) 1x, url(../img/logo/wedo-kids.png) 2x )`,
+            backgroundImage: `-moz-image-set( url(../img/logo/wedo-kids.png) 1x, url(../img/logo/wedo-kids.png) 2x )`,
+            backgroundImage: `-o-image-set( url(../img/logo/wedo-kids.png) 1x, url(../img/logo/wedo-kids.png) 2x )`,
+            backgroundImage: `-ms-image-set( url(../img/logo/wedo-kids.png) 1x, url(../img/logo/wedo-kids.png) 2x )`,
+            backgroundImage: `url(../img/logo/wedo-kids.png)`,
+            backgroundSize: "260px",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center 110px"
+        }
+
         const isMobile = window.innerWidth < 769;
 
         const kidsPc =
@@ -105,7 +117,10 @@ class Kids extends Component{
 
         const kidsMobile =
             <div>
-                <div className="newsList" style={{paddingTop: '170px'}}>
+                <div className="newsList" style={{paddingTop: '10px'}}>
+                    <div style={logo}>
+
+                    </div>
                     <div className="headerImgBlock" style={imgMobileHeader}/>
                     <Grid>
                         <div style={{width: "100%", textAlign: "center", paddingRight: "20px", paddingLeft: "20px"}}>

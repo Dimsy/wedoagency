@@ -224,6 +224,15 @@ html, body {
     background-size: contain;
     background-position: center center;
   }
+  .logoKidsBlock {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    width: 120px;
+    height: 20px;
+    background-size: contain;
+    background-position: center center;
+  }
   .headerLangSwitcher{
     position: absolute;
     float: none;
@@ -465,6 +474,15 @@ html, body {
     height: 100vh;
   }
   .logoBlock {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    width: 120px;
+    height: 20px;
+    background-size: contain;
+    background-position: center center;
+  }
+  .logoKidsBlock {
     position: absolute;
     top: 15px;
     left: 20px;

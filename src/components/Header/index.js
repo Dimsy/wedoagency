@@ -43,7 +43,8 @@ class Header extends Component {
 
 
 	render(){
-	 	console.log(window.location.pathname)
+	 	const isMobile = window.innerWidth < 768;
+
 		return(
 			<div className="header">
 				<VeilWorkaround/>
@@ -51,7 +52,7 @@ class Header extends Component {
 				<button className={"mobile-menu-btn " + (this.state.show ? 'active' : null)} onClick={this.handleClick}>
 					<span></span>
 				</button>
-				<div className={window.location.pathname === "/kids" ? "logoKidsBlock" : "logoBlock"}/>
+				<div className={window.location.pathname === "/kids" && !isMobile ? "logoKidsBlock" : "logoBlock"}/>
 			</div>
 		)
 	}
