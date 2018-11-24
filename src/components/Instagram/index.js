@@ -41,7 +41,7 @@ class Instagram extends Component{
     if (loading) return <Loader />;
 
     return (
-		<div className="weInInstagram">
+		<div className={!isKids ? "weInInstagram" : null}>
             {!isKids &&
 				<h4>
 					{instagram.data.title.rendered}

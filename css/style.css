@@ -315,12 +315,12 @@ button:focus {
 }
 
 .logoKidsBlock{
-  height: 270px;
-  background-image: url(../img/logo/wedoKids.png);
-  background-image: -webkit-image-set(url(../img/logo/wedoKids.png) 1x, url(../img/logo/wedoKids.png) 2x);
-  background-image: -moz-image-set(url(../img/logo/wedoKids.png) 1x, url(../img/logo/wedoKids.png) 2x);
-  background-image: -o-image-set(url(../img/logo/wedoKids.png) 1x, url(../img/logo/wedoKids.png) 2x);
-  background-image: -ms-image-set(url(../img/logo/wedoKids.png) 1x, url(../img/logo/wedoKids.png) 2x);
+  height: 253px;
+  background-image: url(../img/logo/wedo-kids.png);
+  background-image: -webkit-image-set(url(../img/logo/wedo-kids.png) 1x, url(../img/logo/wedo-kids.png) 2x);
+  background-image: -moz-image-set(url(../img/logo/wedo-kids.png) 1x, url(../img/logo/wedo-kids.png) 2x);
+  background-image: -o-image-set(url(../img/logo/wedo-kids.png) 1x, url(../img/logo/wedo-kids.png) 2x);
+  background-image: -ms-image-set(url(../img/logo/wedo-kids.png) 1x, url(../img/logo/wedo-kids.png) 2x);
   background-repeat: no-repeat;
   background-position: center 110px;
 }
@@ -904,6 +904,7 @@ hr {
   margin-bottom: 15px;
   outline: none;
   resize: none;
+  background: #f7f7f7;
 }
 
 .sendMessageKids textarea::-webkit-input-placeholder {
@@ -912,6 +913,7 @@ hr {
   font-family: LatoRegular;
   font-size: 14px;
   line-height: 2;
+  background: #f7f7f7;
 }
 
 .sendMessageKids textarea::-ms-input-placeholder {
@@ -920,12 +922,14 @@ hr {
   font-family: LatoRegular;
   font-size: 14px;
   line-height: 2;
+  background: #f7f7f7;
 }
 .sendMessageKids textarea:-ms-input-placeholder {
   color: #545454;
   opacity: 0.7;
   font-family: LatoRegular;
   font-size: 14px;
+  background: #f7f7f7;
   line-height: 2;
 }
 
@@ -935,6 +939,7 @@ hr {
   font-family: LatoRegular;
   font-size: 14px;
   line-height: 2;
+  background: #f7f7f7;
 }
 
 .sendMessageKids button {

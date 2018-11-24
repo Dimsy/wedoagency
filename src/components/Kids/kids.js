@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { loadNewsList, clearNewsList } from '../../ducks/newsList';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
-import Form from '../SendMessage/form';
+import Form from '../SendMessage/formKids';
 import $ from "jquery";
 import {loadContacts} from '../../ducks/contacts.js';
 import {loadKidsInfo} from '../../ducks/kids.js'
@@ -57,26 +57,25 @@ class Kids extends Component{
                     <div className="headerImgBlock" style={imgHeader}/>
                     <Grid>
                         <div style={{width: "100%", textAlign: "center"}}>
-                            <div style={{width: "550px", textAlign: "center", display: "inline-block", marginTop: "100px", lineHeight: "2", letterSpacing: "0.9px"}}>
-                                <h1>{kidsInfo.acf.title}</h1>
+                            <div style={{width: "550px", textAlign: "center", display: "inline-block", marginTop: "83px", lineHeight: "2", letterSpacing: "0.9px"}}>
+                                <h1 style={{textTransform: "none", textAlign: "center"}}>{kidsInfo.acf.title}</h1>
                             </div>
                             <div>
-                                <p style={{width: "550px", textAlign: "center", display: "inline-block", marginTop: "20px", lineHeight: "2", letterSpacing: "0.9px"}}>
+                                <p style={{width: "550px", textAlign: "center", display: "inline-block", marginBottom: "90px", marginTop: "35px", lineHeight: "2", letterSpacing: "0.9px"}}>
                                     {kidsInfo.acf.mainText}
                                 </p>
                             </div>
                         </div>
-                        <div style={{width: "100%", textAlign: "center", marginBottom: "20px"}}>
+                        <div style={{width: "100%", textAlign: "center", marginBottom: "100px"}}>
                             <Instagram />
                         </div>
                         <div style={{width: "100%", display: "inline-flex", marginBottom: "50px"}}>
-                            <div style={{width: "50%", display: "inline-block", paddingRight: "42px"}}>
-                                <div style={{float: "right", height: "414px"}}>
-                                    <img src={kidsInfo.acf.leftPhoto} style={{width: "353px", height: "414px"}}/>
+                            <div style={{width: "50%", display: "inline-block", paddingLeft: "10px", paddingRight: "10px"}}>
+                                <div style={{float: "right", height: "456px",width: "100%", background: `url(${kidsInfo.acf.leftPhoto}) 50% 50% no-repeat`, backgroundSize: "cover"}}>
                                 </div>
                             </div>
-                            <div style={{width: "50%", display: "inline-block"}}>
-                                <div style={{float: "left", backgroundColor: "#f7f7f7", width: "365px", height: "414px"}}>
+                            <div style={{width: "50%", display: "inline-block", paddingRight: "10px", paddingLeft: "10px"}}>
+                                <div style={{float: "left", backgroundColor: "#f7f7f7", width: "100%", height: "456px"}}>
                                     <div className="sendMessageKids" style={{paddingTop: "50px", paddingLeft: "50px", paddingRight: "50px"}}>
                                         <p className="kidsSendTitle" style={{width: "210px"}}>{kidsInfo.acf.sendMessageTitle}</p>
                                         <Form	onSubmit={this.submit}
