@@ -59,8 +59,8 @@ class App extends Component {
 							<Route path="/press/:id" component={RoutePressPage} exact/>
 							<Route path="/news" component={RouteNews} exact/>
 							<Route path="/news/:id" component={RouteNewsArticle} exact/>
-                            <Route path="/kids" component={() => window.location = 'http://kids.wedoagency.ru/'} exact/>
-							{/*<Route path="/kids" component={RouteKids} exact/>*/}
+							{/*<Route path="/kids" component={() => window.location = 'http://kids.wedoagency.ru/'} exact/>*/}
+							<Route path="/kids" component={RouteKids} exact/>
 							<Route path="/contacts" component={RouteContacts} exact/>
 						</Switch>
 					<Route path="/" component={RouteInstaFooter} />

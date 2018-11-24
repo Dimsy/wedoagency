@@ -51,7 +51,9 @@ class Kids extends Component{
             marginTop: "30px"
         }
 
-        return (
+        const isMobile = window.innerWidth < 769;
+
+        const kidsPc =
             <div>
                 <div className="newsList">
                     <div className="headerImgBlock" style={imgHeader}/>
@@ -91,8 +93,55 @@ class Kids extends Component{
                         </div>
                     </Grid>
                 </div>
-            </div>
-        )
+            </div>;
+
+        const imgMobileHeader = {
+            backgroundImage: `-webkit-image-set( url(${headerImg}) 1x, url(${headerImg}) 2x )`,
+            backgroundImage: `-moz-image-set( url(${headerImg}) 1x, url(${headerImg}) 2x )`,
+            backgroundImage: `-o-image-set( url(${headerImg}) 1x, url(${headerImg}) 2x )`,
+            backgroundImage: `-ms-image-set( url(${headerImg}) 1x, url(${headerImg}) 2x )`,
+            backgroundImage: `url(${headerImg})`
+        };
+
+        const kidsMobile =
+            <div>
+                <div className="newsList" style={{paddingTop: '170px'}}>
+                    <div className="headerImgBlock" style={imgMobileHeader}/>
+                    <Grid>
+                        <div style={{width: "100%", textAlign: "center", paddingRight: "20px", paddingLeft: "20px"}}>
+                            <div style={{textAlign: "center", display: "inline-block", marginTop: "83px", lineHeight: "2", letterSpacing: "0.9px"}}>
+                                <h1 style={{textTransform: "none", textAlign: "center"}}>{kidsInfo.acf.title}</h1>
+                            </div>
+                            <div>
+                                <p style={{textAlign: "center", display: "inline-block", marginBottom: "90px", marginTop: "35px", lineHeight: "2", letterSpacing: "0.9px"}}>
+                                    {kidsInfo.acf.mainText}
+                                </p>
+                            </div>
+                        </div>
+                        <div style={{width: "100%", textAlign: "center", marginBottom: "100px"}}>
+                            <Instagram />
+                        </div>
+                        <div style={{width: "100%", display: "inline-flex", marginBottom: "50px"}}>
+                            <div style={{width: "100%", display: "inline-block", paddingRight: "10px", paddingLeft: "10px"}}>
+                                <div style={{float: "left", backgroundColor: "#f7f7f7", width: "100%", height: "456px"}}>
+                                    <div className="sendMessageKids" style={{paddingTop: "50px", paddingLeft: "50px", paddingRight: "50px"}}>
+                                        <p className="kidsSendTitle" style={{width: "210px"}}>{kidsInfo.acf.sendMessageTitle}</p>
+                                        <Form	onSubmit={this.submit}
+                                                 useLang={useLang}
+                                                 contacts={contacts}
+                                                 yourNamePlaceholder={contacts.acf.yourNamePlaceholder}
+                                                 youMessagePlaceholder={contacts.acf.youMessagePlaceholder}
+                                                 emailPlaceholder={contacts.acf.emailPlaceholder}
+                                                 sendButtonText={contacts.acf.sendButtonText}/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </Grid>
+                </div>
+            </div>;
+
+        return isMobile ? kidsMobile : kidsPc;
     }
 }
 

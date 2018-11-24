@@ -7,7 +7,6 @@ class RouteKids extends Component{
         return (
             <div>
                 <Kids location={this.props.location} match={this.props.match}/>
-                <Footer/>
             </div>
         )
     }
