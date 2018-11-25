@@ -19,13 +19,11 @@ class Instagram extends Component{
   render() {
 	const isMobile = window.innerWidth < 769;
 	const isKids = window.location.pathname === "/kids";
-  	const iframeMain = isMobile
-		?	<div className="col-sm-12 embed-responsive embed-responsive-9by16 instaFadeIn">
-            	<iframe src="//lightwidget.com/widgets/01462399bb285f47a3eb568d48358918.html" scrolling="no" allowTransparency="true" className="lightwidget-widget embed-responsive-item" />
+  	const iframeMain = <div className="col-sm-12 embed-responsive embed-responsive-9by16 instaFadeIn">
+            <iframe src="https://cdn.lightwidget.com/widgets/49c341ec94f65b2ab573231d2cd64eef.html" scrolling="no"
+                    allowTransparency="true" className="lightwidget-widget  embed-responsive-item"
+                    style={{width:"100%",border:"0",overflow:"hidden"}}/>
 			</div>
-		:	<div className="col-sm-12 embed-responsive embed-responsive-16by9 instaFadeIn">
-            	<iframe src="//lightwidget.com/widgets/8dc98a865e575d06a48150d886ccc7cf.html" style={{width:'100%', border:'0', overflow:'hidden'}} scrolling="no" allowTransparency="true" className="lightwidget-widget embed-responsive-item" />
-			</div>;
 
      const iframeKids = !isMobile
           ?	<div className="embed-responsive embed-responsive-9by16 instaFadeIn" style={{paddingBottom: "500px", overflow: "unset"}}>
@@ -35,7 +33,7 @@ class Instagram extends Component{
 			 <iframe src="//lightwidget.com/widgets/e9d9937eb0c954d4b78ea6eb10e2d82a.html" scrolling="no" allowTransparency="true" className="lightwidget-widget embed-responsive-item"/>
 		  </div>;
 
-	const instaPcStyle = window.innerWidth < 769 ? null : {width: '999px'};
+	const instaPcStyle = window.innerWidth < 769 ? {height: "808px"} : {height: '500px'};
 
     const {instagram, loading} = this.props;
     if (loading) return <Loader />;
