@@ -14,14 +14,30 @@ export default function AwardsItem(props){
 		backgroundImage: `url(${item.acf.photo})`
 	};
 
+	const titleStyle = {
+        height: "44px",
+        textAlign: "center",
+		lineHeight: "44px",
+		paddingLeft: "10px",
+		paddingRight: "10px"
+	}
+
+    const titleSpanStyle = {
+        display: "inline-block",
+		verticalAlign: "middle",
+		lineHeight: "normal"
+    }
+
 	const body = <div className="awards__Item">
 								 <div className="awards__Item-Background" style={divStyle}/>
 								 <div className="awards__Item-content">
 								 	 <div dangerouslySetInnerHTML={{ __html: item.content.rendered}}/>
 
 								 </div>
-								 <div className="awards__Item-title">
-								 	 {item.title.rendered}
+								 <div className="awards__Item-title" style={titleStyle}>
+								 	 <span style={titleSpanStyle}>
+								 	 	{item.title.rendered}
+									 </span>
 								 </div>
 							 </div>
 	
