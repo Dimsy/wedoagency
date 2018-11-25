@@ -964,6 +964,10 @@ html, body {
      width: calc(99% - 20px);
      object-fit: cover;
   }
+  .blockE img{
+    width: calc(100% - 20px);
+    object-fit: cover;
+  }
   .portfolio__containerItems{
     display: flex;
     flex-wrap: wrap;

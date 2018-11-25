@@ -183,16 +183,16 @@ class PortfolioPage extends Component{
 		return (
 			<Row key={photos.photo1+'_'+photos.photo1x2+Date.now()} className="no-gutters">
 				<div className="col-6 blockE iBlock">
-					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта" style={styleLeft}/>
-                    <img src={`${photos.photo3}`}  srcSet={`${photos.photo3x2} 2x`} alt="Фото проекта" style={styleLeft}/>
+					<img src={`${photos.photo1}`}  srcSet={`${photos.photo1x2} 2x`} alt="Фото проекта"/>
+                    <img src={`${photos.photo3}`}  srcSet={`${photos.photo3x2} 2x`} alt="Фото проекта"/>
 				</div>
-                <div className="col-6 blockE iBlock blockE_dropM">
-                    <img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта" style={styleLeft}/>
-                    <img src={`${photos.photo4}`}  srcSet={`${photos.photo4x2} 2x`} alt="Фото проекта" style={styleLeft}/>
+                <div className="col-6 blockE iBlock">
+                    <img src={`${photos.photo2}`}  srcSet={`${photos.photo2x2} 2x`} alt="Фото проекта"/>
+                    <img src={`${photos.photo4}`}  srcSet={`${photos.photo4x2} 2x`} alt="Фото проекта"/>
                 </div>
                 <div className="clear" />
 			</Row>
-		)	
+		)
 	}
 
 	render(){
