@@ -9,6 +9,7 @@ import {PATH} from '../../config'
 import './portfolio.css';
 import {Link} from 'react-router-dom';
 import $ from "jquery";
+import moment from 'moment';
 
 class Portfolio extends Component{
     constructor() {
@@ -48,15 +49,37 @@ class Portfolio extends Component{
     }
 	}
 
-	sortBody = (a, b) => {
-		const aDate = a.props.children.props.item.acf.DataOfFinnish
-		const bDate = b.props.children.props.item.acf.DataOfFinnish
+    sortBodyByDate = (a, b) => {
+        const aDate = a.acf.DataOfFinnish;
+        const bDate = b.acf.DataOfFinnish;
 
-		var aNumberForCompare = aDate.split('/').reverse().join()
-    	var bNumberForCompare = bDate.split('/').reverse().join()
-        		
-    return aNumberForCompare > bNumberForCompare ? -1 : (aNumberForCompare < bNumberForCompare ? 1 : 0);	
-	}
+        if (aDate === bDate) return 0;
+        var aNumberForCompare = moment(aDate.split('/').reverse().join('-'));
+        var bNumberForCompare = moment(bDate.split('/').reverse().join('-'));
+
+        return aNumberForCompare.isAfter(bNumberForCompare) ? -1 : 1;
+        //return aNumberForCompare > bNumberForCompare ? -1 : (aNumberForCompare < bNumberForCompare ? 1 : 0);
+    }
+
+    sortBodyByPublicDate = (a, b) => {
+        const aDate = a.acf.publicDate;
+        const bDate = b.acf.publicDate;
+
+        if (aDate === bDate) return 0;
+        var aNumberForCompare = moment(aDate.split('/').reverse().join('-'));
+        var bNumberForCompare = moment(bDate.split('/').reverse().join('-'));
+
+        return aNumberForCompare.isAfter(bNumberForCompare) ? -1 : 1;
+        //return aNumberForCompare > bNumberForCompare ? -1 : (aNumberForCompare < bNumberForCompare ? 1 : 0);
+    }
+
+    filterByIsPublicDate = (item) => {
+        return !!item.acf.publicDate;
+    };
+
+    filterByNoPublicDate = (item) => {
+        return !item.acf.publicDate;
+    };
 
 	render(){
 		const {useLang, entities, error, loading, catName, match} = this.props;
@@ -71,13 +94,23 @@ class Portfolio extends Component{
 		}		
 
 		const checkId = this.props.match.params.id ? this.props.match.params.id : null;
-		
-		const filtredBody = portfolioSlider.filter(item => item.id != this.props.match.params.id);
 
-		const body = filtredBody.map( (item) => <Slide key={item.id} index={item.id}>
+        const filtredBody = portfolioSlider.filter(item => item.id != this.props.match.params.id);
+
+        let filtredPublic = filtredBody.filter(this.filterByIsPublicDate);
+        let sortedPublic = filtredPublic.sort(this.sortBodyByPublicDate);
+
+        let filteredNoPublic = filtredBody.filter(this.filterByNoPublicDate);
+        let sortedNoPublic = filteredNoPublic.sort(this.sortBodyByDate);
+
+        let sortedItems = sortedPublic.concat(sortedNoPublic);
+
+
+
+		const body = sortedItems.map( (item) => <Slide key={item.id} index={item.id}>
         																					<PortfolioItem item={item} match={match}/>
 																		      			</Slide>
-     																					).sort(this.sortBody)
+     																					)
 
 		const opacity = body.length > 3 ? {opacity: "1"} : {opacity: "0.3"}
 
