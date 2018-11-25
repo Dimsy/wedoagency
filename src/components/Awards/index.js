@@ -42,7 +42,7 @@ class Awards extends Component{
 
 		return (
 			<div className='portfolio awards'>
-		  	<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={411} totalSlides={slideCount} visibleSlides={3}>
+		  	<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={411} totalSlides={slideCount} visibleSlides={3}  touchEnabled={false}>
 			    <div className="container">
 			 	    <div className="row no-gutters">
 					    <div className="col-md-9">

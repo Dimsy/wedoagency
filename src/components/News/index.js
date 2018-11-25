@@ -122,7 +122,7 @@ class News extends Component{
 
 		return (
 			<div className='news newsFadeIn'>
-				<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={307} totalSlides={mobile ? body.length+2 : body.length} visibleSlides={3}>
+				<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={307} totalSlides={mobile ? body.length+2 : body.length} visibleSlides={3} touchEnabled={false}>
 					<Grid>
                         {mobile ? mobileButtonsBlock : pcButtonsBlock}
 						<Row className="newsSlider">
