@@ -35,37 +35,60 @@ class Awards extends Component{
 		const body = entities.map(item => <Slide key={item.id} index={item.id}>
         																<AwardsItem item={item} />
 																			</Slide>)
-
+        const isMobile = window.innerWidth < 768 ? true : false;
 		const opacity = body.length > 3 ? {display: "block"} : {display: "none"}
 
 		const slideCount = window.innerWidth < 576 ? body.length + 1 : body.length
+
+        const mobileButtonsStyle = {
+            display: "block"
+        };
+
+        const pcButtonsBlock =	<div className='row no-gutters'>
+									<div className="col-sm-8">
+										<h1 className='portfolio__title'>{catName}</h1>
+									</div>
+									<div className="SliderButtonsPortfolio col-md-4 col-sm-6">
+										<ButtonNext>
+											<img src={`${PATH}/img/slider/next.svg`} style={opacity}/>
+										</ButtonNext>
+										<ButtonBack>
+											<img src={`${PATH}/img/slider/next.svg`} className="sliderButtonsOpacityRevert" style={opacity}/>
+										</ButtonBack>
+										<div className="clear"/>
+									</div>
+								</div>;
+
+        const mobileButtonsBlock =	<div className='row no-gutters'>
+										<div style={{width: "60%"}}>
+											<h1 className='portfolio__title'>{catName}</h1>
+										</div>
+										<div style={{width: "40%"}}>
+											<div className="SliderButtonsPortfolio col-md-4 col-sm-6" style={mobileButtonsStyle}>
+												<ButtonNext style={{paddingLeft: "0px", marginLeft: "10px"}}>
+													<img src={`${PATH}/img/slider/arrow.png`} style={opacity}/>
+												</ButtonNext>
+												<ButtonBack>
+													<img src={`${PATH}/img/slider/arrow.png`} className="sliderButtonsOpacityRevert" style={opacity}/>
+												</ButtonBack>
+												<div className="clear"/>
+											</div>
+										</div>
+									</div>;
 
 		return (
 			<div className='portfolio awards'>
 		  	<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={411} totalSlides={slideCount} visibleSlides={3}  touchEnabled={false}>
 			    <div className="container">
-			 	    <div className="row no-gutters">
-					    <div className="col-md-9">
-					      <h1 className="portfolio__title">{catName}</h1>
-					    </div>
-					  	<div className="col-md-3 SliderButtons">
-						    <ButtonNext>
-						    	<img src={`${PATH}/img/slider/next.svg`} style={opacity}/>
-						    </ButtonNext>
-						    <ButtonBack>
-						    	<img src={`${PATH}/img/slider/next.svg`} className="sliderButtonsOpacityRevert" style={opacity}/>
-						    </ButtonBack>
-						    <div className="clear"/>
-        	    </div>
-				    </div>
+					{isMobile ? mobileButtonsBlock : pcButtonsBlock}
 				    <div className="row awards__slide portfolioSlider">
-        	    <div className="col-md-12 hidePixelsWrapper">
-						    <Slider>
-                  {body}
-        		    </Slider>
-        		    <div className="hidePixels" />
-        	    </div>
-            </div>				
+						<div className="col-md-12 hidePixelsWrapper">
+							<Slider>
+						  		{body}
+							</Slider>
+							<div className="hidePixels" />
+						</div>
+					</div>
 				  </div>	
 				</CarouselProvider>
 			</div>	
