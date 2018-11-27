@@ -11,6 +11,7 @@ import {sendCustomForm} from '../../ducks/form';
 import { Grid, Row, Col } from 'react-bootstrap';
 import {PATH} from '../../config'
 import Instagram from '../Instagram';
+import VideoHeader from '../PortfolioPage/VideoHeader'
 
 class Kids extends Component{
 
@@ -63,12 +64,26 @@ class Kids extends Component{
             backgroundPosition: "center 110px"
         }
 
+
+        const imgMobileHeader = {
+            backgroundImage: `-webkit-image-set( url(${headerImg}) 1x, url(${headerImg}) 2x )`,
+            backgroundImage: `-moz-image-set( url(${headerImg}) 1x, url(${headerImg}) 2x )`,
+            backgroundImage: `-o-image-set( url(${headerImg}) 1x, url(${headerImg}) 2x )`,
+            backgroundImage: `-ms-image-set( url(${headerImg}) 1x, url(${headerImg}) 2x )`,
+            backgroundImage: `url(${headerImg})`
+        };
+
         const isMobile = window.innerWidth < 769;
+
+        const headPhotoVideoBlock = isMobile ? <div className="headerImgBlock" style={imgMobileHeader}/>
+            : kidsInfo.acf.video
+                ? <VideoHeader src={kidsInfo.acf.video.url} key={kidsInfo.acf.video.url} />
+                : <div className="headerImgBlock" style={imgHeader}/>
 
         const kidsPc =
             <div>
                 <div className="newsList">
-                    <div className="headerImgBlock" style={imgHeader}/>
+                    {headPhotoVideoBlock}
                     <Grid>
                         <div style={{width: "100%", textAlign: "center"}}>
                             <div style={{width: "550px", textAlign: "center", display: "inline-block", marginTop: "83px", lineHeight: "2", letterSpacing: "0.9px"}}>
@@ -107,13 +122,6 @@ class Kids extends Component{
                 </div>
             </div>;
 
-        const imgMobileHeader = {
-            backgroundImage: `-webkit-image-set( url(${headerImg}) 1x, url(${headerImg}) 2x )`,
-            backgroundImage: `-moz-image-set( url(${headerImg}) 1x, url(${headerImg}) 2x )`,
-            backgroundImage: `-o-image-set( url(${headerImg}) 1x, url(${headerImg}) 2x )`,
-            backgroundImage: `-ms-image-set( url(${headerImg}) 1x, url(${headerImg}) 2x )`,
-            backgroundImage: `url(${headerImg})`
-        };
 
         const kidsMobile =
             <div>
@@ -121,7 +129,7 @@ class Kids extends Component{
                     <div style={logo}>
 
                     </div>
-                    <div className="headerImgBlock" style={imgMobileHeader}/>
+                    {headPhotoVideoBlock}
                     <Grid>
                         <div style={{width: "100%", textAlign: "center", paddingRight: "20px", paddingLeft: "20px"}}>
                             <div style={{textAlign: "center", display: "inline-block", marginTop: "83px", lineHeight: "2", letterSpacing: "0.9px"}}>
