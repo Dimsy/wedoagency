@@ -95,7 +95,7 @@ class Kids extends Component{
                                 </p>
                             </div>
                         </div>
-                        <div style={{width: "100%", textAlign: "center", marginBottom: "100px"}}>
+                        <div style={{width: "100%", textAlign: "center" , marginBottom: "65px"}}>
                             <Instagram />
                         </div>
                         <div style={{width: "100%", display: "inline-flex", marginBottom: "50px"}}>
@@ -141,7 +141,7 @@ class Kids extends Component{
                                 </p>
                             </div>
                         </div>
-                        <div style={{width: "100%", textAlign: "center", marginBottom: "100px"}}>
+                        <div style={{width: "100%", textAlign: "center", height: "828px", marginBottom: "100px"}}>
                             <Instagram />
                         </div>
                         <div style={{width: "100%", display: "inline-flex", marginBottom: "50px"}}>
