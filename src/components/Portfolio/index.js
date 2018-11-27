@@ -158,7 +158,6 @@ class Portfolio extends Component{
 
 				<CarouselProvider naturalSlideWidth={327}
 								  naturalSlideHeight={411}
-                                  touchEnabled={false}
 								  totalSlides={mobile ? body.length + 2 : body.length}
 								  visibleSlides={3}>
 					<div className='container'>

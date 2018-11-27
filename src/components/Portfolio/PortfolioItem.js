@@ -24,6 +24,7 @@ class PortfolioItem extends Component{
 	}
 
     handleClick (e) {
+		console.log("click click")
         if (e.defaultPrevented) {
             return;
         }
@@ -52,7 +53,7 @@ class PortfolioItem extends Component{
 			<div>
 				<VeilWorkaround/>
 				<Link to={`/portfolio/${item.id}`} onClick={this.handleClick}>
-					<div className="portfolioItem__wrapper" onMouseEnter={this.handlerMouseEnter} onMouseLeave={this.handlerMouseLeave}>
+					<div className="portfolioItem__wrapper"  onClick={this.handleClick} onMouseEnter={this.handlerMouseEnter} onMouseLeave={this.handlerMouseLeave}>
 						<img src={item.acf.StartFoto} srcSet={item.acf.StartFotox2} className="portfolioItem__img"/>
 						{body}
 					</div>
