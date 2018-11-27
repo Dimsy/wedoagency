@@ -56,6 +56,28 @@ class App extends Component {
 			}
 		}
 
+        let newsPath = '/news';
+        let newsId = '/:id';
+
+        //TODO: ID не работает
+        if (pathArr[0] == 'news_ru') {
+            newsPath = '/news_ru';
+            if (pathArr.length > 1) {
+                newsId = '/'+decodeURI(pathArr[1]);
+            }
+        }
+
+        let pressPath = '/press';
+        let pressId = '/:id';
+
+        if (pathArr[0] == 'press_list_ru') {
+            pressPath = '/press_list_ru';
+            if (pathArr.length > 1) {
+                pressId = '/'+decodeURI(pathArr[1]);
+            }
+        }
+        console.log("pressPath+pressId",pressPath+pressId)
+
 		return (
 			<ConnectedRouter history={history}>
 				<ScrollToTop>
@@ -64,14 +86,14 @@ class App extends Component {
 						<Switch>
 							<Route path="/" component={RouteMainPage} exact/>
 							<Route path="/agency" component={RouteAgencyPage} exact/>
-							<Route path="/press" component={RoutePressList} exact/>
+							<Route path={pressPath} component={RoutePressList} exact/>
+                            <Route path={pressPath+pressId} component={RoutePressPage} exact/>
 							<Route path={portfolioPath} component={RoutePortfolioList} exact/>
 							<Route path={portfolioPath+portfolioId} component={RoutePortfolioPage} exact/>
-							<Route path="/press/:id" component={RoutePressPage} exact/>
-							<Route path="/news" component={RouteNews} exact/>
-							<Route path="/news/:id" component={RouteNewsArticle} exact/>
-							{/*<Route path="/kids" component={() => window.location = 'http://kids.wedoagency.ru/'} exact/>*/}
-							<Route path="/kids" component={RouteKids} exact/>
+							<Route path={newsPath} component={RouteNews} exact/>
+							<Route path={newsPath+newsId} component={RouteNewsArticle} exact/>
+							<Route path="/kids" component={() => window.location = 'http://kids.wedoagency.ru/'} exact/>
+							{/*<Route path="/kids" component={RouteKids} exact/>*/}
 							<Route path="/contacts" component={RouteContacts} exact/>
 						</Switch>
 					<Route path="/" component={RouteInstaFooter} />
