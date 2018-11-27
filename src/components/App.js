@@ -44,7 +44,18 @@ class App extends Component {
 	}
 
 	render(){
-		
+		const pathArr = window.location.pathname.split('/').filter((item) => item !== "");
+
+		let portfolioPath = '/portfolio';
+		let portfolioId = '/:id';
+
+		if (pathArr[0] == 'portfolio_ru') {
+            portfolioPath = '/portfolio_ru';
+            if (pathArr.length > 1) {
+                portfolioId = '/'+decodeURI(pathArr[1]);
+			}
+		}
+
 		return (
 			<ConnectedRouter history={history}>
 				<ScrollToTop>
@@ -54,8 +65,8 @@ class App extends Component {
 							<Route path="/" component={RouteMainPage} exact/>
 							<Route path="/agency" component={RouteAgencyPage} exact/>
 							<Route path="/press" component={RoutePressList} exact/>
-							<Route path="/portfolio" component={RoutePortfolioList} exact/>
-							<Route path="/portfolio/:id" component={RoutePortfolioPage} exact/>
+							<Route path={portfolioPath} component={RoutePortfolioList} exact/>
+							<Route path={portfolioPath+portfolioId} component={RoutePortfolioPage} exact/>
 							<Route path="/press/:id" component={RoutePressPage} exact/>
 							<Route path="/news" component={RouteNews} exact/>
 							<Route path="/news/:id" component={RouteNewsArticle} exact/>
