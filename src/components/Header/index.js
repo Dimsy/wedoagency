@@ -52,7 +52,7 @@ class Header extends Component {
 				<button className={"mobile-menu-btn " + (this.state.show ? 'active' : null)} onClick={this.handleClick}>
 					<span></span>
 				</button>
-				<div className={window.location.pathname === "/kids" && !isMobile ? "logoKidsBlock" : "logoBlock"}/>
+				<div className={(window.location.pathname === "/kids" || window.location.pathname === "/kids-test") && !isMobile ? "logoKidsBlock" : "logoBlock"}/>
 			</div>
 		)
 	}

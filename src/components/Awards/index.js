@@ -65,7 +65,7 @@ class Awards extends Component{
 										</div>
 										<div style={{width: "40%"}}>
 											<div className="SliderButtonsPortfolio col-md-4 col-sm-6" style={mobileButtonsStyle}>
-												<ButtonNext style={{paddingLeft: "0px", marginLeft: "10px"}}>
+												<ButtonNext style={{paddingLeft: "0px", marginLeft: "10px", paddingRight: "0px"}}>
 													<img src={`${PATH}/img/slider/arrow.png`} style={opacity}/>
 												</ButtonNext>
 												<ButtonBack>

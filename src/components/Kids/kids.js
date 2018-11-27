@@ -53,11 +53,11 @@ class Kids extends Component{
 
         const logo = {
             height: "240px",
-            backgroundImage: `-webkit-image-set( url(../img/logo/wedo-kids.png) 1x, url(../img/logo/wedo-kids.png) 2x )`,
-            backgroundImage: `-moz-image-set( url(../img/logo/wedo-kids.png) 1x, url(../img/logo/wedo-kids.png) 2x )`,
-            backgroundImage: `-o-image-set( url(../img/logo/wedo-kids.png) 1x, url(../img/logo/wedo-kids.png) 2x )`,
-            backgroundImage: `-ms-image-set( url(../img/logo/wedo-kids.png) 1x, url(../img/logo/wedo-kids.png) 2x )`,
-            backgroundImage: `url(../img/logo/wedo-kids.png)`,
+            backgroundImage: `-webkit-image-set( url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 1x, url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 2x )`,
+            backgroundImage: `-moz-image-set( url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 1x, url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 2x )`,
+            backgroundImage: `-o-image-set( url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 1x, url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 2x )`,
+            backgroundImage: `-ms-image-set( url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 1x, url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 2x )`,
+            backgroundImage: `url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg)`,
             backgroundSize: "260px",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center 110px"
