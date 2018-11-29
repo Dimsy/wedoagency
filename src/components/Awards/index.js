@@ -78,7 +78,7 @@ class Awards extends Component{
 
 		return (
 			<div className='portfolio awards'>
-		  	<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={411} totalSlides={slideCount} visibleSlides={3}  touchEnabled={isMobile ? false : true}>
+		  	<CarouselProvider naturalSlideWidth={327} naturalSlideHeight={411} totalSlides={slideCount} visibleSlides={3}  touchEnabled={false}>
 			    <div className="container">
 					{isMobile ? mobileButtonsBlock : pcButtonsBlock}
 				    <div className="row awards__slide portfolioSlider">

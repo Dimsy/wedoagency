@@ -35,12 +35,13 @@ class Kids extends Component{
         $("#veil").removeClass('fadein').addClass("fadeout");
 
         const headerImg = kidsInfo.acf.photoTitle;
+        const headerImgx2 = kidsInfo.acf.photoTitlex2;
 
         const imgHeader = {
-            backgroundImage: `-webkit-image-set( url(${headerImg}) 1x, url(${headerImg}) 2x )`,
-            backgroundImage: `-moz-image-set( url(${headerImg}) 1x, url(${headerImg}) 2x )`,
-            backgroundImage: `-o-image-set( url(${headerImg}) 1x, url(${headerImg}) 2x )`,
-            backgroundImage: `-ms-image-set( url(${headerImg}) 1x, url(${headerImg}) 2x )`,
+            backgroundImage: `-webkit-image-set( url(${headerImg}) 1x, url(${headerImgx2}) 2x )`,
+            backgroundImage: `-moz-image-set( url(${headerImg}) 1x, url(${headerImgx2}) 2x )`,
+            backgroundImage: `-o-image-set( url(${headerImg}) 1x, url(${headerImgx2}) 2x )`,
+            backgroundImage: `-ms-image-set( url(${headerImg}) 1x, url(${headerImgx2}) 2x )`,
             backgroundImage: `url(${headerImg})`
         };
 
@@ -66,10 +67,10 @@ class Kids extends Component{
 
 
         const imgMobileHeader = {
-            backgroundImage: `-webkit-image-set( url(${headerImg}) 1x, url(${headerImg}) 2x )`,
-            backgroundImage: `-moz-image-set( url(${headerImg}) 1x, url(${headerImg}) 2x )`,
-            backgroundImage: `-o-image-set( url(${headerImg}) 1x, url(${headerImg}) 2x )`,
-            backgroundImage: `-ms-image-set( url(${headerImg}) 1x, url(${headerImg}) 2x )`,
+            backgroundImage: `-webkit-image-set( url(${headerImg}) 1x, url(${headerImgx2}) 2x )`,
+            backgroundImage: `-moz-image-set( url(${headerImg}) 1x, url(${headerImgx2}) 2x )`,
+            backgroundImage: `-o-image-set( url(${headerImg}) 1x, url(${headerImgx2}) 2x )`,
+            backgroundImage: `-ms-image-set( url(${headerImg}) 1x, url(${headerImgx2}) 2x )`,
             backgroundImage: `url(${headerImg})`
         };
 

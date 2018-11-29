@@ -314,7 +314,7 @@ class PortfolioPage extends Component{
                             </div>
                         </div>;
 
-        const videoEl = <div className="row" style={{marginBottom: '70px'}}>
+        const videoEl = <div className="row">
                             <div className={isMobile ? "col-xs-6" : "col-md-3"} style={{paddingLeft: '25px'}}>
                                 <p className={'text-muted'} style={{paddingTop: '0px', float: 'left'}}>Видеограф:&nbsp;</p>
                             </div>
@@ -343,7 +343,8 @@ class PortfolioPage extends Component{
 									</div>;
 
 		console.log("photographers_list.length || !!videographs_list.length",photographers_list.length || !!videographs_list.length)
-
+		console.log("photographers_list",photographers_list)
+		console.log("videographs_list.length",videographs_list.length)
 		return(
 			<div className="portfolioPage__project">
 				<Helmet>
@@ -370,8 +371,9 @@ class PortfolioPage extends Component{
 						{body}
 						{videoBody}
                         {(!!photographers_list.length || !!videographs_list.length) && !isMobile ? photovideoElement : null}
-                        {(!!photographers_list.length || !!videographs_list.length) && isMobile ? photoEl : null}
-                        {(!!photographers_list.length || !!videographs_list.length) && isMobile ? videoEl : null}
+                        {(!!photographers_list.length) && isMobile ? photoEl : null}
+                        {(!!videographs_list.length) && isMobile ? videoEl : null}
+                        <div style={{marginBottom: '70px'}}></div>
 					</div>
 				</ReactCSSTransitionGroup>
 			</div>

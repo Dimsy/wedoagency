@@ -127,7 +127,7 @@ class Portfolio extends Component{
 										</div>
 										<div style={{width: "40%"}}>
 											<div className="SliderButtonsPortfolio col-md-4 col-sm-6" style={mobileButtonsStyle}>
-												<ButtonNext style={{paddingLeft: "0px", marginLeft: "10px"}}>
+												<ButtonNext style={{paddingLeft: "0px", marginLeft: "10px", paddingRight: "0px"}}>
 													<img src={`${PATH}/img/slider/arrow.png`} style={opacity}/>
 												</ButtonNext>
 												<ButtonBack>
@@ -159,6 +159,7 @@ class Portfolio extends Component{
 				<CarouselProvider naturalSlideWidth={327}
 								  naturalSlideHeight={411}
 								  totalSlides={mobile ? body.length + 2 : body.length}
+								  touchEnabled={false}
 								  visibleSlides={3}>
 					<div className='container'>
 						{mobile ? mobileButtonsBlock : pcButtonsBlock}
