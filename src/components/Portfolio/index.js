@@ -169,8 +169,8 @@ class Portfolio extends Component{
 									{body}
 								</Slider>
 								<div className="hidePixels" />
+                                <Link to='/portfolio' className="knowMore" onClick={this.handleClick}>Смотреть все</Link>
 							</div>
-                            <Link to='/portfolio' className="knowMore" onClick={this.handleClick}>Смотреть все</Link>
 						</div>
 					  </div>
 				</CarouselProvider>

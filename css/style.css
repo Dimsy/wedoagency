@@ -379,7 +379,7 @@ button:focus {
   background-color: #f7f7f7;
 }
 .portfolio .portfolioSlider{
-  padding-left: 10px;
+  padding-left: 0px;
 }
 
 .awards .portfolioSlider{

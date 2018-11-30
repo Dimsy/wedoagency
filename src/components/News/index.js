@@ -131,7 +131,7 @@ class News extends Component{
 									{body}
 								</Slider>
 								<div className="hidder" />
-                                <Link to='/news' className="knowMore" onClick={this.handleClick}>Смотреть все</Link>
+								<Link to='/news' className="knowMore" onClick={this.handleClick}>Смотреть все</Link>
 							</Col>
 						</Row>
 					</Grid>	

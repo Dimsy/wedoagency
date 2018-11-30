@@ -36,6 +36,7 @@ class Kids extends Component{
 
         const headerImg = kidsInfo.acf.photoTitle;
         const headerImgx2 = kidsInfo.acf.photoTitlex2;
+        const photoTitleMobile = kidsInfo.acf.photoTitleMobile;
 
         const imgHeader = {
             backgroundImage: `-webkit-image-set( url(${headerImg}) 1x, url(${headerImgx2}) 2x )`,
@@ -67,11 +68,11 @@ class Kids extends Component{
 
 
         const imgMobileHeader = {
-            backgroundImage: `-webkit-image-set( url(${headerImg}) 1x, url(${headerImgx2}) 2x )`,
-            backgroundImage: `-moz-image-set( url(${headerImg}) 1x, url(${headerImgx2}) 2x )`,
-            backgroundImage: `-o-image-set( url(${headerImg}) 1x, url(${headerImgx2}) 2x )`,
-            backgroundImage: `-ms-image-set( url(${headerImg}) 1x, url(${headerImgx2}) 2x )`,
-            backgroundImage: `url(${headerImg})`
+            backgroundImage: `-webkit-image-set( url(${photoTitleMobile}) 1x, url(${photoTitleMobile}) 2x )`,
+            backgroundImage: `-moz-image-set( url(${photoTitleMobile}) 1x, url(${photoTitleMobile}) 2x )`,
+            backgroundImage: `-o-image-set( url(${photoTitleMobile}) 1x, url(${photoTitleMobile}) 2x )`,
+            backgroundImage: `-ms-image-set( url(${photoTitleMobile}) 1x, url(${photoTitleMobile}) 2x )`,
+            backgroundImage: `url(${photoTitleMobile})`
         };
 
         const isMobile = window.innerWidth < 769;
