@@ -32,7 +32,7 @@ class Instagram extends Component{
 					 className="lightwidget-widget embed-responsive-item"/>
 		  </div>
 
-	const instaPcStyle = window.innerWidth < 769 ? {height: "808px"} : {height: '500px'};
+	const instaPcStyle = window.innerWidth < 769 ? {height: "808px"} : {height: '513px'};
 
     const {instagram, loading} = this.props;
     if (loading) return <Loader />;

@@ -17,6 +17,10 @@ time, mark, audio, video {
   font-size: 100%;
   vertical-align: baseline; }
 
+html iframe {
+  overflow: hidden;
+}
+
 html, body{
   height: 100%; }
 

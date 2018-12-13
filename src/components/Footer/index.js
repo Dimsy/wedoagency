@@ -63,7 +63,7 @@ class Footer extends Component{
 			}
 		)
 		
-		const labelLang = useLang == "ru" ? 'Свадебное агeство "WeDoAgency"' : 'Wedding agency "WeDoAgency"'
+		const labelLang = useLang == "ru" ? 'Свадебное агентство «WeDoAgency»' : 'Wedding agency «WeDoAgency»'
 		const label = window.innerWidth < 768 ? <Col sm={11} className="col-11"><p className="footer__label">{labelLang}</p><p className="footer__label">2012-2018</p></Col> : null
 
 		return(
