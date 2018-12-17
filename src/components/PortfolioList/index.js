@@ -16,6 +16,8 @@ class PortfolioList extends Component{
     };
 
 	componentDidMount(){
+        const { store } = this.context;
+        console.log(store)
 		const { useLang, loadPortfolio } = this.props;
 
 		if (this.props.entities.toArray().length < 9){
