@@ -35,7 +35,8 @@ module.exports = {
         }),
         new UglifyJsPlugin({
             test: /\.js($|\?)/i
-        })],
+        })
+    ],
 	module: {
 	 	loaders: [
 	 		{

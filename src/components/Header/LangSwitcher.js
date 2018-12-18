@@ -7,6 +7,11 @@ class LangSwitcher extends Component{
 		super();
 		this.setLangEn = this.setLangEn.bind(this);
         this.setLangRu = this.setLangRu.bind(this);
+        document.addEventListener('keydown', this.setShowSwitch);
+	}
+
+	state = {
+		showLang: false
 	}
 
 	componentDidMount() {
@@ -24,6 +29,13 @@ class LangSwitcher extends Component{
 		}
 	}
 
+    setShowSwitch = (event) => {
+		console.log(event)
+		if (event.ctrlKey && event.keyCode == 81) {
+            this.setState({showLang: !this.state.showLang})
+        }
+    }
+
 	setLangRu = () => {
         localStorage.setItem('userLang', 'ru');
         this.props.changeLangRu();
@@ -36,7 +48,7 @@ class LangSwitcher extends Component{
 
 
 	render(){
-
+		if (!this.state.showLang) return null;
 		return (
 			<ul className="headerLangSwitcher">
 				<li onClick={this.setLangRu}>
