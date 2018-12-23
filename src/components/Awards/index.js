@@ -46,7 +46,7 @@ class Awards extends Component{
 
         const pcButtonsBlock =	<div className='row no-gutters'>
 									<div className="col-sm-8">
-										<h1 className='portfolio__title'>{catName}</h1>
+										<h1 className='portfolio__title' style={{marginLeft: '10px'}}>{catName}</h1>
 									</div>
 									<div className="SliderButtonsPortfolio col-md-4 col-sm-6">
 										<ButtonNext>
@@ -61,7 +61,7 @@ class Awards extends Component{
 
         const mobileButtonsBlock =	<div className='row no-gutters'>
 										<div style={{width: "60%"}}>
-											<h1 className='portfolio__title'>{catName}</h1>
+											<h1 className='portfolio__title' style={{marginLeft: '10px'}}>{catName}</h1>
 										</div>
 										<div style={{width: "40%"}}>
 											<div className="SliderButtonsPortfolio col-md-4 col-sm-6" style={mobileButtonsStyle}>

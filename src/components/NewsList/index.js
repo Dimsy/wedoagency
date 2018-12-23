@@ -13,11 +13,6 @@ class NewsList extends Component{
 
 	componentDidMount(){
     const { useLang, entities } = this.props;
-    
-    if ( entities.size == 0){
-			this.props.loadNewsList(useLang);
-    }
-		
 	}
 
 	componentWillReceiveProps(nextProps){

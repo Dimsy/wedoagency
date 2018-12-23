@@ -88,6 +88,8 @@ class News extends Component{
 		const opacity = body.length > 3 ? {opacity: "1"} : {opacity: "0.3"}
         const mobile = window.innerWidth < 768 ? true : false;
 
+		const showAll = useLang === 'ru' ? 'Смотреть все' : 'Show all';
+
 		const pcButtonsBlock =	<Row>
 									<Col  sm={6} md={8}>
 										<h1>{catName}</h1>
@@ -131,7 +133,7 @@ class News extends Component{
 									{body}
 								</Slider>
 								<div className="hidder" />
-								<Link to='/news' className="knowMore" onClick={this.handleClick}>Смотреть все</Link>
+								<Link to='/news' className="knowMore" onClick={this.handleClick}>{showAll}</Link>
 							</Col>
 						</Row>
 					</Grid>	

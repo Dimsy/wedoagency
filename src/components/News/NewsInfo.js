@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import $ from "jquery";
+import {connect} from "react-redux";
+import {loadPortfolio} from "../../ducks/portfolio";
 
 class NewsItem extends Component {
     state = {
@@ -46,8 +48,10 @@ class NewsItem extends Component {
 		  year: 'numeric'
 		};
 
+		const title = useLang === 'ru' ? item.title.rendered : item.acf.titleEn;
+
 		const body = <div className="news__Info">
-								   <div className="news__info-item">{item.title.rendered}</div>
+								   <div className="news__info-item">{title}</div>
 								   <div className="news__info-itemdata ">{ date.toLocaleString( 'en-GB', options)}</div>
 					 </div>;
 
@@ -74,4 +78,10 @@ class NewsItem extends Component {
 	}
 }
 
-export default NewsItem
+const mapStateToProps = state => {
+    return {
+        useLang: state.lang.useLang
+    }
+};
+
+export default connect(mapStateToProps, {})(NewsItem)

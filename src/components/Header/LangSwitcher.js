@@ -31,7 +31,7 @@ class LangSwitcher extends Component{
 
     setShowSwitch = (event) => {
 		console.log(event)
-		if (event.ctrlKey && event.keyCode == 81) {
+		if (event.shiftKey && event.keyCode == 81) {
             this.setState({showLang: !this.state.showLang})
         }
     }

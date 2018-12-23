@@ -121,6 +121,8 @@ class Portfolio extends Component{
         	display: "block"
 		};
 
+        const showAll = useLang === 'ru' ? 'Смотреть все' : 'Show all';
+
         const mobileButtonsBlock =	<div className='row no-gutters'>
 										<div style={{width: "60%"}}>
                                             <h1 className='portfolio__title'>{title}</h1>
@@ -169,7 +171,7 @@ class Portfolio extends Component{
 									{body}
 								</Slider>
 								<div className="hidePixels" />
-                                <Link to='/portfolio' className="knowMore" onClick={this.handleClick}>Смотреть все</Link>
+                                <Link to='/portfolio' className="knowMore" onClick={this.handleClick}>{showAll}</Link>
 							</div>
 						</div>
 					  </div>

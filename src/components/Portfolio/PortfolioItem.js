@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import VeilWorkaround from '../VeilWorkaround/VeilWorkaround';
-import Header from '../Header'
 import {Link} from 'react-router-dom'
 import $ from "jquery";
+import {connect} from "react-redux";
 
 class PortfolioItem extends Component{
 
@@ -41,11 +41,16 @@ class PortfolioItem extends Component{
 	}
 
 	render(){
-		const { item } = this.props;
+		const { item, useLang } = this.props;
+
+        console.log('p item lang =',useLang);
+        console.log('titleEn', item.acf.titleEn)
+
+		const itemTitle = useLang === 'ru' ? item.title.rendered : item.acf.titleEn;
 
 		const body =
 			<div className="portfolioItem__Info">
-				<div className="portfolioItem__info-data">{item.title.rendered}</div>
+				<div className="portfolioItem__info-data">{itemTitle}</div>
 				<div className="news__info-itemdata ">{item.acf.DataOfFinnish}</div>
 			</div>;
 
@@ -75,4 +80,10 @@ class PortfolioItem extends Component{
 	}
 }
 
-export default PortfolioItem
+const mapStateToProps = state => {
+    return {
+        useLang: state.lang.useLang
+    }
+};
+
+export default connect(mapStateToProps, {})(PortfolioItem);
