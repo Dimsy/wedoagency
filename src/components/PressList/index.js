@@ -13,22 +13,22 @@ class PressList extends Component{
 	componentDidMount(){
 		const { useLang, loadPressList } = this.props;
 
-		loadPressList(useLang);
+		loadPressList('ru');
 	}
 
 	componentWillReceiveProps(nextProps){
 		const {useLang, clearPressList, loadPressList} = this.props
 		
 		if(useLang != nextProps.useLang){
-			clearPressList();
-			loadPressList(nextProps.useLang);
+			//clearPressList();
+			//loadPressList('ru');
 		}
 	}
 
 	addingPress = () => {
 		const { useLang, loadPressList } = this.props;
 
-		loadPressList(useLang);
+		loadPressList('ru');
 	}
 
 	sortBody = (a, b) => {

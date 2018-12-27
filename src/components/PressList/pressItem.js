@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import $ from "jquery";
+import {connect} from "react-redux";
 
 class PressItem extends Component{
     state = {
@@ -38,7 +39,7 @@ class PressItem extends Component{
     }
 
 	render(){
-		const {item, match } = this.props
+		const {item, match, useLang } = this.props
 	
 		const background = {
 			backgroundImage: `-webkit-image-set( url(${item.acf.foto}) 1x, url(${item.acf.Fotox2}) 2x )`,
@@ -66,7 +67,7 @@ class PressItem extends Component{
 			<div className="pressItem__Inner">
 					<div className="pressItem__Inner-title">
 						<div style={cellStyle} className={!mobile ? "pcCell" : ""}>
-							{item.title.rendered}
+							{useLang === 'ru' ? item.title.rendered : item.acf.titleEn}
 						</div>
 					</div>
 					<div className="pressItem__Inner-date">
@@ -98,4 +99,10 @@ class PressItem extends Component{
 	}
 }
 
-export default PressItem
+const mapStateToProps = state => {
+    return{
+        useLang: state.lang.useLang
+    }
+}
+
+export default connect(mapStateToProps, {  })(PressItem)

@@ -150,7 +150,7 @@ class NewsArticle extends Component{
 		return (
 			<div className="newsArticleBlock">
 				<Helmet>
-					<title>WeDoAgency | {entities.title.rendered}</title>
+					<title>WeDoAgency | {useLang === 'ru' ? entities.title.rendered : entities.acf.titleEn}</title>
 				</Helmet>
 				<ReactCSSTransitionGroup transitionName="anim" 
 																 transitionAppear={true} 
@@ -166,10 +166,10 @@ class NewsArticle extends Component{
 							<div className="row no-gutters">
 								<div className="col-md-8 offset-md-2">
 									<div className="articleTitle">			
-										{article.title.rendered}
+										{useLang === 'ru' ? entities.title.rendered : entities.acf.titleEn}
 									</div>			
 									<div className="articleContent">
-										<div dangerouslySetInnerHTML={{ __html: article.content.rendered }} />
+										<div dangerouslySetInnerHTML={{ __html: useLang === 'ru' ? article.content.rendered : article.acf.textEn }} />
 									</div>
 								</div>
 							</div>

@@ -13,18 +13,16 @@ class NewsList extends Component{
 
 	componentDidMount(){
     const { useLang, entities } = this.props;
+        this.props.loadNewsList('ru');
 	}
 
 	componentWillReceiveProps(nextProps){
-		if(this.props.useLang != nextProps.useLang){
-			this.props.clearNewsList();
-			this.props.loadNewsList(nextProps.useLang);
-		}
+
 	}
 
 	addingNews = () => {
 		const { useLang } = this.props;
-		this.props.loadNewsList(useLang);
+		this.props.loadNewsList('ru');
 	}
 
     sortBody = (a, b) => {

@@ -79,11 +79,11 @@ class NewsItem extends Component{
 						</div>
 						<div>
 							<Link to={`${match.path}/${item.id}`} className="headerNews">
-								{item.title.rendered}
+								{useLang === 'ru' ? item.title.rendered : item.acf.titleEn}
 							</Link>
 						</div>
 						<div className="fullNews">
-						<div dangerouslySetInnerHTML={{ __html:  item.content.rendered }} />
+						<div dangerouslySetInnerHTML={{ __html:  useLang === 'ru' ? item.content.rendered : item.acf.textEn }} />
 							{/*item.content.rendered*/}
 						</div>
 						<Link to={`${match.path}/${item.id}`} className="linkToNews" onClick={this.handleClick}>{showMore}</Link>

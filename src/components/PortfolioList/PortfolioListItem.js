@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import $ from "jquery";
+import {connect} from "react-redux";
+import {loadAgencyPage} from "../../ducks/AgencyPage";
 
 class PortfolioListItem extends Component{
     state = {
@@ -38,7 +40,7 @@ class PortfolioListItem extends Component{
     }
 
 	render(){
-		const { item, match } = this.props;
+		const { item, match, useLang } = this.props;
 
 		const background = {
 			backgroundImage: `-webkit-image-set( url(${item.acf.StartFoto}) 1x, url(${item.acf.StartFotox2}) 2x )`,
@@ -56,7 +58,7 @@ class PortfolioListItem extends Component{
 		const body =  <Link to={`${match.path}/${item.id}`} onClick={this.handleClick}>
 										<div className="portfolioListItem__Info">
 											
-		 							   		<div className="portfolioItem__info-data">{item.title.rendered}</div>
+		 							   		<div className="portfolioItem__info-data">{useLang === 'ru' ? item.title.rendered : item.acf.titleEn}</div>
  											
  											  <div className="news__info-itemdata portfolioItem__date">
 								     			{item.acf.DataOfFinnish}
@@ -85,4 +87,10 @@ class PortfolioListItem extends Component{
 	}
 }
 
-export default PortfolioListItem
+const mapStateToProps = state => {
+    return{
+        useLang: state.lang.useLang
+    }
+}
+
+export default connect(mapStateToProps, {  })(PortfolioListItem)

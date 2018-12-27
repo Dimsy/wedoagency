@@ -16,15 +16,12 @@ class AgencyPage extends Component {
         const id = window.location.href.split('/').pop();
 
 		//loadPressPage( id ? match.params.id : id, isNaN(match.params.id))
-		loadPressPage(!id ? this.props.location.pathname.split('/')[2] : id, !id)
+		loadPressPage(id)
 	}
 
 	componentWillReceiveProps(nextProps){
-		const { match, loadPressPage } = this.props
+		const { match, loadPressPage, useLang } = this.props
 
-		if(match.params.id != nextProps.match.params.id){
-			loadPressPage(nextProps.match.params.id);
-		}
 	}
 
 	render(){
@@ -44,11 +41,11 @@ class AgencyPage extends Component {
 		  month:  'long',
 		  year: 'numeric'
 		};
-
+		console.log(' entities.acf.titleEn', entities.acf.titleEn)
 		return (
 			<div className="pressPage">
                 <Helmet>
-                    <title>WeDoAgency | {entities.title.rendered}</title>
+                    <title>WeDoAgency | {useLang === 'ru' ? entities.title.rendered : entities.acf.titleEn}</title>
                 </Helmet>
 				<ReactCSSTransitionGroup transitionName="anim" 
 																 transitionAppear={true} 
@@ -66,10 +63,10 @@ class AgencyPage extends Component {
 										{ date.toLocaleString( i18Date, options)}
 									</div>
 									<div className="headerTitle">
-										{renderHTML(entities.title.rendered)}
+										{renderHTML(useLang === 'ru' ? entities.title.rendered : entities.acf.titleEn)}
 									</div>
 									<div className="content">
-										<div dangerouslySetInnerHTML={{ __html:  entities.content.rendered }} />
+										<div dangerouslySetInnerHTML={{ __html:  useLang === 'ru' ? entities.content.rendered : entities.acf.textEn}} />
 									</div>
 								</div>
 							</div>	

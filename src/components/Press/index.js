@@ -84,13 +84,13 @@ class Press extends Component{
 
 		const mobileHeader = mobile ? <Row>
 																		<div className="col-12">
-																			<h1>{response.title.rendered}</h1>
+																			<h1>{useLang === 'ru' ? response.title.rendered : response.acf.titleEn}</h1>
 																		</div>	
 																	</Row>
 																: null
 
 		const desktopHeader = mobile ? null
-																 : <h1>{response.title.rendered}</h1>
+																 : <h1>{useLang === 'ru' ? response.title.rendered : response.acf.titleEn}</h1>
 
 		const desktopSlogan = mobile ? null 
 																 : <h3 className="press__slogan-small">{response.acf.slogan3}</h3>
@@ -112,7 +112,7 @@ class Press extends Component{
                     </div>
                     <div className="col-sm-12 col-md-4">
                         {desktopHeader}
-                        <div dangerouslySetInnerHTML={{ __html:  response.content.rendered }} />
+                        <div dangerouslySetInnerHTML={{ __html:  useLang === 'ru' ? response.content.rendered : response.acf.textEn }} />
                         <Link to='/press' className="knowMore" onClick={this.handleClick}>{knowMore}</Link>
                     </div>
                 </Row>
@@ -135,7 +135,7 @@ class Press extends Component{
 				<Row>
                     <div className="col-sm-12 col-md-4">
                         {desktopHeader}
-                        <div dangerouslySetInnerHTML={{ __html:  response.content.rendered }} />
+                        <div dangerouslySetInnerHTML={{ __html:  useLang === 'ru' ? response.content.rendered : response.acf.textEn }} />
                         <Link to='/press' className="knowMore" onClick={this.handleClick}>{knowMore}</Link>
                     </div>
                 </Row>
