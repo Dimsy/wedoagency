@@ -26,7 +26,7 @@ class Kids extends Component{
     render(){
         const { useLang, contacts, loading, error, kidsInfo, kidsLoading} = this.props;
 
-        const kidsLogo = "http://static.tildacdn.com/tild3064-6639-4766-a335-646531343835/wedoKids.png";
+        const kidsLogo = "https://static.tildacdn.com/tild3064-6639-4766-a335-646531343835/wedoKids.png";
 
         if (loading || kidsLoading) return <Loader />;
         if (error) return (<ErrorCmp error={error} />);
@@ -56,11 +56,11 @@ class Kids extends Component{
 
         const logo = {
             height: "240px",
-            backgroundImage: `-webkit-image-set( url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 1x, url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 2x )`,
-            backgroundImage: `-moz-image-set( url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 1x, url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 2x )`,
-            backgroundImage: `-o-image-set( url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 1x, url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 2x )`,
-            backgroundImage: `-ms-image-set( url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 1x, url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 2x )`,
-            backgroundImage: `url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg)`,
+            backgroundImage: `-webkit-image-set( url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 1x, url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 2x )`,
+            backgroundImage: `-moz-image-set( url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 1x, url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 2x )`,
+            backgroundImage: `-o-image-set( url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 1x, url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 2x )`,
+            backgroundImage: `-ms-image-set( url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 1x, url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 2x )`,
+            backgroundImage: `url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg)`,
             backgroundSize: "260px",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center 110px"

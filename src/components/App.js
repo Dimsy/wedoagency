@@ -92,7 +92,7 @@ class App extends Component {
 							<Route path={portfolioPath+portfolioId} component={RoutePortfolioPage} exact/>
 							<Route path={newsPath} component={RouteNews} exact/>
 							<Route path={newsPath+newsId} component={RouteNewsArticle} exact/>
-                            <Route path="/kids" component={() => window.location = 'http://kids.wedoagency.ru/'} exact/>
+                            <Route path="/kids" component={() => window.location = 'https://kids.wedoagency.ru/'} exact/>
 							<Route path="/kids-test" component={RouteKids} exact/>
 							<Route path="/contacts" component={RouteContacts} exact/>
 						</Switch>

@@ -61,7 +61,7 @@ export function * loadKidsInfoSaga(action){
 	//const articleLang = action.payload.lang == 'ru' ? KIDS_INFO_ru : KIDS_INFO_en;
 	
 	try {
-		const response = yield call(axios.get, `http://wedoagency.ru/wp-json/wp/v2/posts/3177`)
+		const response = yield call(axios.get, `https://wedoagency.ru/wp-json/wp/v2/posts/3177`)
 
 		yield put({
 						type: LOAD_KIDS_SUCCESS,

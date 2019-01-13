@@ -20,13 +20,13 @@ class Instagram extends Component{
 	const isMobile = window.innerWidth < 769;
 	const isKids = window.location.pathname === "/kids" || window.location.pathname === "/kids-test";
   	const iframeMain = <div className="col-sm-12 embed-responsive embed-responsive-9by16 instaFadeIn">
-            <iframe src="https://cdn.lightwidget.com/widgets/49c341ec94f65b2ab573231d2cd64eef.html"
+            <iframe src="httpss://cdn.lightwidget.com/widgets/49c341ec94f65b2ab573231d2cd64eef.html"
                     allowTransparency="true" className="lightwidget-widget  embed-responsive-item"
                     style={{width:"100%",border:"0",overflow:"hidden"}}/>
 			</div>
 
      const iframeKids = <div className="col-sm-12 embed-responsive embed-responsive-9by16 instaFadeIn" style={{paddingBottom: "500px", overflow: "unset"}}>
-             <iframe src="https://cdn.lightwidget.com/widgets/6e2ef7311e555e448c7f67d0067d1c20.html"
+             <iframe src="httpss://cdn.lightwidget.com/widgets/6e2ef7311e555e448c7f67d0067d1c20.html"
                      style={{width:"100%",border:"0",overflow:"hidden"}}
 					 allowTransparency="true"
 					 className="lightwidget-widget embed-responsive-item"/>

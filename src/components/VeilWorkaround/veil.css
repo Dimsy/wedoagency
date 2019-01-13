@@ -47,11 +47,11 @@
 
 .veilLogo {
         height: calc(100vh - 100px);
-        background-image: url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png);
-        background-image: -webkit-image-set(url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png) 1x, url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo@2x.png) 2x);
-        background-image: -moz-image-set(url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png) 1x, url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo@2x.png) 2x);
-        background-image: -o-image-set(url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png) 1x, url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo@2x.png) 2x);
-        background-image: -ms-image-set(url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png) 1x, url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo@2x.png) 2x);
+        background-image: url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png);
+        background-image: -webkit-image-set(url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png) 1x, url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo@2x.png) 2x);
+        background-image: -moz-image-set(url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png) 1x, url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo@2x.png) 2x);
+        background-image: -o-image-set(url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png) 1x, url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo@2x.png) 2x);
+        background-image: -ms-image-set(url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png) 1x, url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo@2x.png) 2x);
         background-repeat: no-repeat;
         margin-top: calc(50vh - 52px);
         margin-left: calc(50vw - 150px);
@@ -63,11 +63,11 @@
 @media only screen and (max-width: 768px) {
     .veilLogo {
         height: 253px;
-        background-image: url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png);
-        background-image: -webkit-image-set(url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png) 1x, url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo@2x.png) 2x);
-        background-image: -moz-image-set(url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png) 1x, url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo@2x.png) 2x);
-        background-image: -o-image-set(url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png) 1x, url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo@2x.png) 2x);
-        background-image: -ms-image-set(url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png) 1x, url(http://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo@2x.png) 2x);
+        background-image: url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png);
+        background-image: -webkit-image-set(url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png) 1x, url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo@2x.png) 2x);
+        background-image: -moz-image-set(url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png) 1x, url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo@2x.png) 2x);
+        background-image: -o-image-set(url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png) 1x, url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo@2x.png) 2x);
+        background-image: -ms-image-set(url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo.png) 1x, url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo@2x.png) 2x);
         background-repeat: no-repeat;
         margin-top: calc(50vh - 52px);
         margin-left: calc(50vw - 150px);

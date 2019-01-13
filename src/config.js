@@ -2,7 +2,7 @@
 export const appName = 'wedoagency'
 
 //Путь к приложению в CMS
-export const PATH = 'http://wedoagency.ru/wp-content/themes/wp_theme'
+export const PATH = 'https://wedoagency.ru/wp-content/themes/wp_theme'
  
 // Background headera
 
@@ -47,14 +47,14 @@ export const PORTFOLIO_en = '4'
 export const PORTFOLIO_LIST = '313'
 
 // Указывает категорию в WordPress, содержащую статьи для портфолио
-//http://test.wedoagency.ru//wp-json/wp/v2/posts?categories=4
+//https://test.wedoagency.ru//wp-json/wp/v2/posts?categories=4
 //ru
 export const NEWS_ru = '7';
 //en
 export const NEWS_en = '8';
 
 // Указывает категорию в WordPress, содержащую название раздела мы в инстаграм
-//http://test.wedoagency.ru//wp-json/wp/v2/posts?categories=4
+//https://test.wedoagency.ru//wp-json/wp/v2/posts?categories=4
 //ru
 export const INSTAGRAM_ru = '155';
 //en
