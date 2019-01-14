@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {PATH} from '../../config'
+//import {PATH} from '../../config'
 
 class SocialMenuItem extends Component {
 	state = {
@@ -14,7 +14,7 @@ class SocialMenuItem extends Component {
 	
 	render(){
 	const {item} = this.props;
-
+	const PATH = 'https://wedoagency.ru/wp-content/themes/wp_theme'
 	const divStyle = {
 		backgroundImage: `-webkit-image-set( url(${PATH}/img/social/${item.title}.svg) 1x, url(${PATH}/img/social/${item.title}.svg) 2x )`,
 		backgroundImage: `-moz-image-set( url(${PATH}/img/social/${item.title}.svg) 1x, url(${PATH}/img/social/${item.title}.svg) 2x )`,

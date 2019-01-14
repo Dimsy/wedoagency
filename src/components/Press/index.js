@@ -95,7 +95,7 @@ class Press extends Component{
 		const desktopSlogan = mobile ? null 
 																 : <h3 className="press__slogan-small">{response.acf.slogan3}</h3>
 
-		const pressVideo = `httpss://player.vimeo.com/video/${response.acf.video}`
+		const pressVideo = `https://player.vimeo.com/video/${response.acf.video}`
 
 		const screenBlock =
             <Grid>
