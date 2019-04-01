@@ -29,6 +29,7 @@ class Instagram extends Component{
              <iframe src="https://cdn.lightwidget.com/widgets/6e2ef7311e555e448c7f67d0067d1c20.html"
                      style={{width:"100%",border:"0",overflow:"hidden"}}
 					 allowTransparency="true"
+					 scrolling="no"
 					 className="lightwidget-widget embed-responsive-item"/>
 		  </div>
 

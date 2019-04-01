@@ -272,7 +272,7 @@ class PortfolioPage extends Component{
 		 											: null							
 
 		
-		const videoPortfolio = `httpss://player.vimeo.com/video/${project.acf.video}`
+		const videoPortfolio = `https://player.vimeo.com/video/${project.acf.video}`
 
 		const videoBody = project.acf.video.length > 0 ? <div className="row no-gutters">
 																											 <div className="col-sm-12 embed-responsive embed-responsive-16by9 showVideo">

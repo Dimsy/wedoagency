@@ -137,7 +137,7 @@ class NewsArticle extends Component{
 		const videoBlock = entities.acf.videoNews ? <div className="row no-gutters">
 																									<div className="col">		
 																										<div className="embed-responsive embed-responsive-16by9 newsArticleVideo">
-																	 										<iframe src={ `httpss://player.vimeo.com/video/${entities.acf.videoNews}` }
+																	 										<iframe src={ `https://player.vimeo.com/video/${entities.acf.videoNews}` }
 																	 														frameBorder="0" 
 																	 														allowFullScreen 
 																	 														className="embed-responsive-item" 

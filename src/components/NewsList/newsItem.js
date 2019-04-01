@@ -50,7 +50,7 @@ class NewsItem extends Component{
 		  year: 'numeric'
 		};
 
-		const video = `httpss://player.vimeo.com/video/${item.acf.videoNews}`
+		const video = `https://player.vimeo.com/video/${item.acf.videoNews}`
 
 		const videoBlock =<div className="embed-responsive embed-responsive-16by9">
 												<iframe src={video} 

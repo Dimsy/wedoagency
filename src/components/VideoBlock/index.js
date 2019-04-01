@@ -6,7 +6,7 @@ export default function VideoBlock(props){
 		<div className="row no-gutters">
 			<div className="col">		
 				<div className={`embed-responsive embed-responsive-16by9 ${props.class}`}>
-					<iframe src={ `httpss://player.vimeo.com/video/${props.video}` }
+					<iframe src={ `https://player.vimeo.com/video/${props.video}` }
 									frameBorder="0" 
 									allowFullScreen 
 									className="embed-responsive-item" 

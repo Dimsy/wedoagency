@@ -46,7 +46,7 @@ class Header extends Component {
 	 	const isMobile = window.innerWidth < 768;
 
 		return(
-			<div className="header">
+			<div id="scroll" className="header">
 				<VeilWorkaround/>
 				<Menu show={this.state.show} closeMenu={this.closeMenu}/>
 				<button className={"mobile-menu-btn " + (this.state.show ? 'active' : null)} onClick={this.handleClick}>
