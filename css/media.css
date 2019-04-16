@@ -226,11 +226,11 @@ html, body {
   }
   .logoKidsBlock{
     height: 253px;
-    background-image: url(../img/logo/wedo-kids.svg);
-    background-image: -webkit-image-set(url(../img/logo/wedo-kids.svg) 1x, url(../img/logo/wedo-kids@2x.svg) 2x);
-    background-image: -moz-image-set(url(../img/logo/wedo-kids.svg) 1x, url(../img/logo/wedo-kids@2x.svg) 2x);
-    background-image: -o-image-set(url(../img/logo/wedo-kids.svg) 1x, url(../img/logo/wedo-kids@2x.svg) 2x);
-    background-image: -ms-image-set(url(../img/logo/wedo-kids.svg) 1x, url(../img/logo/wedo-kids@2x.svg) 2x);
+    background-image: url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg);
+    background-image: -webkit-image-set(url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 1x, url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids@2x.svg) 2x);
+    background-image: -moz-image-set(url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 1x, url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids@2x.svg) 2x);
+    background-image: -o-image-set(url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 1x, url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids@2x.svg) 2x);
+    background-image: -ms-image-set(url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 1x, url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids@2x.svg) 2x);
     background-repeat: no-repeat;
     background-position: center 110px;
   }
@@ -485,11 +485,11 @@ html, body {
   }
   .logoKidsBlock{
     height: 253px;
-    background-image: url(../img/logo/wedo-kids.svg);
-    background-image: -webkit-image-set(url(../img/logo/wedo-kids.svg) 1x, url(../img/logo/wedo-kids@2x.svg) 2x);
-    background-image: -moz-image-set(url(../img/logo/wedo-kids.svg) 1x, url(../img/logo/wedo-kids@2x.svg) 2x);
-    background-image: -o-image-set(url(../img/logo/wedo-kids.svg) 1x, url(../img/logo/wedo-kids@2x.svg) 2x);
-    background-image: -ms-image-set(url(../img/logo/wedo-kids.svg) 1x, url(../img/logo/wedo-kids@2x.svg) 2x);
+    background-image: url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg);
+    background-image: -webkit-image-set(url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 1x, url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids@2x.svg) 2x);
+    background-image: -moz-image-set(url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 1x, url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids@2x.svg) 2x);
+    background-image: -o-image-set(url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 1x, url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids@2x.svg) 2x);
+    background-image: -ms-image-set(url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids.svg) 1x, url(https://wedoagency.ru/wp-content/themes/wp_theme/img/logo/wedo-kids@2x.svg) 2x);
     background-repeat: no-repeat;
     background-position: center 110px;
   }
