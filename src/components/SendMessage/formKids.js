@@ -5,6 +5,7 @@ import {sendCustomForm} from '../../ducks/form';
 import { rusEmail, enEmail, 
 				 rusTextOnly, enTextOnly,
 				 rusTextNumbers, enTextNumbers,
+    rusPhone, enPhone,
 				 ruMinLength3, enMinLength3,
 				 ruMinLength20, enMinLength20,
 				 ruMaxLength30, enMaxLength30, 
@@ -15,17 +16,17 @@ import { rusEmail, enEmail,
 class Form extends Component{
 	state = {
 		name: '',
-		email: '',
+		phone: '',
         message: '',
         nameTouched: false,
-        emailTouched: false,
+        phoneTouched: false,
 		messageTouched: false
 	};
 
     submit = (values) => {
         sendCustomForm({
             name: this.state.name,
-            email: this.state.email,
+            phone: this.state.phone,
             message: this.state.message
         })
     };
@@ -35,6 +36,9 @@ class Form extends Component{
 
 	setEmail = (event) => this.setState({'email': event.target.value});
     setEmailWasTouched = () => this.setState({'emailTouched': true});
+
+    setPhone = (event) => this.setState({'phone': event.target.value});
+    setPhoneWasTouched = () => this.setState({'phoneTouched': true});
 
     setMessage = (event) => this.setState({'message': event.target.value});
     setMessageWasTouched = () => this.setState({'messageTouched': true});
@@ -52,11 +56,13 @@ class Form extends Component{
 		const minLength20 	= useLang == 'ru' ? ruMinLength20 		: enMinLength20;
 		const maxLength30 	= useLang == 'ru' ? ruMaxLength30   	: enMaxLength30;
 		const maxLength300 	= useLang == 'ru' ? ruMaxLength300   	: enMaxLength300;
+		const phone = useLang == 'ru' ? rusPhone : enPhone;
 
         const nameError = rusRequired(this.state.name) || textOnly(this.state.name) || minLength3(this.state.name) || maxLength30(this.state.name);
         const emailError = rusRequired(this.state.email) || email(this.state.email);
+        const phoneError = rusRequired(this.state.phone) || phone(this.state.phone);
         const messageError = rusRequired(this.state.message) || textNumbers(this.state.message) || minLength20(this.state.message) || maxLength300(this.state.message);
-        const formError = !nameError && !emailError && !messageError;
+        const formError = !nameError && !phoneError && !messageError;
 
         return (
 			<form onSubmit={handleSubmit(this.submit)} name="contacts" className="latoFont">
@@ -76,17 +82,17 @@ class Form extends Component{
 					</div>
 				}
                 <input
-                    name="email"
+                    name="phone"
                     type='text'
                     placeholder="Телефон для связи *"
-                    value={this.state.email}
-                    onChange={this.setEmail}
-                    onBlur={this.setEmailWasTouched}
+                    value={this.state.phone}
+                    onChange={this.setPhone}
+                    onBlur={this.setPhoneWasTouched}
 				/>
-                {!!this.state.email && this.state.emailTouched &&
+                {!!this.state.phone && this.state.phoneTouched &&
 					<div>
 						<span className="error">
-							{emailError}
+							{phoneError}
 						</span>
 					</div>
                 }

@@ -6,13 +6,17 @@
 // export const rusEnTextNumbers = value =>	value && !/^[A-Za-zА-Яё0-9.,+-=% ]{1,}$/i.test(value) ? 'Заполните поле на русском языке!' : undefined
 
 
+//([0-9])
 
-		
+var numbersOnly = new RegExp('^[0-9]+$');
+
 export const rusRequired = value => value ? undefined : 'Заполните поле '
-export const rusEmail = value =>	value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? 'Неправильный email!' : undefined
+export const rusPhone = value => value && !numbersOnly.test(value) ? 'Неправильный телефон!' : undefined
+export const rusEmail = value => value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? 'Неправильный email!' : undefined
 export const rusTextOnly = value =>	value && !/^[А-Яё ]{1,}$/i.test(value) ? 'Заполните поле на русском языке!' : undefined
 export const rusTextNumbers = value =>	value && !/^[А-Яё0-9.,+-=% ]{1,}$/i.test(value) ? 'Заполните поле на русском языке!' : undefined
-		
+
+export const enPhone = value => value && !numbersOnly.test(value) ? 'Wrong phone number!' : undefined;
 export const enRequired = value => value ? undefined : 'Fill in '
 export const enEmail = value =>	value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? 'Wrong an email!' : undefined
 export const enTextOnly = value =>	value && !/^[A-Za-z ]{1,}$/i.test(value) ? 'Fill in on english!' : undefined
