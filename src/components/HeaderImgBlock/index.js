@@ -40,8 +40,7 @@ class HeaderImgBlock extends Component{
                                              transitionAppearTimeout={2000}
                                              transitionEnter={false}
                                              transitionLeave={false}>
-                        <video id="video_bg" autoPlay="autoplay" loop="loop" >
-                            <source src={entities.acf.video} type="video/mp4"></source>
+                        <video src={entities.acf.video} id="video_bg" autoPlay loop="loop" >
                         </video>
                     </ReactCSSTransitionGroup>
                 </div>
