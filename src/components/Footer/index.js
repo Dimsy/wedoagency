@@ -82,11 +82,11 @@ class Footer extends Component{
 						
 						<Col sm={11} md={6} lg={4} className="col-11">
 							<div className="footer__contacts">
-								{contacts.acf.callWrite}&nbsp;{contacts.acf.Phone}
+								{contacts.acf.callWrite}&nbsp;<a href={`tel:${contacts.acf.Phone}`}>{contacts.acf.Phone}</a>
 								<br />
 								(viber/whatsapp)
 								<br />
-								<a className="footer__mail">{contacts.acf.mail}</a>
+								<a className="footer__mail" href={`mailto:${contacts.acf.mail}`}>{contacts.acf.mail}</a>
 								<br />
 								{renderHTML( contacts.content.rendered)} 
 							</div>
