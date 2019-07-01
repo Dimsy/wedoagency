@@ -47,8 +47,8 @@ class SendMessage extends Component{
 								<div className="col-md-3">
 									<h5>{contacts.acf.phoneText}</h5>
 								</div>
-								<div className="col-md-9">
-									<p>{contacts.acf.Phone} <br />
+								<div className="col-md-9 footer__contacts">
+									<p  style={{padding: '5px'}}><a href={`tel:${contacts.acf.Phone}`}>{contacts.acf.Phone}</a> <br />
 									( viber / whatsapp)</p>
 								</div>
 							</div>
@@ -58,8 +58,8 @@ class SendMessage extends Component{
 								</div>
 								
 								<div className="col-md-9">
-									<p>
-										{contacts.acf.mail}
+									<p className="footer__contacts" style={{padding: '5px'}}>
+										<a className="footer__mail" href={`mailto:${contacts.acf.mail}`}>{contacts.acf.mail}</a>
 									</p>
 								</div>
 								
