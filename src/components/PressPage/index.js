@@ -13,7 +13,7 @@ class AgencyPage extends Component {
 	componentDidMount(){
 		const { match, loadPressPage } = this.props
 		//const slug = window.location.pathname.split("/").filter(item => item !== "")[2];
-        const id = window.location.href.split('/').pop();
+        const id = window.location.href.split('/').filter(item => item !== "").pop();
 
 		//loadPressPage( id ? match.params.id : id, isNaN(match.params.id))
 		loadPressPage(id)
