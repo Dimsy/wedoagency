@@ -78,6 +78,17 @@ class App extends Component {
         }
         console.log("pressPath+pressId",pressPath+pressId)
 
+		let contactsPath = '/main_page_ru/contacts';
+
+        if (pathArr[0] == 'contacts') {
+            if (this.props.useLang === 'en') {
+                contactsPath = '/main_page_en/contacts';
+            } else {
+                contactsPath = '/main_page_ru/contacts';
+            }
+        }
+		//
+
 		return (
 			<ConnectedRouter history={history}>
 				<ScrollToTop>
@@ -85,7 +96,7 @@ class App extends Component {
 					<Route path="/" component={RouteRoot} />
 						<Switch>
 							<Route path="/" component={RouteMainPage} exact/>
-							<Route path="/agency" component={RouteAgencyPage} exact/>
+							<Route path="/page/agency" component={RouteAgencyPage} exact/>
 							<Route path={pressPath} component={RoutePressList} exact/>
                             <Route path={pressPath+pressId} component={RoutePressPage} exact/>
 							<Route path={portfolioPath} component={RoutePortfolioList} exact/>
@@ -94,7 +105,7 @@ class App extends Component {
 							<Route path={newsPath+newsId} component={RouteNewsArticle} exact/>
 							{/*<Route path="/kids" component={() => window.location = 'https://kids.wedoagency.ru/'} exact/>*/}
 							<Route path="/kids" component={RouteKids} exact/>
-							<Route path="/contacts" component={RouteContacts} exact/>
+							<Route path={contactsPath} component={RouteContacts} exact/>
 						</Switch>
 					<Route path="/" component={RouteInstaFooter} />
 				</div>
