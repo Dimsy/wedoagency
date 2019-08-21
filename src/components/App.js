@@ -1,4 +1,4 @@
-import React, {Component} from 'react' 
+import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import {ConnectedRouter} from 'react-router-redux'
@@ -33,8 +33,8 @@ class App extends Component {
 		this.props.loadSocialFooter();
 
 	}
-   
-	
+
+
 	componentWillReceiveProps(nextProps){
 		if(this.props.useLang != nextProps.useLang){
 			this.props.loadMenu(nextProps.useLang)
@@ -69,13 +69,16 @@ class App extends Component {
 
         let pressPath = '/press';
         let pressId = '/:id';
-
+		console.log('pathArr',pathArr)
         if (pathArr[0] == 'press_list_ru') {
-            pressPath = '/press_list_ru';
-            if (pathArr.length > 1) {
-                pressId = '/'+decodeURI(pathArr[1]);
-            }
+			pressPath = '/press_list_ru';
+			if (pathArr.length > 1) {
+				pressId = '/' + decodeURI(pathArr[1]);
+			}
+        } else if (pathArr[0] == 'category' && pathArr[1] == 'press_list_ru') {
+            pressPath = '/category/press_list_ru';
         }
+        console.log('pressPath',pressPath)
         console.log("pressPath+pressId",pressPath+pressId)
 
 		let contactsPath = '/main_page_ru/contacts';
