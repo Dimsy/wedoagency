@@ -16,6 +16,7 @@ class PressList extends Component{
 		loadPressList('ru');
 	}
 
+
 	componentWillReceiveProps(nextProps){
 		const {useLang, clearPressList, loadPressList} = this.props
 		

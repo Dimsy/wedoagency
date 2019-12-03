@@ -31,7 +31,7 @@ class App extends Component {
 		this.props.loadMenu(useLang)
 		this.props.loadContacts(useLang)
 		this.props.loadSocialFooter();
-
+        window.scrollTo(0, 0)
 	}
 
 
