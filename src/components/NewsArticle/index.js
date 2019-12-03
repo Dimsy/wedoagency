@@ -129,7 +129,7 @@ class NewsArticle extends Component{
 					break;
 
 				case 'text':
-					body.push(this.text(key, entities.acf[key]))	
+					body.push(this.text(key, entities.acf[useLang === 'ru' ? key : key+'En']))
 			}
 		}
 		

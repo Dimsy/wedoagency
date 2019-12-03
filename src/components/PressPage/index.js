@@ -28,7 +28,7 @@ class AgencyPage extends Component {
 		const {match, entities, useLang, loading, error} = this.props
 		const i18 = useLang == "ru" ? "ru" : "en-US";
 
-		const allPublics = useLang == "ru" ? "Все публикации" : "all publications";
+		const allPublics = useLang == "ru" ? "Все публикации" : "All publications";
 		const i18Date = useLang == "ru" ? "ru-RU" : "en-GB";
 
 		if (loading) return <Loader />;
