@@ -24,7 +24,6 @@ class PortfolioItem extends Component{
 	}
 
     handleClick (e) {
-		console.log("click click")
         if (e.defaultPrevented) {
             return;
         }
@@ -42,9 +41,6 @@ class PortfolioItem extends Component{
 
 	render(){
 		const { item, useLang } = this.props;
-
-        console.log('p item lang =',useLang);
-        console.log('titleEn', item.acf.titleEn)
 
 		const itemTitle = useLang === 'ru' ? item.title.rendered : item.acf.titleEn;
 

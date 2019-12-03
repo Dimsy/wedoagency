@@ -69,7 +69,6 @@ class App extends Component {
 
         let pressPath = '/press';
         let pressId = '/:id';
-		console.log('pathArr',pathArr)
         if (pathArr[0] == 'press_list_ru') {
 			pressPath = '/press_list_ru';
 			if (pathArr.length > 1) {
@@ -78,8 +77,6 @@ class App extends Component {
         } else if (pathArr[0] == 'category' && pathArr[1] == 'press_list_ru') {
             pressPath = '/category/press_list_ru';
         }
-        console.log('pressPath',pressPath)
-        console.log("pressPath+pressId",pressPath+pressId)
 
 		let contactsPath = '/main_page_ru/contacts';
 

@@ -28,7 +28,7 @@ export const AWARDS_en = '14';
 // ru
 export const PRESS_ru = '64';
 //en 
-export const PRESS_en = '67';
+export const PRESS_en = '64';
 
 //Видео и слоганы
 // ru

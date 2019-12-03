@@ -26,8 +26,6 @@ class NewsList extends Component{
 	}
 
     sortBody = (a, b) => {
-        console.log('a,b')
-        console.log(a.date,b.date)
         const aDate = a.date;
         const bDate = b.date;
 
@@ -50,7 +48,6 @@ class NewsList extends Component{
 
 
 		const posts = entities.toArray().sort(this.sortBody);;
-		console.log(posts)
 		
 		const showMore = useLang == "ru" ? "Показать еще" : "Show more";
 		const title = useLang == "ru" ? "Новости" : "News";

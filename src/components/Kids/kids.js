@@ -18,7 +18,7 @@ class Kids extends Component{
     componentWillMount(){
         const { useLang } = this.props;
         this.props.loadContacts(useLang);
-        console.log('before loadkids')
+
         this.props.loadKidsInfo(useLang);
 
     }

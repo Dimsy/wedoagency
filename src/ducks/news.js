@@ -79,7 +79,6 @@ export function * newsSaga(action){
 	} catch (error) {
 		
 
-		console.log("Error", error);
 
 		yield put({
 						type: LOAD_NEWS_ERROR,

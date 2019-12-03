@@ -40,8 +40,6 @@ export default function reducer(state = new ReducerState(), action) {
 }
 
 export function loadPortfolioItem(id, isSlug){
-    console.log('id',id)
-    console.log('isSlug',isSlug)
     return {
         type: LOAD_PORTFOLIO_ITEM_START,
         payload: {id, isSlug}
@@ -52,8 +50,6 @@ export function loadPortfolioItem(id, isSlug){
 
 //Sagas
 export function * loadPortfolioItemSaga(action){
-    console.log('loadPortfolioItemSasdga')
-    console.log(action.payload)
     try {
         const matchUrl = action.payload.isSlug ? `/wp-json/wp/v2/posts?slug=${action.payload.id}` : `/wp-json/wp/v2/posts/${action.payload.id}`;
         const selectedPortfolio = yield call(axios.get, matchUrl);

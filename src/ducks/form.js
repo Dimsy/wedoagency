@@ -29,10 +29,8 @@ export function sendCustomForm(data) {
     axios
         .post('/wp-admin/admin-post.php', data)
         .then(function (response) {
-            console.log('response:', response);
         })
         .catch(function (error) {
-            console.log(error);
         });
 }
 

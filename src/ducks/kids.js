@@ -25,7 +25,6 @@ const ReducerState = Record({
 
 export default function reducer(state = new ReducerState(), action) {
 	const {type, payload} = action
-	console.log("into reducer")
 
 	switch(type){
 		case LOAD_KIDS_SUCCESS:
@@ -46,7 +45,6 @@ export default function reducer(state = new ReducerState(), action) {
 // Action Creators
 
 export function loadKidsInfo(lang){
-	console.log("into loadkids")
 	return {
 		type: LOAD_KIDS_START,
 		payload: {lang}
@@ -57,7 +55,6 @@ export function loadKidsInfo(lang){
 //Sagas
 
 export function * loadKidsInfoSaga(action){
-	console.log("loadKidsInfoSaga")
 	//const articleLang = action.payload.lang == 'ru' ? KIDS_INFO_ru : KIDS_INFO_en;
 	
 	try {

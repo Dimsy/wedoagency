@@ -66,7 +66,6 @@ export function loadPortfolio(lang){
 
 //Sagas
 export function * loadPortfolioSaga(action){
-	console.log('loadPortfolioSaga')
 	const articleLang = action.payload.lang == 'ru' ? PORTFOLIO_ru : PORTFOLIO_en;
 
 	try {

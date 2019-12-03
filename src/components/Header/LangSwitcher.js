@@ -15,7 +15,6 @@ class LangSwitcher extends Component{
 	}
 
 	componentDidMount() {
-		console.log('localStorage.getItem(\'userLang\')',localStorage.getItem('userLang'));
 
 		if (localStorage.getItem('userLang')) {
 
@@ -30,7 +29,6 @@ class LangSwitcher extends Component{
 	}
 
     setShowSwitch = (event) => {
-		console.log(event)
 		if (event.shiftKey && event.keyCode == 81) {
             this.setState({showLang: !this.state.showLang})
         }

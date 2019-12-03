@@ -68,7 +68,7 @@ export function * agencyPageSaga(action){
 		const articleLang = action.payload.lang == 'ru' ? AGENCY_PAGE_ru : AGENCY_PAGE_en;	
 		
 		const response = yield call(axios.get, `/wp-json/wp/v2/posts/${articleLang}`);
-		console.log('response',response);
+
 		yield put({
 						type: LOAD_AGENCY_PAGE_SUCCESS,
 						payload: {response}

@@ -41,7 +41,7 @@ class AgencyPage extends Component {
 		  month:  'long',
 		  year: 'numeric'
 		};
-		console.log(' entities.acf.titleEn', entities.acf.titleEn)
+
 		return (
 			<div className="pressPage">
                 <Helmet>

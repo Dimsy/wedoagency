@@ -13,10 +13,8 @@ export function sendForm(values){
  			axios
 				.post('/wp-admin/admin-post.php', values)
   			.then(function (response) {
-    			console.log('response:', response);
   			})
   			.catch(function (error) {
-    			console.log(error);
   			});
 			},
 			1000)

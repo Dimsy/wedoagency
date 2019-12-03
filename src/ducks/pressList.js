@@ -46,8 +46,7 @@ export default function reducer(state = new ReducerState(), action) {
 	 						.set('entities', state.get('entities').merge(arrToMap(payload.response.data, ModelData)))
 	 						.set('loading', false)
 
-	 	case CLEAR_PRESS_LIST:	 	
-	 		console.log('clear');
+	 	case CLEAR_PRESS_LIST:
 
 	 		POST_COUNTER = 0;
 	 		return state

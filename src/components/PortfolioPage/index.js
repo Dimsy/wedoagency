@@ -33,7 +33,6 @@ class PortfolioPage extends Component{
         };
 
         $(window).scroll(function(event) {
-			console.log('upd')
             $(".iBlock img").each(function(i, el) {
                 var el = $(el);
                 if (el.visible(true)) {
@@ -200,8 +199,6 @@ class PortfolioPage extends Component{
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);
 
-		if (selectedPortfolio) console.log(selectedPortfolio);
-
 
 		const project = selectedPortfolio
 
@@ -342,9 +339,6 @@ class PortfolioPage extends Component{
 											</div>}
 									</div>;
 
-		console.log("photographers_list.length || !!videographs_list.length",photographers_list.length || !!videographs_list.length)
-		console.log("photographers_list",photographers_list)
-		console.log("videographs_list.length",videographs_list.length)
 		return(
 			<div className="portfolioPage__project">
 				<Helmet>

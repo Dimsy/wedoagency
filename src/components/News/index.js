@@ -42,8 +42,6 @@ class News extends Component{
     }
 
     sortBody = (a, b) => {
-    	console.log('a,b')
-    	console.log(a,b)
         const aDate = a.date;
         const bDate = b.date;
 
@@ -76,14 +74,11 @@ class News extends Component{
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);			
 
-		console.log(entities)
 		const posts = entities.toArray().sort(this.sortBody);
-		console.log(posts)
 		const body = posts.map( (item) => <Slide key={item.id} index={item.id}>
 		  																	<NewsInfo item={item}/>
 		 																	</Slide>
 																		);
-		console.log(body)
 
 		const opacity = body.length > 3 ? {opacity: "1"} : {opacity: "0.3"}
         const mobile = window.innerWidth < 768 ? true : false;
