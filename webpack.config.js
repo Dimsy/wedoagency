@@ -17,7 +17,7 @@ module.exports = {
 		proxy: [
 		  {
 		   context: ['/wp-json','/wp-admin'],
-			target: 'http://wedoagency.ru:8080',
+			target: 'https://wedoagency.ru:443',
 			secure: false,
 			changeOrigin: true
 		  }
