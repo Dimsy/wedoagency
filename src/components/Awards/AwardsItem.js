@@ -4,7 +4,7 @@ import renderHTML from 'react-render-html'
 
 export default function AwardsItem(props){
 
-	const { item } = props;
+	const { item, useLang } = props;
 
 	const divStyle = {
 		backgroundImage: `-webkit-image-set( url(${item.acf.photo}) 1x, url(${item.acf.photox2}) 2x )`,
@@ -31,7 +31,7 @@ export default function AwardsItem(props){
 	const body = <div className="awards__Item">
 								 <div className="awards__Item-Background" style={divStyle}/>
 								 <div className="awards__Item-content">
-								 	 <div dangerouslySetInnerHTML={{ __html: item.content.rendered}}/>
+									 <div dangerouslySetInnerHTML={{ __html: useLang === 'ru' ? item.content.rendered : item.acf.textEn}}/>
 
 								 </div>
 								 <div className="awards__Item-title" style={titleStyle}>

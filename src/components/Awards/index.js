@@ -33,7 +33,7 @@ class Awards extends Component{
 		}
 
 		const body = entities.map(item => <Slide key={item.id} index={item.id}>
-        																<AwardsItem item={item} />
+        																<AwardsItem item={item} useLang={useLang} />
 																			</Slide>)
         const isMobile = window.innerWidth < 768 ? true : false;
 		const opacity = body.length > 3 ? {display: "block"} : {display: "none"}
