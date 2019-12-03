@@ -282,11 +282,20 @@ class PortfolioPage extends Component{
 																										 </div>
 																									: <div style={{marginBottom: '90px'}} />;
 
-		const photographers_list = project.acf.photographers_list ? project.acf.photographers_list.split(/\n/) : [];
-		const videographs_list = project.acf.videograph_list ? project.acf.videograph_list.split(/\n/) : [];
-
-		console.log(photographers_list);
-        console.log(videographs_list);
+		const photographers_list = useLang == 'ru'
+			? project.acf.photographers_list
+				? project.acf.photographers_list.split(/\n/)
+				: []
+			: project.acf.photographers_list_en
+                ? project.acf.photographers_list_en.split(/\n/)
+                : [];
+		const videographs_list = useLang == 'ru'
+            ? project.acf.videograph_list_en
+                ? project.acf.videograph_list_en.split(/\n/)
+                : []
+            : project.acf.videograph_list_en
+                ? project.acf.videograph_list_en.split(/\n/)
+                : [];
 
         const photographers_el = photographers_list.map(
         	(item) =>
@@ -304,7 +313,7 @@ class PortfolioPage extends Component{
 
         const photoEl = <div className="row">
                             <div className={isMobile ? "col-xs-6" : "col-md-3"} style={{paddingLeft: '25px'}}>
-                                <p className={'text-muted'} style={{paddingTop: '0px', float: 'left'}}>Фотограф:&nbsp;&nbsp;&nbsp;</p>
+                                <p className={'text-muted'} style={{paddingTop: '0px', float: 'left'}}>{ useLang == 'ru' ? 'Фотограф' : 'Photographer' }:&nbsp;&nbsp;&nbsp;</p>
                             </div>
                             <div className={isMobile ? "col-xs-6" : "col-md-3"} >
                                 {photographers_el}
@@ -313,7 +322,7 @@ class PortfolioPage extends Component{
 
         const videoEl = <div className="row">
                             <div className={isMobile ? "col-xs-6" : "col-md-3"} style={{paddingLeft: '25px'}}>
-                                <p className={'text-muted'} style={{paddingTop: '0px', float: 'left'}}>Видеограф:&nbsp;</p>
+                                <p className={'text-muted'} style={{paddingTop: '0px', float: 'left'}}>{ useLang == 'ru' ? 'Видеограф' : 'Videographer' }:&nbsp;</p>
                             </div>
                             <div className={isMobile ? "col-xs-6" : "col-md-3"} >
                                 {videographs_el}
@@ -323,7 +332,7 @@ class PortfolioPage extends Component{
 		const photovideoElement =	<div className="row" style={{marginBottom: '70px'}}>
 										{!!photographers_list.length &&
 											<div className={"col-md-3"} style={{paddingLeft: '25px'}}>
-												<p className={'text-muted'} style={{paddingTop: '0px', float: 'left'}}>Фотограф:&nbsp;</p>
+												<p className={'text-muted'} style={{paddingTop: '0px', float: 'left'}}>{ useLang == 'ru' ? 'Фотограф' : 'Photographer' }:&nbsp;</p>
 											</div>}
             							{!!photographers_list.length &&
 											<div  className={"col-md-3"} >
@@ -331,7 +340,7 @@ class PortfolioPage extends Component{
 											</div>}
 										{!!videographs_list.length &&
 											<div  className={"col-md-3"} >
-												<p className={'text-muted'} style={{paddingTop: '0px', float: 'left'}}>Видеограф:&nbsp;</p>
+												<p className={'text-muted'} style={{paddingTop: '0px', float: 'left'}}>{ useLang == 'ru' ? 'Видеограф' : 'Videographer' }:&nbsp;</p>
 											</div>}
             							{!!videographs_list.length &&
 											<div  className={"col-md-3"} >
