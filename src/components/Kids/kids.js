@@ -80,7 +80,15 @@ class Kids extends Component{
         const headPhotoVideoBlock = isMobile ? <div className="headerImgBlock" style={imgMobileHeader}/>
             : kidsInfo.acf.video
                 ? <VideoHeader src={kidsInfo.acf.video.url} key={kidsInfo.acf.video.url} />
-                : <div className="headerImgBlock" style={imgHeader}/>
+                : <div className="headerImgBlock" style={imgHeader}/>;
+
+        const title = useLang === 'ru' ? kidsInfo.acf.title : kidsInfo.acf.titleEn;
+        const mainText = useLang === 'ru' ? kidsInfo.acf.mainText : kidsInfo.acf.mainTextEn;
+        const sendMessageTitle = useLang === 'ru' ? kidsInfo.acf.sendMessageTitle : kidsInfo.acf.sendMessageTitleEn;
+
+        const namePlaceHolder = useLang === 'ru' ? 'Ваше имя*' : 'Your name*';
+        const phonePlaceHolder = useLang === 'ru' ? 'Телефон для связи*' : 'Phone number*';
+        const messagePlaceHolder = useLang === 'ru' ? 'Комментарий*' : 'Comment*';
 
         const kidsPc =
             <div>
@@ -89,11 +97,11 @@ class Kids extends Component{
                     <Grid>
                         <div style={{width: "100%", textAlign: "center"}}>
                             <div style={{width: "550px", textAlign: "center", display: "inline-block", marginTop: "83px", lineHeight: "2", letterSpacing: "0.9px"}}>
-                                <h1 style={{textTransform: "none", textAlign: "center"}}>{kidsInfo.acf.title}</h1>
+                                <h1 style={{textTransform: "none", textAlign: "center"}}>{title}</h1>
                             </div>
                             <div>
                                 <p style={{width: "550px", textAlign: "center", display: "inline-block", marginBottom: "90px", marginTop: "35px", lineHeight: "2", letterSpacing: "0.9px"}}>
-                                    {kidsInfo.acf.mainText}
+                                    {mainText}
                                 </p>
                             </div>
                         </div>
@@ -108,13 +116,13 @@ class Kids extends Component{
                             <div style={{width: "50%", display: "inline-block", paddingRight: "10px", paddingLeft: "10px"}}>
                                 <div style={{float: "left", backgroundColor: "#f7f7f7", width: "100%", height: "456px"}}>
                                     <div className="sendMessageKids" style={{paddingTop: "50px", paddingLeft: "50px", paddingRight: "50px"}}>
-                                        <p className="kidsSendTitle" style={{width: "210px"}}>{kidsInfo.acf.sendMessageTitle}</p>
+                                        <p className="kidsSendTitle" style={{width: "210px"}}>{sendMessageTitle}</p>
                                         <Form	onSubmit={this.submit}
                                                  useLang={useLang}
                                                  contacts={contacts}
-                                                 yourNamePlaceholder={contacts.acf.yourNamePlaceholder}
-                                                 youMessagePlaceholder={contacts.acf.youMessagePlaceholder}
-                                                 emailPlaceholder={contacts.acf.emailPlaceholder}
+                                                 yourNamePlaceholder={namePlaceHolder}
+                                                 youMessagePlaceholder={messagePlaceHolder}
+                                                 emailPlaceholder={phonePlaceHolder}
                                                  sendButtonText={contacts.acf.sendButtonText}/>
                                     </div>
                                 </div>

@@ -69,7 +69,7 @@ class Form extends Component{
 				<input
                     name="name"
 					type="text"
-                    placeholder={yourNamePlaceholder}
+                    placeholder={ yourNamePlaceholder }
 					value={this.state.name}
 					onChange={this.setName}
                     onBlur={this.setNameWasTouched}
@@ -84,7 +84,7 @@ class Form extends Component{
                 <input
                     name="phone"
                     type='text'
-                    placeholder="Телефон для связи *"
+                    placeholder={ emailPlaceholder }
                     value={this.state.phone}
                     onChange={this.setPhone}
                     onBlur={this.setPhoneWasTouched}
@@ -99,7 +99,7 @@ class Form extends Component{
                 <textarea
                     name="message"
                     type='text'
-                    placeholder="Комментарий"
+                    placeholder={ youMessagePlaceholder }
                     value={this.state.message}
                     onChange={this.setMessage}
                     onBlur={this.setMessageWasTouched}
