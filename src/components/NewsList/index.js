@@ -18,6 +18,11 @@ class NewsList extends Component{
 
 	componentWillReceiveProps(nextProps){
 
+		if (this.props.loading !== nextProps.loading && !nextProps.loading){
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $(".logoBlock").offset().top
+            }, 1000);
+		}
 	}
 
 	addingNews = () => {

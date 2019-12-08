@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import Loader from '../Loader';
 import ErrorCmp from '../ErrorCmp';
 import PressItem from './pressItem';
+import ReactDOM from 'react-dom';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import $ from "jquery";
 import {Helmet} from "react-helmet";
@@ -18,11 +19,15 @@ class PressList extends Component{
 
 
 	componentWillReceiveProps(nextProps){
-		const {useLang, clearPressList, loadPressList} = this.props
+		const {useLang, clearPressList, loading} = this.props
 		
-		if(useLang != nextProps.useLang){
-			//clearPressList();
-			//loadPressList('ru');
+		if(loading != nextProps.loading && !nextProps.loading){
+
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $(".logoBlock").offset().top
+            }, 1000);
+
+            $("#veil").removeClass('fadein').addClass("fadeout");
 		}
 	}
 
@@ -50,7 +55,7 @@ class PressList extends Component{
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);
 
-            $("#veil").removeClass('fadein').addClass("fadeout");
+
 
 
 		const pressItems = entities.toArray();
@@ -69,7 +74,7 @@ class PressList extends Component{
 																							: false
 					
 		return (
-			<div className='container pressList'>
+			<div ref="test" className='container pressList'>
                 <Helmet>
                     <title>WeDoAgency | {title}</title>
                 </Helmet>

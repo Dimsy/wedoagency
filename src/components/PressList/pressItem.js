@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import $ from "jquery";
 import {connect} from "react-redux";
+import ReactDOM from "react-dom";
 
 class PressItem extends Component{
     state = {
@@ -13,6 +14,10 @@ class PressItem extends Component{
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.redirectToLink = this.redirectToLink.bind(this);
+    }
+
+    componentDidMount() {
+        window.scrollTo(0, 0)
     }
 
     redirectToLink() {
@@ -64,7 +69,7 @@ class PressItem extends Component{
         	verticalAlign: "middle",
     	}
 		const body =
-			<div className="pressItem__Inner">
+			<div ref="test" className="pressItem__Inner">
 					<div className="pressItem__Inner-title">
 						<div style={cellStyle} className={!mobile ? "pcCell" : ""}>
 							{useLang === 'ru' ? item.title.rendered : item.acf.titleEn}
