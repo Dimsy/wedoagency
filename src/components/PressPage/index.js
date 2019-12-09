@@ -58,7 +58,7 @@ class AgencyPage extends Component {
 								<div className="fotoTitle">
 									{!!entities.acf.public1 && <img src={entities.acf.foto} srcSet={entities.acf.fotox2} />}
 								</div>
-								<div style={{height: '650px'}}>
+								<div>
 									<div className="DateFormat">
 										{ date.toLocaleString( i18Date, options)}
 									</div>

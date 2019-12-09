@@ -48,7 +48,14 @@ class NewsArticle extends Component{
 	}
 
 	text = (key, item) => {
+		const { useLang } = this.props;
+
+
 		if(!item) return null
+
+		if (useLang == "ru" && key.indexOf('En') !== -1) return null;
+        if (useLang == "en" && (key.indexOf('En') === -1 || key === 'textEn')) return null;
+
         item = item.split('a href').join('a target="_blank" href');
 
 		return (
@@ -129,10 +136,9 @@ class NewsArticle extends Component{
 					break;
 
 				case 'text':
-					body.push(this.text(key, entities.acf[useLang === 'ru' ? key : key+'En']))
+					body.push(this.text(key, entities.acf[key]))
 			}
 		}
-		
 
 		const videoBlock = entities.acf.videoNews ? <div className="row no-gutters">
 																									<div className="col">		
