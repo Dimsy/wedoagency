@@ -54,7 +54,12 @@ class App extends Component {
             if (pathArr.length > 1) {
                 portfolioId = '/'+decodeURI(pathArr[1]);
 			}
-		}
+		} else if (pathArr[0] == 'portfolio_en') {
+            portfolioPath = '/portfolio_en';
+            if (pathArr.length > 1) {
+                portfolioId = '/'+decodeURI(pathArr[1]);
+            }
+        }
 
         let newsPath = '/news';
         let newsId = '/:id';
@@ -65,10 +70,16 @@ class App extends Component {
             if (pathArr.length > 1) {
                 newsId = '/'+decodeURI(pathArr[1]);
             }
+        } else if (pathArr[0] == 'news_en') {
+            newsPath = '/news_en';
+            if (pathArr.length > 1) {
+                newsId = '/'+decodeURI(pathArr[1]);
+            }
         }
 
         let pressPath = '/press';
         let pressId = '/:id';
+
         if (pathArr[0] == 'press_list_ru') {
 			pressPath = '/press_list_ru';
 			if (pathArr.length > 1) {

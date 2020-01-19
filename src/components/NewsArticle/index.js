@@ -125,8 +125,6 @@ class NewsArticle extends Component{
 
 		for( const key in entities.acf){
 			switch(key.substring(0, 4)){
-
-
 				case 'foto':
 				 	body.push(this.foto(entities.acf, key))
 				 	break;
@@ -139,6 +137,7 @@ class NewsArticle extends Component{
 					body.push(this.text(key, entities.acf[key]))
 			}
 		}
+		console.log('body', body)
 
 		const videoBlock = entities.acf.videoNews ? <div className="row no-gutters">
 																									<div className="col">		
