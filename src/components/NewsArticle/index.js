@@ -121,6 +121,7 @@ class NewsArticle extends Component{
             backgroundImage: `url(${article.acf.headerPhotoMobile})`
         };
 
+        /*
 		const body = []
 
 		for( const key in entities.acf){
@@ -137,8 +138,7 @@ class NewsArticle extends Component{
 					body.push(this.text(key, entities.acf[key]))
 			}
 		}
-		console.log('body', body)
-
+        */
 		const videoBlock = entities.acf.videoNews ? <div className="row no-gutters">
 																									<div className="col">		
 																										<div className="embed-responsive embed-responsive-16by9 newsArticleVideo">
@@ -184,8 +184,14 @@ class NewsArticle extends Component{
 									<img src={article.acf.bodyImgNews} srcSet={ `${article.acf.bodyImgNewsx2} 2x`} className="newsBodyImg"/> 
 								</div>
 							</div>
-				
-								{body}
+                                { this.text(useLang === 'ru' ? 'text1' : 'text1En', entities.acf[useLang === 'ru' ? 'text1' : 'text1En']) }
+                                { this.slog(useLang === 'ru' ? 'slog1' : 'slog1En', entities.acf[useLang === 'ru' ? 'slog1' : 'slog1En']) }
+                                { this.foto(entities.acf, 'foto1') }
+                                { this.text(useLang === 'ru' ? 'text2' : 'text2En', entities.acf[useLang === 'ru' ? 'text2' : 'text2En']) }
+                                { this.slog(useLang === 'ru' ? 'slog2' : 'slog2En', entities.acf[useLang === 'ru' ? 'slog2' : 'slog2En']) }
+                                { this.foto(entities.acf, 'foto2') }
+                                { this.text(useLang === 'ru' ? 'text3' : 'text3En', entities.acf[useLang === 'ru' ? 'text3' : 'text3En']) }
+                                { this.slog(useLang === 'ru' ? 'slog3' : 'slog3En', entities.acf[useLang === 'ru' ? 'slog3' : 'slog3En']) }
 								{videoBlock}
 							<div className="row no-gutters">
 								<div className="col">		
