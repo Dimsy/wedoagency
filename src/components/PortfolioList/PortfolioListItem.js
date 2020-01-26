@@ -18,7 +18,8 @@ class PortfolioListItem extends Component{
 
     redirectToLink() {
         const { item, match } = this.props;
-        const link = `${match.path}/${item.id}`;
+        //const link = `${match.path}/${item.id}`;
+		const link = !!item.link ? item.link : `${match.path}/${item.id}`;
         window.location.href = link
     }
 
@@ -55,7 +56,7 @@ class PortfolioListItem extends Component{
 			return null
 		}
 
-		const body =  <Link to={`${match.path}/${item.id}`} onClick={this.handleClick}>
+		const body =  <Link to={!!item.link ? item.link : `${match.path}/${item.id}`} onClick={this.handleClick}>
 										<div className="portfolioListItem__Info">
 											
 		 							   		<div className="portfolioItem__info-data">{useLang === 'ru' ? item.title.rendered : item.acf.titleEn}</div>

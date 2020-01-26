@@ -15,7 +15,8 @@ class PortfolioPage extends Component{
 
 	componentWillMount() {
 		const id = window.location.href.split('/').pop();
-        this.props.loadPortfolioItem(!id ? this.props.location.pathname.split('/')[2] : id, !id);
+
+        this.props.loadPortfolioItem(!id ? this.props.location.pathname.split('/')[2] : this.props.location.pathname, !id);
 
         $.fn.visible = function(partial) {
 

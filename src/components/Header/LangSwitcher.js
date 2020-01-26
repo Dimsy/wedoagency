@@ -7,12 +7,12 @@ class LangSwitcher extends Component{
 		super();
 		this.setLangEn = this.setLangEn.bind(this);
         this.setLangRu = this.setLangRu.bind(this);
-        document.addEventListener('keydown', this.setShowSwitch);
+        //document.addEventListener('keydown', this.setShowSwitch);
 	}
 
 	state = {
-		showLang: false
-	}
+		showLang: true
+	};
 
 	componentDidMount() {
 

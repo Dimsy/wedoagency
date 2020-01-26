@@ -93,11 +93,10 @@ class Press extends Component{
 																 : <h1>{useLang === 'ru' ? response.title.rendered : response.acf.titleEn}</h1>
 
 		const desktopSlogan = mobile ? null 
-																 : <h3 className="press__slogan-small">{response.acf.slogan3}</h3>
+																 : <h3 className="press__slogan-small">{useLang === 'ru' ? response.acf.slogan3 : response.acf.slogan3En}</h3>
 
 		const pressVideo = `https://player.vimeo.com/video/${response.acf.video}`
-		console.log('press response',response)
-		console.log('textEn', response.acf.textEn)
+
 		const screenBlock =
             <Grid>
                 {mobileHeader}
@@ -145,8 +144,8 @@ class Press extends Component{
 		return (
 			<div className="press">
 	
-				<h2 className="slogan">{response.acf.slogan1}</h2>
-				<h2 className="slogan">{response.acf.slogan2}</h2>
+				<h2 className="slogan">{ useLang === 'ru' ? response.acf.slogan1 : response.acf.slogan1En }</h2>
+				<h2 className="slogan">{ useLang === 'ru' ? response.acf.slogan2 : response.acf.slogan2En }</h2>
 
 				
 				<Grid>
