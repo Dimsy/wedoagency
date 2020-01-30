@@ -144,7 +144,8 @@ const mapStateToProps = state => {
 		entities: state.news.entities,
 		catName: state.news.catName,
 		loading: state.news.loading,
-		error: state.news.error
+		error: state.news.error,
+        link: state.news.link,
 	}
 }
 

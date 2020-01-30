@@ -19,7 +19,7 @@ class PortfolioItem extends Component{
 
     redirectToLink() {
         const { item } = this.props;
-        const link = `/portfolio/${item.id}`;
+        const link = item.link;
         window.location.href = link
 	}
 
@@ -41,6 +41,7 @@ class PortfolioItem extends Component{
 
 	render(){
 		const { item, useLang } = this.props;
+        const link = item.link;
 
 		const itemTitle = useLang === 'ru' ? item.title.rendered : item.acf.titleEn;
 
@@ -53,7 +54,7 @@ class PortfolioItem extends Component{
 		return (
 			<div>
 				<VeilWorkaround/>
-				<Link to={`/portfolio/${item.id}`} onClick={this.handleClick}>
+				<Link to={link} onClick={this.handleClick}>
 					<div className="portfolioItem__wrapper"  onClick={this.handleClick} onMouseEnter={this.handlerMouseEnter} onMouseLeave={this.handlerMouseLeave}>
 						<img src={item.acf.StartFoto} srcSet={item.acf.StartFotox2} className="portfolioItem__img"/>
 						{body}

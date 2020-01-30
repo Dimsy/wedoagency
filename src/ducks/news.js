@@ -22,7 +22,8 @@ const ModelData = Record({
 	id: null,
 	title: null,
 	date: null,
-	content: null
+	content: null,
+	link: null,
 })
 
 const ReducerState = Record({
