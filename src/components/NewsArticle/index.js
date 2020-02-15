@@ -12,8 +12,9 @@ import {Helmet} from "react-helmet";
 class NewsArticle extends Component{
 	
 	componentDidMount(){
-		const { match } = this.props
-		this.props.loadNewsArticleList(match.params.id)
+        const id = window.location.href.split('/').pop();
+
+        this.props.loadNewsArticleList(!id ? this.props.location.pathname.split('/')[2] : this.props.location.pathname, !id);
 	}
 
 	foto = (data, key) => {
@@ -87,13 +88,13 @@ class NewsArticle extends Component{
 		
 		if (loading) return <Loader />;
 		if (error) return (<ErrorCmp error={error} />);	
-	
-		const article = entities;
 
-		if (!article) {
+
+		if (!entities && !entities.length) {
   		return <div>Данные временно не доступны</div>			
 		}
 
+        const article = entities[0];
 		const i18 = useLang == "ru" ? "ru" : "en-US";
 		const allNews = useLang == "ru" ? "Все новости" : "all news";
 
@@ -139,10 +140,10 @@ class NewsArticle extends Component{
 			}
 		}
         */
-		const videoBlock = entities.acf.videoNews ? <div className="row no-gutters">
+		const videoBlock = article.acf.videoNews ? <div className="row no-gutters">
 																									<div className="col">		
 																										<div className="embed-responsive embed-responsive-16by9 newsArticleVideo">
-																	 										<iframe src={ `https://player.vimeo.com/video/${entities.acf.videoNews}` }
+																	 										<iframe src={ `https://player.vimeo.com/video/${article.acf.videoNews}` }
 																	 														frameBorder="0" 
 																	 														allowFullScreen 
 																	 														className="embed-responsive-item" 
@@ -155,7 +156,7 @@ class NewsArticle extends Component{
 		return (
 			<div className="newsArticleBlock">
 				<Helmet>
-					<title>WeDoAgency | {useLang === 'ru' ? entities.title.rendered : entities.acf.titleEn}</title>
+					<title>WeDoAgency | {useLang === 'ru' ? article.title.rendered : article.acf.titleEn}</title>
 				</Helmet>
 				<ReactCSSTransitionGroup transitionName="anim" 
 																 transitionAppear={true} 
@@ -171,7 +172,7 @@ class NewsArticle extends Component{
 							<div className="row no-gutters">
 								<div className="col-md-8 offset-md-2">
 									<div className="articleTitle">			
-										{useLang === 'ru' ? entities.title.rendered : entities.acf.titleEn}
+										{useLang === 'ru' ? article.title.rendered : article.acf.titleEn}
 									</div>			
 									<div className="articleContent">
 										<div dangerouslySetInnerHTML={{ __html: useLang === 'ru' ? article.content.rendered : article.acf.textEn }} />
@@ -184,14 +185,14 @@ class NewsArticle extends Component{
 									<img src={article.acf.bodyImgNews} srcSet={ `${article.acf.bodyImgNewsx2} 2x`} className="newsBodyImg"/> 
 								</div>
 							</div>
-                                { this.text(useLang === 'ru' ? 'text1' : 'text1En', entities.acf[useLang === 'ru' ? 'text1' : 'text1En']) }
-                                { this.slog(useLang === 'ru' ? 'slog1' : 'slog1En', entities.acf[useLang === 'ru' ? 'slog1' : 'slog1En']) }
-                                { this.foto(entities.acf, 'foto1') }
-                                { this.text(useLang === 'ru' ? 'text2' : 'text2En', entities.acf[useLang === 'ru' ? 'text2' : 'text2En']) }
-                                { this.slog(useLang === 'ru' ? 'slog2' : 'slog2En', entities.acf[useLang === 'ru' ? 'slog2' : 'slog2En']) }
-                                { this.foto(entities.acf, 'foto2') }
-                                { this.text(useLang === 'ru' ? 'text3' : 'text3En', entities.acf[useLang === 'ru' ? 'text3' : 'text3En']) }
-                                { this.slog(useLang === 'ru' ? 'slog3' : 'slog3En', entities.acf[useLang === 'ru' ? 'slog3' : 'slog3En']) }
+                                { this.text(useLang === 'ru' ? 'text1' : 'text1En', article.acf[useLang === 'ru' ? 'text1' : 'text1En']) }
+                                { this.slog(useLang === 'ru' ? 'slog1' : 'slog1En', article.acf[useLang === 'ru' ? 'slog1' : 'slog1En']) }
+                                { this.foto(article.acf, 'foto1') }
+                                { this.text(useLang === 'ru' ? 'text2' : 'text2En', article.acf[useLang === 'ru' ? 'text2' : 'text2En']) }
+                                { this.slog(useLang === 'ru' ? 'slog2' : 'slog2En', article.acf[useLang === 'ru' ? 'slog2' : 'slog2En']) }
+                                { this.foto(article.acf, 'foto2') }
+                                { this.text(useLang === 'ru' ? 'text3' : 'text3En', article.acf[useLang === 'ru' ? 'text3' : 'text3En']) }
+                                { this.slog(useLang === 'ru' ? 'slog3' : 'slog3En', article.acf[useLang === 'ru' ? 'slog3' : 'slog3En']) }
 								{videoBlock}
 							<div className="row no-gutters">
 								<div className="col">		

@@ -18,7 +18,8 @@ class NewsItem extends Component{
 
     redirectToLink() {
         const { item, match } = this.props;
-        const link = `${match.path}/${item.id}`;
+        let link = !!item.link ? item.link.split('https://wedoagency.ru/')[1] : `${match.path}/${item.id}`;
+
         window.location.href = link
     }
 
@@ -39,7 +40,9 @@ class NewsItem extends Component{
 
 	render(){
 		const { item, useLang, location, match } = this.props;
-		
+
+        let link = !!item.link ? item.link.split('https://wedoagency.ru/')[1] : `${match.path}/${item.id}`;
+
 		const i18 = useLang == "ru" ? "ru" : "en-US";
 		const showMore = useLang == "ru" ? "Читать далее" : "continue read";
 		let date =  new Date(item.date);
@@ -60,7 +63,7 @@ class NewsItem extends Component{
 												/>
 											</div>
 												
-		const photoBlock =<Link to={`${match.path}/${item.id}`}>
+		const photoBlock =<Link to={link}  onClick={this.handleClick}>
 
 												<img src={item.acf.imgNews} srcSet={`${item.acf.imgNewsx2} 2x`}/> <br />
 											</Link>	
@@ -73,12 +76,12 @@ class NewsItem extends Component{
 					<div className="col-md-8 offset-md-2">
 						{ media }
 						<div className="dateNews">
-							<Link to={`${match.path}/${item.id}`}>
+							<Link to={link} onClick={this.handleClick}>
 								{date.toLocaleString( i18, options)}
 							</Link>
 						</div>
 						<div>
-							<Link to={`${match.path}/${item.id}`} className="headerNews">
+							<Link to={link}  onClick={this.handleClick} className="headerNews">
 								{useLang === 'ru' ? item.title.rendered : item.acf.titleEn}
 							</Link>
 						</div>
@@ -86,7 +89,7 @@ class NewsItem extends Component{
 						<div dangerouslySetInnerHTML={{ __html:  useLang === 'ru' ? item.content.rendered : item.acf.textEn }} />
 							{/*item.content.rendered*/}
 						</div>
-						<Link to={`${match.path}/${item.id}`} className="linkToNews" onClick={this.handleClick}>{showMore}</Link>
+						<Link to={link} className="linkToNews" onClick={this.handleClick}>{showMore}</Link>
 					</div>
 				</Row>
 				<Row className="no-gutters">

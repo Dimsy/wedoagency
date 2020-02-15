@@ -61,10 +61,9 @@ export function loadNewsArticleList(id){
 //Sagas
 
 export function * newsArticleSaga(action){
-
 	try {
-		
-		const response = yield call(axios.get, `/wp-json/wp/v2/posts/${action.payload.id}`);
+
+		const response = yield call(axios.get, `/wp-json/wp/v2/posts?slug=${action.payload.id}`);
 	
 	
 		yield put({

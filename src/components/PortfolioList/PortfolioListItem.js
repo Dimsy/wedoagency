@@ -18,7 +18,6 @@ class PortfolioListItem extends Component{
 
     redirectToLink() {
         const { item, match } = this.props;
-        //const link = `${match.path}/${item.id}`;
 		const link = !!item.link ? item.link : `${match.path}/${item.id}`;
         window.location.href = link
     }
