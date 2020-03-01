@@ -82,7 +82,7 @@ export function clearPressList(lang){
 export function * pressListSaga(action){
 
 	const articleLang = action.payload.lang == 'ru' ? PRESS_LIST_ru : PRESS_LIST_en;
-
+	console.log('articleLang',articleLang)
 	try {
 		const response = yield call(axios.get, `/wp-json/wp/v2/posts?categories=${articleLang}&orderby=date&order=desc&per_page=9&offset=${POST_COUNTER}`);
 		POST_COUNTER = POST_COUNTER + 9;

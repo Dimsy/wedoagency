@@ -21,8 +21,15 @@ class PressItem extends Component{
     }
 
     redirectToLink() {
-        const { item, match } = this.props;
-        const link = `${match.path}/${item.id}`;
+        const { item, match, useLang } = this.props;
+        let link = `${match.path}/${item.id}`;
+        if (match.path === '/press') {
+            link = link.replace('press', `press_list_${useLang}`)
+        } else if (useLang === 'en') {
+            link = link.replace('press_list_ru', 'press_list_en')
+        } else {
+            link = link.replace('press_list_en', 'press_list_ru')
+        }
         window.location.href = link
     }
 
@@ -45,7 +52,16 @@ class PressItem extends Component{
 
 	render(){
 		const {item, match, useLang } = this.props
-	
+        console.log('match',match)
+        let link = `${match.path}/${item.id}`;
+        if (match.path === '/press') {
+            link = link.replace('press', `press_list_${useLang}`)
+        } else if (useLang === 'en') {
+            link = link.replace('press_list_ru', 'press_list_en')
+        } else {
+            link = link.replace('press_list_en', 'press_list_ru')
+        }
+
 		const background = {
 			backgroundImage: `-webkit-image-set( url(${item.acf.foto}) 1x, url(${item.acf.Fotox2}) 2x )`,
 			backgroundImage: `-moz-image-set( url(${item.acf.foto}) 1x, url(${item.acf.Fotox2}) 2x )`,
@@ -83,7 +99,7 @@ class PressItem extends Component{
         	</div>;
 									
 		return (
-				<Link to={`${match.path}/${item.id}`} onClick={this.handleClick}>
+				<Link to={link} onClick={this.handleClick}>
 					<div className="pressItem" style={background} onMouseEnter={this.handlerMouseEnter} onMouseLeave={this.handlerMouseLeave}>
 						{body}
 					</div>

@@ -14,7 +14,7 @@ class PressList extends Component{
 	componentDidMount(){
 		const { useLang, loadPressList } = this.props;
 
-		loadPressList('ru');
+		loadPressList(useLang);
 	}
 
 

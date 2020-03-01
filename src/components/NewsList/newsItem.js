@@ -17,9 +17,13 @@ class NewsItem extends Component{
     }
 
     redirectToLink() {
-        const { item, match } = this.props;
+        const { item, match, useLang } = this.props;
         let link = !!item.link ? item.link.split('https://wedoagency.ru/')[1] : `${match.path}/${item.id}`;
-
+		if (useLang === 'en') {
+            link = link.replace('news_ru', 'news_en')
+		} else {
+            link = link.replace('news_en', 'news_ru')
+		}
         window.location.href = link
     }
 
@@ -42,6 +46,11 @@ class NewsItem extends Component{
 		const { item, useLang, location, match } = this.props;
 
         let link = !!item.link ? item.link.split('https://wedoagency.ru/')[1] : `${match.path}/${item.id}`;
+        if (useLang === 'en') {
+            link = link.replace('news_ru', 'news_en')
+        } else {
+            link = link.replace('news_en', 'news_ru')
+        }
 
 		const i18 = useLang == "ru" ? "ru" : "en-US";
 		const showMore = useLang == "ru" ? "Читать далее" : "continue read";

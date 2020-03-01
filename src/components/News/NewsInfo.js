@@ -17,8 +17,13 @@ class NewsItem extends Component {
     }
 
     redirectToLink() {
-        const { item } = this.props;
-        const link = `./news/${item.id}`;
+        const { item, useLang, match } = this.props;
+        let link = !!item.link ? item.link.split('https://wedoagency.ru/')[1] : `${match.path}/${item.id}`;
+        if (useLang === 'en') {
+            link = link.replace('news_ru', 'news_en')
+        } else {
+            link = link.replace('news_en', 'news_ru')
+        }
         window.location.href = link
     }
 
@@ -39,9 +44,16 @@ class NewsItem extends Component {
     }
 
 	render(){
-		const {item, useLang} = this.props;
+		const {item, useLang, match} = this.props;
 		const date =  new Date(item.date);
-		
+
+        let link = !!item.link ? item.link.split('https://wedoagency.ru/')[1] : `${match.path}/${item.id}`;
+        if (useLang === 'en') {
+            link = link.replace('news_ru', 'news_en')
+        } else {
+            link = link.replace('news_en', 'news_ru')
+        }
+
 		var options = {
 		  day: 'numeric',
 		  month:  'numeric',
@@ -57,7 +69,7 @@ class NewsItem extends Component {
 
 		return(
 			<div className="news__wrapper" onMouseEnter={this.handlerMouseEnter} onMouseLeave={this.handlerMouseLeave}>
-				<Link to={`./news/${item.id}`} onClick={this.handleClick}>
+				<Link to={link} onClick={this.handleClick}>
 		 			<img src={item.acf.StartFoto} srcSet={item.acf.StartFotox2} className="news__img"/>
 		 			{body}
 		 		</Link>	

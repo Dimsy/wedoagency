@@ -45,7 +45,7 @@ class App extends Component {
 
 	render(){
 		const pathArr = window.location.pathname.split('/').filter((item) => item !== "");
-
+		console.log('pathArr',pathArr)
 		let portfolioPath = '/portfolio';
 		let portfolioId = '/:id';
 
@@ -80,13 +80,16 @@ class App extends Component {
         let pressPath = '/press';
         let pressId = '/:id';
 
-        if (pathArr[0] == 'press_list_ru') {
+        if (pathArr[0] === 'press_list_ru') {
 			pressPath = '/press_list_ru';
 			if (pathArr.length > 1) {
 				pressId = '/' + decodeURI(pathArr[1]);
 			}
-        } else if (pathArr[0] == 'category' && pathArr[1] == 'press_list_ru') {
-            pressPath = '/category/press_list_ru';
+        } else if (pathArr[0] === 'press_list_en') {
+            pressPath = '/press_list_en';
+            if (pathArr.length > 1) {
+                pressId = '/' + decodeURI(pathArr[1]);
+            }
         }
 
 		let contactsPath = '/main_page_ru/contacts';
@@ -100,6 +103,8 @@ class App extends Component {
         }
 		//
 
+		console.log('pressPath',pressPath)
+		console.log('pressPath+pressId',pressPath+pressId)
 		return (
 			<ConnectedRouter history={history}>
 				<ScrollToTop>

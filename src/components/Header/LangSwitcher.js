@@ -15,9 +15,12 @@ class LangSwitcher extends Component{
 	};
 
 	componentDidMount() {
-
-		if (localStorage.getItem('userLang')) {
-
+		console.log('document.location.pathname',document.location.pathname)
+		if (document.location.pathname.indexOf('_ru') !== -1) {
+            this.props.changeLangRu();
+		} else if (document.location.pathname.indexOf('_en') !== -1) {
+            this.props.changeLangEn();
+		} else if (localStorage.getItem('userLang')) {
             if (localStorage.getItem('userLang') == 'en') {
                 this.props.changeLangEn();
 			} else {
@@ -29,6 +32,7 @@ class LangSwitcher extends Component{
 	}
 
     setShowSwitch = (event) => {
+		console.log('CLICK')
 		if (event.shiftKey && event.keyCode == 81) {
             this.setState({showLang: !this.state.showLang})
         }
@@ -36,12 +40,20 @@ class LangSwitcher extends Component{
 
 	setLangRu = () => {
         localStorage.setItem('userLang', 'ru');
-        this.props.changeLangRu();
+        let link = window.location.pathname;
+        console.log('link',link)
+        link = link.replace('_en', '_ru');
+        document.location.href = link;
+        //this.props.changeLangRu();
 	}
 
     setLangEn = () => {
         localStorage.setItem('userLang', 'en');
-        this.props.changeLangEn();
+        let link = window.location.pathname;
+        console.log('link',link)
+        link = link.replace('_ru', '_en');
+        document.location.href = link;
+        //this.props.changeLangEn();
     }
 
 

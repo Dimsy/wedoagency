@@ -17,8 +17,13 @@ class PortfolioListItem extends Component{
     }
 
     redirectToLink() {
-        const { item, match } = this.props;
-		const link = !!item.link ? item.link : `${match.path}/${item.id}`;
+        const { item, match, useLang } = this.props;
+		let link = !!item.link ? item.link : `${match.path}/${item.id}`;
+        if (useLang === 'en') {
+            link = link.replace('portfolio_ru', 'portfolio_en')
+        } else {
+            link = link.replace('portfolio_en', 'portfolio_ru')
+        }
         window.location.href = link
     }
 
@@ -42,6 +47,13 @@ class PortfolioListItem extends Component{
 	render(){
 		const { item, match, useLang } = this.props;
 
+		let link = !!item.link ? item.link : `${match.path}/${item.id}`;
+        if (useLang === 'en') {
+            link = link.replace('portfolio_ru', 'portfolio_en')
+        } else {
+            link = link.replace('portfolio_en', 'portfolio_ru')
+        }
+
 		const background = {
 			backgroundImage: `-webkit-image-set( url(${item.acf.StartFoto}) 1x, url(${item.acf.StartFotox2}) 2x )`,
 			backgroundImage: `-moz-image-set( url(${item.acf.StartFoto}) 1x, url(${item.acf.StartFotox2}) 2x )`,
@@ -55,7 +67,7 @@ class PortfolioListItem extends Component{
 			return null
 		}
 
-		const body =  <Link to={!!item.link ? item.link : `${match.path}/${item.id}`} onClick={this.handleClick}>
+		const body =  <Link to={link} onClick={this.handleClick}>
 										<div className="portfolioListItem__Info">
 											
 		 							   		<div className="portfolioItem__info-data">{useLang === 'ru' ? item.title.rendered : item.acf.titleEn}</div>

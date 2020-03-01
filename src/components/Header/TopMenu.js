@@ -13,7 +13,7 @@ class TopMenu extends Component{
 
 		const menu = entities.toArray();
 		const body = menu.map( item => <li key={item.ID}><MenuItem item={item} closeMenu={this.props.closeMenu}/></li>);		
-		
+		console.log('menu',menu)
 		return (
 			<div className="headerTopMenu">
 			<ul className="headerTopMenuList">
